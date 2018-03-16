@@ -1,6 +1,6 @@
 ﻿namespace Florae_Basket
 {
-    partial class Form1
+    partial class flowerProfile
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // flowerProfile
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(789, 525);
+            this.Name = "flowerProfile";
+            this.Text = "flowerProfile";
+            this.Load += new System.EventHandler(this.flowerProfile_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

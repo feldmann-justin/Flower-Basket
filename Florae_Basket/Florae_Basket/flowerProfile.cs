@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Florae_Basket
 {
-    public partial class Form1 : Form
+    public partial class flowerProfile : Form
     {
-        public Form1()
+        public flowerProfile()
         {
             InitializeComponent();
+        }
+
+        private void flowerProfile_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
