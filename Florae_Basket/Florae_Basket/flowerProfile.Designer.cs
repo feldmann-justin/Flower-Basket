@@ -43,7 +43,7 @@
             // 
             // deleteFlowerButton
             // 
-            this.deleteFlowerButton.Location = new System.Drawing.Point(636, 402);
+            this.deleteFlowerButton.Location = new System.Drawing.Point(620, 420);
             this.deleteFlowerButton.Name = "deleteFlowerButton";
             this.deleteFlowerButton.Size = new System.Drawing.Size(97, 23);
             this.deleteFlowerButton.TabIndex = 0;
@@ -53,9 +53,9 @@
             // 
             // flowerImage
             // 
-            this.flowerImage.Location = new System.Drawing.Point(436, 67);
+            this.flowerImage.Location = new System.Drawing.Point(420, 67);
             this.flowerImage.Name = "flowerImage";
-            this.flowerImage.Size = new System.Drawing.Size(297, 240);
+            this.flowerImage.Size = new System.Drawing.Size(297, 320);
             this.flowerImage.TabIndex = 1;
             this.flowerImage.TabStop = false;
             // 
