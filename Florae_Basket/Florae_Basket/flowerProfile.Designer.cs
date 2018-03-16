@@ -49,7 +49,7 @@
             this.deleteFlowerButton.TabIndex = 0;
             this.deleteFlowerButton.Text = "Delete Flower";
             this.deleteFlowerButton.UseVisualStyleBackColor = true;
-            this.deleteFlowerButton.Click += new System.EventHandler(this.button1_Click);
+            this.deleteFlowerButton.Click += new System.EventHandler(this.deleteFlower_click);
             // 
             // flowerImage
             // 
