@@ -16,7 +16,12 @@ namespace Florae_Basket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Test_WS_GUI test = new Test_WS_GUI();
+            Application.Run(test);
+            if (test.egn_name != "" || test.latin_word != "" || test.botanical != "")
+            {
+                Word_Search word = new Word_Search(test.egn_name, test.latin_word, test.botanical);
+            }
         }
     }
 }
