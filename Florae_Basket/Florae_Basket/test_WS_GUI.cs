@@ -27,6 +27,7 @@ namespace Florae_Basket
             Latin.Text = "";
             EName.Text = "";
             Botan.Text = "";
+            this.Close();
         }
 
         private void Latin_TextChanged(object sender, EventArgs e)

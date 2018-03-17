@@ -50,6 +50,37 @@ namespace Florae_Basket
             return results;
         }
 
+        private int LCS(string entry, string cand, int x, int y)
+        {
+            if (x == 0 || y == 0)
+            {
+                return 0;
+            }
+            else if (entry[x] == cand[y])
+            {
+                return Math.Max(1 + LCS(entry, cand, x - 1, y - 1), Math.Max(LCS(entry, cand, x - 1, y), LCS(entry, cand, x, y - 1)));
+            }
+            else
+            {
+                return Math.Max(LCS(entry, cand, x - 1, y), LCS(entry, cand, x, y - 1));
+            }
+        }
+
+        private void Fetch_names(string name)
+        {
+            
+        }
+
+        private void Fetch_latin(string latin)
+        {
+
+        }
+
+        private void Fetch_botan(string botan)
+        {
+
+        }
+
         public void Search()
         {
 

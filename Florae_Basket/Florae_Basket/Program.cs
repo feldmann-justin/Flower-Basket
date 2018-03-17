@@ -18,7 +18,7 @@ namespace Florae_Basket
             Application.SetCompatibleTextRenderingDefault(false);
             Test_WS_GUI test = new Test_WS_GUI();
             Application.Run(test);
-            if (test.egn_name != "" || test.latin_word != "" || test.botanical != "")
+            if (test.egn_name != null || test.latin_word != null || test.botanical != null)
             {
                 Word_Search word = new Word_Search(test.egn_name, test.latin_word, test.botanical);
             }
