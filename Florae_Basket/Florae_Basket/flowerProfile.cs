@@ -35,7 +35,15 @@ namespace Florae_Basket
         //calls the delete flower class when clicked
         private void deleteFlower_click(object sender, EventArgs e)
         {
-
+            var confirm = MessageBox.Show("Are you sure you want to delete this flower?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if(confirm == DialogResult.Yes)
+            {
+                MessageBox.Show("Deleted!");
+            }
+            else
+            {
+                MessageBox.Show("Flower not deleted.");
+            }
         }
     }
 }
