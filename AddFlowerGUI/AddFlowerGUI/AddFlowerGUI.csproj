@@ -4,13 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4BAAD2C3-6EB2-46BF-BBDC-B46FDB40F46F}</ProjectGuid>
+    <ProjectGuid>{B99B211E-52A9-412A-8EC8-07F3D97EFFC6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Florae_Basket</RootNamespace>
-    <AssemblyName>Florae_Basket</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>AddFlowerGUI</RootNamespace>
+    <AssemblyName>AddFlowerGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddFlowerCtlr.cs" />
     <Compile Include="AddFlowerGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,8 +51,6 @@
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Flower.cs" />
-    <Compile Include="Note.cs" />
-    <Compile Include="Picture.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

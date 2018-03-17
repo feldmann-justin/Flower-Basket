@@ -1,6 +1,6 @@
 ﻿namespace Florae_Basket
 {
-    partial class Form1
+    partial class AddFlowerGUI
     {
         /// <summary>
         /// Required designer variable.
