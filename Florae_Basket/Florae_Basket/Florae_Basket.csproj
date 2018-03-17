@@ -45,6 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="deleteFlower.cs" />
+    <Compile Include="dummyTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dummyTestForm.Designer.cs">
+      <DependentUpon>dummyTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="flowerProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="dummyTestForm.resx">
+      <DependentUpon>dummyTestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="flowerProfile.resx">
       <DependentUpon>flowerProfile.cs</DependentUpon>
     </EmbeddedResource>

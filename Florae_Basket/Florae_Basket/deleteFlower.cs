@@ -11,14 +11,15 @@ namespace Florae_Basket
     {
 
         // get the current flowers id # in the database
-        int flowerID()
+        public static int flowerID()
         {
-            int id = Flower.getID();
+            int id = 0;
+            //int id = Flower.getID();
             return id;
         }
 
         // remove the flower from the database
-        void removeFlower(int id)
+        public static void removeFlower(int id)
         {
             // database connection variables and info
 
@@ -30,7 +31,7 @@ namespace Florae_Basket
                 // database connection info
 
                 // successful deletion message
-                MessageBox.Show("Flower deleted.");
+                MessageBox.Show("Flower " + id + " deleted.");
             }
             // if error is thrown, return false
             catch(Exception ex)
@@ -41,7 +42,7 @@ namespace Florae_Basket
             }
         }
 
-        void main()
+        public static void main()
         {
             int id = flowerID();
             removeFlower(id);

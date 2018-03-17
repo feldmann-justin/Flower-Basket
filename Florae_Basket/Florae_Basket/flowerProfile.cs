@@ -38,7 +38,13 @@ namespace Florae_Basket
             var confirm = MessageBox.Show("Are you sure you want to delete this flower?", "Confirm Delete", MessageBoxButtons.YesNo);
             if(confirm == DialogResult.Yes)
             {
-                MessageBox.Show("Deleted!");
+                // remove the flower
+                deleteFlower.main();
+
+                // return the user to the main menu
+                new dummyTestForm().Show();
+                this.Hide();
+
             }
             else
             {
