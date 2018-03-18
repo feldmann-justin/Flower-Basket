@@ -24,21 +24,23 @@ namespace Florae_Basket
 
 		/* Function which prompts the checking of the database manager for a currently-existing
 		 * Flower object with the same attributes. */
-		public bool verifyFlower(Flower customFlower)
+		public int verifyFlower(Flower customFlower)
 		{
 
 			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
-			Flower dummyFlower = new Flower("Rosis Maxumis", "Rose", "Fam", 0);
+			Flower dummyFlower = new Flower("Rosis Maxumis", "Rose", "Fam");
 
 			// if just one of the attributes for the two flowers are the same,
 			// then the flower we want to add cannot be added until the user changes one of the attributes' values
-			if ((customFlower.getLatinName() == dummyFlower.getLatinName()) || (customFlower.getEnglishName() == dummyFlower.getEnglishName()) || (customFlower.getBotanicalFam() == dummyFlower.getBotanicalFam()) || (customFlower.getFlowerID() == dummyFlower.getFlowerID()))
-			{
+			if ((customFlower.getLatinName() == dummyFlower.getLatinName()) || (customFlower.getEnglishName() == dummyFlower.getEnglishName()) || (customFlower.getFlowerID() == dummyFlower.getFlowerID()))
+				return 1;
 
+			// if at least one of the three required attributes for a flower, the Latin name, English name, and botanical family is missing
+			if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
+				return 2;
 
-			}
-
-			return true;
+			// else, the flower can be added to the database
+			return 0;
 		}
 
 		// constructors

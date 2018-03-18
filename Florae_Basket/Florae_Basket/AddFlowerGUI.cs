@@ -27,17 +27,21 @@ namespace Florae_Basket
 
 			string enteredBotanicalFamily = botanicalFamEntryBox.Text;
 
-			int uniqueFlowerID = 0;
-
 			// instantiate a Flower object from the user entries
-			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily, uniqueFlowerID);
+			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily);
 
 			AddFlowerCtlr myController = new AddFlowerCtlr();
 
-			bool doesEntryExist = myController.verifyFlower(flowerToAdd);
+			// checks the database for existence of a Flower object with the same attributes
+			int verificationResult = myController.verifyFlower(flowerToAdd);
 
-			
-
+			if (verificationResult == 1)
+				MessageBox.Show("Flower unable to be added: Entry already exists in database. ");
+			else if (verificationResult == 2)
+				MessageBox.Show("Flower unable to be added: One of the three minimum attributes is missing.");
+			else
+				MessageBox.Show("Flower successfuly added!");
+		
 		}
 	}
 }
