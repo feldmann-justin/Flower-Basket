@@ -22,13 +22,16 @@ namespace Florae_Basket
 
 		// member functions
 
+		
+
 		/* Function which prompts the checking of the database manager for a currently-existing
 		 * Flower object with the same attributes. */
 		public int verifyFlower(Flower customFlower)
 		{
 
 			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
-			Flower dummyFlower = new Flower("Rosis Maxumis", "Rose", "Fam");
+			Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");
+			dummyFlower.setFlowerID(customFlower.getFlowerID() + 1);
 
 			// if just one of the attributes for the two flowers are the same,
 			// then the flower we want to add cannot be added until the user changes one of the attributes' values

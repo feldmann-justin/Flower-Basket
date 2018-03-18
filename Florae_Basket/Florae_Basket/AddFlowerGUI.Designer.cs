@@ -39,17 +39,17 @@
 			// 
 			// latinNameEntryBox
 			// 
-			this.latinNameEntryBox.Location = new System.Drawing.Point(208, 169);
+			this.latinNameEntryBox.Location = new System.Drawing.Point(208, 174);
 			this.latinNameEntryBox.Name = "latinNameEntryBox";
 			this.latinNameEntryBox.Size = new System.Drawing.Size(287, 22);
-			this.latinNameEntryBox.TabIndex = 0;
+			this.latinNameEntryBox.TabIndex = 1;
 			// 
 			// englishNameEntryBox
 			// 
 			this.englishNameEntryBox.Location = new System.Drawing.Point(208, 101);
 			this.englishNameEntryBox.Name = "englishNameEntryBox";
 			this.englishNameEntryBox.Size = new System.Drawing.Size(287, 22);
-			this.englishNameEntryBox.TabIndex = 1;
+			this.englishNameEntryBox.TabIndex = 0;
 			// 
 			// botanicalFamEntryBox
 			// 
@@ -87,10 +87,10 @@
 			// 
 			// addFlowerToDBBtn
 			// 
-			this.addFlowerToDBBtn.Location = new System.Drawing.Point(208, 458);
+			this.addFlowerToDBBtn.Location = new System.Drawing.Point(208, 410);
 			this.addFlowerToDBBtn.Name = "addFlowerToDBBtn";
-			this.addFlowerToDBBtn.Size = new System.Drawing.Size(75, 23);
-			this.addFlowerToDBBtn.TabIndex = 6;
+			this.addFlowerToDBBtn.Size = new System.Drawing.Size(100, 35);
+			this.addFlowerToDBBtn.TabIndex = 3;
 			this.addFlowerToDBBtn.Text = "Add it!";
 			this.addFlowerToDBBtn.UseVisualStyleBackColor = true;
 			this.addFlowerToDBBtn.Click += new System.EventHandler(this.addFlowerToDBBtn_Click);
