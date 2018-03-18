@@ -90,6 +90,7 @@
             // 
             // SearchBTN
             // 
+            this.SearchBTN.Enabled = false;
             this.SearchBTN.Location = new System.Drawing.Point(144, 249);
             this.SearchBTN.Name = "SearchBTN";
             this.SearchBTN.Size = new System.Drawing.Size(75, 23);
