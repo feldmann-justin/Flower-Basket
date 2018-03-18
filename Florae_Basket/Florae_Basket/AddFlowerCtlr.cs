@@ -27,6 +27,16 @@ namespace Florae_Basket
 		public bool verifyFlower(Flower customFlower)
 		{
 
+			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
+			Flower dummyFlower = new Flower("Rosis Maxumis", "Rose", "Fam", 0);
+
+			// if just one of the attributes for the two flowers are the same,
+			// then the flower we want to add cannot be added until the user changes one of the attributes' values
+			if ((customFlower.getLatinName() == dummyFlower.getLatinName()) || (customFlower.getEnglishName() == dummyFlower.getEnglishName()) || (customFlower.getBotanicalFam() == dummyFlower.getBotanicalFam()) || (customFlower.getFlowerID() == dummyFlower.getFlowerID()))
+			{
+
+
+			}
 
 			return true;
 		}

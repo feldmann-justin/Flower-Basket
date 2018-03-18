@@ -27,8 +27,14 @@ namespace Florae_Basket
 
 			string enteredBotanicalFamily = botanicalFamEntryBox.Text;
 
+			int uniqueFlowerID = 0;
+
 			// instantiate a Flower object from the user entries
-			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily);
+			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily, uniqueFlowerID);
+
+			AddFlowerCtlr myController = new AddFlowerCtlr();
+
+			bool doesEntryExist = myController.verifyFlower(flowerToAdd);
 
 			
 
