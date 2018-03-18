@@ -59,7 +59,7 @@ namespace Florae_Basket
 
 		}
 
-		/* Constructor that takes in parameters of a time, date, photographer, location taken, color used in a search, and a file path for a picture. */
+		/* Constructor that takes in parameters of a time, date, photographer, location taken, color used in a search, and a file path (just file name) for a picture. */
 		public Picture(string customTime, string customDate, string customPhotographer, string customLocation, string customColor, string customFilePath)
 		{
 

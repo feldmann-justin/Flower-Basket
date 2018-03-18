@@ -17,5 +17,21 @@ namespace Florae_Basket
             InitializeComponent();
         }
 
+		private void addFlowerToDBBtn_Click(object sender, EventArgs e)
+		{
+
+			// grab the entered English name, Latin name, and botanical family from the text boxes
+			string enteredEnglishName = englishNameEntryBox.Text;
+
+			string enteredLatinName = latinNameEntryBox.Text;
+
+			string enteredBotanicalFamily = botanicalFamEntryBox.Text;
+
+			// instantiate a Flower object from the user entries
+			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily);
+
+			
+
+		}
 	}
 }
