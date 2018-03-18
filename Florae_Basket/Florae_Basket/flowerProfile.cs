@@ -46,7 +46,6 @@ namespace Florae_Basket
             botFamTextBox.AppendText(botanicalFamily);
             notesTextBox.AppendText(notes);
             flowerImage.Image = Image.FromFile(filePath);
-            WindowState = FormWindowState.Maximized;
         }
 
 
