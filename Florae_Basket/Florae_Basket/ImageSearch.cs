@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Florae_Basket
 {
-    public partial class Form1 : Form
+    public partial class ImageSearch : Form
     {
-        public Form1()
+        public ImageSearch()
         {
             InitializeComponent();
+        }
+
+        private void ImageSearch_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
