@@ -38,6 +38,7 @@
             this.botanicalFamilyLabel = new System.Windows.Forms.Label();
             this.notesTextBox = new System.Windows.Forms.RichTextBox();
             this.notesLabel = new System.Windows.Forms.Label();
+            this.printButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.flowerImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             this.flowerImage.Location = new System.Drawing.Point(420, 67);
             this.flowerImage.Name = "flowerImage";
             this.flowerImage.Size = new System.Drawing.Size(297, 320);
+            this.flowerImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.flowerImage.TabIndex = 1;
             this.flowerImage.TabStop = false;
             // 
@@ -63,6 +65,7 @@
             // 
             this.engNameTextBox.Location = new System.Drawing.Point(141, 67);
             this.engNameTextBox.Name = "engNameTextBox";
+            this.engNameTextBox.ReadOnly = true;
             this.engNameTextBox.Size = new System.Drawing.Size(216, 20);
             this.engNameTextBox.TabIndex = 2;
             // 
@@ -70,14 +73,15 @@
             // 
             this.botFamTextBox.Location = new System.Drawing.Point(141, 172);
             this.botFamTextBox.Name = "botFamTextBox";
+            this.botFamTextBox.ReadOnly = true;
             this.botFamTextBox.Size = new System.Drawing.Size(216, 20);
             this.botFamTextBox.TabIndex = 3;
-            this.botFamTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // latinNameTextBox
             // 
             this.latinNameTextBox.Location = new System.Drawing.Point(141, 120);
             this.latinNameTextBox.Name = "latinNameTextBox";
+            this.latinNameTextBox.ReadOnly = true;
             this.latinNameTextBox.Size = new System.Drawing.Size(216, 20);
             this.latinNameTextBox.TabIndex = 4;
             // 
@@ -89,7 +93,6 @@
             this.englishNameLabel.Size = new System.Drawing.Size(75, 13);
             this.englishNameLabel.TabIndex = 5;
             this.englishNameLabel.Text = "English Name:";
-            this.englishNameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // latinNameLabel
             // 
@@ -113,6 +116,7 @@
             // 
             this.notesTextBox.Location = new System.Drawing.Point(141, 223);
             this.notesTextBox.Name = "notesTextBox";
+            this.notesTextBox.ReadOnly = true;
             this.notesTextBox.Size = new System.Drawing.Size(216, 164);
             this.notesTextBox.TabIndex = 8;
             this.notesTextBox.Text = "";
@@ -126,11 +130,23 @@
             this.notesLabel.TabIndex = 9;
             this.notesLabel.Text = "Notes:";
             // 
+            // printButton
+            // 
+            this.printButton.Location = new System.Drawing.Point(506, 420);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(97, 23);
+            this.printButton.TabIndex = 10;
+            this.printButton.Text = "Print";
+            this.printButton.UseVisualStyleBackColor = true;
+            this.printButton.Click += new System.EventHandler(this.print_click);
+            // 
             // flowerProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(749, 455);
+            this.Controls.Add(this.printButton);
             this.Controls.Add(this.notesLabel);
             this.Controls.Add(this.notesTextBox);
             this.Controls.Add(this.botanicalFamilyLabel);
@@ -142,7 +158,6 @@
             this.Controls.Add(this.flowerImage);
             this.Controls.Add(this.deleteFlowerButton);
             this.Name = "flowerProfile";
-            this.Text = "flowerProfile";
             this.Load += new System.EventHandler(this.flowerProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.flowerImage)).EndInit();
             this.ResumeLayout(false);
@@ -162,5 +177,6 @@
         private System.Windows.Forms.Label botanicalFamilyLabel;
         private System.Windows.Forms.RichTextBox notesTextBox;
         private System.Windows.Forms.Label notesLabel;
+        private System.Windows.Forms.Button printButton;
     }
 }

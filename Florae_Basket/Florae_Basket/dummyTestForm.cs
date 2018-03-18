@@ -19,7 +19,7 @@ namespace Florae_Basket
 
         private void dummyTestForm_Load(object sender, EventArgs e)
         {
-
+            WindowState = FormWindowState.Maximized;
         }
 
         private void progressBar1_Click(object sender, EventArgs e)

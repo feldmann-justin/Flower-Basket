@@ -5,18 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                             //                
+// delete_flower_controller                                                                                    //
+// By Kade Walter                                                                                              //
+//                                                                                                             //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 namespace Florae_Basket
 {
     class deleteFlower
     {
-
-        // get the current flowers id # in the database
-        public static int flowerID()
-        {
-            int id = 0;
-            //int id = Flower.getID();
-            return id;
-        }
 
         // remove the flower from the database
         public static void removeFlower(int id)
@@ -37,16 +36,9 @@ namespace Florae_Basket
             catch(Exception ex)
             {
                 // error in deletion message
-                MessageBox.Show("Error when deleting. Flower not deleted.");
+                MessageBox.Show("\nMessage ---\n{0}", ex.Message);
                 return;
             }
-        }
-
-        public static void main()
-        {
-            int id = flowerID();
-            removeFlower(id);
-            return;
         }
     }
 }
