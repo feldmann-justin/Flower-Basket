@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Semester: Spring 2018
  * Filename: Picture.cs
  * Professor: Dr. Gary Mayer
- * Last Edited Date/Time: March 17, 2018 12:18 AM
+ * Last Edited Date/Time: March 17, 2018 11:59 PM
  * 
  * Description: This class contains the necessary constructors, class attributes,
  * getters and setters for a Picture object.
@@ -43,6 +43,34 @@ namespace Florae_Basket
 		public void setLocation(string newLocation) { location = newLocation; }
 		public void setColor(string newColor) { color = newColor; }
 		public void setFilePath(string newFilePath) { filePath = newFilePath; }
+
+		// constructors
+
+		/* No-args Picture constructor. Sets each tag attribute as an empty string. */
+		public Picture()
+		{
+
+			setTime("");
+			setDate("");
+			setPhotographer("");
+			setLocation("");
+			setColor("");
+			setFilePath("");
+
+		}
+
+		/* Constructor that takes in parameters of a time, date, photographer, location taken, color used in a search, and a file path for a picture. */
+		public Picture(string customTime, string customDate, string customPhotographer, string customLocation, string customColor, string customFilePath)
+		{
+
+			setTime(customTime);
+			setDate(customDate);
+			setPhotographer(customPhotographer);
+			setLocation(customLocation);
+			setColor(customColor);
+			setFilePath(customFilePath);
+
+		}
 
 	}
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Semester: Spring 2018
  * Filename: Note.cs
  * Professor: Dr. Gary Mayer
- * Last Edited Date/Time: March 17, 2018 12:17 AM
+ * Last Edited Date/Time: March 18, 2018 12:05 AM
  * 
  * Description: This class contains the necessary constructors, class attributes,
  * getters and setters for a Note object.
@@ -34,5 +34,27 @@ namespace Florae_Basket
 		public void setTime(string newTime) { time = newTime; }
 		public void setDate(string newDate) { date = newDate; }
 		public void setContent(string newContent) { content = newContent; }
+
+		// constructors
+
+		/* No-args Note constructor. Sets each tag attribute as an empty string. */
+		public Note()
+		{
+
+			setTime("");
+			setDate("");
+			setContent("");
+
+		}
+
+		/* Constructor that takes in parameters of a Latin name, English name, and botanical family for a flower. */
+		public Note(string customTime, string customDate, string customContent)
+		{
+
+			setTime(customTime);
+			setDate(customDate);
+			setContent(customContent);
+
+		}
 	}
 }
