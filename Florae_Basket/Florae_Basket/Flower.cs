@@ -22,22 +22,23 @@ namespace Florae_Basket
 
 		// class attributes
 
+		private static int flowerID = 0;
 		private string latinName; // Latin/scientific name given to a flower
 		private string englishName; // common English name given to a flower
 		private string botanicalFam; // Family of genetically-similar flowers that the flower belongs to
-		public int flowerID = 0; // ID value given to a flower for use in the database
+		private int uniqueFlowerID; // ID value given to a flower for use in the database
 
 		// getters
 		public string getLatinName() { return latinName; }
 		public string getEnglishName() { return englishName; }
 		public string getBotanicalFam() { return botanicalFam; }
-		public int getFlowerID() { return flowerID; }
+		public int getFlowerID() { return uniqueFlowerID; }
 
 		// setters
 		public void setLatinName(string ln) { latinName = ln; }
 		public void setEnglishName(string en) { englishName = en; }
 		public void setBotanicalFam(string bf) { botanicalFam = bf; }
-		public void setFlowerID(int myID) { flowerID = myID; }
+		public void setFlowerID(int myID) { uniqueFlowerID = myID; }
 
 		// constructors
 
@@ -48,7 +49,7 @@ namespace Florae_Basket
 			setLatinName("");
 			setEnglishName("");
 			setBotanicalFam("");
-			setFlowerID(flowerID);
+			uniqueFlowerID = flowerID++;
 
 		}
 
@@ -60,8 +61,7 @@ namespace Florae_Basket
 			setLatinName(customLatinName);
 			setEnglishName(customEnglishName);
 			setBotanicalFam(customBotanicalFam);
-			flowerID++;
-			setFlowerID(flowerID);
+			uniqueFlowerID = ++flowerID;
 
 		}
 

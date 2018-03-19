@@ -31,7 +31,7 @@ namespace Florae_Basket
 
 			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
 			Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");
-			dummyFlower.setFlowerID(customFlower.getFlowerID() + 1);
+			//dummyFlower.setFlowerID(customFlower.getFlowerID() + 1);
 
 			// if just one of the attributes for the two flowers are the same,
 			// then the flower we want to add cannot be added until the user changes one of the attributes' values
