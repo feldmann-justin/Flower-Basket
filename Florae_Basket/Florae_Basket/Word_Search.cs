@@ -20,24 +20,46 @@ namespace Florae_Basket
         public struct Candidate
         {
             public string contents;
-            public int id;
+            public int    id;
             public double score;
         };
 
-        private int[] results = new int[3];                   //array containing the database id of the 3 best results.
-        private Candidate[] best_names = new Candidate[3];    //arrays containging the 3 best candidates for every entry.
+        //value for a candidate to be considered a "winner"
+        private const double THRESHOLD = 0.66;
+        private Candidate[] results    = new Candidate[3];          //array containing the database id of the 3 best results.
+        private Candidate[] best_names = new Candidate[3];          //arrays containging the 3 best candidates for every entry.
         private Candidate[] best_latin = new Candidate[3];
         private Candidate[] best_botan = new Candidate[3];
         private string name;
         private string latin;
         private string botan;
-        private LinkedList<Candidate> possible_names;         //Linked list containing the Candidates pulled from the database.
+        private LinkedList<Candidate> possible_names = new LinkedList<Candidate>();               //Linked list containing the Candidates pulled from the database.
 
         public Word_Search(string enl_name, string latin_name, string botan_name)
         {
-            name = enl_name;
+            name =  enl_name;
             latin = latin_name;
             botan = botan_name;
+        }
+
+        //***THIS METHOD IS FOR TESTING PURPOSES ONLY, IT SHOULD NOT EXIST IN THE FINAL PRODUCT!***
+        private void Test_PN_populate(string one, string two, string three, string four,
+                                      int id1, int id2, int id3, int id4)
+        {
+            Candidate temp = new Candidate();
+            temp.contents = one;
+            temp.id = id1;
+            possible_names.AddLast(temp);
+            temp.contents = two;
+            temp.id = id2;
+            possible_names.AddLast(temp);
+            temp.contents = three;
+            temp.id = id3;
+            possible_names.AddLast(temp);
+            temp.contents = four;
+            temp.id = id4;
+            possible_names.AddLast(temp);
+
         }
 
         public string Get_name()
@@ -55,7 +77,7 @@ namespace Florae_Basket
             return botan;
         }
 
-        public int[] Get_results()
+        public Candidate[] Get_results()
         {
             return results;
         }
@@ -68,7 +90,14 @@ namespace Florae_Basket
             //base case
             if (x == 0 || y == 0)
             {
-                return 0;
+                if (x == 0 && y == 0 && entry[x] == cand[y])
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             //when a letter matches add one to score
             else if (entry[x] == cand[y])
@@ -95,27 +124,142 @@ namespace Florae_Basket
             }
             catch (Exception)
             {
-
                 throw;
+            }
+        }
+
+        private string Fetch_botanical(int id)
+        {
+            try
+            {
+                //TODO 
+                //Query the database using the ID of the entry in question.
+                //Will return the botanical name of the entry
+                //This exists in order to compare English names and Latin names in order to help decide
+                //which one the user might be looking for.
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return "";
+        }
+
+        //compares the english and latin name candidates to find the best 3 candidates.
+        //uses botanical family if scores of english and latin names being compared are too close.
+        private void Compare()
+        {
+            //These integers will increment if a candidate out of a certain category is selected. 
+            //This makes sure the next candidate in that category will be evaluated next.
+            int name_itr  = 0;
+            int latin_itr = 0;
+            int botan_itr = 0;
+            //temporary string for comparing botanical families between english names and latin names.
+            string temp_botan1, temp_botan2 = "";
+            double temp_score1, temp_score2 = 0;
+
+            //loops 3 times in order to populate results
+            for (int i = 0; i < 3; i++)
+            {
+                //checks best_latin to see if there was any score at all
+                //if latin score is zero best english name will take the next spot in results.
+                if (best_latin[latin_itr].score == 0 && best_names[name_itr].score > 0)
+                {
+                    results[i] = best_names[name_itr];
+                    name_itr++;
+                }
+                //does the same as previous statement but with the latin name
+                else if (best_names[name_itr].score == 0 && best_latin[latin_itr].score > 0)
+                {
+                    results[i] = best_latin[latin_itr];
+                    latin_itr++;
+                }
+                //if both latin and english scores are zero best next botanical candidate is used.
+                else if (best_names[name_itr].score == 0 && best_latin[latin_itr].score == 0)
+                {
+                    results[i] = best_botan[botan_itr];
+                    botan_itr++;
+                }
+                //if both latin and english scores are above zero a more thorough comparison will follow.
+                else if (best_latin[latin_itr].score > 0 && best_names[name_itr].score > 0)
+                {
+                    //makes sure latin and english names are not actually from the same entry.
+                    if (best_latin[latin_itr].id == best_names[name_itr].id)
+                    {
+                        results[i] = best_names[name_itr];
+                        name_itr++;
+                        latin_itr++;
+                    }
+                    //checks if both names are above a predetermined scoring threshold 
+                    else if (best_names[name_itr].score > THRESHOLD && best_latin[latin_itr].score < THRESHOLD)
+                    {
+                        results[i] = best_names[name_itr];
+                        name_itr++;
+                    }
+                    else if (best_latin[latin_itr].score > THRESHOLD && best_names[name_itr].score < THRESHOLD)
+                    {
+                        results[i] = best_latin[latin_itr];
+                        latin_itr++;
+                    }
+                    //if both names are above the threshold and a botanical candidate has a score greater than 0
+                    //this will run LCS on the botanical families of both names. The closest match is selected.
+                    else if(best_botan[0].score > 0)
+                    {
+                        temp_botan1 = Fetch_botanical(best_names[name_itr].id);
+                        temp_botan2 = Fetch_botanical(best_latin[latin_itr].id);
+                        temp_score1 = LCS(temp_botan1, best_botan[0].contents, temp_botan1.Length-1, best_botan[0].contents.Length-1);
+                        temp_score2 = LCS(temp_botan2, best_botan[0].contents, temp_botan2.Length-1, best_botan[0].contents.Length-1);
+
+                        if (temp_score1 > temp_score2)
+                        {
+                            results[i] = best_names[name_itr];
+                            name_itr++;
+                        }
+                        else
+                        {
+                            results[i] = best_latin[latin_itr];
+                            latin_itr++;
+                        }
+                    }
+                    else
+                    {
+                        if (best_names[name_itr].score > best_latin[latin_itr].score)
+                        {
+                            results[i] = best_names[name_itr];
+                            name_itr++;
+                        }
+                        else
+                        {
+                            results[i] = best_latin[latin_itr];
+                            latin_itr++;
+                        }
+                    }
+                }
             }
         }
 
         //executes the word search and populates the results array
         public void Search()
         {
+            for (int i = 0; i < 3; i++)
+            {
+                best_names[i].score = 0.0;
+                best_latin[i].score = 0.0;
+                best_botan[i].score = 0.0;
+            }
             Candidate temp;
-            possible_names.Clear();
             //Makes sure name has a value
             if (name != null && name != "")
             {
                 Fetch_names(name, ref possible_names);
+                Test_PN_populate("rose", "violet", "buttercup", "common lilac", 1, 5, 3, 8);
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
                     //runs LCS on current candidate
-                    temp.score = LCS(name, temp.contents, name.Length, temp.contents.Length);
+                    temp.score = (double) LCS(name, temp.contents, name.Length-1, temp.contents.Length-1) / (double) temp.contents.Length;
                     //Compares score with current best score
                     if (temp.score > best_names[0].score)
                     {
@@ -145,13 +289,14 @@ namespace Florae_Basket
             if (latin != null && latin != "")
             {
                 Fetch_names(latin, ref possible_names);
+                Test_PN_populate("syringa vulgaris", "begonia coccinea", "helianthus annuus", "amorphophallus titanum", 8, 13, 2, 7);
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
                     //runs LCS on current candidate
-                    temp.score = LCS(latin, temp.contents, latin.Length, temp.contents.Length);
+                    temp.score = (double) LCS(latin, temp.contents, latin.Length-1, temp.contents.Length-1) / (double) temp.contents.Length;
                     //Compares score with current best score
                     if (temp.score > best_latin[0].score)
                     {
@@ -181,13 +326,14 @@ namespace Florae_Basket
             if (botan != null && botan != "")
             {
                 Fetch_names(botan, ref possible_names);
+                Test_PN_populate("asteraceae", "amaryllidaceae", "amaryllidaceae", "oleaceae", 2, 20, 2, 8);
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
                     //runs LCS on current candidate
-                    temp.score = LCS(botan, temp.contents, botan.Length, temp.contents.Length);
+                    temp.score = (double) LCS(botan, temp.contents, botan.Length-1, temp.contents.Length-1) / (double) temp.contents.Length;
                     //Compares score with current best score
                     if (temp.score > best_botan[0].score)
                     {
@@ -212,6 +358,7 @@ namespace Florae_Basket
                     temp.contents = "";
                 }
             }
+            Compare();
         }
     }
 }
