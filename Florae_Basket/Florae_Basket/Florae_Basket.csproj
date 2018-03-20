@@ -45,13 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test_WS_GUI.cs">
     <Compile Include="AddFlowerCtlr.cs" />
     <Compile Include="AddFlowerGUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="test_WS_GUI.Designer.cs">
+      <DependentUpon>test_WS_GUI.cs</DependentUpon>
     <Compile Include="AddFlowerGUI.Designer.cs">
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Word_Search.cs" />
     <Compile Include="Flower.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Picture.cs" />
@@ -69,6 +75,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="test_WS_GUI.resx">
+      <DependentUpon>test_WS_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
