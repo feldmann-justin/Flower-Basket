@@ -15,11 +15,14 @@ namespace Florae_Basket
         public string egn_name;
         public string latin_word;
         public string botanical;
+        public string filename;
+        public string note_keywords;
 
         public Test_WS_GUI()
         {
             InitializeComponent();
             this.AcceptButton = SearchBTN;
+            filename = "";
         }
 
         private void SearchBTN_Click(object sender, EventArgs e)
@@ -37,7 +40,7 @@ namespace Florae_Basket
             {
                 SearchBTN.Enabled = true;
             }
-            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "")
+            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "" && filename == "" && Notes.Text == "")
             {
                 SearchBTN.Enabled = false;
             }
@@ -50,7 +53,7 @@ namespace Florae_Basket
             {
                 SearchBTN.Enabled = true;
             }
-            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "")
+            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "" && filename == "" && Notes.Text == "")
             {
                 SearchBTN.Enabled = false;
             }
@@ -63,11 +66,36 @@ namespace Florae_Basket
             {
                 SearchBTN.Enabled = true;
             }
-            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "")
+            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "" && filename == "" && Notes.Text == "")
             {
                 SearchBTN.Enabled = false;
             }
             botanical = Botan.Text;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
+            open.ShowDialog();
+            filename = open.FileName;
+            if (filename != "")
+            {
+                SearchBTN.Enabled = true;
+            }
+        }
+
+        private void Notes_TextChanged(object sender, EventArgs e)
+        {
+            if (Notes.Text != "")
+            {
+                SearchBTN.Enabled = true;
+            }
+            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "" && filename == "" && Notes.Text == "")
+            {
+                SearchBTN.Enabled = false;
+            }
+            note_keywords = Notes.Text;
         }
     }
 }

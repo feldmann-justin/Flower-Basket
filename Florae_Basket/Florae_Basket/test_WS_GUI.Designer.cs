@@ -35,6 +35,10 @@
             this.Latin = new System.Windows.Forms.TextBox();
             this.Botan = new System.Windows.Forms.TextBox();
             this.SearchBTN = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Notes = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -99,11 +103,51 @@
             this.SearchBTN.UseVisualStyleBackColor = true;
             this.SearchBTN.Click += new System.EventHandler(this.SearchBTN_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(402, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(160, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Image Search(File Path)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(422, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Notes(keywords)";
+            // 
+            // Notes
+            // 
+            this.Notes.Location = new System.Drawing.Point(366, 133);
+            this.Notes.Name = "Notes";
+            this.Notes.Size = new System.Drawing.Size(222, 22);
+            this.Notes.TabIndex = 10;
+            this.Notes.TextChanged += new System.EventHandler(this.Notes_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(425, 70);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Select image";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Test_WS_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 339);
+            this.ClientSize = new System.Drawing.Size(674, 355);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Notes);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.SearchBTN);
             this.Controls.Add(this.Botan);
             this.Controls.Add(this.Latin);
@@ -127,5 +171,9 @@
         public System.Windows.Forms.TextBox Latin;
         public System.Windows.Forms.TextBox Botan;
         private System.Windows.Forms.Button SearchBTN;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox Notes;
+        private System.Windows.Forms.Button button1;
     }
 }
