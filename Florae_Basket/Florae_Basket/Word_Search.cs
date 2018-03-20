@@ -26,6 +26,7 @@ namespace Florae_Basket
 
         //value for a candidate to be considered a "winner"
         private const double THRESHOLD = 0.66;
+
         private Candidate[] results    = new Candidate[3];          //array containing the database id of the 3 best results.
         private Candidate[] best_names = new Candidate[3];          //arrays containging the 3 best candidates for every entry.
         private Candidate[] best_latin = new Candidate[3];
@@ -33,7 +34,7 @@ namespace Florae_Basket
         private string name;
         private string latin;
         private string botan;
-        private LinkedList<Candidate> possible_names = new LinkedList<Candidate>();               //Linked list containing the Candidates pulled from the database.
+        private LinkedList<Candidate> possible_names = new LinkedList<Candidate>();  //Linked list containing the Candidates pulled from the database.
 
         public Word_Search(string enl_name, string latin_name, string botan_name)
         {
@@ -42,7 +43,7 @@ namespace Florae_Basket
             botan = botan_name;
         }
 
-        //***THIS METHOD IS FOR TESTING PURPOSES ONLY, IT SHOULD NOT EXIST IN THE FINAL PRODUCT!***
+        //***THIS METHOD IS FOR TESTING PURPOSES ONLY, IT SHOULD NOT EXIST IN THE FINAL PRODUCT!***//
         private void Test_PN_populate(string one, string two, string three, string four,
                                       int id1, int id2, int id3, int id4)
         {
@@ -252,7 +253,10 @@ namespace Florae_Basket
             if (name != null && name != "")
             {
                 Fetch_names(name, ref possible_names);
+
+                //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
                 Test_PN_populate("rose", "violet", "buttercup", "common lilac", 1, 5, 3, 8);
+
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {
@@ -289,7 +293,9 @@ namespace Florae_Basket
             if (latin != null && latin != "")
             {
                 Fetch_names(latin, ref possible_names);
+                //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
                 Test_PN_populate("syringa vulgaris", "begonia coccinea", "helianthus annuus", "amorphophallus titanum", 8, 13, 2, 7);
+
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {
@@ -326,7 +332,10 @@ namespace Florae_Basket
             if (botan != null && botan != "")
             {
                 Fetch_names(botan, ref possible_names);
+
+                //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
                 Test_PN_populate("asteraceae", "amaryllidaceae", "amaryllidaceae", "oleaceae", 2, 20, 2, 8);
+
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {

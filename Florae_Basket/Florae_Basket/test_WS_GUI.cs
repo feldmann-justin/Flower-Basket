@@ -19,6 +19,7 @@ namespace Florae_Basket
         public Test_WS_GUI()
         {
             InitializeComponent();
+            this.AcceptButton = SearchBTN;
         }
 
         private void SearchBTN_Click(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace Florae_Basket
             {
                 SearchBTN.Enabled = true;
             }
-            else if (Latin.Text != "")
+            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "")
             {
                 SearchBTN.Enabled = false;
             }
@@ -49,7 +50,7 @@ namespace Florae_Basket
             {
                 SearchBTN.Enabled = true;
             }
-            else if (EName.Text != "")
+            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "")
             {
                 SearchBTN.Enabled = false;
             }
@@ -62,7 +63,7 @@ namespace Florae_Basket
             {
                 SearchBTN.Enabled = true;
             }
-            else if (Botan.Text != "")
+            else if (Latin.Text == "" && EName.Text == "" && Botan.Text == "")
             {
                 SearchBTN.Enabled = false;
             }
