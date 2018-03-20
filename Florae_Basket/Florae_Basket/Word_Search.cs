@@ -207,7 +207,9 @@ namespace Florae_Basket
                     else if(best_botan[0].score > 0)
                     {
                         temp_botan1 = Fetch_botanical(best_names[name_itr].id);
+                        temp_botan1 = "syringa vulgaris";
                         temp_botan2 = Fetch_botanical(best_latin[latin_itr].id);
+                        temp_botan2 = "helianthus annuus";
                         temp_score1 = LCS(temp_botan1, best_botan[0].contents, temp_botan1.Length-1, best_botan[0].contents.Length-1);
                         temp_score2 = LCS(temp_botan2, best_botan[0].contents, temp_botan2.Length-1, best_botan[0].contents.Length-1);
 
