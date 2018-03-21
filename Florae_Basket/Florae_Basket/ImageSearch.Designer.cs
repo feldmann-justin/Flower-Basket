@@ -34,6 +34,9 @@
             this.imgNoteLabel = new System.Windows.Forms.Label();
             this.wordSearchSelect = new System.Windows.Forms.CheckBox();
             this.wordSearchBox = new System.Windows.Forms.TextBox();
+            this.freqColorLabel = new System.Windows.Forms.Label();
+            this.freqColorBox = new System.Windows.Forms.TextBox();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // searchButton
@@ -44,6 +47,7 @@
             this.searchButton.TabIndex = 0;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // imgSelectLabel
             // 
@@ -62,6 +66,7 @@
             this.imgSelectButton.TabIndex = 2;
             this.imgSelectButton.Text = "Select Image File";
             this.imgSelectButton.UseVisualStyleBackColor = true;
+            this.imgSelectButton.Click += new System.EventHandler(this.imgSelectButton_Click);
             // 
             // imgNoteLabel
             // 
@@ -81,6 +86,7 @@
             this.wordSearchSelect.TabIndex = 4;
             this.wordSearchSelect.Text = "Combine with Word Search";
             this.wordSearchSelect.UseVisualStyleBackColor = true;
+            this.wordSearchSelect.CheckedChanged += new System.EventHandler(this.wordSearchSelect_CheckedChanged);
             // 
             // wordSearchBox
             // 
@@ -89,12 +95,40 @@
             this.wordSearchBox.Size = new System.Drawing.Size(100, 20);
             this.wordSearchBox.TabIndex = 5;
             // 
+            // freqColorLabel
+            // 
+            this.freqColorLabel.AutoSize = true;
+            this.freqColorLabel.Location = new System.Drawing.Point(79, 262);
+            this.freqColorLabel.Name = "freqColorLabel";
+            this.freqColorLabel.Size = new System.Drawing.Size(212, 13);
+            this.freqColorLabel.TabIndex = 6;
+            this.freqColorLabel.Text = "Enter a frequently occuring color (optional): ";
+            // 
+            // freqColorBox
+            // 
+            this.freqColorBox.Location = new System.Drawing.Point(322, 259);
+            this.freqColorBox.Name = "freqColorBox";
+            this.freqColorBox.Size = new System.Drawing.Size(100, 20);
+            this.freqColorBox.TabIndex = 7;
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(129, 158);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(253, 13);
+            this.errorLabel.TabIndex = 8;
+            this.errorLabel.Text = "You closed out of the File Selector. Please try again!";
+            // 
             // ImageSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(692, 395);
+            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.freqColorBox);
+            this.Controls.Add(this.freqColorLabel);
             this.Controls.Add(this.wordSearchBox);
             this.Controls.Add(this.wordSearchSelect);
             this.Controls.Add(this.imgNoteLabel);
@@ -117,6 +151,9 @@
         private System.Windows.Forms.Label imgNoteLabel;
         private System.Windows.Forms.CheckBox wordSearchSelect;
         private System.Windows.Forms.TextBox wordSearchBox;
+        private System.Windows.Forms.Label freqColorLabel;
+        private System.Windows.Forms.TextBox freqColorBox;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
 
