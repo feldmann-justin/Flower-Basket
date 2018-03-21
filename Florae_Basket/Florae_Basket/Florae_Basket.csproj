@@ -45,6 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="deleteFlowerCtlr.cs" />
+    <Compile Include="flowerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flowerProfile.Designer.cs">
+      <DependentUpon>flowerProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddFlowerGUI.resx">
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="flowerProfile.resx">
+      <DependentUpon>flowerProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

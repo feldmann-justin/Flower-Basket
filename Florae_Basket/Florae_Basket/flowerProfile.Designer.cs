@@ -39,6 +39,7 @@
             this.notesTextBox = new System.Windows.Forms.RichTextBox();
             this.notesLabel = new System.Windows.Forms.Label();
             this.printButton = new System.Windows.Forms.Button();
+            this.DeleteToMain = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.flowerImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,12 +141,23 @@
             this.printButton.UseVisualStyleBackColor = true;
             this.printButton.Click += new System.EventHandler(this.print_click);
             // 
+            // DeleteToMain
+            // 
+            this.DeleteToMain.Location = new System.Drawing.Point(20, 420);
+            this.DeleteToMain.Name = "DeleteToMain";
+            this.DeleteToMain.Size = new System.Drawing.Size(131, 23);
+            this.DeleteToMain.TabIndex = 11;
+            this.DeleteToMain.Text = "Return to Main Menu";
+            this.DeleteToMain.UseVisualStyleBackColor = true;
+            this.DeleteToMain.Click += new System.EventHandler(this.deleteToMain_click);
+            // 
             // flowerProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(749, 455);
+            this.Controls.Add(this.DeleteToMain);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.notesLabel);
             this.Controls.Add(this.notesTextBox);
@@ -158,6 +170,7 @@
             this.Controls.Add(this.flowerImage);
             this.Controls.Add(this.deleteFlowerButton);
             this.Name = "flowerProfile";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.profile_leave_click);
             this.Load += new System.EventHandler(this.flowerProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.flowerImage)).EndInit();
             this.ResumeLayout(false);
@@ -178,5 +191,6 @@
         private System.Windows.Forms.RichTextBox notesTextBox;
         private System.Windows.Forms.Label notesLabel;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Button DeleteToMain;
     }
 }

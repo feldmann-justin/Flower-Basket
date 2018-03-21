@@ -44,5 +44,15 @@ namespace Florae_Basket
 		
 		}
 
-	}
+        private void AddToMain_click(object sender, EventArgs e)
+        {
+            new MainMenu().Show();
+            this.Hide();
+        }
+
+        private void add_leave_click(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+    }
 }

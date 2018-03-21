@@ -97,5 +97,21 @@ namespace Florae_Basket
             }
             note_keywords = Notes.Text;
         }
+
+        private void WSToMainButton_click(object sender, EventArgs e)
+        {
+            new MainMenu().Show();
+            this.Hide();
+        }
+
+        private void Test_WS_GUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WSGUI_leave_click(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

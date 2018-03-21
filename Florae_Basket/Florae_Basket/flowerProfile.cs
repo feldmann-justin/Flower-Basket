@@ -13,12 +13,12 @@ namespace Florae_Basket
     public partial class flowerProfile : Form
     {
         // global flower info variables
-        private string englishName = "flower one";
-        private string latinName = "flowero uno";
-        private string botanicalFamily = "flower one fam";
-        private string notes = "notes section";
+        private string englishName;
+        private string latinName;
+        private string botanicalFamily;
+        private string note;
         private string imageName = "flower.jpg";
-        private int primaryKey;
+        private int primaryKey = 0;
         public flowerProfile()
         {
             InitializeComponent();
@@ -31,11 +31,14 @@ namespace Florae_Basket
             flowerImage.BackColor = Color.Black;
 
             // get flower info
-            //englishName = Flower.getEnglishName();
-            //latinName = Flower.getLatinName();
-            //botanicalFamily = Flower.getBotanicalFam();
-            //notes = Notes.getContents(); ;
-            //imageName = Picture.getFilePath();
+            Flower f = new Flower();
+            Note n = new Note();
+            Picture p = new Picture();
+            englishName = f.getEnglishName();
+            latinName = f.getLatinName();
+            botanicalFamily = f.getBotanicalFam();
+            note = n.getContent();
+            //imageName = p.getFilePath();
 
             // add the flower image name to the file path
             filePath += imageName;
@@ -44,7 +47,7 @@ namespace Florae_Basket
             engNameTextBox.AppendText(englishName);
             latinNameTextBox.AppendText(latinName);
             botFamTextBox.AppendText(botanicalFamily);
-            notesTextBox.AppendText(notes);
+            notesTextBox.AppendText(note);
             flowerImage.Image = Image.FromFile(filePath);
         }
 
@@ -57,11 +60,14 @@ namespace Florae_Basket
             {
                 //primaryKey = Flower.getIndex();
                 // remove the flower
-                deleteFlowerCtlr.removeFlower(primaryKey);
+                bool done = deleteFlowerCtlr.removeFlower(primaryKey);
 
                 // return the user to the main menu
-                new dummyTestForm().Show();
-                this.Hide();
+                if (done == true)
+                {
+                    new MainMenu().Show();
+                    this.Hide();
+                }
             }
             else
             {
@@ -73,6 +79,17 @@ namespace Florae_Basket
         private void print_click(object sender, EventArgs e)
         {
 
+        }
+
+        private void deleteToMain_click(object sender, EventArgs e)
+        {
+            new MainMenu().Show();
+            this.Hide();
+        }
+
+        private void profile_leave_click(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -46,5 +46,16 @@ namespace Florae_Basket
 				word.Search();
 			}
 		}
-	}
+
+        private void MainToProfileButton_click(object sender, EventArgs e)
+        {
+            new flowerProfile().Show();
+            this.Hide();
+        }
+
+        private void Main_leave_click(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+    }
 }
