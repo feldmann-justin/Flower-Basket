@@ -57,7 +57,7 @@ namespace Florae_Basket
             {
                 //primaryKey = Flower.getIndex();
                 // remove the flower
-                deleteFlower.removeFlower(primaryKey);
+                deleteFlowerCtlr.removeFlower(primaryKey);
 
                 // return the user to the main menu
                 new dummyTestForm().Show();

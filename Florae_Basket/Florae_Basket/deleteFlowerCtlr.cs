@@ -14,7 +14,7 @@ using System.Windows.Forms;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 namespace Florae_Basket
 {
-    class deleteFlower
+    class deleteFlowerCtlr
     {
 
         // remove the flower from the database
