@@ -19,13 +19,25 @@ namespace Florae_Basket
 
 		private void addFlowerMainMenuBtn_Click(object sender, EventArgs e)
 		{
-			Application.Run(new AddFlowerGUI());
+			// brings up the Add Flower GUI
+			new AddFlowerGUI().Show();
+
+			// hides the Main Menu GUI
+			this.Hide();
 		}
 
 		private void searchFlowerMainMenuBtn_Click(object sender, EventArgs e)
 		{
+
 			Test_WS_GUI test = new Test_WS_GUI();
-			Application.Run(test);
+
+			// brings up the Search Flower GUI
+			test.Show();
+
+			// hides the Main Menu GUI
+			this.Hide();
+
+			
 			if ((test.egn_name != null && test.egn_name != "") ||
 				(test.latin_word != null && test.latin_word != "") ||
 				(test.botanical != null && test.botanical != ""))

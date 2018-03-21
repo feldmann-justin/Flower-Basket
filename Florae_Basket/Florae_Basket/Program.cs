@@ -16,6 +16,7 @@ namespace Florae_Basket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new MainMenu());
 
 			// moved this code to 'searchFlowerMainMenuBtn' event handler in 'MainMenu.cs'
 
