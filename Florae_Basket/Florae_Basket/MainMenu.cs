@@ -31,11 +31,15 @@ namespace Florae_Basket
 
 			Test_WS_GUI test = new Test_WS_GUI();
 
-			// brings up the Search Flower GUI
-			test.Show();
+            // hides the Main Menu GUI
+            //this.Hide();
+            this.Visible = false;
 
-			// hides the Main Menu GUI
-			this.Hide();
+            // brings up the Search Flower GUI
+            //test.Show();
+            test.ShowDialog();
+
+            
 
 			
 			if ((test.egn_name != null && test.egn_name != "") ||
