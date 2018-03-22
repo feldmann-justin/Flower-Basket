@@ -45,12 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database_Manager.cs" />
     <Compile Include="ImageSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ImageSearch.Designer.cs">
       <DependentUpon>ImageSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageSearchController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ImageSearch.resx">

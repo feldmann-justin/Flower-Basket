@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
+/* 
+ Dipak Subramaniam     Team: Dirk    CP02
+     */
+
 namespace Florae_Basket
 {
     public partial class ImageSearch : Form
@@ -19,6 +23,8 @@ namespace Florae_Basket
         private bool wordSearchOption = false;
         private string wordSearch;
         private string freqColor;
+
+        //To Be added to Controller
         private Color[,] array;
         private string[] databaseImages;
         private int[,] redPixels;
@@ -40,7 +46,6 @@ namespace Florae_Basket
         private int oneNinetyTwoToTwoFiftyFiveRed = 0;
         private int oneNinetyTwoToTwoFiftyFiveGreen = 0;
         private int oneNinetyTwoToTwoFiftyFiveBlue = 0;
-
 
         public ImageSearch()
         {
@@ -283,8 +288,6 @@ namespace Florae_Basket
             //Display Top Three
 
             */
-
-
         }
     }
 }
