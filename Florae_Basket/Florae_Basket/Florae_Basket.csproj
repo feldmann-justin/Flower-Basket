@@ -58,6 +58,7 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="testDB.cs" />
     <Compile Include="test_WS_GUI.cs">
       <SubType>Form</SubType>
     </Compile>

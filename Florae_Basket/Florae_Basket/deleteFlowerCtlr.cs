@@ -28,7 +28,8 @@ namespace Florae_Basket
             try
             {
                 // database connection info
-
+                testDB TDB = new testDB();
+                TDB.deleteIt(id);
                 // successful deletion message
                 MessageBox.Show("Flower " + id + " deleted.");
                 return true;

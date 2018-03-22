@@ -35,12 +35,16 @@ namespace Florae_Basket
 			// checks the database for existence of a Flower object with the same attributes
 			int verificationResult = myController.verifyFlower(flowerToAdd);
 
-			if (verificationResult == 1)
-				MessageBox.Show("Flower unable to be added: Entry already exists in database. ");
-			else if (verificationResult == 2)
-				MessageBox.Show("Flower unable to be added: One of the three minimum attributes is missing.");
-			else
-				MessageBox.Show("Flower successfuly added!");
+            if (verificationResult == 1)
+                MessageBox.Show("Flower unable to be added: Entry already exists in database. ");
+            else if (verificationResult == 2)
+                MessageBox.Show("Flower unable to be added: One of the three minimum attributes is missing.");
+            else
+            {
+                testDB TDB = new testDB();
+                TDB.addIt(enteredEnglishName, enteredLatinName, enteredBotanicalFamily);
+                MessageBox.Show("Flower successfuly added!");
+            }
 		
 		}
 
