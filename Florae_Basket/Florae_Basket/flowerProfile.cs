@@ -27,7 +27,7 @@ namespace Florae_Basket
         private void flowerProfile_Load(object sender, EventArgs e)
         {
             // start file path and add black background to the picture box
-            string filePath = "..\\Pics\\";
+            string filePath = "..\\..\\Pics\\";
             flowerImage.BackColor = Color.Black;
 
             // for testing purposes. It chooses a random flower in the testDB to display.
@@ -116,6 +116,11 @@ namespace Florae_Basket
         private void profile_leave_click(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void flowerImage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

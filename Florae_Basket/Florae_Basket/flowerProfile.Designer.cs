@@ -61,6 +61,7 @@
             this.flowerImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.flowerImage.TabIndex = 1;
             this.flowerImage.TabStop = false;
+            this.flowerImage.Click += new System.EventHandler(this.flowerImage_Click);
             // 
             // engNameTextBox
             // 
