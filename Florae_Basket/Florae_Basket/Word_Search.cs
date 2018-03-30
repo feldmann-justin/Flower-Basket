@@ -16,7 +16,7 @@ namespace Florae_Basket
     class Word_Search
     {
         //contains the string of the candidate, as well as the database key
-        //and the score calculated from the LCS method.
+        //and the score calculated from the OSA method.
         public struct Candidate
         {
             public string contents;
@@ -112,6 +112,64 @@ namespace Florae_Basket
             }
         }
 
+        //Optimal String Alignment
+        //Calculates match score for two strings
+        //Factors in things such as gaps, matches, and different letters.
+        //More acurate than LCS because there is a max score a string can recieve
+        private int OSA(string entry, string cand, int x, int y)
+        {
+            int gap = 2;
+            int match = 2;
+            int diff = 1;
+            //x and y are incremented to make sure array is correct size
+            x++;
+            y++;
+            //2 dimensional array for holding results
+            int[,] A = new int[x,y];
+
+            //Iterates through each row and column to get best results
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+                {
+                    //gives a score of 0 representing empty string
+                    if (i == 0 && j == 0)
+                    {
+                        A[i, j] = 0;
+                    }
+                    //keeps track of the gap score for the edges of the matrix
+                    else if (i == 0 && j != 0)
+                    {
+                        A[i, j] = A[i, j - 1] - gap;
+                    }
+                    else if (i != 0 && j == 0)
+                    {
+                        A[i, j] = A[i - 1, j] - gap;
+                    }
+                    //keeps track of character matches
+                    else if (entry[i-1] == cand[j-1])
+                    {
+                        A[i, j] = Math.Max(A[i - 1, j - 1] + match, Math.Max(A[i, j - 1] - gap, A[i - 1, j] - gap));
+                    }
+                    else
+                    {
+                        //Also keeps track of gaps
+                        if (entry[i-1] == ' ' || cand[j-1] == ' ')
+                        {
+                            A[i, j] = Math.Max(A[i - 1, j] - gap, A[i, j - 1] - gap);
+                        }
+                        //If characters are different but no gap
+                        else
+                        {
+                            A[i, j] = Math.Max(A[i - 1, j - 1] - diff, Math.Max(A[i - 1, j] - gap, A[i, j - 1] - gap));
+                        }
+                    }
+                }
+            }
+
+            return A[x-1,y-1];
+        }
+
         //Fetch english names from the Database using just first letter of the search entry
         //Stores results into linked list that is passed by reference
         private void Fetch_names(string name, ref LinkedList<Candidate> list)
@@ -203,15 +261,15 @@ namespace Florae_Basket
                         latin_itr++;
                     }
                     //if both names are above the threshold and a botanical candidate has a score greater than 0
-                    //this will run LCS on the botanical families of both names. The closest match is selected.
+                    //this will run OSA on the botanical families of both names. The closest match is selected.
                     else if(best_botan[0].score > 0)
                     {
                         temp_botan1 = Fetch_botanical(best_names[name_itr].id);
                         temp_botan1 = "syringa vulgaris";
                         temp_botan2 = Fetch_botanical(best_latin[latin_itr].id);
                         temp_botan2 = "helianthus annuus";
-                        temp_score1 = LCS(temp_botan1, best_botan[0].contents, temp_botan1.Length-1, best_botan[0].contents.Length-1);
-                        temp_score2 = LCS(temp_botan2, best_botan[0].contents, temp_botan2.Length-1, best_botan[0].contents.Length-1);
+                        temp_score1 = OSA(temp_botan1, best_botan[0].contents, temp_botan1.Length, best_botan[0].contents.Length);
+                        temp_score2 = OSA(temp_botan2, best_botan[0].contents, temp_botan2.Length, best_botan[0].contents.Length);
 
                         if (temp_score1 > temp_score2)
                         {
@@ -246,9 +304,9 @@ namespace Florae_Basket
         {
             for (int i = 0; i < 3; i++)
             {
-                best_names[i].score = 0.0;
-                best_latin[i].score = 0.0;
-                best_botan[i].score = 0.0;
+                best_names[i].score = Int32.MinValue;
+                best_latin[i].score = Int32.MinValue;
+                best_botan[i].score = Int32.MinValue;
             }
             Candidate temp;
             //Makes sure name has a value
@@ -264,8 +322,12 @@ namespace Florae_Basket
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
-                    //runs LCS on current candidate
-                    temp.score = (double) LCS(name, temp.contents, name.Length-1, temp.contents.Length-1) / (double) temp.contents.Length;
+                    //runs OSA on current candidate
+                    temp.score = (double) OSA(name, temp.contents, name.Length, temp.contents.Length) / (double) (temp.contents.Length * 2);
+                    if (temp.score < 0)
+                    {
+                        temp.score = 0;
+                    }
                     //Compares score with current best score
                     if (temp.score > best_names[0].score)
                     {
@@ -303,8 +365,12 @@ namespace Florae_Basket
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
-                    //runs LCS on current candidate
-                    temp.score = (double) LCS(latin, temp.contents, latin.Length-1, temp.contents.Length-1) / (double) temp.contents.Length;
+                    //runs OSA on current candidate
+                    temp.score = (double) OSA(latin, temp.contents, latin.Length, temp.contents.Length) / (double) (temp.contents.Length * 2);
+                    if (temp.score < 0)
+                    {
+                        temp.score = 0;
+                    }
                     //Compares score with current best score
                     if (temp.score > best_latin[0].score)
                     {
@@ -343,8 +409,12 @@ namespace Florae_Basket
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
-                    //runs LCS on current candidate
-                    temp.score = (double) LCS(botan, temp.contents, botan.Length-1, temp.contents.Length-1) / (double) temp.contents.Length;
+                    //runs OSA on current candidate
+                    temp.score = (double) OSA(botan, temp.contents, botan.Length, temp.contents.Length) / (double) (temp.contents.Length * 2);
+                    if (temp.score < 0)
+                    {
+                        temp.score = 0;
+                    }
                     //Compares score with current best score
                     if (temp.score > best_botan[0].score)
                     {
