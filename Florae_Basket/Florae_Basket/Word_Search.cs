@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 //////////////////////////////////////////////////
@@ -31,16 +32,19 @@ namespace Florae_Basket
         private Candidate[] best_names = new Candidate[3];          //arrays containging the 3 best candidates for every entry.
         private Candidate[] best_latin = new Candidate[3];
         private Candidate[] best_botan = new Candidate[3];
+        private Candidate[] best_notes = new Candidate[3];
         private string name;
         private string latin;
         private string botan;
+        private string note;
         private LinkedList<Candidate> possible_names = new LinkedList<Candidate>();  //Linked list containing the Candidates pulled from the database.
 
-        public Word_Search(string enl_name, string latin_name, string botan_name)
+        public Word_Search(string enl_name, string latin_name, string botan_name, string notes)
         {
             name =  enl_name;
             latin = latin_name;
             botan = botan_name;
+            note = notes;
         }
 
         //***THIS METHOD IS FOR TESTING PURPOSES ONLY, IT SHOULD NOT EXIST IN THE FINAL PRODUCT!***//
@@ -76,6 +80,11 @@ namespace Florae_Basket
         public string Get_botan()
         {
             return botan;
+        }
+
+        public string Get_note()
+        {
+            return note;
         }
 
         public Candidate[] Get_results()
@@ -204,6 +213,22 @@ namespace Florae_Basket
             return "";
         }
 
+        private void Fetch_notes(ref LinkedList<Candidate> list)
+        {
+            try
+            {
+                //TODO
+                //Query database for all notes containing key words
+                //ex. "SELECT * FROM notes WHERE content LIKE '%string%'"
+                //Put all results into list for later comparisons and testing.
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         //compares the english and latin name candidates to find the best 3 candidates.
         //uses botanical family if scores of english and latin names being compared are too close.
         private void Compare()
@@ -294,6 +319,41 @@ namespace Florae_Basket
                             results[i] = best_latin[latin_itr];
                             latin_itr++;
                         }
+                    }
+                }
+            }
+        }
+
+        //counts how many times the provided note keyword appears in each notes entry that contains it.
+        //simply counts how many time it shows up. Nothing special
+        private void Note_Search()
+        {
+            //Makes sure a notes entry is present
+            if (note != null && note != "")
+            {
+                Fetch_notes(ref possible_names);
+                double temp_score;
+                //iterates through all notes pull from database
+                for (int i = 0; i < possible_names.Count; i++)
+                {
+                    //Uses Regex to find how many matches the current candidate string contains.
+                    temp_score = Regex.Matches(possible_names.ElementAt(i).contents, note, RegexOptions.IgnoreCase).Count;
+
+                    //This section is the same as the regular search method
+                    if (best_notes[0].score < temp_score)
+                    {
+                        best_notes[2] = best_notes[1];
+                        best_notes[1] = best_notes[0];
+                        best_notes[0] = possible_names.ElementAt(i);
+                    }
+                    else if (best_notes[1].score < temp_score)
+                    {
+                        best_notes[2] = best_notes[1];
+                        best_notes[1] = possible_names.ElementAt(i);
+                    }
+                    else if (best_notes[2].score < temp_score)
+                    {
+                        best_notes[2] = possible_names.ElementAt(i);
                     }
                 }
             }
@@ -439,6 +499,7 @@ namespace Florae_Basket
                     temp.contents = "";
                 }
             }
+            Note_Search();
             Compare();
         }
     }
