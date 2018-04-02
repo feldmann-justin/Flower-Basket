@@ -364,9 +364,9 @@ namespace Florae_Basket
         {
             for (int i = 0; i < 3; i++)
             {
-                best_names[i].score = Int32.MinValue;
-                best_latin[i].score = Int32.MinValue;
-                best_botan[i].score = Int32.MinValue;
+                best_names[i].score = 0;
+                best_latin[i].score = 0;
+                best_botan[i].score = 0;
             }
             Candidate temp;
             //Makes sure name has a value
