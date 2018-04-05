@@ -35,13 +35,14 @@
             this.Result1box = new System.Windows.Forms.TextBox();
             this.Result2box = new System.Windows.Forms.TextBox();
             this.Result3box = new System.Windows.Forms.TextBox();
+            this.Mainbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(224, 32);
+            this.label1.Location = new System.Drawing.Point(192, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 25);
             this.label1.TabIndex = 0;
@@ -66,6 +67,7 @@
             this.Result2btn.TabIndex = 5;
             this.Result2btn.Text = "View";
             this.Result2btn.UseVisualStyleBackColor = true;
+            this.Result2btn.Click += new System.EventHandler(this.Result2btn_Click);
             // 
             // Result3btn
             // 
@@ -75,6 +77,7 @@
             this.Result3btn.TabIndex = 6;
             this.Result3btn.Text = "View";
             this.Result3btn.UseVisualStyleBackColor = true;
+            this.Result3btn.Click += new System.EventHandler(this.Result3btn_Click);
             // 
             // Result1box
             // 
@@ -100,11 +103,22 @@
             this.Result3box.Size = new System.Drawing.Size(210, 22);
             this.Result3box.TabIndex = 9;
             // 
+            // Mainbtn
+            // 
+            this.Mainbtn.Location = new System.Drawing.Point(12, 331);
+            this.Mainbtn.Name = "Mainbtn";
+            this.Mainbtn.Size = new System.Drawing.Size(98, 23);
+            this.Mainbtn.TabIndex = 10;
+            this.Mainbtn.Text = "Main Menu";
+            this.Mainbtn.UseVisualStyleBackColor = true;
+            this.Mainbtn.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ResultsGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 366);
+            this.Controls.Add(this.Mainbtn);
             this.Controls.Add(this.Result3box);
             this.Controls.Add(this.Result2box);
             this.Controls.Add(this.Result1box);
@@ -128,5 +142,6 @@
         private System.Windows.Forms.TextBox Result1box;
         private System.Windows.Forms.TextBox Result2box;
         private System.Windows.Forms.TextBox Result3box;
+        private System.Windows.Forms.Button Mainbtn;
     }
 }

@@ -81,6 +81,8 @@ namespace Florae_Basket
             FetchNames(id);
             FetchImages(id);
             FetchNotes(id);
+            ResultsGUI resultsGUI = new ResultsGUI(id, flowers, notes, images1, images2, images3);
+            resultsGUI.Visible = true;
         }
     }
 }

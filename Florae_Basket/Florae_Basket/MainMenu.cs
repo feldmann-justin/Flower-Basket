@@ -37,7 +37,7 @@ namespace Florae_Basket
 
             // brings up the Search Flower GUI
             //test.Show();
-            test.ShowDialog();
+            test.Visible = true;
 
             
 

@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace Florae_Basket
 {
-	class Flower
+	public class Flower
 	{
 
 		// class attributes

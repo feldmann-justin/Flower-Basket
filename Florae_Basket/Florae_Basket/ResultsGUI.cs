@@ -19,9 +19,18 @@ namespace Florae_Basket
         string[] result2_pics;
         string[] result3_pics;
 
-        public ResultsGUI()
+        public ResultsGUI(int[] id, Flower[] flow, string[] note, string[] result1, string[] result2, string[] result3)
         {
             InitializeComponent();
+            flowers = flow;
+            ids = id;
+            notes = note;
+            result1_pics = result1;
+            result2_pics = result2;
+            result3_pics = result3;
+            Result1box.Text = flowers[0].getEnglishName();
+            Result2box.Text = flowers[1].getEnglishName();
+            Result3box.Text = flowers[2].getEnglishName();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,9 +38,32 @@ namespace Florae_Basket
 
         }
 
+        private void Display_Flower(int result, string[] images)
+        {
+            flowerProfile prof = new flowerProfile(flowers[result].getEnglishName(), flowers[result].getLatinName(), 
+                                                   flowers[result].getBotanicalFam(), notes[result], images, ids[result]);
+            prof.Visible = true;
+        }
+
         private void Result1btn_Click(object sender, EventArgs e)
         {
-            
+            Display_Flower(0, result1_pics);
+        }
+
+        private void Result2btn_Click(object sender, EventArgs e)
+        {
+            Display_Flower(1, result2_pics);
+        }
+
+        private void Result3btn_Click(object sender, EventArgs e)
+        {
+            Display_Flower(2, result3_pics);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new MainMenu().Show();
+            this.Hide();
         }
     }
 }
