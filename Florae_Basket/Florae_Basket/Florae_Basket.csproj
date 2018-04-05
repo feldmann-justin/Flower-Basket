@@ -52,6 +52,13 @@
     <Compile Include="AddFlowerGUI.Designer.cs">
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeFlowerCtlr.cs" />
+    <Compile Include="ChangeFlowerGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeFlowerGUI.Designer.cs">
+      <DependentUpon>ChangeFlowerGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database_Manager.cs" />
     <Compile Include="deleteFlowerCtlr.cs" />
     <Compile Include="Flower.cs" />
@@ -88,6 +95,9 @@
     <Compile Include="Word_Search.cs" />
     <EmbeddedResource Include="AddFlowerGUI.resx">
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeFlowerGUI.resx">
+      <DependentUpon>ChangeFlowerGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="flowerProfile.resx">
       <DependentUpon>flowerProfile.cs</DependentUpon>
