@@ -49,6 +49,8 @@ namespace Florae_Basket
 			{
 				Word_Search word = new Word_Search(test.egn_name, test.latin_word, test.botanical, test.note_keywords);
 				word.Search();
+                ResultsCtrl results = new ResultsCtrl(word.Get_results()[0].id, word.Get_results()[1].id, word.Get_results()[2].id);
+                results.Run();
 			}
 		}
 
