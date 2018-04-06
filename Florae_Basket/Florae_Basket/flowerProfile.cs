@@ -81,23 +81,11 @@ namespace Florae_Basket
         //calls the delete flower class when clicked
         private void deleteFlower_click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("Are you sure you want to delete this flower?", "Confirm Delete", MessageBoxButtons.YesNo);
-            if(confirm == DialogResult.Yes)
+            bool deleted = deleteFlowerCtlr.main(primaryKey);
+            if (deleted == true)
             {
-                //primaryKey = Flower.getIndex();
-                // remove the flower
-                bool done = deleteFlowerCtlr.removeFlower(primaryKey - 1);
-
-                // return the user to the main menu
-                if (done == true)
-                {
-                    new MainMenu().Show();
-                    this.Hide();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Flower not deleted.");
+                new MainMenu().Show();
+                this.Hide();
             }
         }
 
@@ -115,7 +103,7 @@ namespace Florae_Basket
 
         private void profile_leave_click(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            new MainMenu().Show();
         }
 
         private void flowerImage_Click(object sender, EventArgs e)

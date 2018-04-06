@@ -58,5 +58,10 @@ namespace Florae_Basket
         {
             Application.Exit();
         }
+
+        private void AddFlowerGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            new MainMenu().Show();
+        }
     }
 }

@@ -52,6 +52,13 @@
     <Compile Include="AddFlowerGUI.Designer.cs">
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="addUserCtrl.cs" />
+    <Compile Include="addUserGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addUserGUI.Designer.cs">
+      <DependentUpon>addUserGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database_Manager.cs" />
     <Compile Include="deleteFlowerCtlr.cs" />
     <Compile Include="Flower.cs" />
@@ -85,9 +92,18 @@
     <Compile Include="test_WS_GUI.Designer.cs">
       <DependentUpon>test_WS_GUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserOptions.Designer.cs">
+      <DependentUpon>UserOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Word_Search.cs" />
     <EmbeddedResource Include="AddFlowerGUI.resx">
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addUserGUI.resx">
+      <DependentUpon>addUserGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="flowerProfile.resx">
       <DependentUpon>flowerProfile.cs</DependentUpon>
@@ -109,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="test_WS_GUI.resx">
       <DependentUpon>test_WS_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserOptions.resx">
+      <DependentUpon>UserOptions.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">

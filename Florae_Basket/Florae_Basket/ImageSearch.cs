@@ -289,5 +289,10 @@ namespace Florae_Basket
 
             */
         }
+
+        private void ImageSearch_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            new MainMenu().Show();
+        }
     }
 }
