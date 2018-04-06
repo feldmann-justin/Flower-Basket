@@ -51,6 +51,7 @@ namespace Florae_Basket
                 results.Run();
                 ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1, results.images2, results.images3);
                 resultgui.ShowDialog(this);
+                //This is to exit application if user X's out of resultGUI, couldn't get any other way to work for some reason.
                 if (resultgui.exit == true)
                 {
                     Application.Exit();
