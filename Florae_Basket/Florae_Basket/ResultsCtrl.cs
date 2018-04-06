@@ -8,12 +8,12 @@ namespace Florae_Basket
 {
     class ResultsCtrl
     {
-        int[] id = new int[3];
-        Flower[] flowers = new Flower[3];
-        string[] images1;
-        string[] images2;
-        string[] images3;
-        string[] notes = new string[3];
+        public int[] id = new int[3];
+        public Flower[] flowers = new Flower[3];
+        public string[] images1;
+        public string[] images2;
+        public string[] images3;
+        public string[] notes = new string[3];
 
         public ResultsCtrl(int id1, int id2, int id3)
         {
@@ -24,6 +24,21 @@ namespace Florae_Basket
 
         private void FetchNames(int[] id)
         {
+            //***FOR TESTING ONLY, TAKE IT OUT OF FINAL PRODUCT***//
+            flowers[0].setEnglishName("flower1");
+            flowers[0].setLatinName("Latin1");
+            flowers[0].setBotanicalFam("Fam1");
+            flowers[0].setFlowerID(1);
+            flowers[1].setEnglishName("flower2");
+            flowers[1].setLatinName("Latin2");
+            flowers[1].setBotanicalFam("Fam2");
+            flowers[1].setFlowerID(2);
+            flowers[2].setEnglishName("flower3");
+            flowers[2].setLatinName("Latin3");
+            flowers[2].setBotanicalFam("Fam3");
+            flowers[2].setFlowerID(3);
+
+            ////////////////////////////////////////////////////////
             try
             {
                 //TODO
@@ -39,6 +54,19 @@ namespace Florae_Basket
 
         private void FetchImages(int[] id)
         {
+            //FOR TESTING ONLY//
+            images1 = new string[3];
+            images2 = new string[2];
+            images3 = new string[1];
+
+            images1[0] = "flower.jpg";
+            images1[1] = "flower.jpg";
+            images1[2] = "flower.jpg";
+            images2[0] = "flower.jpg";
+            images2[1] = "flower.jpg";
+            images3[0] = "flower.jpg";
+            //FOR TESTING ONLY//
+
             try
             {
                 //TODO
@@ -64,6 +92,11 @@ namespace Florae_Basket
 
         private void FetchNotes(int[] id)
         {
+            //FOR TESTING ONLY//
+            notes[0] = "note1";
+            notes[1] = "note2";
+            notes[2] = "note3";
+            //FOR TESTING ONLY//
             try
             {
                 //TODO
@@ -78,11 +111,14 @@ namespace Florae_Basket
 
         public void Run()
         {
+            flowers[0] = new Flower();
+            flowers[1] = new Flower();
+            flowers[2] = new Flower();
             FetchNames(id);
             FetchImages(id);
             FetchNotes(id);
-            ResultsGUI resultsGUI = new ResultsGUI(id, flowers, notes, images1, images2, images3);
-            resultsGUI.Visible = true;
+            //ResultsGUI resultsGUI = new ResultsGUI(id, flowers, notes, images1, images2, images3);
+            //resultsGUI.ShowDialog();
         }
     }
 }

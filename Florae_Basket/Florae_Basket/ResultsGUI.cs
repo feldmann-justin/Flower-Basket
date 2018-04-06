@@ -12,12 +12,13 @@ namespace Florae_Basket
 {
     public partial class ResultsGUI : Form
     {
-        int[] ids = new int[3];
-        Flower[] flowers = new Flower[3];
-        string[] notes = new string[3];
-        string[] result1_pics;
-        string[] result2_pics;
-        string[] result3_pics;
+        public bool exit = true;
+        public int[] ids = new int[3];
+        public Flower[] flowers = new Flower[3];
+        public string[] notes = new string[3];
+        public string[] result1_pics;
+        public string[] result2_pics;
+        public string[] result3_pics;
 
         public ResultsGUI(int[] id, Flower[] flow, string[] note, string[] result1, string[] result2, string[] result3)
         {
@@ -42,7 +43,7 @@ namespace Florae_Basket
         {
             flowerProfile prof = new flowerProfile(flowers[result].getEnglishName(), flowers[result].getLatinName(), 
                                                    flowers[result].getBotanicalFam(), notes[result], images, ids[result]);
-            prof.Visible = true;
+            prof.ShowDialog(this);
         }
 
         private void Result1btn_Click(object sender, EventArgs e)
@@ -62,8 +63,24 @@ namespace Florae_Basket
 
         private void button1_Click(object sender, EventArgs e)
         {
+            exit = false;
             new MainMenu().Show();
             this.Hide();
+        }
+
+        private void ResultsGUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResultsGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void ResultsGUI_leave_click(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

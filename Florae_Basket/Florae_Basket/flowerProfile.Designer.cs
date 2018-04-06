@@ -45,9 +45,10 @@
             // 
             // deleteFlowerButton
             // 
-            this.deleteFlowerButton.Location = new System.Drawing.Point(620, 420);
+            this.deleteFlowerButton.Location = new System.Drawing.Point(827, 517);
+            this.deleteFlowerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteFlowerButton.Name = "deleteFlowerButton";
-            this.deleteFlowerButton.Size = new System.Drawing.Size(97, 23);
+            this.deleteFlowerButton.Size = new System.Drawing.Size(129, 28);
             this.deleteFlowerButton.TabIndex = 0;
             this.deleteFlowerButton.Text = "Delete Flower";
             this.deleteFlowerButton.UseVisualStyleBackColor = true;
@@ -55,9 +56,10 @@
             // 
             // flowerImage
             // 
-            this.flowerImage.Location = new System.Drawing.Point(420, 67);
+            this.flowerImage.Location = new System.Drawing.Point(560, 82);
+            this.flowerImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowerImage.Name = "flowerImage";
-            this.flowerImage.Size = new System.Drawing.Size(297, 320);
+            this.flowerImage.Size = new System.Drawing.Size(396, 394);
             this.flowerImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.flowerImage.TabIndex = 1;
             this.flowerImage.TabStop = false;
@@ -65,78 +67,87 @@
             // 
             // engNameTextBox
             // 
-            this.engNameTextBox.Location = new System.Drawing.Point(141, 67);
+            this.engNameTextBox.Location = new System.Drawing.Point(188, 82);
+            this.engNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.engNameTextBox.Name = "engNameTextBox";
             this.engNameTextBox.ReadOnly = true;
-            this.engNameTextBox.Size = new System.Drawing.Size(216, 20);
+            this.engNameTextBox.Size = new System.Drawing.Size(287, 22);
             this.engNameTextBox.TabIndex = 2;
             // 
             // botFamTextBox
             // 
-            this.botFamTextBox.Location = new System.Drawing.Point(141, 172);
+            this.botFamTextBox.Location = new System.Drawing.Point(188, 212);
+            this.botFamTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botFamTextBox.Name = "botFamTextBox";
             this.botFamTextBox.ReadOnly = true;
-            this.botFamTextBox.Size = new System.Drawing.Size(216, 20);
+            this.botFamTextBox.Size = new System.Drawing.Size(287, 22);
             this.botFamTextBox.TabIndex = 3;
             // 
             // latinNameTextBox
             // 
-            this.latinNameTextBox.Location = new System.Drawing.Point(141, 120);
+            this.latinNameTextBox.Location = new System.Drawing.Point(188, 148);
+            this.latinNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.latinNameTextBox.Name = "latinNameTextBox";
             this.latinNameTextBox.ReadOnly = true;
-            this.latinNameTextBox.Size = new System.Drawing.Size(216, 20);
+            this.latinNameTextBox.Size = new System.Drawing.Size(287, 22);
             this.latinNameTextBox.TabIndex = 4;
             // 
             // englishNameLabel
             // 
             this.englishNameLabel.AutoSize = true;
-            this.englishNameLabel.Location = new System.Drawing.Point(28, 70);
+            this.englishNameLabel.Location = new System.Drawing.Point(37, 86);
+            this.englishNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.englishNameLabel.Name = "englishNameLabel";
-            this.englishNameLabel.Size = new System.Drawing.Size(75, 13);
+            this.englishNameLabel.Size = new System.Drawing.Size(99, 17);
             this.englishNameLabel.TabIndex = 5;
             this.englishNameLabel.Text = "English Name:";
             // 
             // latinNameLabel
             // 
             this.latinNameLabel.AutoSize = true;
-            this.latinNameLabel.Location = new System.Drawing.Point(39, 123);
+            this.latinNameLabel.Location = new System.Drawing.Point(52, 151);
+            this.latinNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.latinNameLabel.Name = "latinNameLabel";
-            this.latinNameLabel.Size = new System.Drawing.Size(64, 13);
+            this.latinNameLabel.Size = new System.Drawing.Size(84, 17);
             this.latinNameLabel.TabIndex = 6;
             this.latinNameLabel.Text = "Latin Name:";
             // 
             // botanicalFamilyLabel
             // 
             this.botanicalFamilyLabel.AutoSize = true;
-            this.botanicalFamilyLabel.Location = new System.Drawing.Point(17, 175);
+            this.botanicalFamilyLabel.Location = new System.Drawing.Point(23, 215);
+            this.botanicalFamilyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.botanicalFamilyLabel.Name = "botanicalFamilyLabel";
-            this.botanicalFamilyLabel.Size = new System.Drawing.Size(86, 13);
+            this.botanicalFamilyLabel.Size = new System.Drawing.Size(114, 17);
             this.botanicalFamilyLabel.TabIndex = 7;
             this.botanicalFamilyLabel.Text = "Botanical Family:";
             // 
             // notesTextBox
             // 
-            this.notesTextBox.Location = new System.Drawing.Point(141, 223);
+            this.notesTextBox.Location = new System.Drawing.Point(188, 274);
+            this.notesTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.notesTextBox.Name = "notesTextBox";
             this.notesTextBox.ReadOnly = true;
-            this.notesTextBox.Size = new System.Drawing.Size(216, 164);
+            this.notesTextBox.Size = new System.Drawing.Size(287, 201);
             this.notesTextBox.TabIndex = 8;
             this.notesTextBox.Text = "";
             // 
             // notesLabel
             // 
             this.notesLabel.AutoSize = true;
-            this.notesLabel.Location = new System.Drawing.Point(65, 226);
+            this.notesLabel.Location = new System.Drawing.Point(87, 278);
+            this.notesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.notesLabel.Name = "notesLabel";
-            this.notesLabel.Size = new System.Drawing.Size(38, 13);
+            this.notesLabel.Size = new System.Drawing.Size(49, 17);
             this.notesLabel.TabIndex = 9;
             this.notesLabel.Text = "Notes:";
             // 
             // printButton
             // 
-            this.printButton.Location = new System.Drawing.Point(506, 420);
+            this.printButton.Location = new System.Drawing.Point(675, 517);
+            this.printButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(97, 23);
+            this.printButton.Size = new System.Drawing.Size(129, 28);
             this.printButton.TabIndex = 10;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = true;
@@ -144,20 +155,23 @@
             // 
             // DeleteToMain
             // 
-            this.DeleteToMain.Location = new System.Drawing.Point(20, 420);
+            this.DeleteToMain.Enabled = false;
+            this.DeleteToMain.Location = new System.Drawing.Point(27, 517);
+            this.DeleteToMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DeleteToMain.Name = "DeleteToMain";
-            this.DeleteToMain.Size = new System.Drawing.Size(131, 23);
+            this.DeleteToMain.Size = new System.Drawing.Size(175, 28);
             this.DeleteToMain.TabIndex = 11;
             this.DeleteToMain.Text = "Return to Main Menu";
             this.DeleteToMain.UseVisualStyleBackColor = true;
+            this.DeleteToMain.Visible = false;
             this.DeleteToMain.Click += new System.EventHandler(this.deleteToMain_click);
             // 
             // flowerProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(749, 455);
+            this.ClientSize = new System.Drawing.Size(999, 560);
             this.Controls.Add(this.DeleteToMain);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.notesLabel);
@@ -170,6 +184,7 @@
             this.Controls.Add(this.engNameTextBox);
             this.Controls.Add(this.flowerImage);
             this.Controls.Add(this.deleteFlowerButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "flowerProfile";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.profile_leave_click);
             this.Load += new System.EventHandler(this.flowerProfile_Load);

@@ -88,7 +88,6 @@ namespace Florae_Basket
            // }
         }
 
-
         //calls the delete flower class when clicked
         private void deleteFlower_click(object sender, EventArgs e)
         {
@@ -126,7 +125,7 @@ namespace Florae_Basket
 
         private void profile_leave_click(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void flowerImage_Click(object sender, EventArgs e)

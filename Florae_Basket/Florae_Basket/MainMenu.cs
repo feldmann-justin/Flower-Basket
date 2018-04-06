@@ -37,10 +37,8 @@ namespace Florae_Basket
 
             // brings up the Search Flower GUI
             //test.Show();
-            test.Visible = true;
-
+            test.ShowDialog();
             
-
 			
 			if ((test.egn_name != null && test.egn_name != "") ||
 				(test.latin_word != null && test.latin_word != "") ||
@@ -51,7 +49,13 @@ namespace Florae_Basket
 				word.Search();
                 ResultsCtrl results = new ResultsCtrl(word.Get_results()[0].id, word.Get_results()[1].id, word.Get_results()[2].id);
                 results.Run();
-			}
+                ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1, results.images2, results.images3);
+                resultgui.ShowDialog(this);
+                if (resultgui.exit == true)
+                {
+                    Application.Exit();
+                }
+            }
 		}
 
         private void MainToProfileButton_click(object sender, EventArgs e)
