@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Semester: Spring 2018
  * Filename: ChangeFlowerCtlr.cs
  * Professor: Dr. Gary Mayer
- * Last Edited Date/Time: March 18, 2018 12:09 AM
+ * Last Edited Date/Time: April 6, 2018 1:19 AM
  * 
  * Description: This class contains the necessary constructors, class attributes,
  * getters and setters for a ChangeFlower controller object.
@@ -19,6 +19,11 @@ namespace Florae_Basket
 {
 	class ChangeFlowerCtlr
 	{
+
+		// attributes
+		string latin;
+		string english;
+		string botan;
 
 		// member functions
 
@@ -33,6 +38,16 @@ namespace Florae_Basket
 			return 0;
 
 		}
+
+		public void displayChangeFlowerGUI()
+		{
+
+			ChangeFlowerGUI changeFlowerGUI = new ChangeFlowerGUI();
+			changeFlowerGUI.Visible = true;
+
+		}
+
+		// constructors
 
 		public ChangeFlowerCtlr()
 		{
