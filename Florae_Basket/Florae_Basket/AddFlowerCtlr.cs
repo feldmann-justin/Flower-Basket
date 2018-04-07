@@ -26,8 +26,10 @@ namespace Florae_Basket
 
 		/* Function which prompts the checking of the database manager for a currently-existing
 		 * Flower object with the same attributes. */
-		public int verifyFlower(Flower customFlower)
+		public static string verifyFlower(Flower customFlower)
 		{
+
+			string msgToDisplay;
 
 			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
 			Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");
@@ -36,14 +38,16 @@ namespace Florae_Basket
 			// if just one of the attributes for the two flowers are the same,
 			// then the flower we want to add cannot be added until the user changes one of the attributes' values
 			if ((customFlower.getLatinName() == dummyFlower.getLatinName()) || (customFlower.getEnglishName() == dummyFlower.getEnglishName()) || (customFlower.getFlowerID() == dummyFlower.getFlowerID()))
-				return 1;
-
+				msgToDisplay = "Flower unable to be added: Entry already exists in database.";
 			// if at least one of the three required attributes for a flower, the Latin name, English name, and botanical family is missing
-			if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
-				return 2;
+			else if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
+				msgToDisplay = "Flower unable to be added: One of the three minimum attributes is missing.";
+			else
+				// else, the flower can be added to the database
+				msgToDisplay = "Flower successfully added!";
+			// will physically add the flower entry to the DB here
 
-			// else, the flower can be added to the database
-			return 0;
+			return msgToDisplay;
 		}
 
 		public void displayAddFlowerGUI()

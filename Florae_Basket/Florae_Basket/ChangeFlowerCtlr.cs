@@ -32,10 +32,27 @@ namespace Florae_Basket
 		// passed as an argument does not exist within the database, rather than 
 		// comparing with the contents of a pseudo-database, or a dummy Flower instantiation,
 		// like what was done for Iteration I.
-		public int verifyFlower(Flower customFlower)
+		public static string verifyFlower(Flower customFlower)
 		{
 
-			return 0;
+			string msgToDisplay;
+
+			// need to be able to get the flower entry from the database
+			// which matches the id of 'customFlower'
+
+			// if a flower entry with the same attributes already exists in the database
+			/* if ((customFlower.getLatinName() == flowerFromDB.getLatinName()) || (customFlower.getEnglishName() == flowerFromDB.getEnglishName()))
+			*		msgToDisplay = "Changes unable to be saved: Entry already exists in database.";
+			*
+			*/
+
+			// if any of the three required flower attributes are missing (should make else if)
+			if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
+				msgToDisplay = "Changes unable to be saved: One of the three minimum attributes is missing.";
+			else
+				msgToDisplay = "Changes successfully saved!";
+
+			return msgToDisplay;
 
 		}
 
