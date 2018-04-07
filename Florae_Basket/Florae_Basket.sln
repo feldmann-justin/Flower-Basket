@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Florae_Basket", "Florae_Basket\Florae_Basket.csproj", "{4BAAD2C3-6EB2-46BF-BBDC-B46FDB40F46F}"
 EndProject
@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Florae_Basket\bin\Pics\flower.jpg = Florae_Basket\bin\Pics\flower.jpg
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Florae_Basket.Tests", "Florae_Basket.Tests\Florae_Basket.Tests.csproj", "{586D1A1A-5A4E-4525-BCC4-DBCEC3BB3AC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{4BAAD2C3-6EB2-46BF-BBDC-B46FDB40F46F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BAAD2C3-6EB2-46BF-BBDC-B46FDB40F46F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BAAD2C3-6EB2-46BF-BBDC-B46FDB40F46F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586D1A1A-5A4E-4525-BCC4-DBCEC3BB3AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586D1A1A-5A4E-4525-BCC4-DBCEC3BB3AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586D1A1A-5A4E-4525-BCC4-DBCEC3BB3AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586D1A1A-5A4E-4525-BCC4-DBCEC3BB3AC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
