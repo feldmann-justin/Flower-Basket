@@ -37,6 +37,7 @@ namespace Florae_Basket
 		{
 
 			string msgToDisplay;
+			Database_Manager DBMngr = new Database_Manager();
 
 			// need to be able to get the flower entry from the database
 			// which matches the id of 'customFlower'
@@ -45,7 +46,20 @@ namespace Florae_Basket
 			if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
 				msgToDisplay = "Changes unable to be saved: One of the three minimum attributes is missing.";
 			else
+			{
+				// if a change is made to the latin name
+				if (customFlower.getLatinName() != DBMngr.FetchLatin(customFlower.getFlowerID()))
+					DBMngr.changeFlowerAttribute(customFlower.getLatinName(), customFlower.getEnglishName(), customFlower.getBotanicalFam(), customFlower.getFlowerID());
+				// if a change is made to the english name
+				if (customFlower.getEnglishName() != DBMngr.FetchEnglish(customFlower.getFlowerID()))
+					DBMngr.changeFlowerAttribute(customFlower.getLatinName(), customFlower.getEnglishName(), customFlower.getBotanicalFam(), customFlower.getFlowerID());
+				// if a change is made to the botanical family
+				if (customFlower.getBotanicalFam() != DBMngr.FetchBotan(customFlower.getFlowerID()))
+					DBMngr.changeFlowerAttribute(customFlower.getLatinName(), customFlower.getEnglishName(), customFlower.getBotanicalFam(), customFlower.getFlowerID());
 				msgToDisplay = "Changes successfully saved!";
+
+			}
+				
 
 			return msgToDisplay;
 
@@ -61,10 +75,10 @@ namespace Florae_Basket
 
 		// constructors
 
-		public ChangeFlowerCtlr()
+		public ChangeFlowerCtlr(int primaryKey)
 		{
 
-
+			int flowerId = primaryKey;
 
 		}
 

@@ -121,5 +121,18 @@ namespace Florae_Basket
         {
 
         }
-    }
+
+		private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
+		{
+
+			// have to pass along the displayed flower's primary key when displaying the Change Flower GUI
+			// in order to change the attributes for the correct flower in the database
+			ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
+
+			ctlrToChangeFlower.displayChangeFlowerGUI();
+
+			this.Hide();
+
+		}
+	}
 }

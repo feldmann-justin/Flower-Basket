@@ -178,5 +178,15 @@ namespace Florae_Basket
             conn.Close();
             return true;
         }
-    }
+
+		public void changeFlowerAttribute(string latinChange, string englishChange, string botanChange, int primaryKey)
+		{
+			conn.Open();
+			string query = "UPDATE Flower SET Latin = '" + latinChange + "' English = '" + englishChange + "' Botanical = '" + botanChange + "' WHERE Id = '" + primaryKey;
+			SqlCommand comm = new SqlCommand(query, conn);
+			comm.ExecuteNonQuery();
+			conn.Close();
+			
+		}
+	}
 }
