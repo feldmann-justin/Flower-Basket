@@ -18,14 +18,14 @@ namespace Florae_Basket
         private string latinName;
         private string botanicalFamily;
         private string note = " ";
-        private string[] imageName;
+        private string imageName;
         private int primaryKey = 0;
         public flowerProfile()
         {
             InitializeComponent();
         }
 
-        public flowerProfile(string name, string latin, string botan, string note, string[] image, int id)
+        public flowerProfile(string name, string latin, string botan, string note, string image, int id)
         {
             InitializeComponent();
             englishName = name;
@@ -78,7 +78,7 @@ namespace Florae_Basket
                 //imageName = p.getFilePath();
 
                 // add the flower image name to the file path*/
-                filePath += imageName[0];
+                filePath += imageName;
 
                 // display all flower info
                 engNameTextBox.AppendText(englishName);
@@ -95,7 +95,7 @@ namespace Florae_Basket
             bool deleted = deleteFlowerCtlr.main(primaryKey);
             if (deleted == true)
             {
-                new MainMenu().Show();
+                //new MainMenu().Show();
                 this.Hide();
             }
         }

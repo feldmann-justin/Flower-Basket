@@ -13,8 +13,6 @@ namespace Florae_Basket
         public int[] id = new int[3];
         public Flower[] flowers = new Flower[3];
         public string[] images1;
-        public string[] images2;
-        public string[] images3;
         public string[] notes = new string[3];
 
         public ResultsCtrl(int id1, int id2, int id3)
@@ -74,15 +72,8 @@ namespace Florae_Basket
         {
             //FOR TESTING ONLY//
             images1 = new string[3];
-            images2 = new string[2];
-            images3 = new string[1];
 
-            images1[0] = "flower.jpg";
-            images1[1] = "flower.jpg";
-            images1[2] = "flower.jpg";
-            images2[0] = "flower.jpg";
-            images2[1] = "flower.jpg";
-            images3[0] = "flower.jpg";
+            images1[0] = images1[1] = images1[2] = "flower.jpg";
             //FOR TESTING ONLY//
 
             try

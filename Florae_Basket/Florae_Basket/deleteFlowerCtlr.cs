@@ -75,7 +75,7 @@ namespace Florae_Basket
             try
             {
                 // connect to DBMngr and execute the delete flower function
-
+                db.DeleteFlower(id);
                 return true;
             }
             // if error is thrown, return false

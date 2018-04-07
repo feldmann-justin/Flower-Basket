@@ -49,7 +49,7 @@ namespace Florae_Basket
 				word.Search();
                 ResultsCtrl results = new ResultsCtrl(word.Get_results()[0].id, word.Get_results()[1].id, word.Get_results()[2].id);
                 results.Run();
-                ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1, results.images2, results.images3);
+                ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1);
                 resultgui.ShowDialog(this);
                 //This is to exit application if user X's out of resultGUI, couldn't get any other way to work for some reason.
                 if (resultgui.exit == true)
