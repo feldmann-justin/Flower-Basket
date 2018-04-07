@@ -11,14 +11,18 @@ namespace Florae_Basket
     class addUserCtrl
     {
         private string[] failedItems;
+        List<string> addedUserList = new List<string>();
+        List<string> failedUserList = new List<string>();
 
         public void main(string first, string last, string username, string password, string accType, string file)
-        {            
+        {
+            Database_Manager dbm = new Database_Manager();
             string msg = "";
             int addedCount = 0;
             int failedCount = 0;
             bool valid;
             bool added = false;
+            bool exists = true;
             string line;
 
             // entries from a batch file
@@ -30,8 +34,8 @@ namespace Florae_Basket
                     while ((line = sr.ReadLine()) != null)
                     {
                         string[] values = new string[5] { "", "", "", "", "" }; // sets initial values to 0
-                        string [] tempValues = line.Split(',');                 // creates a temp array, so if something is missing, it doesnt mess up assigning values below
-                        for(int i = 0; i < tempValues.Length; i++)
+                        string[] tempValues = line.Split(',');                 // creates a temp array, so if something is missing, it doesnt mess up assigning values below
+                        for (int i = 0; i < tempValues.Length; i++)
                         {
                             values[i] = tempValues[i];
                         }
@@ -41,7 +45,6 @@ namespace Florae_Basket
                         username = values[2];
                         password = values[3];
                         accType = values[4];
-                        MessageBox.Show(first + " " + last + " " + username + " " + password + " " + accType);
                         // verify that required info is provided
                         failedItems = new string[5];
                         valid = verifyInfo(first, last, username, password, accType);
@@ -49,27 +52,47 @@ namespace Florae_Basket
                         if (valid == true)
                         {
                             // check database to see if username exists
-
-                            // salt and hash pasword
-                            password = Salt(password);
-                            int hashPass = Hash(password);
-                            // add to database
-
-                            // if the user was added, keep track of the addition
-                            if (added == true)
-                                addedCount = updateAddedCount(addedCount);
+                            exists = dbm.checkUsername(username);
+                            if (exists == false)
+                            {
+                                // salt and hash pasword
+                                password = Salt(password);
+                                int hashPass = Hash(password);
+                                // add to database
+                                added = dbm.addUser(first, last, username, password, accType);
+                                // if the user was added, keep track of the addition
+                                if (added == true)
+                                {
+                                    // user was added, update added info
+                                    addedCount = updateAddedCount(addedCount);
+                                    addedUserList.Add(first + " " + last + ": " + username);
+                                }
+                                else
+                                {
+                                    // user was not added, update failed info
+                                    failedCount = updateFailedCount(failedCount);
+                                    failedUserList.Add(first + " " + last + ": " + username);
+                                }
+                            }
                             else
+                            {
+                                // username already exists in DB
                                 failedCount = updateFailedCount(failedCount);
+                                failedUserList.Add(first + " " + last + ": " + username);
+                            }
                         }
                         else
+                        {
                             // if user was not added, keep track of failed additions
                             failedCount = updateFailedCount(failedCount);
+                            failedUserList.Add(first + " " + last + ": " + username);
+                        }
                     }
                     // create a message of how many added and failed users from batch file
                     msg = createBatchMsg(addedCount, failedCount);
                 }
             }
-            
+
             // used for text box entries 
             else
             {
@@ -80,14 +103,21 @@ namespace Florae_Basket
                 if (valid == true)
                 {
                     // check database to see if username exists
-
-                    // salt and hash pasword
-                    password = Salt(password);
-                    int hashPass = Hash(password);
-                    // add to database
-
-                    // provide confirmation
-                    msg = confirmMsg(username);
+                    exists = dbm.checkUsername(username);
+                    if (exists == false)
+                    {
+                        // salt and hash pasword
+                        password = Salt(password);
+                        int hashPass = Hash(password);
+                        // add to database
+                        added = dbm.addUser(first, last, username, password, accType);
+                        // provide confirmation
+                        msg = confirmMsg(username);
+                    }
+                    else
+                    {
+                        msg = userExistsMsg(username);
+                    }
                 }
                 else
                     // provide feedback why it didn't get added
@@ -148,10 +178,10 @@ namespace Florae_Basket
         private string failMsg(string username)
         {
             string msg = "Unable to add user " + username + " because of the following missing information:";
-            for(int i = 0; i < failedItems.Length; i++)
+            for (int i = 0; i < failedItems.Length; i++)
             {
                 msg += failedItems[i];
-                
+
             }
             return msg;
         }
@@ -185,7 +215,24 @@ namespace Florae_Basket
         private string createBatchMsg(int addedCount, int failedCount)
         {
             string msg;
-            msg = "Users added: " + addedCount + " , Users not added: " + failedCount;
+            msg = "Users added: " + addedCount + " , Users not added: " + failedCount + "\n";
+            msg += "\nAdded Users:\n";
+            for(int i = 0; i < addedUserList.Count; i++)
+            {
+                msg += addedUserList[i] + "\n";
+            }
+            msg += "\nFailed Users: \n";
+            for (int i = 0; i < failedUserList.Count; i++)
+            {
+                msg += failedUserList[i] + "\n";
+            }
+            return msg;
+        }
+
+        // creats a string letting the admin know that the username already exists and can not be duplicated.
+        private string userExistsMsg(string username)
+        {
+            string msg = "Please use a different username. " + username + " is already used.";
             return msg;
         }
     }

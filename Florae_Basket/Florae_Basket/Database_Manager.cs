@@ -145,5 +145,38 @@ namespace Florae_Basket
             read.Close();
             conn.Close();
         }
+
+        // checks if a username already exists in the database
+        public bool checkUsername(string username)
+        {
+            bool used = false;
+            conn.Open();
+            string query = "SELECT UserName FROM [User]";
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+
+            while(read.Read())
+            {
+                if(read.GetString(0) == username)
+                {
+                    used = true;
+                    break;
+                }
+            }
+            read.Close();
+            conn.Close();
+            return used;
+        }
+
+        public bool addUser(string first, string last, string username, string password, string accType)
+        {
+            conn.Open();
+            string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES ('"
+                + username + "', '" + password + "', '" + first + "', '" + last + "', '" + accType + "')";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+            return true;
+        }
     }
 }
