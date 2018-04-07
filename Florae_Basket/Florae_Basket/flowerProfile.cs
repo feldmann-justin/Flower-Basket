@@ -95,7 +95,7 @@ namespace Florae_Basket
             bool deleted = deleteFlowerCtlr.main(primaryKey);
             if (deleted == true)
             {
-                new MainMenu().Show();
+                //new MainMenu().Show();
                 this.Hide();
             }
         }
