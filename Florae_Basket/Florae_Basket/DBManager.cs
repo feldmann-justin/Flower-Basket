@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Florae_Basket
 {
-    class Database_Manager
+    class DBManager
     {
         /* 
         public Database_Manager(Bitmap img) {

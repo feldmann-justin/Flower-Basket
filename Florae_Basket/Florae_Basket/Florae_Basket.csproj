@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database_Manager.cs" />
+    <Compile Include="DBManager.cs" />
     <Compile Include="ImageSearch.cs">
       <SubType>Form</SubType>
     </Compile>
