@@ -69,6 +69,13 @@
     <Compile Include="AddFlowerGUI.Designer.cs">
       <DependentUpon>AddFlowerGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="addUserCtrl.cs" />
+    <Compile Include="addUserGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addUserGUI.Designer.cs">
+      <DependentUpon>addUserGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeFlowerCtlr.cs" />
     <Compile Include="ChangeFlowerGUI.cs">
       <SubType>Form</SubType>
