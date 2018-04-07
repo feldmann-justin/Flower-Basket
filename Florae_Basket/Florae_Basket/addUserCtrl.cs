@@ -89,8 +89,8 @@ namespace Florae_Basket
                         }
                     }
                     // create a message of how many added and failed users from batch file
-                    msg = createBatchMsg(addedCount, failedCount);
                 }
+                msg = createBatchMsg(addedCount, failedCount);
             }
 
             // used for text box entries 
@@ -111,8 +111,11 @@ namespace Florae_Basket
                         int hashPass = Hash(password);
                         // add to database
                         added = dbm.addUser(first, last, username, password, accType);
-                        // provide confirmation
-                        msg = confirmMsg(username);
+                        if (added == true)
+                            // provide confirmation
+                            msg = confirmMsg(username);
+                        else
+                            msg = failMsg(username);
                     }
                     else
                     {
@@ -217,7 +220,7 @@ namespace Florae_Basket
             string msg;
             msg = "Users added: " + addedCount + " , Users not added: " + failedCount + "\n";
             msg += "\nAdded Users:\n";
-            for(int i = 0; i < addedUserList.Count; i++)
+            for (int i = 0; i < addedUserList.Count; i++)
             {
                 msg += addedUserList[i] + "\n";
             }

@@ -55,5 +55,10 @@ namespace Florae_Basket
         {
 
         }
+
+        private void addUserGUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
