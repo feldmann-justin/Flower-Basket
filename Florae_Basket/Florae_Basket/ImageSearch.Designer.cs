@@ -37,6 +37,10 @@
             this.freqColorLabel = new System.Windows.Forms.Label();
             this.freqColorBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.resultsLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
@@ -52,7 +56,7 @@
             // imgSelectLabel
             // 
             this.imgSelectLabel.AutoSize = true;
-            this.imgSelectLabel.Location = new System.Drawing.Point(79, 86);
+            this.imgSelectLabel.Location = new System.Drawing.Point(58, 60);
             this.imgSelectLabel.Name = "imgSelectLabel";
             this.imgSelectLabel.Size = new System.Drawing.Size(197, 13);
             this.imgSelectLabel.TabIndex = 1;
@@ -60,7 +64,7 @@
             // 
             // imgSelectButton
             // 
-            this.imgSelectButton.Location = new System.Drawing.Point(319, 86);
+            this.imgSelectButton.Location = new System.Drawing.Point(291, 60);
             this.imgSelectButton.Name = "imgSelectButton";
             this.imgSelectButton.Size = new System.Drawing.Size(103, 48);
             this.imgSelectButton.TabIndex = 2;
@@ -71,11 +75,12 @@
             // imgNoteLabel
             // 
             this.imgNoteLabel.AutoSize = true;
-            this.imgNoteLabel.Location = new System.Drawing.Point(79, 121);
+            this.imgNoteLabel.Location = new System.Drawing.Point(61, 78);
             this.imgNoteLabel.Name = "imgNoteLabel";
             this.imgNoteLabel.Size = new System.Drawing.Size(176, 13);
             this.imgNoteLabel.TabIndex = 3;
             this.imgNoteLabel.Text = "Note: Must be in .jpeg, .png, or .gif  ";
+            this.imgNoteLabel.Click += new System.EventHandler(this.imgNoteLabel_Click);
             // 
             // wordSearchSelect
             // 
@@ -90,7 +95,7 @@
             // 
             // wordSearchBox
             // 
-            this.wordSearchBox.Location = new System.Drawing.Point(322, 199);
+            this.wordSearchBox.Location = new System.Drawing.Point(294, 199);
             this.wordSearchBox.Name = "wordSearchBox";
             this.wordSearchBox.Size = new System.Drawing.Size(100, 20);
             this.wordSearchBox.TabIndex = 5;
@@ -106,7 +111,7 @@
             // 
             // freqColorBox
             // 
-            this.freqColorBox.Location = new System.Drawing.Point(322, 259);
+            this.freqColorBox.Location = new System.Drawing.Point(294, 259);
             this.freqColorBox.Name = "freqColorBox";
             this.freqColorBox.Size = new System.Drawing.Size(100, 20);
             this.freqColorBox.TabIndex = 7;
@@ -114,11 +119,37 @@
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(129, 158);
+            this.errorLabel.Location = new System.Drawing.Point(79, 155);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(253, 13);
             this.errorLabel.TabIndex = 8;
             this.errorLabel.Text = "You closed out of the File Selector. Please try again!";
+            this.errorLabel.Visible = false;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(471, 88);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(181, 173);
+            this.pictureBox.TabIndex = 9;
+            this.pictureBox.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(459, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Matches:";
+            // 
+            // resultsLabel
+            // 
+            this.resultsLabel.AutoSize = true;
+            this.resultsLabel.Location = new System.Drawing.Point(536, 294);
+            this.resultsLabel.Name = "resultsLabel";
+            this.resultsLabel.Size = new System.Drawing.Size(0, 13);
+            this.resultsLabel.TabIndex = 11;
             // 
             // ImageSearch
             // 
@@ -126,6 +157,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(692, 395);
+            this.Controls.Add(this.resultsLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.freqColorBox);
             this.Controls.Add(this.freqColorLabel);
@@ -140,6 +174,7 @@
             this.Text = "Image Search";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImageSearch_FormClosing);
             this.Load += new System.EventHandler(this.ImageSearch_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +191,9 @@
         private System.Windows.Forms.Label freqColorLabel;
         private System.Windows.Forms.TextBox freqColorBox;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label resultsLabel;
     }
 }
 
