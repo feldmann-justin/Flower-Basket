@@ -31,64 +31,119 @@ namespace Florae_Basket
                 + name + "', '" + latin + "', '" + botan + "')";
             SqlCommand comm = new SqlCommand(query, conn);
             comm.ExecuteNonQuery();
-            query = "Select id FROM Flower WHERE English = '" + name + "'";
+            query = "Select Id FROM Flower WHERE English = '" + name + "'";
             comm = new SqlCommand(query, conn);
             SqlDataReader read = comm.ExecuteReader();
             read.Read();
             flowerid = read.GetInt32(0);
             read.Close();
             query = "INSERT INTO Images (Filepath, Histogram, FlowerID) VALUES ('"
+                ///////ADD HISTOGRAM VALUE LATER***////////
                 + images + "', " + "1, '" + flowerid + "')";
+                ////////////////////^//////////////////////
+            comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            query = "INSERT INTO Note (FlowerId, Contents) VALUES ('" + flowerid + "', '" + note + "')";
             comm = new SqlCommand(query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
         }
+
         public void DeleteFlower(int id)
         {
             conn.Open();
             string query = "DELETE FROM Note WHERE FlowerID = " + id;
             SqlCommand comm = new SqlCommand(query, conn);
             comm.ExecuteNonQuery();
+            query = "DELETE FROM Images WHERE FlowerID = " + id;
+            comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            query = "DELETE FROM Flower WHERE Id = " + id;
+            comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
             conn.Close();
         }
 
+        //Returns a string containing the english name of the flower whos ID was provided
         public string FetchEnglish(int id)
         {
             conn.Open();
             string temp;
-            string query = "SELECT English FROM Flower WHERE id = " + id;
+            string query = "SELECT English FROM Flower WHERE Id = " + id;
             SqlCommand comm = new SqlCommand(query, conn);
             SqlDataReader read = comm.ExecuteReader();
             read.Read();
             temp = read.GetString(0);
+            read.Close();
             conn.Close();
             return temp;
         }
 
+        //Returns a string containing the latin name of the flower whos ID was provided
         public string FetchLatin(int id)
         {
             conn.Open();
             string temp;
-            string query = "SELECT Latin FROM Flower WHERE id = " + id;
+            string query = "SELECT Latin FROM Flower WHERE Id = " + id;
             SqlCommand comm = new SqlCommand(query, conn);
             SqlDataReader read = comm.ExecuteReader();
             read.Read();
             temp = read.GetString(0);
+            read.Close();
             conn.Close();
             return temp;
         }
 
+        //Returns a string containing the botanical family of the flower whos ID was provided
         public string FetchBotan(int id)
         {
             conn.Open();
             string temp;
-            string query = "SELECT Botanical FROM Flower WHERE id = " + id;
+            string query = "SELECT Botanical FROM Flower WHERE Id = " + id;
             SqlCommand comm = new SqlCommand(query, conn);
             SqlDataReader read = comm.ExecuteReader();
             read.Read();
             temp = read.GetString(0);
+            read.Close();
             conn.Close();
             return temp;
+        }
+
+        //Checks which type of name is requested, either "English", "Latin", or "Botanical
+        //This type is inserted into the SQL query 
+        //The requested string and flowerID is returned and put into the candidate object.
+        public void FetchAllNames(ref LinkedList<Candidate> list, string type)
+        {
+            Candidate temp = new Candidate();
+            conn.Open();
+            string query = "SELECT " + type + " , Id FROM FLOWER";
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+            while (read.Read())
+            {
+                temp.id = read.GetInt32(1);
+                temp.contents = read.GetString(0);
+                list.AddLast(temp);
+            }
+            read.Close();
+            conn.Close();
+        }
+
+        public void FetchAllNotes(string entry, ref LinkedList<Candidate> list)
+        {
+            Candidate temp = new Candidate();
+            conn.Open();
+            string query = "SELECT Contents, FlowerID FROM Note WHERE Contents LIKE '%" + entry + "%';";
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+            while (read.Read())
+            {
+                temp.id = read.GetInt32(1);
+                temp.contents = read.GetString(0);
+                list.AddLast(temp);
+            }
+            read.Close();
+            conn.Close();
         }
     }
 }

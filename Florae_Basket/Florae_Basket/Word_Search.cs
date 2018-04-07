@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 //////////////////////////////////////////////////
 //                                              //
@@ -14,16 +15,18 @@ using System.Threading.Tasks;
 
 namespace Florae_Basket
 {
+    public struct Candidate
+    {
+        public string contents;
+        public int id;
+        public double score;
+    };
+
     class Word_Search
     {
         //contains the string of the candidate, as well as the database key
         //and the score calculated from the OSA method.
-        public struct Candidate
-        {
-            public string contents;
-            public int    id;
-            public double score;
-        };
+        
 
         //value for a candidate to be considered a "winner"
         private const double THRESHOLD = 0.66;
@@ -188,52 +191,54 @@ namespace Florae_Basket
             return A[x-1,y-1];
         }
 
-        //Fetch english names from the Database using just first letter of the search entry
+        //Fetch english names from the Database
         //Stores results into linked list that is passed by reference
-        private void Fetch_names(string name, ref LinkedList<Candidate> list)
+        //type of name is passes as a string and is then passes to the database manager
+        private void Fetch_names(string type, ref LinkedList<Candidate> list)
         {
+            Database_Manager db = new Database_Manager();
             try
             {
-                //TODO
-                //Query the database using ***ONLY THE FIRST LETTER*** of the entered word
-                //The database will return every entry it holds that begins with that letter
-                //The database will only return candidates from that column.
+                db.FetchAllNames(ref list, type);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw;
             }
         }
 
+        //Query the database using the ID of the entry in question.
+        //Will return the botanical name of the entry
+        //This exists in order to compare English names and Latin names in order to help decide
+        //which one the user might be looking for.
         private string Fetch_botanical(int id)
         {
+            string temp;
+            Database_Manager db = new Database_Manager();
             try
-            {
-                //TODO 
-                //Query the database using the ID of the entry in question.
-                //Will return the botanical name of the entry
-                //This exists in order to compare English names and Latin names in order to help decide
-                //which one the user might be looking for.
+            { 
+                temp = db.FetchBotan(id);
             }
             catch (Exception)
             {
                 throw;
             }
-            return "";
+            return temp;
         }
 
-        private void Fetch_notes(ref LinkedList<Candidate> list)
+        private void Fetch_notes(string entry, ref LinkedList<Candidate> list)
         {
+            Database_Manager db = new Database_Manager();
             try
             {
-                //TODO
-                //Query database for all notes containing key words
-                //ex. "SELECT * FROM notes WHERE content LIKE '%string%'"
-                //Put all results into list for later comparisons and testing.
-            }
-            catch (Exception)
-            {
 
+                //Query database for all notes containing key words
+                //Put all results into list for later comparisons and testing.
+                db.FetchAllNotes(entry, ref list);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
                 throw;
             }
         }
@@ -325,9 +330,9 @@ namespace Florae_Basket
                     else if(best_botan[0].score > 0)
                     {
                         temp_botan1 = Fetch_botanical(best_names[name_itr].id);
-                        temp_botan1 = "syringa vulgaris";
+                        //temp_botan1 = "syringa vulgaris";
                         temp_botan2 = Fetch_botanical(best_latin[latin_itr].id);
-                        temp_botan2 = "helianthus annuus";
+                        //temp_botan2 = "helianthus annuus";
                         temp_score1 = OSA(temp_botan1, best_botan[0].contents, temp_botan1.Length, best_botan[0].contents.Length);
                         temp_score2 = OSA(temp_botan2, best_botan[0].contents, temp_botan2.Length, best_botan[0].contents.Length);
 
@@ -387,7 +392,7 @@ namespace Florae_Basket
             //Makes sure a notes entry is present
             if (note != null && note != "")
             {
-                Fetch_notes(ref possible_names);
+                Fetch_notes(note, ref possible_names);
                 double temp_score;
                 //iterates through all notes pull from database
                 for (int i = 0; i < possible_names.Count; i++)
@@ -428,10 +433,10 @@ namespace Florae_Basket
             //Makes sure name has a value
             if (name != null && name != "")
             {
-                Fetch_names(name, ref possible_names);
+                Fetch_names("English", ref possible_names);
 
                 //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
-                Test_PN_populate("rose", "violet", "buttercup", "common lilac", 1, 5, 3, 8);
+                //Test_PN_populate("rose", "violet", "buttercup", "common lilac", 1, 5, 3, 8);
 
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
@@ -480,9 +485,9 @@ namespace Florae_Basket
             possible_names.Clear();
             if (latin != null && latin != "")
             {
-                Fetch_names(latin, ref possible_names);
+                Fetch_names("Latin", ref possible_names);
                 //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
-                Test_PN_populate("syringa vulgaris", "begonia coccinea", "helianthus annuus", "amorphophallus titanum", 8, 13, 2, 7);
+                //Test_PN_populate("syringa vulgaris", "begonia coccinea", "helianthus annuus", "amorphophallus titanum", 8, 13, 2, 7);
 
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
@@ -531,10 +536,10 @@ namespace Florae_Basket
             possible_names.Clear();
             if (botan != null && botan != "")
             {
-                Fetch_names(botan, ref possible_names);
+                Fetch_names("Botanical", ref possible_names);
 
                 //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
-                Test_PN_populate("asteraceae", "amaryllidaceae", "amaryllidaceae", "oleaceae", 2, 20, 2, 8);
+                //Test_PN_populate("asteraceae", "amaryllidaceae", "amaryllidaceae", "oleaceae", 2, 20, 2, 8);
 
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)

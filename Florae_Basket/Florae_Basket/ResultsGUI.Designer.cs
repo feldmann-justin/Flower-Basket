@@ -136,12 +136,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Result1btn;
-        private System.Windows.Forms.Button Result2btn;
-        private System.Windows.Forms.Button Result3btn;
         private System.Windows.Forms.TextBox Result1box;
         private System.Windows.Forms.TextBox Result2box;
         private System.Windows.Forms.TextBox Result3box;
         private System.Windows.Forms.Button Mainbtn;
+        public System.Windows.Forms.Button Result1btn;
+        public System.Windows.Forms.Button Result2btn;
+        public System.Windows.Forms.Button Result3btn;
     }
 }
