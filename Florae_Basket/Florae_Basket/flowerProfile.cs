@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Florae_Basket
 {
@@ -96,12 +97,12 @@ namespace Florae_Basket
             {
                 //primaryKey = Flower.getIndex();
                 // remove the flower
-                bool done = deleteFlowerCtlr.removeFlower(primaryKey - 1);
+                bool done = deleteFlowerCtlr.removeFlower(primaryKey);
 
                 // return the user to the main menu
                 if (done == true)
                 {
-                    new MainMenu().Show();
+                    //new MainMenu().Show();
                     this.Hide();
                 }
             }

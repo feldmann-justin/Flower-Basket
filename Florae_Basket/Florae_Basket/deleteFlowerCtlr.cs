@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,10 +23,20 @@ namespace Florae_Basket
         {
             // database connection variables and info
 
-
+            Database_Manager db = new Database_Manager();
 
             // try to open the database and delete
             try
+            {
+                db.DeleteFlower(id);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+            /*try
             {
                 // database connection info
                 testDB TDB = new testDB();
@@ -40,7 +51,7 @@ namespace Florae_Basket
                 // error in deletion message
                 MessageBox.Show("\nMessage ---\n{0}", ex.Message);
                 return false;
-            }
+            }*/
         }
     }
 }

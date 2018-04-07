@@ -3,60 +3,92 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
-/* 
- Dipak Subramaniam     Team: Dirk    CP02
-     */
 
 namespace Florae_Basket
 {
-    class Database_Manager
+    public class Database_Manager
     {
-        /* 
-        public Database_Manager(Bitmap img) {
-            Bitmap dbImg = new Bitmap(imageFilePaths[d]); //iterating through array of database image filepaths
-            dbArray = new Color[dbImg.Width, dbImg.Height]; //Image Pixel Array
-            dbRedPixels = new int[dbImg.Width, dbImg.Height]; //RGB Arrays
-            dbGreenPixels = new int[dbImg.Width, dbImg.Height]; //RGB Arrays
-            dbBluePixels = new int[dbImg.Width, dbImg.Height]; //RGB Arrays
-            //loading 2D array with pixels of the database image
-            for (int i = 0; i < dbImg.Width; i++)
-            {
-                for (int j = 0; j < dbImg.Height; j++)
-                {
-                    Color dbPixel = dbImg.GetPixel(i, j);
-                    dbPixel = dbArray[i, j];
-                    //loading RGB arrays with RGB values of the pixels
-                    dbRedPixels[i, j] = dbPixel.R;
-                    dbGreenPixels[i, j] = dbPixel.G;
-                    dbBluePixels[i, j] = dbPixel.B;
+        //This is the connection object
+        public SqlConnection conn = new SqlConnection();
+        public Database_Manager()
+        {
+            //connection string DO NOT CHANGE/REMOVE!!!
+            conn.ConnectionString = @"Data Source =(localDB)\MSSQLLocalDB;" +
+                @"AttachDbFilename = |DataDirectory|\Flowers.mdf;" +
+                "Integrated Security = True;" +
+                "Connect Timeout = 30";
+            
+        }
 
-                    //Pixel Range RGB subdivisions
+        //Inserts flower into database
+        public void InsertFlower(string name, string latin, string botan, string note, string images)
+        {
+            conn.Open();
+            int flowerid = -1;
+            string query = "INSERT INTO Flower (English, Latin, Botanical) VALUES ('"
+                + name + "', '" + latin + "', '" + botan + "')";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            query = "Select id FROM Flower WHERE English = '" + name + "'";
+            comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            flowerid = read.GetInt32(0);
+            read.Close();
+            query = "INSERT INTO Images (Filepath, Histogram, FlowerID) VALUES ('"
+                + images + "', " + "1, '" + flowerid + "')";
+            comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+        }
+        public void DeleteFlower(int id)
+        {
+            conn.Open();
+            string query = "DELETE FROM Note WHERE FlowerID = " + id;
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+        }
 
-                    //0-63
-                    if (dbRedPixels[i, j] >= 0 && dbRedPixels[i, j] <= 63) { dbZeroToSixyThreeRed++; }
-                    if (dbBluePixels[i, j] >= 0 && dbBluePixels[i, j] <= 63) { dbZeroToSixyThreeBlue++; }
-                    if (dbGreenPixels[i, j] >= 0 && dbGreenPixels[i, j] <= 63) { dbZeroToSixyThreeGreen++; }
+        public string FetchEnglish(int id)
+        {
+            conn.Open();
+            string temp;
+            string query = "SELECT English FROM Flower WHERE id = " + id;
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            temp = read.GetString(0);
+            conn.Close();
+            return temp;
+        }
 
-                    //64-127
-                    if (dbRedPixels[i, j] >= 64 && dbRedPixels[i, j] <= 127) { dbSixtyFourToOneTwentySevenRed++; }
-                    if (dbBluePixels[i, j] >= 64 && dbBluePixels[i, j] <= 127) { dbSixtyFourToOneTwentySevenBlue++; }
-                    if (dbGreenPixels[i, j] >= 64 && dbGreenPixels[i, j] <= 127) { dbSixtyFourToOneTwentySevenGreen++; }
+        public string FetchLatin(int id)
+        {
+            conn.Open();
+            string temp;
+            string query = "SELECT Latin FROM Flower WHERE id = " + id;
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            temp = read.GetString(0);
+            conn.Close();
+            return temp;
+        }
 
-                    //128-191
-                    if (dbRedPixels[i, j] >= 128 && dbRedPixels[i, j] <= 191) { dbOneTwentyEightToOneNinetyOneRed++; }
-                    if (dbBluePixels[i, j] >= 128 && dbBluePixels[i, j] <= 191) { dbOneTwentyEightToOneNinetyOneBlue++; }
-                    if (dbGreenPixels[i, j] >= 128 && dbGreenPixels[i, j] <= 191) { dbOneTwentyEightToOneNinetyOneGreen++; }
-
-                    //192-255
-                    if (dbRedPixels[i, j] >= 192 && dbRedPixels[i, j] <= 255) { dbOneNinetyTwoToTwoFiftyFiveRed++; }
-                    if (dbBluePixels[i, j] >= 192 && dbBluePixels[i, j] <= 255) { dbOneNinetyTwoToTwoFiftyFiveBlue++; }
-                    if (dbGreenPixels[i, j] >= 192 && dbGreenPixels[i, j] <= 255) { dbOneNinetyTwoToTwoFiftyFiveGreen++; }
-                }
-            }
-
-            //Pass Value Bins Back To Controller
-        } 
-        */
+        public string FetchBotan(int id)
+        {
+            conn.Open();
+            string temp;
+            string query = "SELECT Botanical FROM Flower WHERE id = " + id;
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            temp = read.GetString(0);
+            conn.Close();
+            return temp;
+        }
     }
 }
