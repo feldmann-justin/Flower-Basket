@@ -182,7 +182,7 @@ namespace Florae_Basket
 		public void changeFlowerAttribute(string latinChange, string englishChange, string botanChange, int primaryKey)
 		{
 			conn.Open();
-			string query = "UPDATE Flower SET Latin = '" + latinChange + "' English = '" + englishChange + "' Botanical = '" + botanChange + "' WHERE Id = '" + primaryKey;
+			string query = "UPDATE Flower SET Latin = '" + latinChange + "', English = '" + englishChange + "', Botanical = '" + botanChange + "' WHERE Id = " + primaryKey;
 			SqlCommand comm = new SqlCommand(query, conn);
 			comm.ExecuteNonQuery();
 			conn.Close();
