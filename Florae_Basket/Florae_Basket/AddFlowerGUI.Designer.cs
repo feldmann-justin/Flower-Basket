@@ -128,7 +128,9 @@
             this.Controls.Add(this.latinNameEntryBox);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddFlowerGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Flower";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddFlowerGUI_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.add_leave_click);
             this.ResumeLayout(false);
             this.PerformLayout();

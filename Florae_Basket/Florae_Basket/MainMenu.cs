@@ -69,5 +69,21 @@ namespace Florae_Basket
         {
             Application.Exit();
         }
+
+        private void userOptions_click(object sender, EventArgs e)
+        {
+            new UserOptions().Show();
+            this.Hide();
+        }
+
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void exit_click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

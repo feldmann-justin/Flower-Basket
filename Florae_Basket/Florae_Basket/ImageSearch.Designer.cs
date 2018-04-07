@@ -136,7 +136,9 @@
             this.Controls.Add(this.imgSelectLabel);
             this.Controls.Add(this.searchButton);
             this.Name = "ImageSearch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image Search";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImageSearch_FormClosing);
             this.Load += new System.EventHandler(this.ImageSearch_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

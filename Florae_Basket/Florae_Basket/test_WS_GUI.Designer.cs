@@ -180,6 +180,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Test_WS_GUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "test_WS_GUI";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WSGUI_leave_click);
             this.Load += new System.EventHandler(this.Test_WS_GUI_Load);

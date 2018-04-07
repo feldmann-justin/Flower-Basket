@@ -186,6 +186,7 @@
             this.Controls.Add(this.deleteFlowerButton);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "flowerProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.profile_leave_click);
             this.Load += new System.EventHandler(this.flowerProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.flowerImage)).EndInit();
