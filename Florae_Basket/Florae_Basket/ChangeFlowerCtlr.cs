@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 /* Name: Justin Feldmann
  * Class: CS 325-002
@@ -39,12 +40,6 @@ namespace Florae_Basket
 
 			// need to be able to get the flower entry from the database
 			// which matches the id of 'customFlower'
-
-			// if a flower entry with the same attributes already exists in the database
-			/* if ((customFlower.getLatinName() == flowerFromDB.getLatinName()) || (customFlower.getEnglishName() == flowerFromDB.getEnglishName()))
-			*		msgToDisplay = "Changes unable to be saved: Entry already exists in database.";
-			*
-			*/
 
 			// if any of the three required flower attributes are missing (should make else if)
 			if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))

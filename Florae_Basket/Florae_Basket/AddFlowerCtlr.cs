@@ -29,24 +29,26 @@ namespace Florae_Basket
 		 * Flower object with the same attributes. */
 		public static string verifyFlower(Flower customFlower)
 		{
-
+			
 			string msgToDisplay;
+			Database_Manager DBMngr = new Database_Manager();
 
 			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
-			Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");
+			//Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");
 			//dummyFlower.setFlowerID(customFlower.getFlowerID() + 1);
 
-			// if just one of the attributes for the two flowers are the same,
-			// then the flower we want to add cannot be added until the user changes one of the attributes' values
-			if ((customFlower.getLatinName() == dummyFlower.getLatinName()) || (customFlower.getEnglishName() == dummyFlower.getEnglishName()) || (customFlower.getFlowerID() == dummyFlower.getFlowerID()))
-				msgToDisplay = "Flower unable to be added: Entry already exists in database.";
 			// if at least one of the three required attributes for a flower, the Latin name, English name, and botanical family is missing
-			else if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
+			if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
 				msgToDisplay = "Flower unable to be added: One of the three minimum attributes is missing.";
+			// else, the flower can be added to the database
 			else
-				// else, the flower can be added to the database
+			{
+
+				DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), "", "");
 				msgToDisplay = "Flower successfully added!";
-			// will physically add the flower entry to the DB here
+
+			}
+
 
 			return msgToDisplay;
 		}
