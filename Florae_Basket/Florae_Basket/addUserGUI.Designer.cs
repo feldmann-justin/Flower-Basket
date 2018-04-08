@@ -48,17 +48,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(213, 161);
+            this.label1.Location = new System.Drawing.Point(284, 198);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.Size = new System.Drawing.Size(162, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "------------ OR -------------";
             // 
             // addUserSubmit_button
             // 
-            this.addUserSubmit_button.Location = new System.Drawing.Point(209, 459);
+            this.addUserSubmit_button.Location = new System.Drawing.Point(279, 565);
+            this.addUserSubmit_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addUserSubmit_button.Name = "addUserSubmit_button";
-            this.addUserSubmit_button.Size = new System.Drawing.Size(108, 32);
+            this.addUserSubmit_button.Size = new System.Drawing.Size(144, 39);
             this.addUserSubmit_button.TabIndex = 2;
             this.addUserSubmit_button.Text = "Submit";
             this.addUserSubmit_button.UseVisualStyleBackColor = true;
@@ -66,39 +68,44 @@
             // 
             // file_textBox
             // 
-            this.file_textBox.Location = new System.Drawing.Point(174, 51);
+            this.file_textBox.Location = new System.Drawing.Point(232, 63);
+            this.file_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.file_textBox.Name = "file_textBox";
             this.file_textBox.ReadOnly = true;
-            this.file_textBox.Size = new System.Drawing.Size(312, 20);
+            this.file_textBox.Size = new System.Drawing.Size(415, 22);
             this.file_textBox.TabIndex = 3;
             this.file_textBox.TextChanged += new System.EventHandler(this.file_textBox_TextChanged);
             // 
             // password_textBox
             // 
-            this.password_textBox.Location = new System.Drawing.Point(175, 327);
+            this.password_textBox.Location = new System.Drawing.Point(233, 402);
+            this.password_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.password_textBox.Name = "password_textBox";
-            this.password_textBox.Size = new System.Drawing.Size(312, 20);
+            this.password_textBox.Size = new System.Drawing.Size(415, 22);
             this.password_textBox.TabIndex = 4;
             // 
             // username_textBox
             // 
-            this.username_textBox.Location = new System.Drawing.Point(175, 289);
+            this.username_textBox.Location = new System.Drawing.Point(233, 356);
+            this.username_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.username_textBox.Name = "username_textBox";
-            this.username_textBox.Size = new System.Drawing.Size(312, 20);
+            this.username_textBox.Size = new System.Drawing.Size(415, 22);
             this.username_textBox.TabIndex = 5;
             // 
             // last_textBox
             // 
-            this.last_textBox.Location = new System.Drawing.Point(175, 251);
+            this.last_textBox.Location = new System.Drawing.Point(233, 309);
+            this.last_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.last_textBox.Name = "last_textBox";
-            this.last_textBox.Size = new System.Drawing.Size(312, 20);
+            this.last_textBox.Size = new System.Drawing.Size(415, 22);
             this.last_textBox.TabIndex = 6;
             // 
             // first_textBox
             // 
-            this.first_textBox.Location = new System.Drawing.Point(175, 212);
+            this.first_textBox.Location = new System.Drawing.Point(233, 261);
+            this.first_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.first_textBox.Name = "first_textBox";
-            this.first_textBox.Size = new System.Drawing.Size(312, 20);
+            this.first_textBox.Size = new System.Drawing.Size(415, 22);
             this.first_textBox.TabIndex = 7;
             // 
             // accType_textBox
@@ -109,70 +116,78 @@
             "Administrator",
             "Researcher",
             "Student"});
-            this.accType_textBox.Location = new System.Drawing.Point(175, 371);
+            this.accType_textBox.Location = new System.Drawing.Point(233, 457);
+            this.accType_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.accType_textBox.Name = "accType_textBox";
-            this.accType_textBox.Size = new System.Drawing.Size(311, 21);
+            this.accType_textBox.Size = new System.Drawing.Size(413, 24);
             this.accType_textBox.TabIndex = 8;
             // 
             // file_label
             // 
             this.file_label.AutoSize = true;
-            this.file_label.Location = new System.Drawing.Point(99, 54);
+            this.file_label.Location = new System.Drawing.Point(132, 66);
+            this.file_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.file_label.Name = "file_label";
-            this.file_label.Size = new System.Drawing.Size(46, 13);
+            this.file_label.Size = new System.Drawing.Size(59, 17);
             this.file_label.TabIndex = 9;
             this.file_label.Text = ".csv file:";
             // 
             // first_label
             // 
             this.first_label.AutoSize = true;
-            this.first_label.Location = new System.Drawing.Point(89, 215);
+            this.first_label.Location = new System.Drawing.Point(119, 265);
+            this.first_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.first_label.Name = "first_label";
-            this.first_label.Size = new System.Drawing.Size(60, 13);
+            this.first_label.Size = new System.Drawing.Size(80, 17);
             this.first_label.TabIndex = 10;
             this.first_label.Text = "First Name:";
             // 
             // last_label
             // 
             this.last_label.AutoSize = true;
-            this.last_label.Location = new System.Drawing.Point(89, 254);
+            this.last_label.Location = new System.Drawing.Point(119, 313);
+            this.last_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.last_label.Name = "last_label";
-            this.last_label.Size = new System.Drawing.Size(61, 13);
+            this.last_label.Size = new System.Drawing.Size(80, 17);
             this.last_label.TabIndex = 11;
             this.last_label.Text = "Last Name:";
             // 
             // username_label
             // 
             this.username_label.AutoSize = true;
-            this.username_label.Location = new System.Drawing.Point(89, 292);
+            this.username_label.Location = new System.Drawing.Point(119, 359);
+            this.username_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.username_label.Name = "username_label";
-            this.username_label.Size = new System.Drawing.Size(58, 13);
+            this.username_label.Size = new System.Drawing.Size(77, 17);
             this.username_label.TabIndex = 12;
             this.username_label.Text = "Username:";
             // 
             // password_label
             // 
             this.password_label.AutoSize = true;
-            this.password_label.Location = new System.Drawing.Point(89, 330);
+            this.password_label.Location = new System.Drawing.Point(119, 406);
+            this.password_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.password_label.Name = "password_label";
-            this.password_label.Size = new System.Drawing.Size(56, 13);
+            this.password_label.Size = new System.Drawing.Size(73, 17);
             this.password_label.TabIndex = 13;
             this.password_label.Text = "Password:";
             // 
             // accType_label
             // 
             this.accType_label.AutoSize = true;
-            this.accType_label.Location = new System.Drawing.Point(35, 374);
+            this.accType_label.Location = new System.Drawing.Point(47, 460);
+            this.accType_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.accType_label.Name = "accType_label";
-            this.accType_label.Size = new System.Drawing.Size(110, 13);
+            this.accType_label.Size = new System.Drawing.Size(142, 17);
             this.accType_label.TabIndex = 14;
             this.accType_label.Text = "Select Account Type:";
             // 
             // chooseFile_button
             // 
-            this.chooseFile_button.Location = new System.Drawing.Point(209, 103);
+            this.chooseFile_button.Location = new System.Drawing.Point(279, 127);
+            this.chooseFile_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chooseFile_button.Name = "chooseFile_button";
-            this.chooseFile_button.Size = new System.Drawing.Size(108, 32);
+            this.chooseFile_button.Size = new System.Drawing.Size(144, 39);
             this.chooseFile_button.TabIndex = 15;
             this.chooseFile_button.Text = "Choose File";
             this.chooseFile_button.UseVisualStyleBackColor = true;
@@ -180,9 +195,10 @@
             // 
             // addUserGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 522);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(703, 642);
             this.Controls.Add(this.chooseFile_button);
             this.Controls.Add(this.accType_label);
             this.Controls.Add(this.password_label);
@@ -198,6 +214,7 @@
             this.Controls.Add(this.file_textBox);
             this.Controls.Add(this.addUserSubmit_button);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "addUserGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add User";

@@ -127,6 +127,7 @@
             this.Controls.Add(this.Result1btn);
             this.Controls.Add(this.label1);
             this.Name = "ResultsGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ResultsGUI";
             this.ResumeLayout(false);
             this.PerformLayout();
