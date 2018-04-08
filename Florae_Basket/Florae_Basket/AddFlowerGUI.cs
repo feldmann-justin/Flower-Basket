@@ -56,13 +56,13 @@ namespace Florae_Basket
 
         private void add_leave_click(object sender, FormClosedEventArgs e)
         {
-            //new MainMenu().Show();
+            new MainMenu().Show();
             this.Hide();
         }
 
         private void AddFlowerGUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            new MainMenu().Show();
+            //new MainMenu().Show();
         }
 
         private void AddFlowerGUI_Load(object sender, EventArgs e)

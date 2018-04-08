@@ -90,7 +90,7 @@ namespace Florae_Basket
 
         private void Main_leave_click(object sender, FormClosedEventArgs e)
         {
-			this.Close();
+            Application.Exit();
         }
 
         private void userOptions_click(object sender, EventArgs e)
@@ -102,8 +102,7 @@ namespace Florae_Basket
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
 
-			if (closeMainMenuYesNo == false)
-				new MainMenu().Show();
+            //Application.Exit();
 
         }
 
