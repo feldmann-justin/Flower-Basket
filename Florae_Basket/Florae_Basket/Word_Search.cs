@@ -50,26 +50,6 @@ namespace Florae_Basket
             note = notes;
         }
 
-        //***THIS METHOD IS FOR TESTING PURPOSES ONLY, IT SHOULD NOT EXIST IN THE FINAL PRODUCT!***//
-        private void Test_PN_populate(string one, string two, string three, string four,
-                                      int id1, int id2, int id3, int id4)
-        {
-            Candidate temp = new Candidate();
-            temp.contents = one;
-            temp.id = id1;
-            possible_names.AddLast(temp);
-            temp.contents = two;
-            temp.id = id2;
-            possible_names.AddLast(temp);
-            temp.contents = three;
-            temp.id = id3;
-            possible_names.AddLast(temp);
-            temp.contents = four;
-            temp.id = id4;
-            possible_names.AddLast(temp);
-
-        }
-
         public string Get_name() => name;
 
         public string Get_latin() => latin;
@@ -101,35 +81,6 @@ namespace Florae_Basket
                     tempscore = tempscore / (list[i].contents.Length * 3);
                 }
                 list[i].score = tempscore;
-            }
-        }
-
-        //Longest Common SubString
-        //Calculates the match score for two strings.
-        //This score represents the number of characters each string has in common.
-        private int LCS(string entry, string cand, int x, int y)
-        {
-            //base case
-            if (x == 0 || y == 0)
-            {
-                if (x == 0 && y == 0 && entry[x] == cand[y])
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            //when a letter matches add one to score
-            else if (entry[x] == cand[y])
-            {
-                return Math.Max(1 + LCS(entry, cand, x - 1, y - 1), Math.Max(LCS(entry, cand, x - 1, y), LCS(entry, cand, x, y - 1)));
-            }
-            //when letter does not match evaluate 
-            else
-            {
-                return Math.Max(LCS(entry, cand, x - 1, y), LCS(entry, cand, x, y - 1));
             }
         }
 
@@ -434,22 +385,15 @@ namespace Florae_Basket
             if (name != null && name != "")
             {
                 Fetch_names("English", ref possible_names);
-
-                //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
-                //Test_PN_populate("rose", "violet", "buttercup", "common lilac", 1, 5, 3, 8);
-
+                
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
                     //runs OSA on current candidate
-                    temp.score = (double)OSA(name, temp.contents, name.Length, temp.contents.Length);// / (double) (temp.contents.Length * 2);
-                    //if (temp.score < 0)
-                    //{
-                    //    temp.score = 0;
-                    //}
-                    //Compares score with current best score
+                    temp.score = (double)OSA(name, temp.contents, name.Length, temp.contents.Length);
+                    
                     if (temp.score > best_names[0].score)
                     {
                         best_names[2] = best_names[1];
@@ -486,8 +430,6 @@ namespace Florae_Basket
             if (latin != null && latin != "")
             {
                 Fetch_names("Latin", ref possible_names);
-                //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
-                //Test_PN_populate("syringa vulgaris", "begonia coccinea", "helianthus annuus", "amorphophallus titanum", 8, 13, 2, 7);
 
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
@@ -495,11 +437,8 @@ namespace Florae_Basket
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
                     //runs OSA on current candidate
-                    temp.score = (double)OSA(latin, temp.contents, latin.Length, temp.contents.Length);// / (double) (temp.contents.Length * 2);
-                    //if (temp.score < 0)
-                    //{
-                    //    temp.score = 0;
-                    //}
+                    temp.score = (double)OSA(latin, temp.contents, latin.Length, temp.contents.Length);
+                    
                     //Compares score with current best score
                     if (temp.score > best_latin[0].score)
                     {
@@ -537,21 +476,14 @@ namespace Florae_Basket
             if (botan != null && botan != "")
             {
                 Fetch_names("Botanical", ref possible_names);
-
-                //***REMOVE Test_PN_populate() BEFORE RELEASE, FOR TESTING ONLY!***//
-                //Test_PN_populate("asteraceae", "amaryllidaceae", "amaryllidaceae", "oleaceae", 2, 20, 2, 8);
-
+                
                 //Loops through pulled list
                 for (int i = 0; i < possible_names.Count; i++)
                 {
                     //stores current candidate into for testing
                     temp = possible_names.ElementAt(i);
                     //runs OSA on current candidate
-                    temp.score = (double)OSA(botan, temp.contents, botan.Length, temp.contents.Length);// / (double) (temp.contents.Length * 2);
-                    //if (temp.score < 0)
-                    //{
-                    //    temp.score = 0;
-                    //}
+                    temp.score = (double)OSA(botan, temp.contents, botan.Length, temp.contents.Length);
                     //Compares score with current best score
                     if (temp.score > best_botan[0].score)
                     {

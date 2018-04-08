@@ -98,6 +98,9 @@ namespace Florae_Basket
                     // create a message of how many added and failed users from batch file
                 }
                 msg = createBatchMsg(addedCount, failedCount);
+                // empty the lists so the next batch file the admin uses doesnt have this files info in it
+                addedUserList.Clear();
+                failedUserList.Clear();
             }
 
             // used for text box entries 
