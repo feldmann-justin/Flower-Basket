@@ -146,6 +146,24 @@ namespace Florae_Basket
             conn.Close();
         }
 
+		public int FetchID(string knownLatinName)
+		{
+
+			conn.Open();
+			int tempInt;
+			string query = "SELECT Id FROM Flower WHERE Latin = " + knownLatinName;
+			SqlCommand cmd = new SqlCommand(query, conn);
+			SqlDataReader read = cmd.ExecuteReader();
+			read.Read();
+			tempInt = read.GetInt32(0);
+			read.Close();
+			conn.Close();
+
+			return tempInt;
+
+
+		}
+
         // checks if a username already exists in the database
         public bool checkUsername(string username)
         {

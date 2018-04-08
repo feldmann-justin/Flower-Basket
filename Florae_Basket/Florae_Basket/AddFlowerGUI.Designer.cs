@@ -28,113 +28,168 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.latinNameEntryBox = new System.Windows.Forms.TextBox();
-            this.englishNameEntryBox = new System.Windows.Forms.TextBox();
-            this.botanicalFamEntryBox = new System.Windows.Forms.TextBox();
-            this.englishNameLbl = new System.Windows.Forms.Label();
-            this.latinNameLbl = new System.Windows.Forms.Label();
-            this.botanicalFamLbl = new System.Windows.Forms.Label();
-            this.addFlowerToDBBtn = new System.Windows.Forms.Button();
-            this.AddToMainButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // latinNameEntryBox
-            // 
-            this.latinNameEntryBox.Location = new System.Drawing.Point(156, 141);
-            this.latinNameEntryBox.Margin = new System.Windows.Forms.Padding(2);
-            this.latinNameEntryBox.Name = "latinNameEntryBox";
-            this.latinNameEntryBox.Size = new System.Drawing.Size(216, 20);
-            this.latinNameEntryBox.TabIndex = 1;
-            // 
-            // englishNameEntryBox
-            // 
-            this.englishNameEntryBox.Location = new System.Drawing.Point(156, 82);
-            this.englishNameEntryBox.Margin = new System.Windows.Forms.Padding(2);
-            this.englishNameEntryBox.Name = "englishNameEntryBox";
-            this.englishNameEntryBox.Size = new System.Drawing.Size(216, 20);
-            this.englishNameEntryBox.TabIndex = 0;
-            // 
-            // botanicalFamEntryBox
-            // 
-            this.botanicalFamEntryBox.Location = new System.Drawing.Point(156, 198);
-            this.botanicalFamEntryBox.Margin = new System.Windows.Forms.Padding(2);
-            this.botanicalFamEntryBox.Name = "botanicalFamEntryBox";
-            this.botanicalFamEntryBox.Size = new System.Drawing.Size(216, 20);
-            this.botanicalFamEntryBox.TabIndex = 2;
-            // 
-            // englishNameLbl
-            // 
-            this.englishNameLbl.AutoSize = true;
-            this.englishNameLbl.Location = new System.Drawing.Point(44, 82);
-            this.englishNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.englishNameLbl.Name = "englishNameLbl";
-            this.englishNameLbl.Size = new System.Drawing.Size(75, 13);
-            this.englishNameLbl.TabIndex = 3;
-            this.englishNameLbl.Text = "English Name:";
-            // 
-            // latinNameLbl
-            // 
-            this.latinNameLbl.AutoSize = true;
-            this.latinNameLbl.Location = new System.Drawing.Point(44, 141);
-            this.latinNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.latinNameLbl.Name = "latinNameLbl";
-            this.latinNameLbl.Size = new System.Drawing.Size(64, 13);
-            this.latinNameLbl.TabIndex = 4;
-            this.latinNameLbl.Text = "Latin Name:";
-            // 
-            // botanicalFamLbl
-            // 
-            this.botanicalFamLbl.AutoSize = true;
-            this.botanicalFamLbl.Location = new System.Drawing.Point(44, 201);
-            this.botanicalFamLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.botanicalFamLbl.Name = "botanicalFamLbl";
-            this.botanicalFamLbl.Size = new System.Drawing.Size(86, 13);
-            this.botanicalFamLbl.TabIndex = 5;
-            this.botanicalFamLbl.Text = "Botanical Family:";
-            // 
-            // addFlowerToDBBtn
-            // 
-            this.addFlowerToDBBtn.Location = new System.Drawing.Point(156, 333);
-            this.addFlowerToDBBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.addFlowerToDBBtn.Name = "addFlowerToDBBtn";
-            this.addFlowerToDBBtn.Size = new System.Drawing.Size(75, 28);
-            this.addFlowerToDBBtn.TabIndex = 3;
-            this.addFlowerToDBBtn.Text = "Add it!";
-            this.addFlowerToDBBtn.UseVisualStyleBackColor = true;
-            this.addFlowerToDBBtn.Click += new System.EventHandler(this.addFlowerToDBBtn_Click);
-            // 
-            // AddToMainButton
-            // 
-            this.AddToMainButton.Location = new System.Drawing.Point(120, 411);
-            this.AddToMainButton.Name = "AddToMainButton";
-            this.AddToMainButton.Size = new System.Drawing.Size(149, 23);
-            this.AddToMainButton.TabIndex = 6;
-            this.AddToMainButton.Text = "Return to Main Menu";
-            this.AddToMainButton.UseVisualStyleBackColor = true;
-            this.AddToMainButton.Click += new System.EventHandler(this.AddToMain_click);
-            // 
-            // AddFlowerGUI
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 455);
-            this.Controls.Add(this.AddToMainButton);
-            this.Controls.Add(this.addFlowerToDBBtn);
-            this.Controls.Add(this.botanicalFamLbl);
-            this.Controls.Add(this.latinNameLbl);
-            this.Controls.Add(this.englishNameLbl);
-            this.Controls.Add(this.botanicalFamEntryBox);
-            this.Controls.Add(this.englishNameEntryBox);
-            this.Controls.Add(this.latinNameEntryBox);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "AddFlowerGUI";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Flower";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddFlowerGUI_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.add_leave_click);
-            this.Load += new System.EventHandler(this.AddFlowerGUI_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.latinNameEntryBox = new System.Windows.Forms.TextBox();
+			this.englishNameEntryBox = new System.Windows.Forms.TextBox();
+			this.botanicalFamEntryBox = new System.Windows.Forms.TextBox();
+			this.englishNameLbl = new System.Windows.Forms.Label();
+			this.latinNameLbl = new System.Windows.Forms.Label();
+			this.botanicalFamLbl = new System.Windows.Forms.Label();
+			this.addFlowerToDBBtn = new System.Windows.Forms.Button();
+			this.AddToMainButton = new System.Windows.Forms.Button();
+			this.notesLbl = new System.Windows.Forms.Label();
+			this.imgPathLbl = new System.Windows.Forms.Label();
+			this.noteEntryBox = new System.Windows.Forms.RichTextBox();
+			this.uploadImgBtn = new System.Windows.Forms.Button();
+			this.imgPathView = new System.Windows.Forms.Label();
+			this.SuspendLayout();
+			// 
+			// latinNameEntryBox
+			// 
+			this.latinNameEntryBox.Location = new System.Drawing.Point(208, 119);
+			this.latinNameEntryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.latinNameEntryBox.Name = "latinNameEntryBox";
+			this.latinNameEntryBox.Size = new System.Drawing.Size(287, 22);
+			this.latinNameEntryBox.TabIndex = 1;
+			// 
+			// englishNameEntryBox
+			// 
+			this.englishNameEntryBox.Location = new System.Drawing.Point(208, 65);
+			this.englishNameEntryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.englishNameEntryBox.Name = "englishNameEntryBox";
+			this.englishNameEntryBox.Size = new System.Drawing.Size(287, 22);
+			this.englishNameEntryBox.TabIndex = 0;
+			// 
+			// botanicalFamEntryBox
+			// 
+			this.botanicalFamEntryBox.Location = new System.Drawing.Point(208, 171);
+			this.botanicalFamEntryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.botanicalFamEntryBox.Name = "botanicalFamEntryBox";
+			this.botanicalFamEntryBox.Size = new System.Drawing.Size(287, 22);
+			this.botanicalFamEntryBox.TabIndex = 2;
+			// 
+			// englishNameLbl
+			// 
+			this.englishNameLbl.AutoSize = true;
+			this.englishNameLbl.Location = new System.Drawing.Point(59, 65);
+			this.englishNameLbl.Name = "englishNameLbl";
+			this.englishNameLbl.Size = new System.Drawing.Size(99, 17);
+			this.englishNameLbl.TabIndex = 3;
+			this.englishNameLbl.Text = "English Name:";
+			// 
+			// latinNameLbl
+			// 
+			this.latinNameLbl.AutoSize = true;
+			this.latinNameLbl.Location = new System.Drawing.Point(59, 119);
+			this.latinNameLbl.Name = "latinNameLbl";
+			this.latinNameLbl.Size = new System.Drawing.Size(84, 17);
+			this.latinNameLbl.TabIndex = 4;
+			this.latinNameLbl.Text = "Latin Name:";
+			// 
+			// botanicalFamLbl
+			// 
+			this.botanicalFamLbl.AutoSize = true;
+			this.botanicalFamLbl.Location = new System.Drawing.Point(59, 171);
+			this.botanicalFamLbl.Name = "botanicalFamLbl";
+			this.botanicalFamLbl.Size = new System.Drawing.Size(114, 17);
+			this.botanicalFamLbl.TabIndex = 5;
+			this.botanicalFamLbl.Text = "Botanical Family:";
+			// 
+			// addFlowerToDBBtn
+			// 
+			this.addFlowerToDBBtn.Location = new System.Drawing.Point(208, 434);
+			this.addFlowerToDBBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.addFlowerToDBBtn.Name = "addFlowerToDBBtn";
+			this.addFlowerToDBBtn.Size = new System.Drawing.Size(100, 34);
+			this.addFlowerToDBBtn.TabIndex = 3;
+			this.addFlowerToDBBtn.Text = "Add it!";
+			this.addFlowerToDBBtn.UseVisualStyleBackColor = true;
+			this.addFlowerToDBBtn.Click += new System.EventHandler(this.addFlowerToDBBtn_Click);
+			// 
+			// AddToMainButton
+			// 
+			this.AddToMainButton.Location = new System.Drawing.Point(160, 506);
+			this.AddToMainButton.Margin = new System.Windows.Forms.Padding(4);
+			this.AddToMainButton.Name = "AddToMainButton";
+			this.AddToMainButton.Size = new System.Drawing.Size(199, 28);
+			this.AddToMainButton.TabIndex = 6;
+			this.AddToMainButton.Text = "Return to Main Menu";
+			this.AddToMainButton.UseVisualStyleBackColor = true;
+			this.AddToMainButton.Click += new System.EventHandler(this.AddToMain_click);
+			// 
+			// notesLbl
+			// 
+			this.notesLbl.AutoSize = true;
+			this.notesLbl.Location = new System.Drawing.Point(59, 298);
+			this.notesLbl.Name = "notesLbl";
+			this.notesLbl.Size = new System.Drawing.Size(49, 17);
+			this.notesLbl.TabIndex = 7;
+			this.notesLbl.Text = "Notes:";
+			// 
+			// imgPathLbl
+			// 
+			this.imgPathLbl.AutoSize = true;
+			this.imgPathLbl.Location = new System.Drawing.Point(59, 359);
+			this.imgPathLbl.Name = "imgPathLbl";
+			this.imgPathLbl.Size = new System.Drawing.Size(83, 17);
+			this.imgPathLbl.TabIndex = 8;
+			this.imgPathLbl.Text = "Image Path:";
+			// 
+			// noteEntryBox
+			// 
+			this.noteEntryBox.Location = new System.Drawing.Point(208, 219);
+			this.noteEntryBox.Name = "noteEntryBox";
+			this.noteEntryBox.Size = new System.Drawing.Size(287, 96);
+			this.noteEntryBox.TabIndex = 10;
+			this.noteEntryBox.Text = "";
+			// 
+			// uploadImgBtn
+			// 
+			this.uploadImgBtn.Location = new System.Drawing.Point(62, 389);
+			this.uploadImgBtn.Name = "uploadImgBtn";
+			this.uploadImgBtn.Size = new System.Drawing.Size(75, 23);
+			this.uploadImgBtn.TabIndex = 11;
+			this.uploadImgBtn.Text = "Browse...";
+			this.uploadImgBtn.UseVisualStyleBackColor = true;
+			this.uploadImgBtn.Click += new System.EventHandler(this.uploadImgBtn_Click);
+			// 
+			// imgPathView
+			// 
+			this.imgPathView.AutoSize = true;
+			this.imgPathView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.imgPathView.Location = new System.Drawing.Point(205, 359);
+			this.imgPathView.MinimumSize = new System.Drawing.Size(150, 20);
+			this.imgPathView.Name = "imgPathView";
+			this.imgPathView.Size = new System.Drawing.Size(150, 20);
+			this.imgPathView.TabIndex = 12;
+			this.imgPathView.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// AddFlowerGUI
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(524, 560);
+			this.Controls.Add(this.imgPathView);
+			this.Controls.Add(this.uploadImgBtn);
+			this.Controls.Add(this.noteEntryBox);
+			this.Controls.Add(this.imgPathLbl);
+			this.Controls.Add(this.notesLbl);
+			this.Controls.Add(this.AddToMainButton);
+			this.Controls.Add(this.addFlowerToDBBtn);
+			this.Controls.Add(this.botanicalFamLbl);
+			this.Controls.Add(this.latinNameLbl);
+			this.Controls.Add(this.englishNameLbl);
+			this.Controls.Add(this.botanicalFamEntryBox);
+			this.Controls.Add(this.englishNameEntryBox);
+			this.Controls.Add(this.latinNameEntryBox);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.Name = "AddFlowerGUI";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Add Flower";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddFlowerGUI_FormClosing);
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.add_leave_click);
+			this.Load += new System.EventHandler(this.AddFlowerGUI_Load);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -148,6 +203,11 @@
 		private System.Windows.Forms.Label botanicalFamLbl;
 		private System.Windows.Forms.Button addFlowerToDBBtn;
         private System.Windows.Forms.Button AddToMainButton;
-    }
+		private System.Windows.Forms.Label notesLbl;
+		private System.Windows.Forms.Label imgPathLbl;
+		private System.Windows.Forms.RichTextBox noteEntryBox;
+		private System.Windows.Forms.Button uploadImgBtn;
+		private System.Windows.Forms.Label imgPathView;
+	}
 }
 

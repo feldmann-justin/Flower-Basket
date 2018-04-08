@@ -44,7 +44,7 @@ namespace Florae_Basket
 			else
 			{
 
-				DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), "", "");
+				DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), customFlower.getNote(), customFlower.getImgPath());
 				msgToDisplay = "Flower successfully added!";
 
 			}

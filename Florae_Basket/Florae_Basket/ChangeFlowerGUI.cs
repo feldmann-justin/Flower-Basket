@@ -12,6 +12,11 @@ namespace Florae_Basket
 {
 	public partial class ChangeFlowerGUI : Form
 	{
+
+		ChangeFlowerCtlr changeFlowerCtlrReference;
+
+		Flower flowerToVerify;
+
 		public ChangeFlowerGUI()
 		{
 			InitializeComponent();
@@ -26,7 +31,11 @@ namespace Florae_Basket
 
 			string changedBotanicalFam = botanicalFamEntryBox.Text;
 
-			Flower flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam);
+			string enteredNote = noteEntryBox.Text;
+
+			string enteredImgPath = imgPathView.Text;
+
+			flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam, enteredNote, enteredImgPath);
 
 			// begin the checking of the database for an existing entry with these parameters
 			string msgToDisplay = ChangeFlowerCtlr.verifyFlower(flowerToVerify);
@@ -37,9 +46,20 @@ namespace Florae_Basket
 
 		private void ChangeToFlowerProfileBtn_Click(object sender, EventArgs e)
 		{
-
-			new flowerProfile().Show();
+			Database_Manager DBMngrInstance = new Database_Manager(); 
+			new flowerProfile(flowerToVerify.getEnglishName(), flowerToVerify.getLatinName(), flowerToVerify.getBotanicalFam(), flowerToVerify.getNote(), flowerToVerify.getImgPath(), DBMngrInstance.FetchID(flowerToVerify.getLatinName())).Show();
 			this.Hide();
+
+		}
+
+		private void uploadImgBtn_Click(object sender, EventArgs e)
+		{
+
+			OpenFileDialog selectImgPath = new OpenFileDialog();
+			selectImgPath.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
+
+			if (selectImgPath.ShowDialog() == DialogResult.OK)
+				imgPathView.Text = selectImgPath.FileName;
 
 		}
 	}
