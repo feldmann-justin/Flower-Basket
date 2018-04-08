@@ -27,7 +27,7 @@ namespace Florae_Basket
 			closeMainMenuYesNo = true;
 
 			// closes the Main Menu GUI
-			this.Close();
+			this.Hide();
 		}
 
 		private void searchFlowerMainMenuBtn_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace Florae_Basket
                 //This is to exit application if user X's out of resultGUI, couldn't get any other way to work for some reason.
                 if (resultgui.exit == true)
                 {
-                    Application.Exit();
+                    new MainMenu().Show();
                 }
             }
 		}
