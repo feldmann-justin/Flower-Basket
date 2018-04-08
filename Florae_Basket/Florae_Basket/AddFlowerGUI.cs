@@ -63,5 +63,10 @@ namespace Florae_Basket
         {
             new MainMenu().Show();
         }
+
+        private void AddFlowerGUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
