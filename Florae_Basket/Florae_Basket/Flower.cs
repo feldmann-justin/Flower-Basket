@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 /* Name: Justin Feldmann
  * Class: CS 325-002
@@ -17,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace Florae_Basket
 {
-	class Flower
+	public class Flower
 	{
 
 		// class attributes

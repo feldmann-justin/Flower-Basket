@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -66,11 +67,15 @@ namespace Florae_Basket
         // remove the flower from the database
         public static bool removeFlower(int id)
         {
+            // database connection variables and info
+
+            Database_Manager db = new Database_Manager();
+
             // try to open the database and delete
             try
             {
                 // connect to DBMngr and execute the delete flower function
-
+                db.DeleteFlower(id);
                 return true;
             }
             // if error is thrown, return false

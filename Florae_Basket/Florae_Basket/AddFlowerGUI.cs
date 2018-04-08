@@ -30,21 +30,16 @@ namespace Florae_Basket
 			// instantiate a Flower object from the user entries
 			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily);
 
-			AddFlowerCtlr myController = new AddFlowerCtlr();
-
 			// checks the database for existence of a Flower object with the same attributes
-			int verificationResult = myController.verifyFlower(flowerToAdd);
+			string displayedMsg = AddFlowerCtlr.verifyFlower(flowerToAdd);
 
-            if (verificationResult == 1)
-                MessageBox.Show("Flower unable to be added: Entry already exists in database. ");
-            else if (verificationResult == 2)
-                MessageBox.Show("Flower unable to be added: One of the three minimum attributes is missing.");
-            else
-            {
-                testDB TDB = new testDB();
-                TDB.addIt(enteredEnglishName, enteredLatinName, enteredBotanicalFamily);
-                MessageBox.Show("Flower successfuly added!");
-            }
+			MessageBox.Show(displayedMsg);
+                
+            // flower entry will NOT be added in the GUI; will be added in verifyFlower() using an instantiation of the DBMngr class
+
+                //testDB TDB = new testDB();
+                //TDB.addIt(enteredEnglishName, enteredLatinName, enteredBotanicalFamily);
+                //MessageBox.Show("Flower successfuly added!");
 		
 		}
 

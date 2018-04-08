@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Florae_Basket
 {
@@ -17,11 +18,22 @@ namespace Florae_Basket
         private string latinName;
         private string botanicalFamily;
         private string note = " ";
-        private string imageName = "flower.jpg";
+        private string imageName;
         private int primaryKey = 0;
         public flowerProfile()
         {
             InitializeComponent();
+        }
+
+        public flowerProfile(string name, string latin, string botan, string note, string image, int id)
+        {
+            InitializeComponent();
+            englishName = name;
+            latinName = latin;
+            botanicalFamily = botan;
+            this.note = note;
+            imageName = image;
+            primaryKey = id;
         }
 
         private void flowerProfile_Load(object sender, EventArgs e)
@@ -31,20 +43,20 @@ namespace Florae_Basket
             flowerImage.BackColor = Color.Black;
 
             // for testing purposes. It chooses a random flower in the testDB to display.
-            testDB TDB = new testDB();
-            int flowerAmount = TDB.getFlowerAmount();
-            if (flowerAmount == 0)
-            {
-                MessageBox.Show("No Flower to display.");
-                imageName = "";
-                englishName = "";
-                latinName = "";
-                note = "";
-                filePath = "";
-            }
-            else
-            {
-                Random rnd = new Random();
+            //testDB TDB = new testDB();
+            //int flowerAmount = TDB.getFlowerAmount();
+            //if (flowerAmount == 0)
+            //{
+            //    MessageBox.Show("No Flower to display.");
+            //    imageName[0] = "";
+            //    englishName = "";
+            //    latinName = "";
+            //    note = "";
+            //    filePath = "";
+            //}
+            //else
+            //{
+                /*Random rnd = new Random();
                 int choice = 0;
                 while (choice == 0)
                 {
@@ -65,7 +77,7 @@ namespace Florae_Basket
                 //note = n.getContent();
                 //imageName = p.getFilePath();
 
-                // add the flower image name to the file path
+                // add the flower image name to the file path*/
                 filePath += imageName;
 
                 // display all flower info
@@ -74,9 +86,8 @@ namespace Florae_Basket
                 botFamTextBox.AppendText(botanicalFamily);
                 notesTextBox.AppendText(note);
                 flowerImage.Image = Image.FromFile(filePath);
-            }
+           // }
         }
-
 
         //calls the delete flower class when clicked
         private void deleteFlower_click(object sender, EventArgs e)
@@ -103,12 +114,25 @@ namespace Florae_Basket
 
         private void profile_leave_click(object sender, FormClosedEventArgs e)
         {
-            new MainMenu().Show();
+            //Application.Exit();
         }
 
         private void flowerImage_Click(object sender, EventArgs e)
         {
 
         }
-    }
+
+		private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
+		{
+
+			// have to pass along the displayed flower's primary key when displaying the Change Flower GUI
+			// in order to change the attributes for the correct flower in the database
+			ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
+
+			ctlrToChangeFlower.displayChangeFlowerGUI();
+
+			this.Hide();
+
+		}
+	}
 }
