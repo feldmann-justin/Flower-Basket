@@ -17,6 +17,7 @@ namespace Florae_Basket
         public void createGui()
         {
             addUserGUI gui = new addUserGUI(this);
+            gui.Show();
         }
 
         // main driver for addUser logic
