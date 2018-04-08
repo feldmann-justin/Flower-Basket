@@ -153,10 +153,9 @@ namespace Florae_Basket
 			int tempInt;
 			string query = "SELECT Id FROM Flower WHERE Latin = " + knownLatinName;
 			SqlCommand cmd = new SqlCommand(query, conn);
-			SqlDataReader read = cmd.ExecuteReader();
-			read.Read();
-			tempInt = read.GetInt32(0);
-			read.Close();
+			cmd.ExecuteReader().Read();
+			tempInt = cmd.ExecuteReader().GetInt32(0);
+			cmd.ExecuteReader().Close();
 			conn.Close();
 
 			return tempInt;

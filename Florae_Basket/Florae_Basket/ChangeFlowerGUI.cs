@@ -15,7 +15,7 @@ namespace Florae_Basket
 
 		ChangeFlowerCtlr changeFlowerCtlrReference;
 
-		Flower flowerToVerify;
+		Flower flowerToVerify = new Flower();
 
 		public ChangeFlowerGUI()
 		{
@@ -31,11 +31,16 @@ namespace Florae_Basket
 
 			string changedBotanicalFam = botanicalFamEntryBox.Text;
 
-			string enteredNote = noteEntryBox.Text;
+			string changedNote = noteEntryBox.Text;
 
-			string enteredImgPath = imgPathView.Text;
+			string changedImgPath = imgPathView.Text;
 
-			flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam, enteredNote, enteredImgPath);
+			//flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam, enteredNote, enteredImgPath);
+			flowerToVerify.setLatinName(changedLatinName);
+			flowerToVerify.setEnglishName(changedEnglishName);
+			flowerToVerify.setBotanicalFam(changedBotanicalFam);
+			flowerToVerify.setNote(changedNote);
+			flowerToVerify.setImgPath(changedImgPath);
 
 			// begin the checking of the database for an existing entry with these parameters
 			string msgToDisplay = ChangeFlowerCtlr.verifyFlower(flowerToVerify);
