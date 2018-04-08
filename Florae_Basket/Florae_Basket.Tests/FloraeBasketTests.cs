@@ -14,9 +14,10 @@ namespace Florae_Basket.Tests
             string lat = "";
             string bot = "";
             string not = "";
+            string entry = "";
             Word_Search search = new Word_Search(eng, lat, bot, not);
 
-            
+            search.OSA(eng, lat, eng.Length, entry.Length);
         }
     }
 }
