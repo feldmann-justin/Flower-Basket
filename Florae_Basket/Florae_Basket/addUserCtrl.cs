@@ -8,11 +8,16 @@ using System.IO;
 
 namespace Florae_Basket
 {
-    class addUserCtrl
+    public class addUserCtrl
     {
         private string[] failedItems;
         List<string> addedUserList = new List<string>();
         List<string> failedUserList = new List<string>();
+
+        public void createGui()
+        {
+            addUserGUI gui = new addUserGUI(this);
+        }
 
         // main driver for addUser logic
         public void main(string first, string last, string username, string password, string accType, string file)

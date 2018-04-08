@@ -12,15 +12,18 @@ namespace Florae_Basket
 {
     public partial class addUserGUI : Form
     {
+        addUserCtrl controller;
         private string first = "";
         private string last = "";
         private string user = "";
         private string pass = "";
         private string accType = "";
         private string file = "";
-        public addUserGUI()
+
+        public addUserGUI(addUserCtrl u)
         {
             InitializeComponent();
+            controller = u;
         }
 
         private void addUserGUI_FormClosing(object sender, FormClosingEventArgs e)
@@ -46,9 +49,8 @@ namespace Florae_Basket
             pass = password_textBox.Text;
             accType = accType_textBox.Text;
             file = file_textBox.Text;
-            addUserCtrl u = new addUserCtrl();
             file_textBox.Text = "";
-            u.main(first, last, user, pass, accType, file);
+            controller.main(first, last, user, pass, accType, file);
         }
 
         private void file_textBox_TextChanged(object sender, EventArgs e)
