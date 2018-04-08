@@ -132,6 +132,7 @@
             this.Text = "Add Flower";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddFlowerGUI_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.add_leave_click);
+            this.Load += new System.EventHandler(this.AddFlowerGUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

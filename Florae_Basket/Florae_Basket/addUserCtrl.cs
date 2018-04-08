@@ -14,6 +14,7 @@ namespace Florae_Basket
         List<string> addedUserList = new List<string>();
         List<string> failedUserList = new List<string>();
 
+        // main driver for addUser logic
         public void main(string first, string last, string username, string password, string accType, string file)
         {
             Database_Manager dbm = new Database_Manager();
@@ -111,11 +112,8 @@ namespace Florae_Basket
                         int hashPass = Hash(password);
                         // add to database
                         added = dbm.addUser(first, last, username, password, accType);
-                        if (added == true)
-                            // provide confirmation
-                            msg = confirmMsg(username);
-                        else
-                            msg = failMsg(username);
+                        // provide confirmation
+                        msg = confirmMsg(username);
                     }
                     else
                     {
