@@ -8,8 +8,14 @@ namespace Florae_Basket.Tests
     public class FloraeBasketTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void OSA_TEST_METHOD()
         {
+            string eng = "";
+            string lat = "";
+            string bot = "";
+            string not = "";
+            Word_Search search = new Word_Search(eng, lat, bot, not);
+
             
         }
     }

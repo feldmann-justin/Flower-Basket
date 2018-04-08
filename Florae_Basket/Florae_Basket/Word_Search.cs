@@ -22,7 +22,7 @@ namespace Florae_Basket
         public double score;
     };
 
-    class Word_Search
+    public class Word_Search
     {
         //contains the string of the candidate, as well as the database key
         //and the score calculated from the OSA method.
@@ -137,7 +137,7 @@ namespace Florae_Basket
         //Calculates match score for two strings
         //Factors in things such as gaps, matches, and different letters.
         //More acurate than LCS because there is a max score a string can recieve
-        private int OSA(string entry, string cand, int x, int y)
+        public int OSA(string entry, string cand, int x, int y)
         {
             int gap = 2;
             int match = 2;
@@ -245,7 +245,7 @@ namespace Florae_Basket
 
         //compares the english and latin name candidates to find the best 3 candidates.
         //uses botanical family if scores of english and latin names being compared are too close.
-        private void Compare()
+        public void Compare()
         {
             //These integers will increment if a candidate out of a certain category is selected. 
             //This makes sure the next candidate in that category will be evaluated next.
@@ -387,7 +387,7 @@ namespace Florae_Basket
 
         //counts how many times the provided note keyword appears in each notes entry that contains it.
         //simply counts how many time it shows up. Nothing special
-        private void Note_Search()
+        public void Note_Search()
         {
             //Makes sure a notes entry is present
             if (note != null && note != "")
