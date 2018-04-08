@@ -12,10 +12,15 @@ namespace Florae_Basket
 {
     public partial class AddFlowerGUI : Form
     {
-        public AddFlowerGUI()
+
+		AddFlowerCtlr guiControllerReference;
+
+        public AddFlowerGUI(AddFlowerCtlr ctlr)
         {
+
             InitializeComponent();
-        }
+			guiControllerReference = ctlr;
+		}
 
 		private void addFlowerToDBBtn_Click(object sender, EventArgs e)
 		{

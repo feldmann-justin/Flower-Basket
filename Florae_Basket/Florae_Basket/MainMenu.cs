@@ -12,6 +12,7 @@ namespace Florae_Basket
 {
 	public partial class MainMenu : Form
 	{
+		private bool closeMainMenuYesNo = false;
 		public MainMenu()
 		{
 			InitializeComponent();
@@ -19,11 +20,14 @@ namespace Florae_Basket
 
 		private void addFlowerMainMenuBtn_Click(object sender, EventArgs e)
 		{
-			// brings up the Add Flower GUI
-			new AddFlowerGUI().Show();
+			// create a new instance of the AddFlowerCtlr, which will call displayAddFlowerGUI() to actually create the Add Flower GUI
+			new AddFlowerCtlr().DisplayAddFlowerGUI();
 
-			// hides the Main Menu GUI
-			this.Hide();
+			// set 'closeMainMenuYesNo' to true, so we will in fact close the main menu now
+			closeMainMenuYesNo = true;
+
+			// closes the Main Menu GUI
+			this.Close();
 		}
 
 		private void searchFlowerMainMenuBtn_Click(object sender, EventArgs e)
@@ -86,7 +90,7 @@ namespace Florae_Basket
 
         private void Main_leave_click(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+			this.Close();
         }
 
         private void userOptions_click(object sender, EventArgs e)
@@ -97,7 +101,10 @@ namespace Florae_Basket
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
+			if (closeMainMenuYesNo == false)
+				new MainMenu().Show();
+
         }
 
         private void exit_click(object sender, EventArgs e)
