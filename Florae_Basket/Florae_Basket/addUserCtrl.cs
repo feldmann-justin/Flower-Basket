@@ -8,12 +8,19 @@ using System.IO;
 
 namespace Florae_Basket
 {
-    class addUserCtrl
+    public class addUserCtrl
     {
         private string[] failedItems;
         List<string> addedUserList = new List<string>();
         List<string> failedUserList = new List<string>();
 
+        public void createGui()
+        {
+            addUserGUI gui = new addUserGUI(this);
+            gui.Show();
+        }
+
+        // main driver for addUser logic
         public void main(string first, string last, string username, string password, string accType, string file)
         {
             Database_Manager dbm = new Database_Manager();
@@ -89,8 +96,8 @@ namespace Florae_Basket
                         }
                     }
                     // create a message of how many added and failed users from batch file
-                    msg = createBatchMsg(addedCount, failedCount);
                 }
+                msg = createBatchMsg(addedCount, failedCount);
             }
 
             // used for text box entries 
@@ -217,7 +224,7 @@ namespace Florae_Basket
             string msg;
             msg = "Users added: " + addedCount + " , Users not added: " + failedCount + "\n";
             msg += "\nAdded Users:\n";
-            for(int i = 0; i < addedUserList.Count; i++)
+            for (int i = 0; i < addedUserList.Count; i++)
             {
                 msg += addedUserList[i] + "\n";
             }

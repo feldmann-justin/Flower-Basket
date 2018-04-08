@@ -20,7 +20,7 @@ namespace Florae_Basket
 
         private void addUser_click(object sender, EventArgs e)
         {
-            new addUserGUI().Show();
+            new addUserCtrl().createGui();
             forward = true;
             this.Close();
         }

@@ -83,7 +83,7 @@
     <Compile Include="ChangeFlowerGUI.Designer.cs">
       <DependentUpon>ChangeFlowerGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseManager.cs" />
+    <Compile Include="DBManager.cs" />
     <Compile Include="deleteFlowerCtlr.cs" />
     <Compile Include="Flower.cs" />
     <Compile Include="flowerProfile.cs">

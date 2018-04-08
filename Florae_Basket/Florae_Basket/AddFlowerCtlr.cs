@@ -18,7 +18,7 @@ using System.Data.SqlClient;
 
 namespace Florae_Basket
 {
-	class AddFlowerCtlr
+	public class AddFlowerCtlr
 	{
 
 		// member functions
@@ -53,11 +53,11 @@ namespace Florae_Basket
 			return msgToDisplay;
 		}
 
-		public void displayAddFlowerGUI()
+		public void DisplayAddFlowerGUI()
 		{
 
-			AddFlowerGUI addFlowerGUI = new AddFlowerGUI();
-			addFlowerGUI.Visible = true;
+			AddFlowerGUI addFlowerGUI = new AddFlowerGUI(this);
+			addFlowerGUI.Show();
 
 		}
 
