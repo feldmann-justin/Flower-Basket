@@ -23,7 +23,7 @@ namespace Florae_Basket
         // main driver for addUser logic
         public void main(string first, string last, string username, string password, string accType, string file)
         {
-            Database_Manager dbm = new Database_Manager();
+            DBManager dbm = new DBManager();
             string msg = "";
             int addedCount = 0;
             int failedCount = 0;

@@ -31,7 +31,7 @@ namespace Florae_Basket
 		{
 			
 			string msgToDisplay;
-			Database_Manager DBMngr = new Database_Manager();
+			DBManager DBMngr = new DBManager();
 
 			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
 			//Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");

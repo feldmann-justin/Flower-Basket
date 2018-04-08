@@ -8,11 +8,11 @@ using System.Data.SqlClient;
 
 namespace Florae_Basket
 {
-    public class Database_Manager
+    public class DBManager
     {
         //This is the connection object
         public SqlConnection conn = new SqlConnection();
-        public Database_Manager()
+        public DBManager()
         {
             //connection string DO NOT CHANGE/REMOVE!!!
             conn.ConnectionString = @"Data Source =(localDB)\MSSQLLocalDB;" +

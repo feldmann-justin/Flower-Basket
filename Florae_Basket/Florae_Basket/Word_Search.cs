@@ -196,7 +196,7 @@ namespace Florae_Basket
         //type of name is passes as a string and is then passes to the database manager
         private void Fetch_names(string type, ref LinkedList<Candidate> list)
         {
-            Database_Manager db = new Database_Manager();
+            DBManager db = new DBManager();
             try
             {
                 db.FetchAllNames(ref list, type);
@@ -214,7 +214,7 @@ namespace Florae_Basket
         private string Fetch_botanical(int id)
         {
             string temp;
-            Database_Manager db = new Database_Manager();
+            DBManager db = new DBManager();
             try
             { 
                 temp = db.FetchBotan(id);
@@ -228,7 +228,7 @@ namespace Florae_Basket
 
         private void Fetch_notes(string entry, ref LinkedList<Candidate> list)
         {
-            Database_Manager db = new Database_Manager();
+            DBManager db = new DBManager();
             try
             {
 

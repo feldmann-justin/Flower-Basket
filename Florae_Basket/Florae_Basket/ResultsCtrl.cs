@@ -42,7 +42,7 @@ namespace Florae_Basket
             string query = "SELECT English, Latin, Botanical FROM Flower WHERE id = " + id[0];
             try
             {
-                Database_Manager db = new Database_Manager();
+                DBManager db = new DBManager();
                 ////FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
                 //db.InsertFlower("violet", "violat", "vio fam", "vio note", "flower.jpg");
                 //db.InsertFlower("rose", "roselat", "ros fam", "ros  note", "flower.jpg");

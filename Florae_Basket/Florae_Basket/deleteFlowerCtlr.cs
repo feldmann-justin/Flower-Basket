@@ -69,7 +69,7 @@ namespace Florae_Basket
         {
             // database connection variables and info
 
-            Database_Manager db = new Database_Manager();
+            DBManager db = new DBManager();
 
             // try to open the database and delete
             try
