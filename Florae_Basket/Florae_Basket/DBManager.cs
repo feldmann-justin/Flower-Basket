@@ -27,24 +27,35 @@ namespace Florae_Basket
         {
             conn.Open();
             int flowerid = -1;
-            string query = "INSERT INTO Flower (English, Latin, Botanical) VALUES ('"
-                + name + "', '" + latin + "', '" + botan + "')";
+            string query = "INSERT INTO Flower (English, Latin, Botanical) VALUES (@name, @latin, @botan)";
             SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@name", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@latin", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@botan", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@name"].Value = name;
+            comm.Parameters["@latin"].Value = latin;
+            comm.Parameters["@botan"].Value = botan;
             comm.ExecuteNonQuery();
-            query = "Select Id FROM Flower WHERE English = '" + name + "'";
+            query = "Select Id FROM Flower WHERE English = @name";
             comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@name", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@name"].Value = name;
             SqlDataReader read = comm.ExecuteReader();
             read.Read();
             flowerid = read.GetInt32(0);
             read.Close();
-            query = "INSERT INTO Images (Filepath, Histogram, FlowerID) VALUES ('"
+            query = "INSERT INTO Images (Filepath, Histogram, FlowerID) VALUES (@images, 1, " + flowerid + 
                 ///////ADD HISTOGRAM VALUE LATER***////////
-                + images + "', " + "1, " + flowerid + ")";
+                ")";
                 ////////////////////^//////////////////////
             comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@images", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@images"].Value = images;
             comm.ExecuteNonQuery();
-            query = "INSERT INTO Note (FlowerId, Contents) VALUES (" + flowerid + ", '" + note + "')";
+            query = "INSERT INTO Note (FlowerId, Contents) VALUES (" + flowerid + ", @note)";
             comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@note", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@note"].Value = note;
             comm.ExecuteNonQuery();
             conn.Close();
         }
@@ -165,9 +176,11 @@ namespace Florae_Basket
 
 			conn.Open();
 			int tempInt;
-			string query = "SELECT Id FROM Flower WHERE Latin = " + knownLatinName;
+			string query = "SELECT Id FROM Flower WHERE Latin = @latin";
 			SqlCommand cmd = new SqlCommand(query, conn);
-			cmd.ExecuteReader().Read();
+            cmd.Parameters.Add("@latin", System.Data.SqlDbType.NVarChar);
+            cmd.Parameters["@latin"].Value = knownLatinName;
+            cmd.ExecuteReader().Read();
 			tempInt = cmd.ExecuteReader().GetInt32(0);
 			cmd.ExecuteReader().Close();
 			conn.Close();
@@ -202,42 +215,37 @@ namespace Florae_Basket
         public bool addUser(string first, string last, string username, string password, string accType)
         {
             conn.Open();
-            string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES ('"
-                + username + "', '" + password + "', '" + first + "', '" + last + "', '" + accType + "')";
+            string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES (@user, @pass, @first, @last, @type)";
             SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@first", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@last", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@pass", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@type", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@first"].Value = first;
+            comm.Parameters["@last"].Value = last;
+            comm.Parameters["@user"].Value = username;
+            comm.Parameters["@pass"].Value = password;
+            comm.Parameters["@type"].Value = accType;
             comm.ExecuteNonQuery();
             conn.Close();
             return true;
         }
 
-		public void changeLatinName(string latinChange, int primaryKey)
+		public void changeFlowerAttribute(string latinChange, string englishChange, string botanChange, int primaryKey)
 		{
 			conn.Open();
-			string query = "UPDATE Flower SET Latin = '" + latinChange + "' WHERE Id = " + primaryKey;
+			string query = "UPDATE Flower SET Latin = @latin, English = @name, Botanical = @botan WHERE Id = " + primaryKey;
 			SqlCommand comm = new SqlCommand(query, conn);
-			comm.ExecuteNonQuery();
+            comm.Parameters.Add("@name", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@latin", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@botan", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@name"].Value = englishChange;
+            comm.Parameters["@latin"].Value = latinChange;
+            comm.Parameters["@botan"].Value = botanChange;
+            comm.ExecuteNonQuery();
 			conn.Close();
 			
-		}
-
-		public void changeEnglishName(string englishChange, int primaryKey)
-		{
-			conn.Open();
-			string query = "UPDATE Flower SET English = '" + englishChange + "' WHERE Id = " + primaryKey;
-			SqlCommand comm = new SqlCommand(query, conn);
-			comm.ExecuteNonQuery();
-			conn.Close();
-
-		}
-
-		public void changeBotanicalFam(string botanChange, int primaryKey)
-		{
-			conn.Open();
-			string query = "UPDATE Flower SET Botanical = '" + botanChange + "' WHERE Id = " + primaryKey;
-			SqlCommand comm = new SqlCommand(query, conn);
-			comm.ExecuteNonQuery();
-			conn.Close();
-
 		}
 	}
 }
