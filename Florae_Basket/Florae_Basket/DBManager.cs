@@ -210,14 +210,34 @@ namespace Florae_Basket
             return true;
         }
 
-		public void changeFlowerAttribute(string latinChange, string englishChange, string botanChange, int primaryKey)
+		public void changeLatinName(string latinChange, int primaryKey)
 		{
 			conn.Open();
-			string query = "UPDATE Flower SET Latin = '" + latinChange + "', English = '" + englishChange + "', Botanical = '" + botanChange + "' WHERE Id = " + primaryKey;
+			string query = "UPDATE Flower SET Latin = '" + latinChange + "' WHERE Id = " + primaryKey;
 			SqlCommand comm = new SqlCommand(query, conn);
 			comm.ExecuteNonQuery();
 			conn.Close();
 			
+		}
+
+		public void changeEnglishName(string englishChange, int primaryKey)
+		{
+			conn.Open();
+			string query = "UPDATE Flower SET English = '" + englishChange + "' WHERE Id = " + primaryKey;
+			SqlCommand comm = new SqlCommand(query, conn);
+			comm.ExecuteNonQuery();
+			conn.Close();
+
+		}
+
+		public void changeBotanicalFam(string botanChange, int primaryKey)
+		{
+			conn.Open();
+			string query = "UPDATE Flower SET Botanical = '" + botanChange + "' WHERE Id = " + primaryKey;
+			SqlCommand comm = new SqlCommand(query, conn);
+			comm.ExecuteNonQuery();
+			conn.Close();
+
 		}
 	}
 }
