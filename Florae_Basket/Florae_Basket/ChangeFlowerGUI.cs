@@ -12,6 +12,11 @@ namespace Florae_Basket
 {
 	public partial class ChangeFlowerGUI : Form
 	{
+
+		ChangeFlowerCtlr changeFlowerCtlrReference;
+
+		Flower flowerToVerify = new Flower();
+
 		public ChangeFlowerGUI()
 		{
 			InitializeComponent();
@@ -20,16 +25,25 @@ namespace Florae_Basket
 		private void changeFlowerSubmit_Click(object sender, EventArgs e)
 		{
 
-			string changedLatinName = latinNameEntryBox.Text;
+			// can't change latin name, as it's used to find the id
+			//string changedLatinName = latinNameEntryBox.Text;
 
 			string changedEnglishName = englishNameEntryBox.Text;
 
 			string changedBotanicalFam = botanicalFamEntryBox.Text;
 
-			Flower flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam);
+			string changedNote = noteEntryBox.Text;
+
+			string changedImgPath = imgPathView.Text;
+
+			//flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam, enteredNote, enteredImgPath);
+			flowerToVerify.setEnglishName(changedEnglishName);
+			flowerToVerify.setBotanicalFam(changedBotanicalFam);
+			flowerToVerify.setNote(changedNote);
+			flowerToVerify.setImgPath(changedImgPath);
 
 			// begin the checking of the database for an existing entry with these parameters
-			string msgToDisplay = ChangeFlowerCtlr.verifyFlower(flowerToVerify);
+			string msgToDisplay = ChangeFlowerCtlr.verifyFlower(flowerToVerify, changedEnglishName, changedBotanicalFam);
 
 			MessageBox.Show(msgToDisplay);
 
@@ -37,9 +51,20 @@ namespace Florae_Basket
 
 		private void ChangeToFlowerProfileBtn_Click(object sender, EventArgs e)
 		{
-
-			new flowerProfile().Show();
+			Database_Manager DBMngrInstance = new Database_Manager(); 
+			new flowerProfile(flowerToVerify.getEnglishName(), flowerToVerify.getLatinName(), flowerToVerify.getBotanicalFam(), flowerToVerify.getNote(), flowerToVerify.getImgPath(), DBMngrInstance.FetchID(flowerToVerify.getLatinName())).Show();
 			this.Hide();
+
+		}
+
+		private void uploadImgBtn_Click(object sender, EventArgs e)
+		{
+
+			OpenFileDialog selectImgPath = new OpenFileDialog();
+			selectImgPath.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
+
+			if (selectImgPath.ShowDialog() == DialogResult.OK)
+				imgPathView.Text = selectImgPath.FileName;
 
 		}
 	}

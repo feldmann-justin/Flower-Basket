@@ -39,43 +39,14 @@ namespace Florae_Basket
         private void flowerProfile_Load(object sender, EventArgs e)
         {
             // start file path and add black background to the picture box
-            string filePath = "..\\..\\Pics\\";
+            string filePath = "";
+            if (primaryKey < 7)
+                //ONLY FOR TESTING REMOVE FROM FINAL PRODUCT
+            {
+                filePath = "..\\..\\Pics\\";
+            }
+            
             flowerImage.BackColor = Color.Black;
-
-            // for testing purposes. It chooses a random flower in the testDB to display.
-            //testDB TDB = new testDB();
-            //int flowerAmount = TDB.getFlowerAmount();
-            //if (flowerAmount == 0)
-            //{
-            //    MessageBox.Show("No Flower to display.");
-            //    imageName[0] = "";
-            //    englishName = "";
-            //    latinName = "";
-            //    note = "";
-            //    filePath = "";
-            //}
-            //else
-            //{
-                /*Random rnd = new Random();
-                int choice = 0;
-                while (choice == 0)
-                {
-                    choice = rnd.Next(0, flowerAmount + 1);
-                }
-                englishName = TDB.getFlowerEng(choice - 1);
-                latinName = TDB.getFlowerLat(choice - 1);
-                botanicalFamily = TDB.getFlowerBot(choice - 1);
-                primaryKey = choice;
-
-                // get flower info
-                //Flower f = new Flower();
-                //Note n = new Note();
-                //Picture p = new Picture();
-                //englishName = f.getEnglishName();
-                //latinName = f.getLatinName();
-                //botanicalFamily = f.getBotanicalFam();
-                //note = n.getContent();
-                //imageName = p.getFilePath();
 
                 // add the flower image name to the file path*/
                 filePath += imageName;

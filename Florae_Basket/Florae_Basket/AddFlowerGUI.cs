@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,8 +33,12 @@ namespace Florae_Basket
 
 			string enteredBotanicalFamily = botanicalFamEntryBox.Text;
 
+			string enteredNote = noteEntryBox.Text;
+
+			string enteredImgPath = imgPathView.Text;
+
 			// instantiate a Flower object from the user entries
-			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily);
+			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily, enteredNote, enteredImgPath);
 
 			// checks the database for existence of a Flower object with the same attributes
 			string displayedMsg = AddFlowerCtlr.verifyFlower(flowerToAdd);
@@ -69,5 +74,15 @@ namespace Florae_Basket
         {
 
         }
-    }
+
+		private void uploadImgBtn_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog selectImgPath = new OpenFileDialog();
+			selectImgPath.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
+
+			if (selectImgPath.ShowDialog() == DialogResult.OK)
+				imgPathView.Text = selectImgPath.FileName;
+
+		}
+	}
 }
