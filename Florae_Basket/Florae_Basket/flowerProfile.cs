@@ -39,7 +39,13 @@ namespace Florae_Basket
         private void flowerProfile_Load(object sender, EventArgs e)
         {
             // start file path and add black background to the picture box
-            string filePath = "..\\..\\Pics\\";
+            string filePath = "";
+            if (primaryKey < 7)
+                //ONLY FOR TESTING REMOVE FROM FINAL PRODUCT
+            {
+                filePath = "..\\..\\Pics\\";
+            }
+            
             flowerImage.BackColor = Color.Black;
 
                 // add the flower image name to the file path*/

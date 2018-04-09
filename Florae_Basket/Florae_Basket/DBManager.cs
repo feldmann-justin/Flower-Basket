@@ -39,11 +39,11 @@ namespace Florae_Basket
             read.Close();
             query = "INSERT INTO Images (Filepath, Histogram, FlowerID) VALUES ('"
                 ///////ADD HISTOGRAM VALUE LATER***////////
-                + images + "', " + "1, '" + flowerid + "')";
+                + images + "', " + "1, " + flowerid + ")";
                 ////////////////////^//////////////////////
             comm = new SqlCommand(query, conn);
             comm.ExecuteNonQuery();
-            query = "INSERT INTO Note (FlowerId, Contents) VALUES ('" + flowerid + "', '" + note + "')";
+            query = "INSERT INTO Note (FlowerId, Contents) VALUES (" + flowerid + ", '" + note + "')";
             comm = new SqlCommand(query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
@@ -144,6 +144,20 @@ namespace Florae_Basket
             }
             read.Close();
             conn.Close();
+        }
+
+        public string FetchFilePath(int id)
+        {
+            string temp;
+            conn.Open();
+            string query = "SELECT Filepath FROM Images WHERE FlowerID = " + id;
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            temp = read.GetString(0);
+            read.Close();
+            conn.Close();
+            return temp;
         }
 
 		public int FetchID(string knownLatinName)

@@ -86,7 +86,7 @@ namespace Florae_Basket
             //FOR TESTING ONLY//
             images1 = new string[3];
 
-            images1[0] = images1[1] = images1[2] = "flower.jpg";
+            //images1[0] = images1[1] = images1[2] = "flower.jpg";
             //FOR TESTING ONLY//
 
             try
@@ -102,8 +102,13 @@ namespace Florae_Basket
             }
             try
             {
+                Database_Manager db = new Database_Manager();
                 //TODO
                 //Next all 3 arrays must be populated with filepaths from the database.
+                for (int i = 0; i < 3; i++)
+                {
+                    images1[i] = db.FetchFilePath(id[i]);
+                }
             }
             catch (Exception)
             {
