@@ -72,7 +72,8 @@ namespace Florae_Basket
             }
 
             Bitmap img = new Bitmap(filename);
-            pictureBox.BackgroundImage = img;
+            pictureBox.Image = img;
+            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
         }
         
         private void wordSearchSelect_CheckedChanged(object sender, EventArgs e) { wordSearchOption = true; }

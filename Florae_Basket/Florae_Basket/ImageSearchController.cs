@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 /* 
  Dipak Subramaniam     Team: Dirk    CP03
@@ -47,14 +48,19 @@ namespace Florae_Basket
                 for (int j = 0; j < img.Height; j++)
                 {
                     Color pixel = img.GetPixel(i, j);
+                    string pix = "" + pixel; //outputs: Color [A=255, R=80, G=72, B=61]
                     pixel = array[i, j];
                     //loading RGB arrays with RGB values of the pixels
-                    redPixels[i, j] = (int)pixel.R;
-                    greenPixels[i, j] = (int)pixel.G;
-                    bluePixels[i, j] = (int)pixel.B;
-                    Console.WriteLine((int)pixel.R);
-                    Console.WriteLine((int)pixel.G);
-                    Console.WriteLine((int)pixel.B);
+                    Regex arg = new Regex(@"=(.+?),");
+                    Regex b = new Regex(@"B=(.+?)]");
+                    MatchCollection mcARG = arg.Matches(pix);
+                    MatchCollection mcB = b.Matches(pix);
+                    string red = Regex.Replace(mcARG[1].ToString(), "[^0-9.]", "");
+                    string green = Regex.Replace(mcARG[2].ToString(), "[^0-9.]", "");
+                    string blue = Regex.Replace(mcB[0].ToString(), "[^0-9.]", "");
+                    redPixels[i, j] = Int32.Parse(red);
+                    greenPixels[i, j] = Int32.Parse(green);
+                    bluePixels[i, j] = Int32.Parse(blue);
 
                     //Pixel Range RGB subdivisions
 
@@ -96,7 +102,7 @@ namespace Florae_Basket
             imageValueBins[2, 3] = oneNinetyTwoToTwoFiftyFiveBlue;
 
             //Database Manager
-            string[] imageFilePaths = {"", "", "", "", ""};
+            string[] imageFilePaths = { "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg" };
             int length = 5;
             for(int d = 0; d < length /*database.imageFilePaths.length*/; d++) 
             {   
@@ -120,7 +126,6 @@ namespace Florae_Basket
                 int dbOneNinetyTwoToTwoFiftyFiveGreen = 0;
                 int dbOneNinetyTwoToTwoFiftyFiveBlue = 0;
                 
-
                 Bitmap dbImg = new Bitmap(imageFilePaths[d]); //iterating through array of database image filepaths
                 dbArray = new Color[dbImg.Width, dbImg.Height]; //Image Pixel Array
                 dbRedPixels = new int[dbImg.Width, dbImg.Height]; //RGB Arrays
@@ -132,11 +137,19 @@ namespace Florae_Basket
                     for (int j = 0; j < dbImg.Height; j++)
                     {
                         Color dbPixel = dbImg.GetPixel(i, j);
+                        string dbPix = "" + dbPixel;
                         dbPixel = dbArray[i, j];
                         //loading RGB arrays with RGB values of the pixels
-                        dbRedPixels[i, j] = dbPixel.R;
-                        dbGreenPixels[i, j] = dbPixel.G;
-                        dbBluePixels[i, j] = dbPixel.B;
+                        Regex arg = new Regex(@"=(.+?),");
+                        Regex b = new Regex(@"B=(.+?)]");
+                        MatchCollection mcARG = arg.Matches(dbPix);
+                        MatchCollection mcB = b.Matches(dbPix);
+                        string red = Regex.Replace(mcARG[1].ToString(), "[^0-9.]", "");
+                        string green = Regex.Replace(mcARG[2].ToString(), "[^0-9.]", "");
+                        string blue = Regex.Replace(mcB[0].ToString(), "[^0-9.]", "");
+                        dbRedPixels[i, j] = Int32.Parse(red);
+                        dbGreenPixels[i, j] = Int32.Parse(green);
+                        dbBluePixels[i, j] = Int32.Parse(blue);
 
                         //Pixel Range RGB subdivisions
 
