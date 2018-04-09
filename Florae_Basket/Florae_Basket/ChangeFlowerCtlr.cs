@@ -32,7 +32,7 @@ namespace Florae_Basket
 		{
 
 			string msgToDisplay;
-			DBManager DBMngr = new DBManager();
+			Database_Manager DBMngr = new Database_Manager();
 
 			// need to be able to get the flower entry from the database
 			// which matches the id of 'customFlower'

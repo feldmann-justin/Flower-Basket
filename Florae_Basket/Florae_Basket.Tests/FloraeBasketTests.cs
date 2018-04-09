@@ -10,16 +10,28 @@ namespace Florae_Basket.Tests
         [TestMethod]
         public void OSA_TEST_METHOD()
         {
-            string eng = "";
-            string lat = "";
-            string bot = "";
+            //arrange
+            string eng = "sweet violet";
+            string lat = "Viola odorata";
+            string bot = "Violaceae";
             string not = "";
-            string entry = "violet";
+            string entry1 = "sweet violet";
+            string entry2 = "Viola odor";
+            string entry3 = "Violaceaeba";
+            int expected = 24;
+            int expected2 = 14;
+            int expected3 = 14;
             Word_Search search = new Word_Search(eng, lat, bot, not);
 
-            int result = search.OSA(eng, lat, eng.Length, entry.Length);
-            
-            
+            //act
+            int result = search.OSA(eng, entry1, eng.Length, entry1.Length);
+            int result2 = search.OSA(lat, entry2, lat.Length, entry2.Length);
+            int resutl3 = search.OSA(bot, entry3, bot.Length, entry3.Length);
+
+            //assert
+            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected2, result2);
+            Assert.AreEqual(expected3, resutl3);
         }
 
         [TestMethod]
@@ -41,10 +53,10 @@ namespace Florae_Basket.Tests
 
             // act 
             addUserCtrl ctrl = new addUserCtrl();
-            bool goodActual = ctrl.verify(goodFirst, goodLast, goodUsername, goodPassword, goodaccType);
+            bool goodActual = ctrl.verifyInfo(goodFirst, goodLast, goodUsername, goodPassword, goodaccType);
             bool goodExpected = true;
 
-            bool badActual = ctrl.verify(badFirst, badLast, badUsername, badPassword, badaccType);
+            bool badActual = ctrl.verifyInfo(badFirst, badLast, badUsername, badPassword, badAccType);
             bool badExpected = false;
 
             // assert

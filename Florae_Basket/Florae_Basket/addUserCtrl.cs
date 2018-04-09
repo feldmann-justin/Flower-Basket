@@ -23,7 +23,7 @@ namespace Florae_Basket
         // main driver for addUser logic
         public void main(string first, string last, string username, string password, string accType, string file)
         {
-            DBManager dbm = new DBManager();
+            Database_Manager dbm = new Database_Manager();
             string msg = "";
             int addedCount = 0;
             int failedCount = 0;
@@ -139,7 +139,7 @@ namespace Florae_Basket
 
         // confirms that the required info for a new user was provided
         // if not provided, it adds the item to a list to display to the users 
-        private bool verifyInfo(string first, string last, string username, string password, string accType)
+        public bool verifyInfo(string first, string last, string username, string password, string accType)
         {
             bool valid = true;
             if (first == "")
