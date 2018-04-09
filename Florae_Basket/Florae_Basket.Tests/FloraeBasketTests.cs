@@ -8,6 +8,7 @@ namespace Florae_Basket.Tests
     public class FloraeBasketTests
     {
         [TestMethod]
+        //Unit test for the Optimal String Alignment method in the word search, written by Brady Smith
         public void OSA_TEST_METHOD()
         {
             //arrange
