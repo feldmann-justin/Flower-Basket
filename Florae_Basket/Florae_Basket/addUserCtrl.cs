@@ -121,8 +121,16 @@ namespace Florae_Basket
                         int hashPass = Hash(password);
                         // add to database
                         added = dbm.addUser(first, last, username, password, accType);
-                        // provide confirmation
-                        msg = confirmMsg(username);
+                        if (added == true)
+                        {
+                            // provide confirmation
+                            msg = confirmMsg(username);
+                        }
+                        else
+                        {
+                            // this message is when the catch is called in the database
+                            msg = "Error while adding user, can not use username: " + username;
+                        }
                     }
                     else
                     {

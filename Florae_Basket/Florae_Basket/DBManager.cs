@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace Florae_Basket
@@ -201,13 +202,20 @@ namespace Florae_Basket
 
         public bool addUser(string first, string last, string username, string password, string accType)
         {
-            conn.Open();
-            string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES ('"
-                + username + "', '" + password + "', '" + first + "', '" + last + "', '" + accType + "')";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-            return true;
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES ('"
+                    + username + "', '" + password + "', '" + first + "', '" + last + "', '" + accType + "')";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
         }
 
 		public void changeFlowerAttribute(string latinChange, string englishChange, string botanChange, int primaryKey)
