@@ -214,22 +214,29 @@ namespace Florae_Basket
 
 		public bool addUser(string first, string last, string username, string password, string accType)
 		{
-			conn.Open();
-			string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES (@user, @pass, @first, @last, @type)";
-			SqlCommand comm = new SqlCommand(query, conn);
-			comm.Parameters.Add("@first", System.Data.SqlDbType.NVarChar);
-			comm.Parameters.Add("@last", System.Data.SqlDbType.NVarChar);
-			comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
-			comm.Parameters.Add("@pass", System.Data.SqlDbType.NVarChar);
-			comm.Parameters.Add("@type", System.Data.SqlDbType.NVarChar);
-			comm.Parameters["@first"].Value = first;
-			comm.Parameters["@last"].Value = last;
-			comm.Parameters["@user"].Value = username;
-			comm.Parameters["@pass"].Value = password;
-			comm.Parameters["@type"].Value = accType;
-			comm.ExecuteNonQuery();
-			conn.Close();
-			return true;
+            try
+            {
+                conn.Open();
+                string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES (@user, @pass, @first, @last, @type)";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.Parameters.Add("@first", System.Data.SqlDbType.NVarChar);
+                comm.Parameters.Add("@last", System.Data.SqlDbType.NVarChar);
+                comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+                comm.Parameters.Add("@pass", System.Data.SqlDbType.NVarChar);
+                comm.Parameters.Add("@type", System.Data.SqlDbType.NVarChar);
+                comm.Parameters["@first"].Value = first;
+                comm.Parameters["@last"].Value = last;
+                comm.Parameters["@user"].Value = username;
+                comm.Parameters["@pass"].Value = password;
+                comm.Parameters["@type"].Value = accType;
+                comm.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
 		}
 
 		public void changeEnglishName(string englishChange, int primaryKey)
