@@ -102,7 +102,7 @@ namespace Florae_Basket
             imageValueBins[2, 3] = oneNinetyTwoToTwoFiftyFiveBlue;
 
             //Database Manager
-            string[] imageFilePaths = { "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\Dipak LinkedIn.jpg" };
+            string[] imageFilePaths = { "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg" };
             int length = 5;
             for(int d = 0; d < length /*database.imageFilePaths.length*/; d++) 
             {   
@@ -209,13 +209,16 @@ namespace Florae_Basket
                     }
                 }
 
+                if (redSum == double.NaN) { redSum = 0; }
+                if (greenSum == double.NaN) { greenSum = 0; }
+                if (blueSum == double.NaN) { blueSum = 0; }
+
                 chiRed = (0.25) * (Math.Sqrt(redSum));
                 chiGreen = (0.25) * (Math.Sqrt(greenSum));
                 chiBlue = (0.25) * (Math.Sqrt(blueSum));
                 chiThreshold = (1.0 / 3.0) * (redSum + greenSum + blueSum);
                 Console.WriteLine(chiThreshold);
-
-                
+                if (chiThreshold == double.NaN) { chiThreshold = 0; }
                 chiSquareDistances[d] = chiThreshold;
             }
 
@@ -252,7 +255,7 @@ namespace Florae_Basket
             else if(topThree[2] >= 1) {
                 topThree[2] = Array.FindIndex(chiSquareDistances, m => m == sortedDistances[3]);
                 }
-            
+            Console.WriteLine("Algorithm Completed");
         }
 
         public int[] getTopthree() {
