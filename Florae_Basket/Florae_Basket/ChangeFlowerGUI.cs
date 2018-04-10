@@ -8,6 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/* Name: Justin Feldmann
+ * Class: CS 325-002
+ * Semester: Spring 2018
+ * Filename: ChangeFlowerGUI.cs
+ * Professor: Dr. Gary Mayer
+ * Last Edited Date/Time: April 10, 2018 2:14 PM
+ * 
+ * Description: This class contains the necessary event handlers and constructors
+ * for the Change Flower GUI.
+ */
+
 namespace Florae_Basket
 {
 	public partial class ChangeFlowerGUI : Form
