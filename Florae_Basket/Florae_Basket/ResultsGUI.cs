@@ -9,6 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
+//////////////////////////////////////////////////
+//                                              //
+//  Word_Search                                 //
+//  by Brady Smith                              //
+//                                              //
+//////////////////////////////////////////////////
+
+
 namespace Florae_Basket
 {
     public partial class ResultsGUI : Form
