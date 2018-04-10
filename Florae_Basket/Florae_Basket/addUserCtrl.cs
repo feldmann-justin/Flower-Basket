@@ -147,7 +147,7 @@ namespace Florae_Basket
 
         // confirms that the required info for a new user was provided
         // if not provided, it adds the item to a list to display to the users 
-        private bool verifyInfo(string first, string last, string username, string password, string accType)
+        public bool verifyInfo(string first, string last, string username, string password, string accType)
         {
             bool valid = true;
             if (first == "")

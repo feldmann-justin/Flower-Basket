@@ -25,7 +25,8 @@ namespace Florae_Basket
 		private void changeFlowerSubmit_Click(object sender, EventArgs e)
 		{
 
-			string changedLatinName = latinNameEntryBox.Text;
+			// can't change latin name, as it's used to find the id
+			//string changedLatinName = latinNameEntryBox.Text;
 
 			string changedEnglishName = englishNameEntryBox.Text;
 
@@ -36,14 +37,13 @@ namespace Florae_Basket
 			string changedImgPath = imgPathView.Text;
 
 			//flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam, enteredNote, enteredImgPath);
-			flowerToVerify.setLatinName(changedLatinName);
 			flowerToVerify.setEnglishName(changedEnglishName);
 			flowerToVerify.setBotanicalFam(changedBotanicalFam);
 			flowerToVerify.setNote(changedNote);
 			flowerToVerify.setImgPath(changedImgPath);
 
 			// begin the checking of the database for an existing entry with these parameters
-			string msgToDisplay = ChangeFlowerCtlr.verifyFlower(flowerToVerify);
+			string msgToDisplay = ChangeFlowerCtlr.verifyFlower(flowerToVerify, changedEnglishName, changedBotanicalFam);
 
 			MessageBox.Show(msgToDisplay);
 
