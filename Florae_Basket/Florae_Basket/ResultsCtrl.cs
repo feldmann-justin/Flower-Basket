@@ -31,30 +31,13 @@ namespace Florae_Basket
 
         private void FetchNames(int[] id, ref bool res1, ref bool res2, ref bool res3)
         {
-            //***FOR TESTING ONLY, TAKE IT OUT OF FINAL PRODUCT***//
-            //flowers[0].setEnglishName("flower1");
-            //flowers[0].setLatinName("Latin1");
-            //flowers[0].setBotanicalFam("Fam1");
-            //flowers[0].setFlowerID(1);
-            //flowers[1].setEnglishName("flower2");
-            //flowers[1].setLatinName("Latin2");
-            //flowers[1].setBotanicalFam("Fam2");
-            //flowers[1].setFlowerID(2);
-            //flowers[2].setEnglishName("flower3");
-            //flowers[2].setLatinName("Latin3");
-            //flowers[2].setBotanicalFam("Fam3");
-            //flowers[2].setFlowerID(3);
+            
 
             ////////////////////////////////////////////////////////
             string query = "SELECT English, Latin, Botanical FROM Flower WHERE id = " + id[0];
             try
             {
                 Database_Manager db = new Database_Manager();
-                ////FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
-                //db.InsertFlower("violet", "violat", "vio fam", "vio note", "flower.jpg");
-                //db.InsertFlower("rose", "roselat", "ros fam", "ros  note", "flower.jpg");
-                //db.InsertFlower("tulip", "tulilat", "tul fam", "tul note", "flower.jpg");
-                ////FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
                 if (id[0] != 0)
                 {
                     res1 = true;
@@ -126,15 +109,15 @@ namespace Florae_Basket
 
         private void FetchNotes(int[] id)
         {
-            //FOR TESTING ONLY//
-            notes[0] = "note1";
-            notes[1] = "note2";
-            notes[2] = "note3";
-            //FOR TESTING ONLY//
+            
+            Database_Manager db = new Database_Manager();
             try
             {
-                //TODO
-                //Pull notes for each result
+                for (int i = 0; i < 3; i++)
+                {
+                    notes[i] = db.FetchNote(id[0]);
+                }
+                
             }
             catch (Exception)
             {

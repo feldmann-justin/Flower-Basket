@@ -51,6 +51,7 @@ namespace Florae_Basket
             flowerProfile prof = new flowerProfile(flowers[result].getEnglishName(), flowers[result].getLatinName(), 
                                                    flowers[result].getBotanicalFam(), notes[result], images, ids[result]);
             prof.ShowDialog(this);
+
         }
 
         private void Result1btn_Click(object sender, EventArgs e)

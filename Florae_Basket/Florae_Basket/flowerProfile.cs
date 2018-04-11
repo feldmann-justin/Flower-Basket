@@ -48,15 +48,23 @@ namespace Florae_Basket
             
             flowerImage.BackColor = Color.Black;
 
-                // add the flower image name to the file path*/
+            // add the flower image name to the file path*/
+            if (imageName.Length < 20)
+            {
                 filePath += imageName;
+            }
+            else
+            {
+                filePath = imageName;
+            }
+            
 
-                // display all flower info
-                engNameTextBox.AppendText(englishName);
-                latinNameTextBox.AppendText(latinName);
-                botFamTextBox.AppendText(botanicalFamily);
-                notesTextBox.AppendText(note);
-                flowerImage.Image = Image.FromFile(filePath);
+            // display all flower info
+            engNameTextBox.AppendText(englishName);
+            latinNameTextBox.AppendText(latinName);
+            botFamTextBox.AppendText(botanicalFamily);
+            notesTextBox.AppendText(note);
+            flowerImage.Image = Image.FromFile(filePath);
            // }
         }
 

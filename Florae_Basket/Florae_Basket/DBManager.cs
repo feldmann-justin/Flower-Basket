@@ -293,7 +293,7 @@ namespace Florae_Basket
 		public void changeNote(string noteChange, int primaryKey)
 		{
 			conn.Open();
-			string query = "UPDATE Note SET Contents = @note WHERE Id = " + primaryKey;
+			string query = "UPDATE Note SET Contents = @note WHERE FlowerId = " + primaryKey;
 			SqlCommand comm = new SqlCommand(query, conn);
 			comm.Parameters.Add("@note", System.Data.SqlDbType.NVarChar);
 			comm.Parameters["@note"].Value = noteChange;
@@ -306,7 +306,7 @@ namespace Florae_Basket
 		public void changeImgPath(string imgPathChange, int primaryKey)
 		{
 			conn.Open();
-			string query = "UPDATE Images SET Filepath = @img WHERE Id = " + primaryKey;
+			string query = "UPDATE Images SET Filepath = @img WHERE FlowerId = " + primaryKey;
 			SqlCommand comm = new SqlCommand(query, conn);
 			comm.Parameters.Add("@img", System.Data.SqlDbType.NVarChar);
 			comm.Parameters["@img"].Value = imgPathChange;
