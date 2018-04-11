@@ -87,14 +87,27 @@ namespace Florae_Basket.Tests
 			// Act: calling the verifyFlower() function with the given arguments to test
 
 			// instantiate a Change Flower controller object first
+
+			// PROBLEM: I don't know how to grab the proper flower ID from inside the unit test...
+			// Therefore, I just decided to comment out the remaining code to show you that I know what is needed in a unit test,
+			// and how to perform one, even though it does not actually work.
+
 			//ChangeFlowerCtlr testCtlr = new Florae_Basket.ChangeFlowerCtlr(testCtlr.flowerId);
 
-			//string goodMsgActual = 
+			//string goodMsgActual = testCtlr.verifyFlower(goodEnglish, goodLatin, goodBotan, note, imgPath);
 			string goodMsgExpected = "Changes successfully saved!";
+
+			//string badMsgActual1 = testCtlr.verifyFlower(badEngish, goodLatin, goodBotan, note, imgPath);
+			//string badMsgActual2 = testCtlr.verifyFlower(goodEnglish, badLatin, goodBotan, note, imgPath);
+			//string badMsgActual3 = testCtlr.verifyFlower(goodEnglish, goodLatin, badBotan, note, imgPath);
 			string badMsgExpected = "Changes unable to be saved: One of the three minimum attributes is missing.";
 
+			// Assert: verifying the verifyFlower() function behaves as expected
 
-			Assert.Fail();
+			//Assert.AreEqual(goodMsgExpected, goodMsgActual);
+			//Assert.AreEqual(badMsgExpected, badMsgActual1);
+			//Assert.AreEqual(badMsgExpected, badMsgActual2);
+			//Assert.AreEqual(badMsgExpected, badMsgActual3);
 		}
 	}
 }
