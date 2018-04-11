@@ -62,5 +62,10 @@ namespace Florae_Basket
         {
 
         }
+
+        private void last_textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
