@@ -72,11 +72,11 @@ namespace Florae_Basket
 				msgToDisplay = "Changes successfully saved!";
 			}
 
-			//if (userEnteredImgPath != DBMngr.FetchFilePath(flowerId))
-			//{
-			//	DBMngr.changeImgPath(userEnteredImgPath, flowerId);
-			//	msgToDisplay = "Changes successfully saved!";
-			//}
+			if (userEnteredImgPath != DBMngr.FetchFilePath(flowerId))
+			{
+				DBMngr.changeImgPath(userEnteredImgPath, flowerId);
+				msgToDisplay = "Changes successfully saved!";
+			}
 
 
 			return msgToDisplay;

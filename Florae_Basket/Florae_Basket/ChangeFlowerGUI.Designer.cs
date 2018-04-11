@@ -58,7 +58,7 @@
 			this.englishNameEntryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.englishNameEntryBox.Name = "englishNameEntryBox";
 			this.englishNameEntryBox.Size = new System.Drawing.Size(287, 22);
-			this.englishNameEntryBox.TabIndex = 7;
+			this.englishNameEntryBox.TabIndex = 0;
 			// 
 			// changeFlowerSubmit
 			// 
@@ -66,7 +66,7 @@
 			this.changeFlowerSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.changeFlowerSubmit.Name = "changeFlowerSubmit";
 			this.changeFlowerSubmit.Size = new System.Drawing.Size(100, 34);
-			this.changeFlowerSubmit.TabIndex = 10;
+			this.changeFlowerSubmit.TabIndex = 5;
 			this.changeFlowerSubmit.Text = "Update!";
 			this.changeFlowerSubmit.UseVisualStyleBackColor = true;
 			this.changeFlowerSubmit.Click += new System.EventHandler(this.changeFlowerSubmit_Click);
@@ -76,7 +76,7 @@
 			this.ChangeToFlowerProfileBtn.Location = new System.Drawing.Point(160, 506);
 			this.ChangeToFlowerProfileBtn.Name = "ChangeToFlowerProfileBtn";
 			this.ChangeToFlowerProfileBtn.Size = new System.Drawing.Size(199, 28);
-			this.ChangeToFlowerProfileBtn.TabIndex = 11;
+			this.ChangeToFlowerProfileBtn.TabIndex = 6;
 			this.ChangeToFlowerProfileBtn.Text = "Return to Flower Profile";
 			this.ChangeToFlowerProfileBtn.UseVisualStyleBackColor = true;
 			this.ChangeToFlowerProfileBtn.Click += new System.EventHandler(this.ChangeToFlowerProfileBtn_Click);
@@ -96,7 +96,7 @@
 			this.botanicalFamEntryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.botanicalFamEntryBox.Name = "botanicalFamEntryBox";
 			this.botanicalFamEntryBox.Size = new System.Drawing.Size(287, 22);
-			this.botanicalFamEntryBox.TabIndex = 9;
+			this.botanicalFamEntryBox.TabIndex = 2;
 			// 
 			// notesLbl
 			// 
@@ -132,7 +132,7 @@
 			this.noteEntryBox.Location = new System.Drawing.Point(208, 219);
 			this.noteEntryBox.Name = "noteEntryBox";
 			this.noteEntryBox.Size = new System.Drawing.Size(287, 96);
-			this.noteEntryBox.TabIndex = 15;
+			this.noteEntryBox.TabIndex = 3;
 			this.noteEntryBox.Text = "";
 			// 
 			// uploadImgBtn
@@ -140,7 +140,7 @@
 			this.uploadImgBtn.Location = new System.Drawing.Point(62, 389);
 			this.uploadImgBtn.Name = "uploadImgBtn";
 			this.uploadImgBtn.Size = new System.Drawing.Size(75, 23);
-			this.uploadImgBtn.TabIndex = 16;
+			this.uploadImgBtn.TabIndex = 4;
 			this.uploadImgBtn.Text = "Browse...";
 			this.uploadImgBtn.UseVisualStyleBackColor = true;
 			this.uploadImgBtn.Click += new System.EventHandler(this.uploadImgBtn_Click);
@@ -151,7 +151,7 @@
 			this.latinNameEntryBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.latinNameEntryBox.Name = "latinNameEntryBox";
 			this.latinNameEntryBox.Size = new System.Drawing.Size(287, 22);
-			this.latinNameEntryBox.TabIndex = 17;
+			this.latinNameEntryBox.TabIndex = 1;
 			// 
 			// latinNameLbl
 			// 

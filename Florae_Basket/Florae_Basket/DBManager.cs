@@ -303,17 +303,17 @@ namespace Florae_Basket
 
 		}
 
-		//public void changeImgPath(string imgPathChange, int primaryKey)
-		//{
-		//	conn.Open();
-		//	string query = "UPDATE Images SET Filepath = @botan WHERE Id = " + primaryKey;
-		//	SqlCommand comm = new SqlCommand(query, conn);
-		//	comm.Parameters.Add("@botan", System.Data.SqlDbType.NVarChar);
-		//	comm.Parameters["@botan"].Value = imgPathChange;
-		//	comm.ExecuteNonQuery();
-		//	conn.Close();
+		public void changeImgPath(string imgPathChange, int primaryKey)
+		{
+			conn.Open();
+			string query = "UPDATE Images SET Filepath = @img WHERE Id = " + primaryKey;
+			SqlCommand comm = new SqlCommand(query, conn);
+			comm.Parameters.Add("@img", System.Data.SqlDbType.NVarChar);
+			comm.Parameters["@img"].Value = imgPathChange;
+			comm.ExecuteNonQuery();
+			conn.Close();
 
 
-		//}
+		}
 	}
 }

@@ -100,7 +100,7 @@
 			this.addFlowerToDBBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.addFlowerToDBBtn.Name = "addFlowerToDBBtn";
 			this.addFlowerToDBBtn.Size = new System.Drawing.Size(100, 34);
-			this.addFlowerToDBBtn.TabIndex = 3;
+			this.addFlowerToDBBtn.TabIndex = 5;
 			this.addFlowerToDBBtn.Text = "Add it!";
 			this.addFlowerToDBBtn.UseVisualStyleBackColor = true;
 			this.addFlowerToDBBtn.Click += new System.EventHandler(this.addFlowerToDBBtn_Click);
@@ -139,7 +139,7 @@
 			this.noteEntryBox.Location = new System.Drawing.Point(208, 219);
 			this.noteEntryBox.Name = "noteEntryBox";
 			this.noteEntryBox.Size = new System.Drawing.Size(287, 96);
-			this.noteEntryBox.TabIndex = 10;
+			this.noteEntryBox.TabIndex = 3;
 			this.noteEntryBox.Text = "";
 			// 
 			// uploadImgBtn
@@ -147,7 +147,7 @@
 			this.uploadImgBtn.Location = new System.Drawing.Point(62, 389);
 			this.uploadImgBtn.Name = "uploadImgBtn";
 			this.uploadImgBtn.Size = new System.Drawing.Size(75, 23);
-			this.uploadImgBtn.TabIndex = 11;
+			this.uploadImgBtn.TabIndex = 4;
 			this.uploadImgBtn.Text = "Browse...";
 			this.uploadImgBtn.UseVisualStyleBackColor = true;
 			this.uploadImgBtn.Click += new System.EventHandler(this.uploadImgBtn_Click);
