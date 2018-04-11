@@ -157,6 +157,20 @@ namespace Florae_Basket
 			conn.Close();
 		}
 
+		public string FetchNote(int id)
+		{
+			string temp;
+			conn.Open();
+			string query = "SELECT Contents FROM Note WHERE FlowerID = " + id;
+			SqlCommand comm = new SqlCommand(query, conn);
+			SqlDataReader read = comm.ExecuteReader();
+			read.Read();
+			temp = read.GetString(0);
+			read.Close();
+			conn.Close();
+			return temp;
+		}
+
 		public string FetchFilePath(int id)
 		{
 			string temp;
@@ -239,6 +253,19 @@ namespace Florae_Basket
             }
 		}
 
+		public void changeLatinName(string latinChange, int primaryKey)
+		{
+			conn.Open();
+			string query = "UPDATE Flower SET Latin = @latin WHERE Id = " + primaryKey;
+			SqlCommand comm = new SqlCommand(query, conn);
+			comm.Parameters.Add("@latin", System.Data.SqlDbType.NVarChar);
+			comm.Parameters["@latin"].Value = latinChange;
+			comm.ExecuteNonQuery();
+			conn.Close();
+
+
+		}
+
 		public void changeEnglishName(string englishChange, int primaryKey)
 		{
 			conn.Open();
@@ -262,8 +289,31 @@ namespace Florae_Basket
 			conn.Close();
 
 
+		}
+		public void changeNote(string noteChange, int primaryKey)
+		{
+			conn.Open();
+			string query = "UPDATE Note SET Contents = @note WHERE Id = " + primaryKey;
+			SqlCommand comm = new SqlCommand(query, conn);
+			comm.Parameters.Add("@note", System.Data.SqlDbType.NVarChar);
+			comm.Parameters["@note"].Value = noteChange;
+			comm.ExecuteNonQuery();
+			conn.Close();
 
 
 		}
+
+		//public void changeImgPath(string imgPathChange, int primaryKey)
+		//{
+		//	conn.Open();
+		//	string query = "UPDATE Images SET Filepath = @botan WHERE Id = " + primaryKey;
+		//	SqlCommand comm = new SqlCommand(query, conn);
+		//	comm.Parameters.Add("@botan", System.Data.SqlDbType.NVarChar);
+		//	comm.Parameters["@botan"].Value = imgPathChange;
+		//	comm.ExecuteNonQuery();
+		//	conn.Close();
+
+
+		//}
 	}
 }

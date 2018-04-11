@@ -24,13 +24,12 @@ namespace Florae_Basket
 	public partial class ChangeFlowerGUI : Form
 	{
 
-		ChangeFlowerCtlr changeFlowerCtlrReference;
+		int copyOfFlowerId;
 
-		Flower flowerToVerify = new Flower();
-
-		public ChangeFlowerGUI()
+		public ChangeFlowerGUI(int key)
 		{
 			InitializeComponent();
+			copyOfFlowerId = key;
 		}
 
 		private void changeFlowerSubmit_Click(object sender, EventArgs e)
@@ -41,20 +40,18 @@ namespace Florae_Basket
 
 			string changedEnglishName = englishNameEntryBox.Text;
 
+			string changedLatinName = latinNameEntryBox.Text;
+
 			string changedBotanicalFam = botanicalFamEntryBox.Text;
 
 			string changedNote = noteEntryBox.Text;
 
 			string changedImgPath = imgPathView.Text;
 
-			//flowerToVerify = new Flower(changedLatinName, changedEnglishName, changedBotanicalFam, enteredNote, enteredImgPath);
-			flowerToVerify.setEnglishName(changedEnglishName);
-			flowerToVerify.setBotanicalFam(changedBotanicalFam);
-			flowerToVerify.setNote(changedNote);
-			flowerToVerify.setImgPath(changedImgPath);
+			ChangeFlowerCtlr changeFlowerCtlrReference = new ChangeFlowerCtlr(copyOfFlowerId);
 
 			// begin the checking of the database for an existing entry with these parameters
-			string msgToDisplay = ChangeFlowerCtlr.verifyFlower(flowerToVerify, changedEnglishName, changedBotanicalFam);
+			string msgToDisplay = changeFlowerCtlrReference.verifyFlower(changedEnglishName, changedLatinName, changedBotanicalFam, changedNote, changedImgPath);
 
 			MessageBox.Show(msgToDisplay);
 
@@ -63,7 +60,7 @@ namespace Florae_Basket
 		private void ChangeToFlowerProfileBtn_Click(object sender, EventArgs e)
 		{
 			Database_Manager DBMngrInstance = new Database_Manager(); 
-			new flowerProfile(flowerToVerify.getEnglishName(), flowerToVerify.getLatinName(), flowerToVerify.getBotanicalFam(), flowerToVerify.getNote(), flowerToVerify.getImgPath(), DBMngrInstance.FetchID(flowerToVerify.getLatinName())).Show();
+			new flowerProfile(DBMngrInstance.FetchEnglish(copyOfFlowerId), DBMngrInstance.FetchLatin(copyOfFlowerId), DBMngrInstance.FetchBotan(copyOfFlowerId), DBMngrInstance.FetchNote(copyOfFlowerId), DBMngrInstance.FetchFilePath(copyOfFlowerId), copyOfFlowerId).Show();
 			this.Hide();
 
 		}
@@ -78,5 +75,6 @@ namespace Florae_Basket
 				imgPathView.Text = selectImgPath.FileName;
 
 		}
+
 	}
 }
