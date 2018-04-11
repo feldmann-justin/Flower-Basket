@@ -188,6 +188,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Flowers.mdf</DependentUpon>
     </Content>
+    <Content Include="Pics\sunflower.jpg" />
     <Content Include="Pics\flower.jpg" />
   </ItemGroup>
   <ItemGroup>

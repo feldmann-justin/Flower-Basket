@@ -18,7 +18,7 @@ using System.Data.SqlClient;
 
 namespace Florae_Basket
 {
-	class ChangeFlowerCtlr
+	public class ChangeFlowerCtlr
 	{
 
 		// global variables
