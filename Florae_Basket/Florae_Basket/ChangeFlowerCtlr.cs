@@ -48,7 +48,10 @@ namespace Florae_Basket
 				msgToDisplay = "Changes successfully saved!";
 			}
 			else
+			{
 				msgToDisplay = "Changes unable to be saved: One of the three minimum attributes is missing.";
+				return msgToDisplay;
+			}
 			// same structure for latin name and botanical family
 			if ((userEnteredLatin != DBMngr.FetchLatin(flowerId)) && (userEnteredLatin != ""))
 			{
@@ -56,14 +59,20 @@ namespace Florae_Basket
 				msgToDisplay = "Changes successfully saved!";
 			}
 			else
+			{
 				msgToDisplay = "Changes unable to be saved: One of the three minimum attributes is missing.";
+				return msgToDisplay;
+			}
 			if ((userEnteredBotan != DBMngr.FetchBotan(flowerId)) && (userEnteredBotan != ""))
 			{
 				DBMngr.changeBotanicalFam(userEnteredBotan, flowerId);
 				msgToDisplay = "Changes successfully saved!";
-			}		
+			}
 			else
+			{
 				msgToDisplay = "Changes unable to be saved: One of the three minimum attributes is missing.";
+				return msgToDisplay;
+			}
 
 
 			if (userEnteredNote != DBMngr.FetchNote(flowerId))

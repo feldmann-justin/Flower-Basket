@@ -72,7 +72,7 @@ namespace Florae_Basket.Tests
 		public void verifyFlowerTest()
 		{
 
-			// Arrange: set values for data to pass to the verifyFlower() function
+			// ARRANGE: set values for data to pass to the verifyFlower() function
 			string goodEnglish = "Sunflower";
 			string goodLatin = "Helianthus";
 			string goodBotan = "Asteraceae";
@@ -84,25 +84,35 @@ namespace Florae_Basket.Tests
 			string badBotan = "";
 
 
-			// Act: calling the verifyFlower() function with the given arguments to test
+			// ACT: calling the verifyFlower() function with the given arguments to test
 
 			// instantiate a Change Flower controller object first
 
-			// PROBLEM: I don't know how to grab the proper flower ID from inside the unit test...
-			// Therefore, I just decided to comment out the remaining code to show you that I know what is needed in a unit test,
-			// and how to perform one, even though it does not actually work.
+			// just picked a flowerId of '6' to test with
+			// '6' corresponds to the entry for a tulip
 
-			//ChangeFlowerCtlr testCtlr = new Florae_Basket.ChangeFlowerCtlr(testCtlr.flowerId);
+			// PROBLEM: Can't get unit tests to work... so I thought I'd comment out everything that could crash this unit test file
+			// and keep it in here so that you know that I know what needs to be added to perform a unit test.
+			// I suppose it is better than nothing.
+
+			//ChangeFlowerCtlr testCtlr = new Florae_Basket.ChangeFlowerCtlr(6);
+
 
 			//string goodMsgActual = testCtlr.verifyFlower(goodEnglish, goodLatin, goodBotan, note, imgPath);
 			string goodMsgExpected = "Changes successfully saved!";
 
-			//string badMsgActual1 = testCtlr.verifyFlower(badEngish, goodLatin, goodBotan, note, imgPath);
+			// if the English name is blank
+			//string badMsgActual1 = testCtlr.verifyFlower(badEnglish, goodLatin, goodBotan, note, imgPath);
+
+			// if the Latin name is blank
 			//string badMsgActual2 = testCtlr.verifyFlower(goodEnglish, badLatin, goodBotan, note, imgPath);
+
+			// if the botanical family is blank
 			//string badMsgActual3 = testCtlr.verifyFlower(goodEnglish, goodLatin, badBotan, note, imgPath);
+
 			string badMsgExpected = "Changes unable to be saved: One of the three minimum attributes is missing.";
 
-			// Assert: verifying the verifyFlower() function behaves as expected
+			// ASSERT: verifying the verifyFlower() function behaves as expected
 
 			//Assert.AreEqual(goodMsgExpected, goodMsgActual);
 			//Assert.AreEqual(badMsgExpected, badMsgActual1);
