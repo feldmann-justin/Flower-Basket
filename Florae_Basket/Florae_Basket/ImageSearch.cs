@@ -72,7 +72,8 @@ namespace Florae_Basket
             }
 
             Bitmap img = new Bitmap(filename);
-            pictureBox.BackgroundImage = img;
+            pictureBox.Image = img;
+            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
         }
         
         private void wordSearchSelect_CheckedChanged(object sender, EventArgs e) { wordSearchOption = true; }
@@ -85,8 +86,10 @@ namespace Florae_Basket
 
             ImageSearchController imgSrchCtrlr = (new ImageSearchController(filename, wordSearch, freqColor));
             int[] topResults = imgSrchCtrlr.getTopthree();
+            double[] topValues = imgSrchCtrlr.getChiValues();
             for (int i = 0; i < 3; i++) {
-                resultsLabel.Text += topResults[i];
+                resultsLabel.Text += ("Img " + ": "  + topResults[i] + " ");
+                valueLabel.Text += i + ") " + topValues[i] + " ";
             }
             
         }

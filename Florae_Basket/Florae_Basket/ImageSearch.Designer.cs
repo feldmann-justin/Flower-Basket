@@ -40,6 +40,8 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.resultsLabel = new System.Windows.Forms.Label();
+            this.chiLabel = new System.Windows.Forms.Label();
+            this.valueLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +130,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(471, 88);
+            this.pictureBox.Location = new System.Drawing.Point(468, 60);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(181, 173);
             this.pictureBox.TabIndex = 9;
@@ -137,11 +139,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(459, 294);
+            this.label1.Location = new System.Drawing.Point(432, 294);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Matches:";
+            this.label1.Text = "Match Indexes:";
             // 
             // resultsLabel
             // 
@@ -151,12 +153,32 @@
             this.resultsLabel.Size = new System.Drawing.Size(0, 13);
             this.resultsLabel.TabIndex = 11;
             // 
+            // chiLabel
+            // 
+            this.chiLabel.AutoSize = true;
+            this.chiLabel.Location = new System.Drawing.Point(432, 328);
+            this.chiLabel.Name = "chiLabel";
+            this.chiLabel.Size = new System.Drawing.Size(259, 13);
+            this.chiLabel.TabIndex = 12;
+            this.chiLabel.Text = "Chi-Square Values (0 is best, 1 or above is very poor):";
+            // 
+            // valueLabel
+            // 
+            this.valueLabel.AutoSize = true;
+            this.valueLabel.Location = new System.Drawing.Point(432, 360);
+            this.valueLabel.Name = "valueLabel";
+            this.valueLabel.Size = new System.Drawing.Size(42, 13);
+            this.valueLabel.TabIndex = 13;
+            this.valueLabel.Text = "Values:";
+            // 
             // ImageSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(692, 395);
+            this.Controls.Add(this.valueLabel);
+            this.Controls.Add(this.chiLabel);
             this.Controls.Add(this.resultsLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox);
@@ -194,6 +216,8 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label resultsLabel;
+        private System.Windows.Forms.Label chiLabel;
+        private System.Windows.Forms.Label valueLabel;
     }
 }
 

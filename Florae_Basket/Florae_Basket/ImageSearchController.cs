@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 /* 
  Dipak Subramaniam     Team: Dirk    CP03
@@ -19,7 +20,7 @@ namespace Florae_Basket
         private int[,] greenPixels;
         private int[,] bluePixels;
         private int[,] imageValueBins;
-        private double[] chiSquareDistances;
+        private double[] chiSquareDistances = new double[5];
         private int[] topThree = new int[3];
         //Value Bin Instance Variables
         private int zeroToSixyThreeRed = 0;
@@ -41,20 +42,26 @@ namespace Florae_Basket
             redPixels = new int[img.Width, img.Height]; //RGB Arrays
             greenPixels = new int[img.Width, img.Height]; //RGB Arrays
             bluePixels = new int[img.Width, img.Height]; //RGB Arrays
+            
             //loading 2D array with pixels of given search image
             for (int i = 0; i < img.Width; i++)
             {
                 for (int j = 0; j < img.Height; j++)
                 {
                     Color pixel = img.GetPixel(i, j);
+                    string pix = "" + pixel; //outputs: Color [A=255, R=80, G=72, B=61]
                     pixel = array[i, j];
                     //loading RGB arrays with RGB values of the pixels
-                    redPixels[i, j] = (int)pixel.R;
-                    greenPixels[i, j] = (int)pixel.G;
-                    bluePixels[i, j] = (int)pixel.B;
-                    Console.WriteLine((int)pixel.R);
-                    Console.WriteLine((int)pixel.G);
-                    Console.WriteLine((int)pixel.B);
+                    Regex arg = new Regex(@"=(.+?),");
+                    Regex b = new Regex(@"B=(.+?)]");
+                    MatchCollection mcARG = arg.Matches(pix);
+                    MatchCollection mcB = b.Matches(pix);
+                    string red = Regex.Replace(mcARG[1].ToString(), "[^0-9.]", "");
+                    string green = Regex.Replace(mcARG[2].ToString(), "[^0-9.]", "");
+                    string blue = Regex.Replace(mcB[0].ToString(), "[^0-9.]", "");
+                    redPixels[i, j] = Int32.Parse(red);
+                    greenPixels[i, j] = Int32.Parse(green);
+                    bluePixels[i, j] = Int32.Parse(blue);
 
                     //Pixel Range RGB subdivisions
 
@@ -96,11 +103,14 @@ namespace Florae_Basket
             imageValueBins[2, 3] = oneNinetyTwoToTwoFiftyFiveBlue;
 
             //Database Manager
-            string[] imageFilePaths = {"", "", "", "", ""};
-            int length = 5;
+            /*
+             * NOTE: FOR TESTING PURPOSES, REPLACE THE FILEPATHS WITH LOCAL PATHS FROM YOUR SYSTEM
+             */
+            string[] imageFilePaths = { "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg" };
+            int length = imageFilePaths.Length;
             for(int d = 0; d < length /*database.imageFilePaths.length*/; d++) 
-            {   
-                
+            {
+                chiSquareDistances[d] = 0.0;
                 Color[,] dbArray;
                 int[,] dbRedPixels;
                 int[,] dbGreenPixels;
@@ -120,7 +130,6 @@ namespace Florae_Basket
                 int dbOneNinetyTwoToTwoFiftyFiveGreen = 0;
                 int dbOneNinetyTwoToTwoFiftyFiveBlue = 0;
                 
-
                 Bitmap dbImg = new Bitmap(imageFilePaths[d]); //iterating through array of database image filepaths
                 dbArray = new Color[dbImg.Width, dbImg.Height]; //Image Pixel Array
                 dbRedPixels = new int[dbImg.Width, dbImg.Height]; //RGB Arrays
@@ -132,11 +141,19 @@ namespace Florae_Basket
                     for (int j = 0; j < dbImg.Height; j++)
                     {
                         Color dbPixel = dbImg.GetPixel(i, j);
+                        string dbPix = "" + dbPixel;
                         dbPixel = dbArray[i, j];
                         //loading RGB arrays with RGB values of the pixels
-                        dbRedPixels[i, j] = dbPixel.R;
-                        dbGreenPixels[i, j] = dbPixel.G;
-                        dbBluePixels[i, j] = dbPixel.B;
+                        Regex arg = new Regex(@"=(.+?),");
+                        Regex b = new Regex(@"B=(.+?)]");
+                        MatchCollection mcARG = arg.Matches(dbPix);
+                        MatchCollection mcB = b.Matches(dbPix);
+                        string red = Regex.Replace(mcARG[1].ToString(), "[^0-9.]", "");
+                        string green = Regex.Replace(mcARG[2].ToString(), "[^0-9.]", "");
+                        string blue = Regex.Replace(mcB[0].ToString(), "[^0-9.]", "");
+                        dbRedPixels[i, j] = Int32.Parse(red);
+                        dbGreenPixels[i, j] = Int32.Parse(green);
+                        dbBluePixels[i, j] = Int32.Parse(blue);
 
                         //Pixel Range RGB subdivisions
 
@@ -196,14 +213,18 @@ namespace Florae_Basket
                     }
                 }
 
+                if (redSum == double.NaN) { redSum = 0; }
+                if (greenSum == double.NaN) { greenSum = 0; }
+                if (blueSum == double.NaN) { blueSum = 0; }
+
                 chiRed = (0.25) * (Math.Sqrt(redSum));
                 chiGreen = (0.25) * (Math.Sqrt(greenSum));
                 chiBlue = (0.25) * (Math.Sqrt(blueSum));
-                chiThreshold = (1.0 / 3.0) * (redSum + greenSum + blueSum);
+                chiThreshold = (1.0 / 3.0) * (chiRed + chiGreen + chiBlue);
                 Console.WriteLine(chiThreshold);
-
-                
+                if (chiThreshold == double.NaN) { chiThreshold = 0; }
                 chiSquareDistances[d] = chiThreshold;
+                
             }
 
         //Sorting Chi-Square Distance Values to Determine Smallest (Most Accurate) Results
@@ -239,20 +260,17 @@ namespace Florae_Basket
             else if(topThree[2] >= 1) {
                 topThree[2] = Array.FindIndex(chiSquareDistances, m => m == sortedDistances[3]);
                 }
-            
+            Console.WriteLine("Algorithm Completed");
         }
 
         public int[] getTopthree() {
             return topThree;
         }
 
-        //Display Top Three
-
-        /* 
-        public int getDBImage(index) {
-            //to be added to simplify DB access
+        public double[] getChiValues()
+        {
+            return chiSquareDistances;
         }
-        */
     }
 
 
