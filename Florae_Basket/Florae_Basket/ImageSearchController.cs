@@ -20,7 +20,7 @@ namespace Florae_Basket
         private int[,] greenPixels;
         private int[,] bluePixels;
         private int[,] imageValueBins;
-        private double[] chiSquareDistances;
+        private double[] chiSquareDistances = new double[5];
         private int[] topThree = new int[3];
         //Value Bin Instance Variables
         private int zeroToSixyThreeRed = 0;
@@ -42,6 +42,7 @@ namespace Florae_Basket
             redPixels = new int[img.Width, img.Height]; //RGB Arrays
             greenPixels = new int[img.Width, img.Height]; //RGB Arrays
             bluePixels = new int[img.Width, img.Height]; //RGB Arrays
+            
             //loading 2D array with pixels of given search image
             for (int i = 0; i < img.Width; i++)
             {
@@ -102,11 +103,14 @@ namespace Florae_Basket
             imageValueBins[2, 3] = oneNinetyTwoToTwoFiftyFiveBlue;
 
             //Database Manager
+            /*
+             * NOTE: FOR TESTING PURPOSES, REPLACE THE FILEPATHS WITH LOCAL PATHS FROM YOUR SYSTEM
+             */
             string[] imageFilePaths = { "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg" };
-            int length = 5;
+            int length = imageFilePaths.Length;
             for(int d = 0; d < length /*database.imageFilePaths.length*/; d++) 
-            {   
-                
+            {
+                chiSquareDistances[d] = 0.0;
                 Color[,] dbArray;
                 int[,] dbRedPixels;
                 int[,] dbGreenPixels;
@@ -216,10 +220,11 @@ namespace Florae_Basket
                 chiRed = (0.25) * (Math.Sqrt(redSum));
                 chiGreen = (0.25) * (Math.Sqrt(greenSum));
                 chiBlue = (0.25) * (Math.Sqrt(blueSum));
-                chiThreshold = (1.0 / 3.0) * (redSum + greenSum + blueSum);
+                chiThreshold = (1.0 / 3.0) * (chiRed + chiGreen + chiBlue);
                 Console.WriteLine(chiThreshold);
                 if (chiThreshold == double.NaN) { chiThreshold = 0; }
                 chiSquareDistances[d] = chiThreshold;
+                
             }
 
         //Sorting Chi-Square Distance Values to Determine Smallest (Most Accurate) Results
@@ -262,13 +267,10 @@ namespace Florae_Basket
             return topThree;
         }
 
-        //Display Top Three
-
-        /* 
-        public int getDBImage(index) {
-            //to be added to simplify DB access
+        public double[] getChiValues()
+        {
+            return chiSquareDistances;
         }
-        */
     }
 
 
