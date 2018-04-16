@@ -41,11 +41,11 @@ namespace Florae_Basket
             // start file path and add black background to the picture box
             string filePath = "";
             if (primaryKey < 7)
-                //ONLY FOR TESTING REMOVE FROM FINAL PRODUCT
+            //ONLY FOR TESTING REMOVE FROM FINAL PRODUCT
             {
                 filePath = "..\\..\\Pics\\";
             }
-            
+
             flowerImage.BackColor = Color.Black;
 
             // add the flower image name to the file path*/
@@ -57,7 +57,7 @@ namespace Florae_Basket
             {
                 filePath = imageName;
             }
-            
+
 
             // display all flower info
             engNameTextBox.AppendText(englishName);
@@ -65,7 +65,7 @@ namespace Florae_Basket
             botFamTextBox.AppendText(botanicalFamily);
             notesTextBox.AppendText(note);
             flowerImage.Image = Image.FromFile(filePath);
-           // }
+            // }
         }
 
         //calls the delete flower class when clicked
@@ -80,10 +80,6 @@ namespace Florae_Basket
         }
 
 
-        private void print_click(object sender, EventArgs e)
-        {
-
-        }
 
         private void deleteToMain_click(object sender, EventArgs e)
         {
@@ -101,17 +97,47 @@ namespace Florae_Basket
 
         }
 
-		private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
-		{
+        private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
+        {
 
-			// have to pass along the displayed flower's primary key when displaying the Change Flower GUI
-			// in order to change the attributes for the correct flower in the database
-			ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
+            // have to pass along the displayed flower's primary key when displaying the Change Flower GUI
+            // in order to change the attributes for the correct flower in the database
+            ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
 
-			ctlrToChangeFlower.displayChangeFlowerGUI();
+            ctlrToChangeFlower.displayChangeFlowerGUI();
 
-			this.Hide();
+            this.Hide();
 
-		}
-	}
+        }
+
+        //---------------------------------------------------------------------------------------------------------------------------------------//
+        //                                                                                                                                       //
+        //   Print controls. By Kade Walter                                                                                                      //
+        //                                                                                                                                       //
+        //---------------------------------------------------------------------------------------------------------------------------------------//        
+        Bitmap bmp;
+        private void print_click(object sender, EventArgs e)
+        {
+            // variables from the GUI required for printing.
+            // makes a bmp image
+            Graphics g = this.CreateGraphics();
+            Size s = this.Size;
+            bmp = new Bitmap(s.Width, s.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+
+            // show the print dialog menu //
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        // When the print button is clicked in the printDialog,
+        // it will print the document
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+    }
 }
