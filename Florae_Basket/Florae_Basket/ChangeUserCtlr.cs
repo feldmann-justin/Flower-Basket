@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Florae_Basket
 {
-    class ChangeUserCtlr
+    public class ChangeUserCtlr
     {
-        public ChangeUserCtlr()
-        {
-
-        }
 
         public void CreateGUI()
         {
-
+            ChangeUserGUI change = new ChangeUserGUI(this);
+            change.ShowDialog();
+            new MainMenu().Show();
         }
 
         public void Main(string first, string last, string username, string password, string accType)
@@ -42,6 +41,11 @@ namespace Florae_Basket
                 {
                     db.ChangeAccType(username, accType);
                 }
+                MessageBox.Show("User account successfully changed.");
+            }
+            else
+            {
+                MessageBox.Show("ERROR: User account does not exist");
             }
         }
 

@@ -64,7 +64,24 @@ namespace Florae_Basket
         void FixScores(ref Candidate[] list, string entry)
         {
             double tempscore;
-            for (int i = 0; i < 3; i++)
+            int temp;
+            if (list[0].contents == null)
+            {
+                temp = 0;
+            }
+            else if (list[1].contents == null)
+            {
+                temp = 1;
+            }
+            else if (list[2].contents == null)
+            {
+                temp = 2;
+            }
+            else
+            {
+                temp = 3;
+            }
+            for (int i = 0; i < temp; i++)
             {
                 tempscore = list[i].score;
                 if (tempscore <= -list[i].contents.Length)

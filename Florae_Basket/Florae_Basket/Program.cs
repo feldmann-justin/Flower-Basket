@@ -20,6 +20,9 @@ namespace Florae_Basket
             db.InsertFlower("violet", "violat", "vio fam", "vio note", "flower.jpg");
             db.InsertFlower("rose", "roselat", "ros fam", "ros  note", "flower.jpg");
             db.InsertFlower("tulip", "tulilat", "tul fam", "tul note", "flower.jpg");
+            db.DeleteFlower(1);
+            db.DeleteFlower(2);
+            db.DeleteFlower(3);
             //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

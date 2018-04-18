@@ -38,7 +38,9 @@ namespace Florae_Basket
 
         private void ChangeUserbtn_Click(object sender, EventArgs e)
         {
-
+            new ChangeUserCtlr().CreateGUI();
+            forward = true;
+            this.Close();
         }
     }
 }
