@@ -312,8 +312,58 @@ namespace Florae_Basket
 			comm.Parameters["@img"].Value = imgPathChange;
 			comm.ExecuteNonQuery();
 			conn.Close();
-
-
 		}
-	}
+
+        public void ChangePassword(string username, string password)
+        {
+            conn.Open();
+            string query = "UPDATE [User] SET Password = @pass WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@pass", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@pass"].Value = password;
+            comm.Parameters["@user"].Value = username;
+            comm.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void ChangeLastname(string username, string last)
+        {
+            conn.Open();
+            string query = "UPDATE [User] SET LastName = @last WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@last", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@last"].Value = last;
+            comm.Parameters["@user"].Value = username;
+            comm.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void ChangeFirstname(string username, string first)
+        {
+            conn.Open();
+            string query = "UPDATE [User] SET FirstName = @first WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@first", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@first"].Value = first;
+            comm.Parameters["@user"].Value = username;
+            comm.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void ChangeAccType(string username, string acct)
+        {
+            conn.Open();
+            string query = "UPDATE [User] SET AccountType = @acct WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@acct", System.Data.SqlDbType.NVarChar);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@acct"].Value = acct;
+            comm.Parameters["@user"].Value = username;
+            comm.ExecuteNonQuery();
+            conn.Close();
+        }
+    }
 }

@@ -95,9 +95,21 @@ namespace Florae_Basket
                 Database_Manager db = new Database_Manager();
                 //TODO
                 //Next all 3 arrays must be populated with filepaths from the database.
-                for (int i = 0; i < 3; i++)
+                //for (int i = 0; i < 3; i++)
+                //{
+                //    images1[i] = db.FetchFilePath(id[i]);
+                //}
+                if (id[0] != 0)
                 {
-                    images1[i] = db.FetchFilePath(id[i]);
+                    images1[0] = db.FetchFilePath(id[0]);
+                    if (id[1] != 0)
+                    {
+                        images1[1] = db.FetchFilePath(id[1]);
+                        if (id[2] != 0)
+                        {
+                            images1[2] = db.FetchFilePath(id[2]);
+                        }
+                    }
                 }
             }
             catch (Exception)
@@ -113,15 +125,25 @@ namespace Florae_Basket
             Database_Manager db = new Database_Manager();
             try
             {
-                for (int i = 0; i < 3; i++)
+                //for (int i = 0; i < 3; i++)
+                //{
+                //    notes[i] = db.FetchNote(id[0]);
+                //}
+                if (id[0] != 0)
                 {
-                    notes[i] = db.FetchNote(id[0]);
+                    notes[0] = db.FetchNote(id[0]);
+                    if (id[1] != 0)
+                    {
+                        notes[1] = db.FetchNote(id[1]);
+                        if (id[2] != 0)
+                        {
+                            notes[2] = db.FetchNote(id[2]);
+                        }
+                    }
                 }
-                
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
