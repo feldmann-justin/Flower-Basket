@@ -118,19 +118,8 @@ namespace Florae_Basket
         Bitmap bmp;
         private void print_click(object sender, EventArgs e)
         {
-            // variables from the GUI required for printing.
-            // makes a bmp image
-            Graphics g = this.CreateGraphics();
-            Size s = this.Size;
-            bmp = new Bitmap(s.Width, s.Height, g);
-            Graphics mg = Graphics.FromImage(bmp);
-            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
-
-            // show the print dialog menu //
-            if (printDialog1.ShowDialog() == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
+            flowerProfileCtrl myController = new flowerProfileCtrl();
+            myController.createPrint(this);
         }
 
         // When the print button is clicked in the printDialog,
@@ -138,6 +127,21 @@ namespace Florae_Basket
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
+        public void createImage()
+        {
+            // variables from the GUI required for printing. //
+            // makes a bmp image //
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Width, this.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            // show the print dialog menu //
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
         }
         //---------------------------------------------------------------------------------------------------------------------------------------//
         //                                                                                                                                       //

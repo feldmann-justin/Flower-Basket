@@ -48,10 +48,10 @@ namespace Florae_Basket
         //opens temporary flower result profile
         private void Display_Flower(int result, string images)
         {
-            flowerProfile prof = new flowerProfile(flowers[result].getEnglishName(), flowers[result].getLatinName(), 
+            flowerProfileCtrl profCtrl = new flowerProfileCtrl();
+            profCtrl.createGUI(flowers[result].getEnglishName(), flowers[result].getLatinName(), 
                                                    flowers[result].getBotanicalFam(), notes[result], images, ids[result]);
-            prof.ShowDialog(this);
-
+         
         }
 
         private void Result1btn_Click(object sender, EventArgs e)
