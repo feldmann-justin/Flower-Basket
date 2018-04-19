@@ -106,14 +106,36 @@ namespace Florae_Basket
 
         }
 
-        private void exit_click(object sender, EventArgs e)
+		//private void exit_click(object sender, EventArgs e)
+		//{
+		//    Application.Exit();
+		//}
+
+		private void logoutBtn_Click(object sender, EventArgs e)
+		{
+
+			LogoutCtlr logoutCtlr = new LogoutCtlr();
+
+			// first, display the confirmation message to the user
+			DialogResult selection = logoutCtlr.DisplayLogoutConfirm();
+
+			// second, return bool value based on the user's choice in logoutConfirm()
+			bool userSelection = logoutCtlr.LogoutConfirm(selection);
+
+			// lastly, the ACTUAL business logic is performed based on the user's choice
+			if (userSelection == true)
+			{
+				// reset the counter which controls user permissions
+
+			}
+
+
+		}
+
+		private void MainMenu_Load(object sender, EventArgs e)
         {
-            Application.Exit();
+
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }
