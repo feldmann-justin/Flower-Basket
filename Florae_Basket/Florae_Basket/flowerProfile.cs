@@ -20,14 +20,15 @@ namespace Florae_Basket
         private string note = " ";
         private string imageName;
         private int primaryKey = 0;
-		private int userAcctType = 0;
+		private int userAcctType;
 
-        public flowerProfile()
+        public flowerProfile(int acctType)
         {
             InitializeComponent();
+			userAcctType = acctType;
         }
 
-        public flowerProfile(string name, string latin, string botan, string note, string image, int id)
+        public flowerProfile(string name, string latin, string botan, string note, string image, int id, int acctType)
         {
             InitializeComponent();
             englishName = name;
@@ -36,6 +37,7 @@ namespace Florae_Basket
             this.note = note;
             imageName = image;
             primaryKey = id;
+			userAcctType = acctType;
         }
 
         private void flowerProfile_Load(object sender, EventArgs e)
@@ -73,12 +75,22 @@ namespace Florae_Basket
         //calls the delete flower class when clicked
         private void deleteFlower_click(object sender, EventArgs e)
         {
-            bool deleted = deleteFlowerCtlr.main(primaryKey);
-            if (deleted == true)
-            {
-                //new MainMenu().Show();
-                this.Hide();
-            }
+			// only execute the code for the Delete Flower event handler if the user is a Researcher or Admin
+			if ((userAcctType == 2) || (userAcctType == 3))
+			{
+
+				bool deleted = deleteFlowerCtlr.main(primaryKey);
+				if (deleted == true)
+				{
+					//new MainMenu().Show();
+					this.Hide();
+				}
+
+			}
+			else
+				MessageBox.Show("Must be a researcher or administrator to use this feature.");
+
+            
         }
 
 
@@ -89,7 +101,7 @@ namespace Florae_Basket
 
         private void deleteToMain_click(object sender, EventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
             this.Hide();
         }
 
@@ -106,13 +118,23 @@ namespace Florae_Basket
 		private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
 		{
 
-			// have to pass along the displayed flower's primary key when displaying the Change Flower GUI
-			// in order to change the attributes for the correct flower in the database
-			ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
+			// only execute the code for the Change Flower event handler if the user is a Researcher or Admin
+			if ((userAcctType == 2) || (userAcctType == 3))
+			{
 
-			ctlrToChangeFlower.displayChangeFlowerGUI();
+				// have to pass along the displayed flower's primary key when displaying the Change Flower GUI
+				// in order to change the attributes for the correct flower in the database
+				ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
 
-			this.Hide();
+				ctlrToChangeFlower.displayChangeFlowerGUI(userAcctType);
+
+				this.Hide();
+
+			}
+			else
+				MessageBox.Show("Must be a researcher or administrator to use this feature.");
+
+			
 
 		}
 	}

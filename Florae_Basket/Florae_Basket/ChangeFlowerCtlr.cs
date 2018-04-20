@@ -83,10 +83,10 @@ namespace Florae_Basket
 
 		}
 
-		public void displayChangeFlowerGUI()
+		public void displayChangeFlowerGUI(int acctType)
 		{
 
-			ChangeFlowerGUI changeFlowerGUI = new ChangeFlowerGUI(flowerId);
+			ChangeFlowerGUI changeFlowerGUI = new ChangeFlowerGUI(flowerId, acctType);
 			changeFlowerGUI.Visible = true;
 
 		}

@@ -27,8 +27,9 @@ namespace Florae_Basket
         public Flower[] flowers = new Flower[3];
         public string[] notes = new string[3];
         public string[] result_pics;
+		private int userAcctType;
 
-        public ResultsGUI(int[] id, Flower[] flow, string[] note, string[] images)
+		public ResultsGUI(int[] id, Flower[] flow, string[] note, string[] images, int acctType)
         {
             InitializeComponent();
             flowers = flow;
@@ -38,6 +39,7 @@ namespace Florae_Basket
             Result1box.Text = flowers[0].getEnglishName();
             Result2box.Text = flowers[1].getEnglishName();
             Result3box.Text = flowers[2].getEnglishName();
+			userAcctType = acctType;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace Florae_Basket
         private void Display_Flower(int result, string images)
         {
             flowerProfile prof = new flowerProfile(flowers[result].getEnglishName(), flowers[result].getLatinName(), 
-                                                   flowers[result].getBotanicalFam(), notes[result], images, ids[result]);
+                                                   flowers[result].getBotanicalFam(), notes[result], images, ids[result], userAcctType);
             prof.ShowDialog(this);
 
         }
@@ -72,7 +74,7 @@ namespace Florae_Basket
         private void button1_Click(object sender, EventArgs e)
         {
             exit = false;
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
             this.Hide();
         }
 

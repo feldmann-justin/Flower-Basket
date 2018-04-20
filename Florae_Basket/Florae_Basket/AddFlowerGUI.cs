@@ -15,12 +15,14 @@ namespace Florae_Basket
     {
 
 		AddFlowerCtlr guiControllerReference;
+		private int userAcctType;
 
-        public AddFlowerGUI(AddFlowerCtlr ctlr)
+        public AddFlowerGUI(AddFlowerCtlr ctlr, int acctType)
         {
 
             InitializeComponent();
 			guiControllerReference = ctlr;
+			userAcctType = acctType;
 		}
 
 		private void addFlowerToDBBtn_Click(object sender, EventArgs e)
@@ -55,13 +57,13 @@ namespace Florae_Basket
 
         private void AddToMain_click(object sender, EventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
             this.Hide();
         }
 
         private void add_leave_click(object sender, FormClosedEventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
             this.Hide();
         }
 

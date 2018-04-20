@@ -16,9 +16,9 @@ namespace Florae_Basket
         List<string> addedUserList = new List<string>();
         List<string> failedUserList = new List<string>();
 
-        public void createGui()
+        public void createGui(int acctType)
         {
-            addUserGUI gui = new addUserGUI(this);
+            addUserGUI gui = new addUserGUI(this, acctType);
             gui.Show();
         }
 

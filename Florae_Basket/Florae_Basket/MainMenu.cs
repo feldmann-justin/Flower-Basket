@@ -18,9 +18,7 @@ namespace Florae_Basket
 		// 1 will be for Students
 		// 2 will be for Researchers
 		// 3 will be for Administrators
-		// 'userAcctType' starts out at 0, in order to not accidentally
-		// set permissions for, say, a researcher or admin to that of a student
-		private int userAcctType = 0;
+		private int userAcctType;
 
 		public MainMenu(int acctType)
 		{
@@ -28,43 +26,26 @@ namespace Florae_Basket
 
 			userAcctType = acctType;
 
-			// this is where, depending on the value of 'userAcctType' being passed in,
-			// certain buttons leading to certain functionalities (e.g. adding/editing/deleting flowers,
-			// adding/changing users) will be disabled.
-
-			if (acctType == 1) // if the current user's account type is "Student"
-							   // the only thing they should be able to do is search for a flower
-			{
-
-				// disable the "Add a Flower" button
-				addFlowerMainMenuBtn.Enabled = false;
-
-				// disable the "User Options" button
-				userOptions_button.Enabled = false;
-
-			}
-			// if the current user's account type is "Researcher"
-			// they should be able to add a flower and search for one,
-			// but not add/edit users
-			else if (acctType == 2)
-			{
-
-				// disable the "User Options" button
-				userOptions_button.Enabled = false;
-
-			}
-
 		}
 		private void addFlowerMainMenuBtn_Click(object sender, EventArgs e)
 		{
-			// create a new instance of the AddFlowerCtlr, which will call displayAddFlowerGUI() to actually create the Add Flower GUI
-			new AddFlowerCtlr().DisplayAddFlowerGUI();
+			// only execute the code for the Add Flower event handler if the user is a Researcher or Admin
+			if ((userAcctType == 2) || (userAcctType == 3))
+			{
 
-			// set 'closeMainMenuYesNo' to true, so we will in fact close the main menu now
-			closeMainMenuYesNo = true;
+				// create a new instance of the AddFlowerCtlr, which will call displayAddFlowerGUI() to actually create the Add Flower GUI
+				new AddFlowerCtlr().DisplayAddFlowerGUI(userAcctType);
 
-			// closes the Main Menu GUI
-			this.Hide();
+				// set 'closeMainMenuYesNo' to true, so we will in fact close the main menu now
+				closeMainMenuYesNo = true;
+
+				// closes the Main Menu GUI
+				this.Hide();
+
+			}
+			else
+				MessageBox.Show("Must be a researcher or administrator to use this feature.");
+
 		}
 
 		private void searchFlowerMainMenuBtn_Click(object sender, EventArgs e)
@@ -72,7 +53,7 @@ namespace Florae_Basket
             bool res1 = false;
             bool res2 = false;
             bool res3 = false;
-			Test_WS_GUI test = new Test_WS_GUI();
+			Test_WS_GUI test = new Test_WS_GUI(userAcctType);
 
             // hides the Main Menu GUI
             //this.Hide();
@@ -92,7 +73,7 @@ namespace Florae_Basket
 				word.Search();
                 ResultsCtrl results = new ResultsCtrl(word.Get_results()[0].id, word.Get_results()[1].id, word.Get_results()[2].id);
                 results.Run(ref res1, ref res2, ref res3);
-                ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1);
+                ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1, userAcctType);
                 if (!res1)
                 {
                     resultgui.Result1btn.Enabled = false;
@@ -119,11 +100,11 @@ namespace Florae_Basket
             }
 		}
 
-        private void MainToProfileButton_click(object sender, EventArgs e)
-        {
-            new flowerProfile().Show();
-            this.Hide();
-        }
+        //private void MainToProfileButton_click(object sender, EventArgs e)
+        //{
+        //    new flowerProfile().Show();
+        //    this.Hide();
+        //}
 
         private void Main_leave_click(object sender, FormClosedEventArgs e)
         {
@@ -132,8 +113,19 @@ namespace Florae_Basket
 
         private void userOptions_click(object sender, EventArgs e)
         {
-            new UserOptions().Show();
-            this.Hide();
+
+			// only execute the code for the User Options event handler if the user is an Admin
+			if (userAcctType == 3)
+			{
+
+				new UserOptions(userAcctType).Show();
+				this.Hide();
+
+			}
+			else
+				MessageBox.Show("Must be an administrator to use this feature.");
+
+            
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -163,6 +155,9 @@ namespace Florae_Basket
 			if (userSelection == true)
 			{
 				// reset the counter which controls user permissions
+				userAcctType = 0;
+
+				// will display the login page, once Dipak's Login controller is integrated into the project
 
 			}
 

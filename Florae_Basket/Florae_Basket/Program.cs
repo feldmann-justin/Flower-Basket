@@ -16,7 +16,9 @@ namespace Florae_Basket
         static void Main()
         {
 
-			int userAcctType = 0;
+			// giving 'userAcctType' a value of 1 (Student) just to test
+			// until integration with Dipak's Login code
+			int userAcctType = 1;
 
             Database_Manager db = new Database_Manager();
             //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE

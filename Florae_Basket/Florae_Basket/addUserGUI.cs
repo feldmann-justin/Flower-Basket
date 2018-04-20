@@ -13,6 +13,7 @@ namespace Florae_Basket
     public partial class addUserGUI : Form
     {
         addUserCtrl controller;
+		private int userAcctType;
         private string first = "";
         private string last = "";
         private string user = "";
@@ -20,15 +21,16 @@ namespace Florae_Basket
         private string accType = "";
         private string file = "";
 
-        public addUserGUI(addUserCtrl u)
+        public addUserGUI(addUserCtrl u, int acctType)
         {
             InitializeComponent();
             controller = u;
+			userAcctType = acctType;
         }
 
         private void addUserGUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
         }
 
         private void chooseFile_click(object sender, EventArgs e)
