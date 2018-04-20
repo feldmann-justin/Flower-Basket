@@ -20,6 +20,8 @@ namespace Florae_Basket
         private string note = " ";
         private string imageName;
         private int primaryKey = 0;
+		private int userAcctType = 0;
+
         public flowerProfile()
         {
             InitializeComponent();

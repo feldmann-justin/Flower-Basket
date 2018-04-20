@@ -13,11 +13,48 @@ namespace Florae_Basket
 	public partial class MainMenu : Form
 	{
 		private bool closeMainMenuYesNo = false;
-		public MainMenu()
+
+		// will hold an integer value corresponding to a specific account type
+		// 1 will be for Students
+		// 2 will be for Researchers
+		// 3 will be for Administrators
+		// 'userAcctType' starts out at 0, in order to not accidentally
+		// set permissions for, say, a researcher or admin to that of a student
+		private int userAcctType = 0;
+
+		public MainMenu(int acctType)
 		{
 			InitializeComponent();
-		}
 
+			userAcctType = acctType;
+
+			// this is where, depending on the value of 'userAcctType' being passed in,
+			// certain buttons leading to certain functionalities (e.g. adding/editing/deleting flowers,
+			// adding/changing users) will be disabled.
+
+			if (acctType == 1) // if the current user's account type is "Student"
+							   // the only thing they should be able to do is search for a flower
+			{
+
+				// disable the "Add a Flower" button
+				addFlowerMainMenuBtn.Enabled = false;
+
+				// disable the "User Options" button
+				userOptions_button.Enabled = false;
+
+			}
+			// if the current user's account type is "Researcher"
+			// they should be able to add a flower and search for one,
+			// but not add/edit users
+			else if (acctType == 2)
+			{
+
+				// disable the "User Options" button
+				userOptions_button.Enabled = false;
+
+			}
+
+		}
 		private void addFlowerMainMenuBtn_Click(object sender, EventArgs e)
 		{
 			// create a new instance of the AddFlowerCtlr, which will call displayAddFlowerGUI() to actually create the Add Flower GUI
@@ -77,7 +114,7 @@ namespace Florae_Basket
                 //This is to exit application if user X's out of resultGUI, couldn't get any other way to work for some reason.
                 if (resultgui.exit == true)
                 {
-                    new MainMenu().Show();
+                    new MainMenu(userAcctType).Show();
                 }
             }
 		}
