@@ -26,10 +26,10 @@ namespace Florae_Basket
             controller = userCtrl;
         }
 
-        private void ChangeUserGUI_FormClosing(object sender, FormClosingEventArgs e)
+        /*private void ChangeUserGUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             new MainMenu().Show();
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {

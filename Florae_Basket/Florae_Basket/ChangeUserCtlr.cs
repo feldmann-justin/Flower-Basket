@@ -10,11 +10,11 @@ namespace Florae_Basket
     public class ChangeUserCtlr
     {
 
-        public void CreateGUI()
+        public void CreateGUI(int acct)
         {
             ChangeUserGUI change = new ChangeUserGUI(this);
             change.ShowDialog();
-            new MainMenu().Show();
+            new MainMenu(acct).Show();
         }
 
         public void Main(string first, string last, string username, string password, string accType)
