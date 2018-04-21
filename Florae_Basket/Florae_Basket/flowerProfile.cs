@@ -111,8 +111,8 @@ namespace Florae_Basket
 
         }
 
-        private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
-        {
+		private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
+		{
 
 			// only execute the code for the Change Flower event handler if the user is a Researcher or Admin
 			if ((userAcctType == 2) || (userAcctType == 3))
@@ -126,7 +126,10 @@ namespace Florae_Basket
 
 				this.Hide();
 
-        }
+			}
+			else
+				MessageBox.Show("Must be a researcher or administrator to use this feature.");
+		}
 
         //---------------------------------------------------------------------------------------------------------------------------------------//
         //                                                                                                                                       //
@@ -165,14 +168,7 @@ namespace Florae_Basket
         //                                                                                                                                       //
         //   print controls END. by Kade Walter                                                                                                  //
         //                                                                                                                                       //
-        //---------------------------------------------------------------------------------------------------------------------------------------//        
-    }
-			}
-			else
-				MessageBox.Show("Must be a researcher or administrator to use this feature.");
-
-			
+        //---------------------------------------------------------------------------------------------------------------------------------------//        	
 
 		}
 	}
-}

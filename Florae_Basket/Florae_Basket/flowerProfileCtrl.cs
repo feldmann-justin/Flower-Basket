@@ -8,9 +8,9 @@ namespace Florae_Basket
 {
     public class flowerProfileCtrl
     {
-        public void createGUI(string eng, string lat, string bot, string note, string image, int id)
+        public void createGUI(string eng, string lat, string bot, string note, string image, int id, int acctType)
         {
-            flowerProfile prof = new flowerProfile(eng, lat, bot, note, image, id);
+            flowerProfile prof = new flowerProfile(eng, lat, bot, note, image, id, acctType);
             prof.ShowDialog();
         }
 
