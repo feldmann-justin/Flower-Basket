@@ -13,14 +13,17 @@ namespace Florae_Basket
     public partial class UserOptions : Form
     {
         private bool forward = false;
-        public UserOptions()
+		private int userAcctType;
+
+        public UserOptions(int acctType)
         {
             InitializeComponent();
+			userAcctType = acctType;
         }
 
         private void addUser_click(object sender, EventArgs e)
         {
-            new addUserCtrl().createGui();
+            new addUserCtrl().createGui(userAcctType);
             forward = true;
             this.Close();
         }
@@ -28,7 +31,7 @@ namespace Florae_Basket
         private void UserOptions_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(forward == false)
-                new MainMenu().Show();
+                new MainMenu(userAcctType).Show();
         }
 
         private void UserOptions_Load(object sender, EventArgs e)

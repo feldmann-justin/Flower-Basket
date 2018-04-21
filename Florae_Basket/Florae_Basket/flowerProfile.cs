@@ -20,12 +20,15 @@ namespace Florae_Basket
         private string note = " ";
         private string imageName;
         private int primaryKey = 0;
-        public flowerProfile()
+		private int userAcctType;
+
+        public flowerProfile(int acctType)
         {
             InitializeComponent();
+			userAcctType = acctType;
         }
 
-        public flowerProfile(string name, string latin, string botan, string note, string image, int id)
+        public flowerProfile(string name, string latin, string botan, string note, string image, int id, int acctType)
         {
             InitializeComponent();
             englishName = name;
@@ -34,6 +37,7 @@ namespace Florae_Basket
             this.note = note;
             imageName = image;
             primaryKey = id;
+			userAcctType = acctType;
         }
 
         private void flowerProfile_Load(object sender, EventArgs e)
@@ -41,11 +45,11 @@ namespace Florae_Basket
             // start file path and add black background to the picture box
             string filePath = "";
             if (primaryKey < 7)
-                //ONLY FOR TESTING REMOVE FROM FINAL PRODUCT
+            //ONLY FOR TESTING REMOVE FROM FINAL PRODUCT
             {
                 filePath = "..\\..\\Pics\\";
             }
-            
+
             flowerImage.BackColor = Color.Black;
 
             // add the flower image name to the file path*/
@@ -57,7 +61,7 @@ namespace Florae_Basket
             {
                 filePath = imageName;
             }
-            
+
 
             // display all flower info
             engNameTextBox.AppendText(englishName);
@@ -65,29 +69,35 @@ namespace Florae_Basket
             botFamTextBox.AppendText(botanicalFamily);
             notesTextBox.AppendText(note);
             flowerImage.Image = Image.FromFile(filePath);
-           // }
+            // }
         }
 
         //calls the delete flower class when clicked
         private void deleteFlower_click(object sender, EventArgs e)
         {
-            bool deleted = deleteFlowerCtlr.main(primaryKey);
-            if (deleted == true)
-            {
-                //new MainMenu().Show();
-                this.Hide();
-            }
+			// only execute the code for the Delete Flower event handler if the user is a Researcher or Admin
+			if ((userAcctType == 2) || (userAcctType == 3))
+			{
+
+				bool deleted = deleteFlowerCtlr.main(primaryKey);
+				if (deleted == true)
+				{
+					//new MainMenu().Show();
+					this.Hide();
+				}
+
+			}
+			else
+				MessageBox.Show("Must be a researcher or administrator to use this feature.");
+
+            
         }
 
 
-        private void print_click(object sender, EventArgs e)
-        {
-
-        }
 
         private void deleteToMain_click(object sender, EventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
             this.Hide();
         }
 
@@ -104,14 +114,61 @@ namespace Florae_Basket
 		private void flowerProfileChangeFlowerBtn_Click(object sender, EventArgs e)
 		{
 
-			// have to pass along the displayed flower's primary key when displaying the Change Flower GUI
-			// in order to change the attributes for the correct flower in the database
-			ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
+			// only execute the code for the Change Flower event handler if the user is a Researcher or Admin
+			if ((userAcctType == 2) || (userAcctType == 3))
+			{
 
-			ctlrToChangeFlower.displayChangeFlowerGUI();
+				// have to pass along the displayed flower's primary key when displaying the Change Flower GUI
+				// in order to change the attributes for the correct flower in the database
+				ChangeFlowerCtlr ctlrToChangeFlower = new ChangeFlowerCtlr(primaryKey);
 
-			this.Hide();
+				ctlrToChangeFlower.displayChangeFlowerGUI(userAcctType);
+
+				this.Hide();
+
+			}
+			else
+				MessageBox.Show("Must be a researcher or administrator to use this feature.");
+		}
+
+        //---------------------------------------------------------------------------------------------------------------------------------------//
+        //                                                                                                                                       //
+        //   print controls START. by Kade Walter                                                                                                //
+        //                                                                                                                                       //
+        //---------------------------------------------------------------------------------------------------------------------------------------//        
+        Bitmap bmp;
+        private void print_click(object sender, EventArgs e)
+        {
+            flowerProfileCtrl myController = new flowerProfileCtrl();
+            myController.createPrint(this);
+        }
+
+        // When the print button is clicked in the printDialog,
+        // it will print the document
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
+        public void createImage()
+        {
+            // variables from the GUI required for printing. //
+            // makes a bmp image //
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Width, this.Height, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            // show the print dialog menu //
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------------------------------//
+        //                                                                                                                                       //
+        //   print controls END. by Kade Walter                                                                                                  //
+        //                                                                                                                                       //
+        //---------------------------------------------------------------------------------------------------------------------------------------//        	
 
 		}
 	}
-}

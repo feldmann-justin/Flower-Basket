@@ -25,11 +25,13 @@ namespace Florae_Basket
 	{
 
 		int copyOfFlowerId;
+		int userAcctType;
 
-		public ChangeFlowerGUI(int key)
+		public ChangeFlowerGUI(int key, int acctType)
 		{
 			InitializeComponent();
 			copyOfFlowerId = key;
+			userAcctType = acctType;
 		}
 
 		private void changeFlowerSubmit_Click(object sender, EventArgs e)
@@ -60,7 +62,7 @@ namespace Florae_Basket
 		private void ChangeToFlowerProfileBtn_Click(object sender, EventArgs e)
 		{
 			Database_Manager DBMngrInstance = new Database_Manager(); 
-			new flowerProfile(DBMngrInstance.FetchEnglish(copyOfFlowerId), DBMngrInstance.FetchLatin(copyOfFlowerId), DBMngrInstance.FetchBotan(copyOfFlowerId), DBMngrInstance.FetchNote(copyOfFlowerId), DBMngrInstance.FetchFilePath(copyOfFlowerId), copyOfFlowerId).Show();
+			new flowerProfile(DBMngrInstance.FetchEnglish(copyOfFlowerId), DBMngrInstance.FetchLatin(copyOfFlowerId), DBMngrInstance.FetchBotan(copyOfFlowerId), DBMngrInstance.FetchNote(copyOfFlowerId), DBMngrInstance.FetchFilePath(copyOfFlowerId), copyOfFlowerId, userAcctType).Show();
 			this.Hide();
 
 		}

@@ -99,6 +99,7 @@
     <Compile Include="flowerProfile.Designer.cs">
       <DependentUpon>flowerProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="flowerProfileCtrl.cs" />
     <Compile Include="ImageSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +107,7 @@
       <DependentUpon>ImageSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageSearchController.cs" />
+    <Compile Include="LogoutCtlr.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +116,7 @@
     </Compile>
     <Compile Include="Note.cs" />
     <Compile Include="Picture.cs" />
+    <Compile Include="printCtrl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultsCtrl.cs" />
