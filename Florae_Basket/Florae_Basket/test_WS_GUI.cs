@@ -17,12 +17,14 @@ namespace Florae_Basket
         public string botanical;
         public string filename;
         public string note_keywords;
+		private int userAcctType;
 
-        public Test_WS_GUI()
+        public Test_WS_GUI(int acctType)
         {
             InitializeComponent();
             this.AcceptButton = SearchBTN;
             filename = "";
+			userAcctType = acctType;
         }
 
         private void SearchBTN_Click(object sender, EventArgs e)
@@ -99,7 +101,7 @@ namespace Florae_Basket
 
         private void WSToMainButton_click(object sender, EventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
             this.Hide();
         }
 
@@ -110,7 +112,7 @@ namespace Florae_Basket
 
         private void WSGUI_leave_click(object sender, FormClosedEventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
             this.Hide();
         }
     }

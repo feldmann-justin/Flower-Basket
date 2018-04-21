@@ -15,6 +15,11 @@ namespace Florae_Basket
         [STAThread]
         static void Main()
         {
+
+			// giving 'userAcctType' a value of 1 (Student) just to test
+			// until integration with Dipak's Login code
+			int userAcctType = 1;
+
             Database_Manager db = new Database_Manager();
             //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
             db.InsertFlower("violet", "violat", "vio fam", "vio note", "flower.jpg");
@@ -23,7 +28,7 @@ namespace Florae_Basket
             //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+            Application.Run(new MainMenu(userAcctType));
         }
     }
 }

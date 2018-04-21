@@ -53,10 +53,10 @@ namespace Florae_Basket
 			return msgToDisplay;
 		}
 
-		public void DisplayAddFlowerGUI()
+		public void DisplayAddFlowerGUI(int acctType)
 		{
 
-			AddFlowerGUI addFlowerGUI = new AddFlowerGUI(this);
+			AddFlowerGUI addFlowerGUI = new AddFlowerGUI(this, acctType);
 			addFlowerGUI.Show();
 
 		}

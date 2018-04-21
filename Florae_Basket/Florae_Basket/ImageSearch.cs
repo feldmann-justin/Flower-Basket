@@ -23,6 +23,7 @@ namespace Florae_Basket
         private bool wordSearchOption = false;
         private string wordSearch;
         private string freqColor;
+		private int userAcctType;
         
         //private Color[,] array;
         //private string[] databaseImages;
@@ -46,9 +47,10 @@ namespace Florae_Basket
         //private int oneNinetyTwoToTwoFiftyFiveGreen = 0;
         //private int oneNinetyTwoToTwoFiftyFiveBlue = 0;
 
-        public ImageSearch()
+        public ImageSearch(int acctType)
         {
-            InitializeComponent();
+			InitializeComponent();
+			userAcctType = acctType;
         }
 
         private void ImageSearch_Load(object sender, EventArgs e) { }
@@ -102,7 +104,7 @@ namespace Florae_Basket
 
         private void ImageSearch_FormClosing(object sender, FormClosingEventArgs e)
         {
-            new MainMenu().Show();
+            new MainMenu(userAcctType).Show();
         }
     }
 }

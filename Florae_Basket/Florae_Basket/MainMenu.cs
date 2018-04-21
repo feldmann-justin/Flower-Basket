@@ -13,21 +13,39 @@ namespace Florae_Basket
 	public partial class MainMenu : Form
 	{
 		private bool closeMainMenuYesNo = false;
-		public MainMenu()
+
+		// will hold an integer value corresponding to a specific account type
+		// 1 will be for Students
+		// 2 will be for Researchers
+		// 3 will be for Administrators
+		private int userAcctType;
+
+		public MainMenu(int acctType)
 		{
 			InitializeComponent();
-		}
 
+			userAcctType = acctType;
+
+		}
 		private void addFlowerMainMenuBtn_Click(object sender, EventArgs e)
 		{
-			// create a new instance of the AddFlowerCtlr, which will call displayAddFlowerGUI() to actually create the Add Flower GUI
-			new AddFlowerCtlr().DisplayAddFlowerGUI();
+			// only execute the code for the Add Flower event handler if the user is a Researcher or Admin
+			if ((userAcctType == 2) || (userAcctType == 3))
+			{
 
-			// set 'closeMainMenuYesNo' to true, so we will in fact close the main menu now
-			closeMainMenuYesNo = true;
+				// create a new instance of the AddFlowerCtlr, which will call displayAddFlowerGUI() to actually create the Add Flower GUI
+				new AddFlowerCtlr().DisplayAddFlowerGUI(userAcctType);
 
-			// closes the Main Menu GUI
-			this.Hide();
+				// set 'closeMainMenuYesNo' to true, so we will in fact close the main menu now
+				closeMainMenuYesNo = true;
+
+				// closes the Main Menu GUI
+				this.Hide();
+
+			}
+			else
+				MessageBox.Show("Must be a researcher or administrator to use this feature.");
+
 		}
 
 		private void searchFlowerMainMenuBtn_Click(object sender, EventArgs e)
@@ -35,7 +53,7 @@ namespace Florae_Basket
             bool res1 = false;
             bool res2 = false;
             bool res3 = false;
-			Test_WS_GUI test = new Test_WS_GUI();
+			Test_WS_GUI test = new Test_WS_GUI(userAcctType);
 
             // hides the Main Menu GUI
             //this.Hide();
@@ -55,7 +73,7 @@ namespace Florae_Basket
 				word.Search();
                 ResultsCtrl results = new ResultsCtrl(word.Get_results()[0].id, word.Get_results()[1].id, word.Get_results()[2].id);
                 results.Run(ref res1, ref res2, ref res3);
-                ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1);
+                ResultsGUI resultgui = new ResultsGUI(results.id, results.flowers, results.notes, results.images1, userAcctType);
                 if (!res1)
                 {
                     resultgui.Result1btn.Enabled = false;
@@ -77,16 +95,16 @@ namespace Florae_Basket
                 //This is to exit application if user X's out of resultGUI, couldn't get any other way to work for some reason.
                 if (resultgui.exit == true)
                 {
-                    new MainMenu().Show();
+                    new MainMenu(userAcctType).Show();
                 }
             }
 		}
 
-        private void MainToProfileButton_click(object sender, EventArgs e)
-        {
-            new flowerProfile().Show();
-            this.Hide();
-        }
+        //private void MainToProfileButton_click(object sender, EventArgs e)
+        //{
+        //    new flowerProfile().Show();
+        //    this.Hide();
+        //}
 
         private void Main_leave_click(object sender, FormClosedEventArgs e)
         {
@@ -95,8 +113,19 @@ namespace Florae_Basket
 
         private void userOptions_click(object sender, EventArgs e)
         {
-            new UserOptions().Show();
-            this.Hide();
+
+			// only execute the code for the User Options event handler if the user is an Admin
+			if (userAcctType == 3)
+			{
+
+				new UserOptions(userAcctType).Show();
+				this.Hide();
+
+			}
+			else
+				MessageBox.Show("Must be an administrator to use this feature.");
+
+            
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -106,14 +135,39 @@ namespace Florae_Basket
 
         }
 
-        private void exit_click(object sender, EventArgs e)
+		//private void exit_click(object sender, EventArgs e)
+		//{
+		//    Application.Exit();
+		//}
+
+		private void logoutBtn_Click(object sender, EventArgs e)
+		{
+
+			LogoutCtlr logoutCtlr = new LogoutCtlr();
+
+			// first, display the confirmation message to the user
+			DialogResult selection = logoutCtlr.DisplayLogoutConfirm();
+
+			// second, return bool value based on the user's choice in logoutConfirm()
+			bool userSelection = logoutCtlr.LogoutConfirm(selection);
+
+			// lastly, the ACTUAL business logic is performed based on the user's choice
+			if (userSelection == true)
+			{
+				// reset the counter which controls user permissions
+				userAcctType = 0;
+
+				// will display the login page, once Dipak's Login controller is integrated into the project
+
+			}
+
+
+		}
+
+		private void MainMenu_Load(object sender, EventArgs e)
         {
-            Application.Exit();
+
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }

@@ -100,6 +100,7 @@
       <DependentUpon>ImageSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageSearchController.cs" />
+    <Compile Include="LogoutCtlr.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
