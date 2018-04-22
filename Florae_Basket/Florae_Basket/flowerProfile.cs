@@ -44,23 +44,11 @@ namespace Florae_Basket
         {
             // start file path and add black background to the picture box
             string filePath = "";
-            if (primaryKey < 7)
-            //ONLY FOR TESTING REMOVE FROM FINAL PRODUCT
-            {
-                filePath = "..\\..\\Pics\\";
-            }
 
             flowerImage.BackColor = Color.Black;
 
             // add the flower image name to the file path*/
-            if (imageName.Length < 20)
-            {
                 filePath += imageName;
-            }
-            else
-            {
-                filePath = imageName;
-            }
 
 
             // display all flower info
