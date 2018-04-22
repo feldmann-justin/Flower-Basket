@@ -30,7 +30,7 @@ namespace Florae_Basket
 		public static string verifyFlower(Flower customFlower)
 		{
 			
-			string msgToDisplay;
+			string msgToDisplay = "";
 			Database_Manager DBMngr = new Database_Manager();
 
 			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
@@ -43,13 +43,17 @@ namespace Florae_Basket
 			// else, the flower can be added to the database
 			else
 			{
-
-				DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), customFlower.getNote(), customFlower.getImgPath());
-				msgToDisplay = "Flower successfully added!";
-
+                bool exists = DBMngr.checkFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam());
+                if (exists == false)
+                {
+                    DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), customFlower.getNote(), customFlower.getImgPath());
+                    msgToDisplay = "Flower successfully added!";
+                }
+                else
+                {
+                    msgToDisplay = "Flower already exists. Flower not added.";
+                }
 			}
-
-
 			return msgToDisplay;
 		}
 

@@ -204,8 +204,40 @@ namespace Florae_Basket
 
 		}
 
-		// checks if a username already exists in the database
-		public bool checkUsername(string username)
+        // checks if a flower already exists
+        public bool checkFlower(string engName, string latName, string botFam)
+        {
+            bool used = false;
+            conn.Open();
+            string query = "SELECT English, Latin, Botanical FROM Flower";
+            SqlCommand comm = new SqlCommand(query, conn);
+            SqlDataReader read = comm.ExecuteReader();
+
+            while (read.Read())
+            {
+                if (read.GetString(0) == engName)
+                {
+                    used = true;
+                    break;
+                }
+                if (read.GetString(1) == latName)
+                {
+                    used = true;
+                    break;
+                }
+                else if (read.GetString(2) == botFam)
+                {
+                    used = true;
+                    break;
+                }
+            }
+            read.Close();
+            conn.Close();
+            return used;
+        }
+
+        // checks if a username already exists in the database
+        public bool checkUsername(string username)
 		{
 			bool used = false;
 			conn.Open();
