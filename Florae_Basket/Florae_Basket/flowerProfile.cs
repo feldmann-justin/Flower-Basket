@@ -56,7 +56,11 @@ namespace Florae_Basket
             latinNameTextBox.AppendText(latinName);
             botFamTextBox.AppendText(botanicalFamily);
             notesTextBox.AppendText(note);
-            flowerImage.Image = Image.FromFile(filePath);
+            if (filePath != "")
+                flowerImage.Image = Image.FromFile(filePath);
+            else           
+                flowerImage.Image = null;
+            
             // }
         }
 
