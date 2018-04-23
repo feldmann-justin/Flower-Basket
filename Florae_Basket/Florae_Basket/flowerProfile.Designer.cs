@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flowerProfile));
             this.deleteFlowerButton = new System.Windows.Forms.Button();
             this.flowerImage = new System.Windows.Forms.PictureBox();
             this.engNameTextBox = new System.Windows.Forms.TextBox();
@@ -160,7 +161,7 @@
             // flowerProfileChangeFlowerBtn
             // 
             this.flowerProfileChangeFlowerBtn.Location = new System.Drawing.Point(604, 22);
-            this.flowerProfileChangeFlowerBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowerProfileChangeFlowerBtn.Margin = new System.Windows.Forms.Padding(2);
             this.flowerProfileChangeFlowerBtn.Name = "flowerProfileChangeFlowerBtn";
             this.flowerProfileChangeFlowerBtn.Size = new System.Drawing.Size(112, 24);
             this.flowerProfileChangeFlowerBtn.TabIndex = 12;
@@ -196,8 +197,10 @@
             this.Controls.Add(this.engNameTextBox);
             this.Controls.Add(this.flowerImage);
             this.Controls.Add(this.deleteFlowerButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flowerProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Florae Basket";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.profile_leave_click);
             this.Load += new System.EventHandler(this.flowerProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.flowerImage)).EndInit();

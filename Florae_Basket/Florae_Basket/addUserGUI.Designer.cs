@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addUserGUI));
             this.label1 = new System.Windows.Forms.Label();
             this.addUserSubmit_button = new System.Windows.Forms.Button();
             this.file_textBox = new System.Windows.Forms.TextBox();
@@ -200,9 +201,10 @@
             this.Controls.Add(this.file_textBox);
             this.Controls.Add(this.addUserSubmit_button);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addUserGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add User";
+            this.Text = "Florae Basket";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.addUserGUI_FormClosing);
             this.Load += new System.EventHandler(this.addUserGUI_Load);
             this.ResumeLayout(false);
