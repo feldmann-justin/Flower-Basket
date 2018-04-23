@@ -35,6 +35,33 @@ namespace Florae_Basket.Tests
 			Assert.AreEqual(expected3, resutl3);
 		}
 
+        [TestMethod]
+        public void ChangeUser_test()
+        {
+            Database_Manager db = new Database_Manager();
+            //arrange
+            string username = "Admin";
+
+            string password = "new";
+            string first = "change";
+            string last = "change";
+            string accttype = "Administrator";
+            string verpass, verfirst, verlast, veracct;
+
+            //act
+            new ChangeUserCtlr().Main(first, last, username, password, accttype);
+            verpass = db.FetchPassword(username);
+            verfirst = db.Fetchfirst(username);
+            verlast = db.FetchLast(username);
+            veracct = db.Fetchaccttype(username);
+
+            //assert
+            Assert.AreEqual(new ChangeUserCtlr().Salt(password), verpass);
+            Assert.AreEqual(first, verfirst);
+            Assert.AreEqual(last, verlast);
+            Assert.AreEqual(accttype, veracct);
+        }
+
 		[TestMethod]
 		// unit testing for addUserCtrl verify user method. Written by Kade Walter
 		public void addUserVerify_Test()
