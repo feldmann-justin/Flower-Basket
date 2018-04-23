@@ -258,7 +258,71 @@ namespace Florae_Basket
 			return used;
 		}
 
-		public bool addUser(string first, string last, string username, string password, string accType)
+        public string FetchPassword(string username)
+        {
+            string result;
+            conn.Open();
+            string query = "SELECT Password FROM [User] WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@user"].Value = username;
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            result = read.GetString(0);
+            read.Close();
+            conn.Close();
+            return result;
+        }
+
+        public string Fetchfirst(string username)
+        {
+            string result;
+            conn.Open();
+            string query = "SELECT FirstName FROM [User] WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@user"].Value = username;
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            result = read.GetString(0);
+            read.Close();
+            conn.Close();
+            return result;
+        }
+
+        public string FetchLast(string username)
+        {
+            string result;
+            conn.Open();
+            string query = "SELECT LastName FROM [User] WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@user"].Value = username;
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            result = read.GetString(0);
+            read.Close();
+            conn.Close();
+            return result;
+        }
+
+        public string Fetchaccttype(string username)
+        {
+            string result;
+            conn.Open();
+            string query = "SELECT AccountType FROM [User] WHERE UserName = @user";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
+            comm.Parameters["@user"].Value = username;
+            SqlDataReader read = comm.ExecuteReader();
+            read.Read();
+            result = read.GetString(0);
+            read.Close();
+            conn.Close();
+            return result;
+        }
+
+        public bool addUser(string first, string last, string username, string password, string accType)
 		{
             try
             {
@@ -284,6 +348,8 @@ namespace Florae_Basket
                 return false;
             }
 		}
+
+
 
 		public void changeLatinName(string latinChange, int primaryKey)
 		{

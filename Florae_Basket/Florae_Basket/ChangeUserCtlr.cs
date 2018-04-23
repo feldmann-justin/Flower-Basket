@@ -5,6 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//////////////////////
+/// by Brady Smith ///
+//////////////////////
+
+
 namespace Florae_Basket
 {
     public class ChangeUserCtlr
@@ -27,7 +33,7 @@ namespace Florae_Basket
             {
                 if (password != null && password != "")
                 {
-                    db.ChangePassword(username, password);
+                    db.ChangePassword(username, Salt(password));
                 }
                 if (last != null && last != "")
                 {
@@ -41,7 +47,14 @@ namespace Florae_Basket
                 {
                     db.ChangeAccType(username, accType);
                 }
-                MessageBox.Show("User account successfully changed.");
+                if (verify(username, password, first, last, accType))
+                {
+                    MessageBox.Show("User account successfully changed.");
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: User info was not changed");
+                }
             }
             else
             {
@@ -50,7 +63,7 @@ namespace Florae_Basket
         }
 
         // salt the password by adding on to the end of it
-        private string Salt(string pwd)
+        public string Salt(string pwd)
         {
             pwd = pwd + ".cs.is.fun.team.dirk.";
             return pwd;
@@ -61,6 +74,42 @@ namespace Florae_Basket
         {
             int pwdHash = pwd.GetHashCode();
             return pwdHash;
+        }
+
+        public bool verify(string username, string password, string first, string last, string acct)
+        {
+            Database_Manager db = new Database_Manager();
+
+            if (password != "" && password != null)
+            {
+                string salted = Salt(password);
+                if (db.FetchPassword(username) != salted)
+                {
+                    return false;
+                }
+            }
+            if (first != "" && first != null)
+            {
+                if (db.Fetchfirst(username) != first)
+                {
+                    return false;
+                }
+            }
+            if (last != "" && last != null)
+            {
+                if (db.FetchLast(username) != last)
+                {
+                    return false;
+                }
+            }
+            if (acct != "(No change)")
+            {
+                if (db.Fetchaccttype(username) != acct)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
