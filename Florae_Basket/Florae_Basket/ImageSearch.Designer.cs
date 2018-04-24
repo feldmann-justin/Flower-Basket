@@ -109,9 +109,8 @@
             this.errorLabel.AutoSize = true;
             this.errorLabel.Location = new System.Drawing.Point(58, 157);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(253, 13);
+            this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 8;
-            this.errorLabel.Text = "You closed out of the File Selector. Please try again!";
             this.errorLabel.Visible = false;
             // 
             // pictureBox
@@ -164,7 +163,6 @@
             this.redButton.Name = "redButton";
             this.redButton.Size = new System.Drawing.Size(45, 17);
             this.redButton.TabIndex = 14;
-            this.redButton.TabStop = true;
             this.redButton.Text = "Red";
             this.redButton.UseVisualStyleBackColor = true;
             this.redButton.CheckedChanged += new System.EventHandler(this.redButton_CheckedChanged);
@@ -176,7 +174,6 @@
             this.blueButton.Name = "blueButton";
             this.blueButton.Size = new System.Drawing.Size(46, 17);
             this.blueButton.TabIndex = 15;
-            this.blueButton.TabStop = true;
             this.blueButton.Text = "Blue";
             this.blueButton.UseVisualStyleBackColor = true;
             // 
@@ -187,7 +184,6 @@
             this.greenButton.Name = "greenButton";
             this.greenButton.Size = new System.Drawing.Size(54, 17);
             this.greenButton.TabIndex = 16;
-            this.greenButton.TabStop = true;
             this.greenButton.Text = "Green";
             this.greenButton.UseVisualStyleBackColor = true;
             // 
