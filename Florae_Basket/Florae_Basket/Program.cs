@@ -20,7 +20,7 @@ namespace Florae_Basket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ImageSearch());
+            Application.Run(new ImageSearch(0));
         }
     }
 }
