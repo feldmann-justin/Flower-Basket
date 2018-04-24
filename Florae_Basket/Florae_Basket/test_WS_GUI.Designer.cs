@@ -1,6 +1,6 @@
 ﻿namespace Florae_Basket
 {
-    partial class Test_WS_GUI
+    partial class SearchGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Test_WS_GUI));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchGUI));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -162,7 +162,7 @@
             this.WSToMainButton.UseVisualStyleBackColor = true;
             this.WSToMainButton.Click += new System.EventHandler(this.WSToMainButton_click);
             // 
-            // Test_WS_GUI
+            // SearchGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -181,7 +181,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Test_WS_GUI";
+            this.Name = "SearchGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Florae Basket";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WSGUI_leave_click);

@@ -53,7 +53,7 @@ namespace Florae_Basket
             bool res1 = false;
             bool res2 = false;
             bool res3 = false;
-			Test_WS_GUI test = new Test_WS_GUI(userAcctType);
+			SearchGUI test = new SearchGUI(userAcctType);
 
             // hides the Main Menu GUI
             //this.Hide();
