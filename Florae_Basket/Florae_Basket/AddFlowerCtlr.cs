@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.IO;
 
 /* Name: Justin Feldmann
  * Class: CS 325-002
@@ -18,34 +19,35 @@ using System.Data.SqlClient;
 
 namespace Florae_Basket
 {
-	public class AddFlowerCtlr
-	{
+    public class AddFlowerCtlr
+    {
 
-		// member functions
+        // member functions
 
-		
 
-		/* Function which prompts the checking of the database manager for a currently-existing
+
+        /* Function which prompts the checking of the database manager for a currently-existing
 		 * Flower object with the same attributes. */
-		public static string verifyFlower(Flower customFlower)
-		{
-			
-			string msgToDisplay = "";
-			Database_Manager DBMngr = new Database_Manager();
+        public static string verifyFlower(Flower customFlower)
+        {
 
-			// test user-given Flower object with dummy Flower object instantiated here until database is implemented
-			//Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");
-			//dummyFlower.setFlowerID(customFlower.getFlowerID() + 1);
+            string msgToDisplay = "";
+            Database_Manager DBMngr = new Database_Manager();
 
-			// if at least one of the three required attributes for a flower, the Latin name, English name, and botanical family is missing
-			if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
-				msgToDisplay = "Flower unable to be added: One of the three minimum attributes is missing.";
-			// else, the flower can be added to the database
-			else
-			{
+            // test user-given Flower object with dummy Flower object instantiated here until database is implemented
+            //Flower dummyFlower = new Flower("Rosus Maximus", "Rose", "Stabby Flowers");
+            //dummyFlower.setFlowerID(customFlower.getFlowerID() + 1);
+
+            // if at least one of the three required attributes for a flower, the Latin name, English name, and botanical family is missing
+            if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
+                msgToDisplay = "Flower unable to be added: One of the three minimum attributes is missing.";
+            // else, the flower can be added to the database
+            else
+            {
                 bool exists = DBMngr.checkFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam());
                 if (exists == false)
                 {
+                    string newpath = ChangeFilePath(customFlower.getImgPath());
                     DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), customFlower.getNote(), customFlower.getImgPath());
                     msgToDisplay = "Flower successfully added!";
                 }
@@ -53,9 +55,32 @@ namespace Florae_Basket
                 {
                     msgToDisplay = "Flower already exists. Flower not added.";
                 }
-			}
-			return msgToDisplay;
-		}
+            }
+            return msgToDisplay;
+        }
+
+        public static string ChangeFilePath(string filepath)
+        {
+            string directory = "..\\..\\Pics\\";
+            string newpath = directory + Path.GetFileName(filepath);
+
+            int i = 1;
+            while (File.Exists(newpath))
+            {
+                string without = Path.GetFileNameWithoutExtension(newpath);
+                int j = i - 1;
+                if (without.Substring(without.Length - 3) == ("(" + i + ")"))
+                {
+                    without = without.Substring(0, without.Length - 3);
+                }
+                string with = without + "(" + i + ")";
+                newpath = Path.GetDirectoryName(newpath) + "\\" + with + Path.GetExtension(newpath);
+                i++;
+            }
+
+            File.Copy(filepath, newpath);
+            return newpath;
+        }
 
 		public void DisplayAddFlowerGUI(int acctType)
 		{
