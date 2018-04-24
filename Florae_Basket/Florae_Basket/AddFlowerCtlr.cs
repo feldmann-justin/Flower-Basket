@@ -69,7 +69,8 @@ namespace Florae_Basket
             {
                 string without = Path.GetFileNameWithoutExtension(newpath);
                 int j = i - 1;
-                if (without.Substring(without.Length - 3) == ("(" + i + ")"))
+                string test = without.Substring(without.Length - 3);
+                if (without.Substring(without.Length - 3) == ("(" + j + ")"))
                 {
                     without = without.Substring(0, without.Length - 3);
                 }
