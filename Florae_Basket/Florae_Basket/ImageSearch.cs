@@ -21,31 +21,10 @@ namespace Florae_Basket
         //Instance Variables
         private string filename;
         private bool wordSearchOption = false;
+        private bool freqColorOption = false;
         private string wordSearch;
         private string freqColor;
 		private int userAcctType;
-        
-        //private Color[,] array;
-        //private string[] databaseImages;
-        //private int[,] redPixels;
-        //private int[,] greenPixels;
-        //private int[,] bluePixels;
-        //private int[,] imageValueBins;
-        //private double[] chiSquareDistances;
-        //private int[] topThree = new int[3];
-        ////Value Bin Instance Variables
-        //private int zeroToSixyThreeRed = 0;
-        //private int zeroToSixyThreeGreen = 0;
-        //private int zeroToSixyThreeBlue = 0;
-        //private int sixtyFourToOneTwentySevenRed = 0;
-        //private int sixtyFourToOneTwentySevenGreen = 0;
-        //private int sixtyFourToOneTwentySevenBlue = 0;
-        //private int oneTwentyEightToOneNinetyOneRed = 0;
-        //private int oneTwentyEightToOneNinetyOneGreen = 0;
-        //private int oneTwentyEightToOneNinetyOneBlue = 0;
-        //private int oneNinetyTwoToTwoFiftyFiveRed = 0;
-        //private int oneNinetyTwoToTwoFiftyFiveGreen = 0;
-        //private int oneNinetyTwoToTwoFiftyFiveBlue = 0;
 
         public ImageSearch(int acctType)
         {
@@ -79,14 +58,15 @@ namespace Florae_Basket
         }
         
         private void wordSearchSelect_CheckedChanged(object sender, EventArgs e) { wordSearchOption = true; }
+        private void freqColorCheckBox_CheckedChanged(object sender, EventArgs e) { freqColorOption = true; }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
+            
             wordSearch = wordSearchBox.Text;
-            freqColor = freqColorBox.Text;
 
             ImageSearchController imgSrchCtrlr = (new ImageSearchController(filename, wordSearch, freqColor));
+            Console.WriteLine(imgSrchCtrlr.getTopthree() + " " +  imgSrchCtrlr.getChiValues());
             int[] topResults = imgSrchCtrlr.getTopthree();
             double[] topValues = imgSrchCtrlr.getChiValues();
             for (int i = 0; i < 3; i++) {
@@ -106,5 +86,16 @@ namespace Florae_Basket
         {
             new MainMenu(userAcctType).Show();
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void redButton_CheckedChanged(object sender, EventArgs e) { freqColor = "red"; }
+        private void blueButton_CheckedChanged(object sender, EventArgs e) { freqColor = "blue"; }
+        private void greenButton_CheckedChanged(object sender, EventArgs e) { freqColor = "green"; }
+
+        
     }
 }

@@ -34,20 +34,22 @@
             this.imgNoteLabel = new System.Windows.Forms.Label();
             this.wordSearchSelect = new System.Windows.Forms.CheckBox();
             this.wordSearchBox = new System.Windows.Forms.TextBox();
-            this.freqColorLabel = new System.Windows.Forms.Label();
-            this.freqColorBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.resultsLabel = new System.Windows.Forms.Label();
             this.chiLabel = new System.Windows.Forms.Label();
             this.valueLabel = new System.Windows.Forms.Label();
+            this.redButton = new System.Windows.Forms.RadioButton();
+            this.blueButton = new System.Windows.Forms.RadioButton();
+            this.greenButton = new System.Windows.Forms.RadioButton();
+            this.freqColorCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(291, 349);
+            this.searchButton.Location = new System.Drawing.Point(192, 328);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(103, 34);
             this.searchButton.TabIndex = 0;
@@ -87,41 +89,25 @@
             // wordSearchSelect
             // 
             this.wordSearchSelect.AutoSize = true;
-            this.wordSearchSelect.Location = new System.Drawing.Point(82, 199);
+            this.wordSearchSelect.Location = new System.Drawing.Point(61, 201);
             this.wordSearchSelect.Name = "wordSearchSelect";
-            this.wordSearchSelect.Size = new System.Drawing.Size(155, 17);
+            this.wordSearchSelect.Size = new System.Drawing.Size(201, 17);
             this.wordSearchSelect.TabIndex = 4;
-            this.wordSearchSelect.Text = "Combine with Word Search";
+            this.wordSearchSelect.Text = "Combine with Word Search (optional)";
             this.wordSearchSelect.UseVisualStyleBackColor = true;
             this.wordSearchSelect.CheckedChanged += new System.EventHandler(this.wordSearchSelect_CheckedChanged);
             // 
             // wordSearchBox
             // 
-            this.wordSearchBox.Location = new System.Drawing.Point(294, 199);
+            this.wordSearchBox.Location = new System.Drawing.Point(291, 201);
             this.wordSearchBox.Name = "wordSearchBox";
-            this.wordSearchBox.Size = new System.Drawing.Size(100, 20);
+            this.wordSearchBox.Size = new System.Drawing.Size(103, 20);
             this.wordSearchBox.TabIndex = 5;
-            // 
-            // freqColorLabel
-            // 
-            this.freqColorLabel.AutoSize = true;
-            this.freqColorLabel.Location = new System.Drawing.Point(79, 262);
-            this.freqColorLabel.Name = "freqColorLabel";
-            this.freqColorLabel.Size = new System.Drawing.Size(212, 13);
-            this.freqColorLabel.TabIndex = 6;
-            this.freqColorLabel.Text = "Enter a frequently occuring color (optional): ";
-            // 
-            // freqColorBox
-            // 
-            this.freqColorBox.Location = new System.Drawing.Point(294, 259);
-            this.freqColorBox.Name = "freqColorBox";
-            this.freqColorBox.Size = new System.Drawing.Size(100, 20);
-            this.freqColorBox.TabIndex = 7;
             // 
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
-            this.errorLabel.Location = new System.Drawing.Point(79, 155);
+            this.errorLabel.Location = new System.Drawing.Point(58, 157);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(253, 13);
             this.errorLabel.TabIndex = 8;
@@ -171,20 +157,66 @@
             this.valueLabel.TabIndex = 13;
             this.valueLabel.Text = "Values:";
             // 
+            // redButton
+            // 
+            this.redButton.AutoSize = true;
+            this.redButton.Location = new System.Drawing.Point(61, 279);
+            this.redButton.Name = "redButton";
+            this.redButton.Size = new System.Drawing.Size(45, 17);
+            this.redButton.TabIndex = 14;
+            this.redButton.TabStop = true;
+            this.redButton.Text = "Red";
+            this.redButton.UseVisualStyleBackColor = true;
+            this.redButton.CheckedChanged += new System.EventHandler(this.redButton_CheckedChanged);
+            // 
+            // blueButton
+            // 
+            this.blueButton.AutoSize = true;
+            this.blueButton.Location = new System.Drawing.Point(137, 279);
+            this.blueButton.Name = "blueButton";
+            this.blueButton.Size = new System.Drawing.Size(46, 17);
+            this.blueButton.TabIndex = 15;
+            this.blueButton.TabStop = true;
+            this.blueButton.Text = "Blue";
+            this.blueButton.UseVisualStyleBackColor = true;
+            // 
+            // greenButton
+            // 
+            this.greenButton.AutoSize = true;
+            this.greenButton.Location = new System.Drawing.Point(209, 279);
+            this.greenButton.Name = "greenButton";
+            this.greenButton.Size = new System.Drawing.Size(54, 17);
+            this.greenButton.TabIndex = 16;
+            this.greenButton.TabStop = true;
+            this.greenButton.Text = "Green";
+            this.greenButton.UseVisualStyleBackColor = true;
+            // 
+            // freqColorCheckBox
+            // 
+            this.freqColorCheckBox.AutoSize = true;
+            this.freqColorCheckBox.Location = new System.Drawing.Point(61, 244);
+            this.freqColorCheckBox.Name = "freqColorCheckBox";
+            this.freqColorCheckBox.Size = new System.Drawing.Size(277, 17);
+            this.freqColorCheckBox.TabIndex = 17;
+            this.freqColorCheckBox.Text = "Enter a specified color to narrow the search (optional)";
+            this.freqColorCheckBox.UseVisualStyleBackColor = true;
+            // 
             // ImageSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(692, 395);
+            this.Controls.Add(this.freqColorCheckBox);
+            this.Controls.Add(this.greenButton);
+            this.Controls.Add(this.blueButton);
+            this.Controls.Add(this.redButton);
             this.Controls.Add(this.valueLabel);
             this.Controls.Add(this.chiLabel);
             this.Controls.Add(this.resultsLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.errorLabel);
-            this.Controls.Add(this.freqColorBox);
-            this.Controls.Add(this.freqColorLabel);
             this.Controls.Add(this.wordSearchBox);
             this.Controls.Add(this.wordSearchSelect);
             this.Controls.Add(this.imgNoteLabel);
@@ -210,14 +242,16 @@
         private System.Windows.Forms.Label imgNoteLabel;
         private System.Windows.Forms.CheckBox wordSearchSelect;
         private System.Windows.Forms.TextBox wordSearchBox;
-        private System.Windows.Forms.Label freqColorLabel;
-        private System.Windows.Forms.TextBox freqColorBox;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label resultsLabel;
         private System.Windows.Forms.Label chiLabel;
         private System.Windows.Forms.Label valueLabel;
+        private System.Windows.Forms.RadioButton redButton;
+        private System.Windows.Forms.RadioButton blueButton;
+        private System.Windows.Forms.RadioButton greenButton;
+        private System.Windows.Forms.CheckBox freqColorCheckBox;
     }
 }
 
