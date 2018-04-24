@@ -47,8 +47,12 @@ namespace Florae_Basket
                 bool exists = DBMngr.checkFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam());
                 if (exists == false)
                 {
-                    string newpath = ChangeFilePath(customFlower.getImgPath());
-                    DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), customFlower.getNote(), customFlower.getImgPath());
+                    string newpath = "";
+                    if(customFlower.getImgPath() != "")
+                    {
+                        newpath = ChangeFilePath(customFlower.getImgPath());
+                    }
+                    DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), customFlower.getNote(), newpath);
                     msgToDisplay = "Flower successfully added!";
                 }
                 else
@@ -59,14 +63,18 @@ namespace Florae_Basket
             return msgToDisplay;
         }
 
-        public static string ChangeFilePath(string filepath)
+        //This method will retrieve the selected image and copies it to the pics folder in the repo
+        private static string ChangeFilePath(string filepath)
         {
             string directory = "..\\..\\Pics\\";
             string newpath = directory + Path.GetFileName(filepath);
 
+            //checks to see if a file with that name exists, if it does it will append
+            //the end of the filename to contain a version number.
             int i = 1;
             while (File.Exists(newpath))
             {
+                //gets the filenamem
                 string without = Path.GetFileNameWithoutExtension(newpath);
                 int j = i - 1;
                 string test = without.Substring(without.Length - 3);
@@ -74,11 +82,12 @@ namespace Florae_Basket
                 {
                     without = without.Substring(0, without.Length - 3);
                 }
+                //adds the version number to the end of the file
                 string with = without + "(" + i + ")";
                 newpath = Path.GetDirectoryName(newpath) + "\\" + with + Path.GetExtension(newpath);
                 i++;
             }
-
+            //copies the file to the pics folder
             File.Copy(filepath, newpath);
             return newpath;
         }

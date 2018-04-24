@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.IO;
 
 /* Name: Justin Feldmann
  * Class: CS 325-002
@@ -66,14 +67,15 @@ namespace Florae_Basket
 				msgToDisplay = "Changes unable to be saved: One of the three minimum attributes is missing.";
 
 
-			if (userEnteredNote != DBMngr.FetchNote(flowerId))
+			if (userEnteredNote != DBMngr.FetchNote(flowerId) && userEnteredNote != "")
 			{
 				DBMngr.changeNote(userEnteredNote, flowerId);
 				msgToDisplay = "Changes successfully saved!";
 			}
 
-			if (userEnteredImgPath != DBMngr.FetchFilePath(flowerId))
+			if (userEnteredImgPath != DBMngr.FetchFilePath(flowerId) && userEnteredImgPath != "")
 			{
+                userEnteredImgPath = ChangeFilePath(userEnteredImgPath);
 				DBMngr.changeImgPath(userEnteredImgPath, flowerId);
 				msgToDisplay = "Changes successfully saved!";
 			}
@@ -83,7 +85,36 @@ namespace Florae_Basket
 
 		}
 
-		public void displayChangeFlowerGUI(int acctType)
+        //This method will retrieve the selected image and copies it to the pics folder in the repo
+        private static string ChangeFilePath(string filepath)
+        {
+            string directory = "..\\..\\Pics\\";
+            string newpath = directory + Path.GetFileName(filepath);
+
+            //checks to see if a file with that name exists, if it does it will append
+            //the end of the filename to contain a version number.
+            int i = 1;
+            while (File.Exists(newpath))
+            {
+                //gets the filenamem
+                string without = Path.GetFileNameWithoutExtension(newpath);
+                int j = i - 1;
+                string test = without.Substring(without.Length - 3);
+                if (without.Substring(without.Length - 3) == ("(" + j + ")"))
+                {
+                    without = without.Substring(0, without.Length - 3);
+                }
+                //adds the version number to the end of the file
+                string with = without + "(" + i + ")";
+                newpath = Path.GetDirectoryName(newpath) + "\\" + with + Path.GetExtension(newpath);
+                i++;
+            }
+            //copies the file to the pics folder
+            File.Copy(filepath, newpath);
+            return newpath;
+        }
+
+        public void displayChangeFlowerGUI(int acctType)
 		{
 
 			ChangeFlowerGUI changeFlowerGUI = new ChangeFlowerGUI(flowerId, acctType);
