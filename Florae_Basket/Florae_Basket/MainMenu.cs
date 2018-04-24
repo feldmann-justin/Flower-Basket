@@ -98,6 +98,10 @@ namespace Florae_Basket
                     new MainMenu(userAcctType).Show();
                 }
             }
+            else
+            {
+                new MainMenu(userAcctType).Show();
+            }
 		}
 
         //private void MainToProfileButton_click(object sender, EventArgs e)
