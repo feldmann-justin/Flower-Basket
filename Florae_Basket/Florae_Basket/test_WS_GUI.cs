@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Florae_Basket
 {
-    public partial class Test_WS_GUI : Form
+    public partial class SearchGUI : Form
     {
         public string egn_name;
         public string latin_word;
@@ -19,7 +19,7 @@ namespace Florae_Basket
         public string note_keywords;
 		private int userAcctType;
 
-        public Test_WS_GUI(int acctType)
+        public SearchGUI(int acctType)
         {
             InitializeComponent();
             this.AcceptButton = SearchBTN;
