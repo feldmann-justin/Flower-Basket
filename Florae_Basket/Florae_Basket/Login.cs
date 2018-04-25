@@ -28,10 +28,21 @@ namespace Florae_Basket
             accType = userType;
         }
 
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            user = userBox.Text;
+            pass = passBox.Text;
 
+            if (user == "")
+            {
+                MessageBox.Show("Username field is empty! Please enter a username", "Input Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (pass == "")
+            {
+                MessageBox.Show("Password field is empty! Please enter a password", "Input Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-
-
-
+            LoginController lgc = new LoginController(accType, user, pass);
+        }
     }
 }
