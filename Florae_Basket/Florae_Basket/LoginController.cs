@@ -31,9 +31,9 @@ namespace Florae_Basket
                     //Check user's account type
                     string type = dbMngr.Fetchaccttype(user);
                     Console.WriteLine(type);
-                    if (type == "Administrator") userAcctType = 1;
+                    if (type == "Administrator") userAcctType = 3;
                     else if (type == "Researcher") userAcctType = 2;
-                    else if (type == "Student") userAcctType = 3;
+                    else if (type == "Student") userAcctType = 1;
 
                     //Proceed to Main Menu
                     new MainMenu(userAcctType).Show();
