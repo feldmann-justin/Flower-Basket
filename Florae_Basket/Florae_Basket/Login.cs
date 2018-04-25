@@ -32,7 +32,7 @@ namespace Florae_Basket
         private void loginButton_Click(object sender, EventArgs e)
         {
             user = userBox.Text;
-            pass = passBox.Text;
+            pass = passBox.Text; 
 
             if (attempts > 3) {
                 MessageBox.Show("Too many attempts! You cannot login at the moment.", "Security Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
