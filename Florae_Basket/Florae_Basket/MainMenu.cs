@@ -162,6 +162,10 @@ namespace Florae_Basket
 				userAcctType = 0;
 
 				// will display the login page, once Dipak's Login controller is integrated into the project
+				LoginController lgnCtlr = new LoginController();
+
+				lgnCtlr.displayLoginGUI();
+				this.Hide();
 
 			}
 

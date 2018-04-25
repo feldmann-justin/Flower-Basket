@@ -53,6 +53,10 @@ namespace Florae_Basket
                     MessageBox.Show("You have entered into the Florae Basket Main Menu.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
+			// this is to simply close out of the Login menu after a successful login
+			this.Hide();
+
         }
     }
 }

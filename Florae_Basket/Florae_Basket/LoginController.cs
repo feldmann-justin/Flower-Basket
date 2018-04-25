@@ -37,7 +37,23 @@ namespace Florae_Basket
                 fail = true;
             }
 
+		public LoginController()
+		{
+
+
+		}
+
         public bool Fail() { return fail; }
+
+		public void displayLoginGUI()
+		{
+
+			// create instance of the Login GUI
+			Login loginInstance = new Login();
+
+			loginInstance.Show();
+
+		}
 
     }
 }
