@@ -107,6 +107,13 @@
       <DependentUpon>ImageSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageSearchController.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginController.cs" />
     <Compile Include="LogoutCtlr.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ImageSearch.resx">
       <DependentUpon>ImageSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
