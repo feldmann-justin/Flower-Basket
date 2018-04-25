@@ -1,12 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/* 
- Dipak Subramaniam     Team: Dirk    CP03
-     */
 
 namespace Florae_Basket
 {
@@ -18,9 +15,17 @@ namespace Florae_Basket
         [STAThread]
         static void Main()
         {
+
+			// giving 'userAcctType' a value of 1 (Student) just to test
+			// until integration with Dipak's Login code
+			int userAcctType = 3;
+
+            Database_Manager db = new Database_Manager();
+            //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
+            //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ImageSearch(0));
+            Application.Run(new MainMenu(userAcctType));
         }
     }
 }

@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,7 +52,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
@@ -45,7 +62,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFlowerCtlr.cs" />
+    <Compile Include="AddFlowerGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFlowerGUI.Designer.cs">
+      <DependentUpon>AddFlowerGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addUserCtrl.cs" />
+    <Compile Include="addUserGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addUserGUI.Designer.cs">
+      <DependentUpon>addUserGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeFlowerCtlr.cs" />
+    <Compile Include="ChangeFlowerGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeFlowerGUI.Designer.cs">
+      <DependentUpon>ChangeFlowerGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeUserCtlr.cs" />
+    <Compile Include="ChangeUserGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeUserGUI.Designer.cs">
+      <DependentUpon>ChangeUserGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBManager.cs" />
+    <Compile Include="deleteFlowerCtlr.cs" />
+    <Compile Include="Flower.cs" />
+    <Compile Include="flowerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flowerProfile.Designer.cs">
+      <DependentUpon>flowerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="flowerProfileCtrl.cs" />
     <Compile Include="ImageSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,20 +107,59 @@
       <DependentUpon>ImageSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageSearchController.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="LogoutCtlr.cs" />
+    <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginController.cs" />
+    <Compile Include="Note.cs" />
+    <Compile Include="Picture.cs" />
+    <Compile Include="printCtrl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultsCtrl.cs" />
+    <Compile Include="ResultsGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultsGUI.Designer.cs">
+      <DependentUpon>ResultsGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testDB.cs" />
+    <Compile Include="test_WS_GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test_WS_GUI.Designer.cs">
+      <DependentUpon>test_WS_GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserOptions.Designer.cs">
+      <DependentUpon>UserOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Word_Search.cs" />
+    <EmbeddedResource Include="AddFlowerGUI.resx">
+      <DependentUpon>AddFlowerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeFlowerGUI.resx">
+      <DependentUpon>ChangeFlowerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addUserGUI.resx">
+      <DependentUpon>addUserGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeUserGUI.resx">
+      <DependentUpon>ChangeUserGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="flowerProfile.resx">
+      <DependentUpon>flowerProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImageSearch.resx">
       <DependentUpon>ImageSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -77,6 +170,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ResultsGUI.resx">
+      <DependentUpon>ResultsGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test_WS_GUI.resx">
+      <DependentUpon>test_WS_GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserOptions.resx">
+      <DependentUpon>UserOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -89,6 +192,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Flowers.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Flowers_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Flowers.mdf</DependentUpon>
+    </Content>
+    <Content Include="Pics\sunflower.jpg" />
+    <Content Include="Pics\flower.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
