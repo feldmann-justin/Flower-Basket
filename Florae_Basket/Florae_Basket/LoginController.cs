@@ -8,127 +8,128 @@ namespace Florae_Basket
 {
     class LoginController
     {
+        private bool fail;
+
         public LoginController(int userAcctType, string user, string pass) {
-            
+            fail = false;
             /* 
-            DatabaseManager dbMngr = new DatabaseManager();
-            if (dbMngr.checkUsername(user))
+            Database_Manager dbMngr = new Database_Manager();
+
+            if (dbMngr.checkUsername(user)) {
+                //checks the db password against the salted version of the provided password
+                if (dbMngr.FetchPassword(user) != (pass + ".cs.is.fun.team.dirk.")) {
+                    MessageBox.Show("Your password was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    fail = true;   
+            }
+                else {
+                    //Proceed to Main Menu
+                    new MainMenu(userAcctType).Show();
+                }
+            else
+                MessageBox.Show("Your username was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                fail = true;
+            }
             */
-
         }
+
+        public bool Fail() { return fail; }
         /*
-        // checks if a username already exists in the database
-        public bool checkUsername(string username)
-		{
-			bool used = false;
-			conn.Open();
-			string query = "SELECT UserName FROM [User]";
-			SqlCommand comm = new SqlCommand(query, conn);
-			SqlDataReader read = comm.ExecuteReader();
-
-			while (read.Read())
-			{
-				if (read.GetString(0) == username)
-				{
-					used = true;
-					break;
-				}
-			}
-			read.Close();
-			conn.Close();
-			return used;
-		}
-
-        public string FetchPassword(string username)
+        
+        public void CreateGUI(int acct)
         {
-            string result;
-            conn.Open();
-            string query = "SELECT Password FROM [User] WHERE UserName = @user";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@user"].Value = username;
-            SqlDataReader read = comm.ExecuteReader();
-            read.Read();
-            result = read.GetString(0);
-            read.Close();
-            conn.Close();
-            return result;
+            ChangeUserGUI change = new ChangeUserGUI(this);
+            change.ShowDialog();
+            new MainMenu(acct).Show();
         }
 
-        public string Fetchfirst(string username)
+        public void Main(string first, string last, string username, string password, string accType)
         {
-            string result;
-            conn.Open();
-            string query = "SELECT FirstName FROM [User] WHERE UserName = @user";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@user"].Value = username;
-            SqlDataReader read = comm.ExecuteReader();
-            read.Read();
-            result = read.GetString(0);
-            read.Close();
-            conn.Close();
-            return result;
-        }
+            Database_Manager db = new Database_Manager();
+            bool exists = false;
 
-        public string FetchLast(string username)
-        {
-            string result;
-            conn.Open();
-            string query = "SELECT LastName FROM [User] WHERE UserName = @user";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@user"].Value = username;
-            SqlDataReader read = comm.ExecuteReader();
-            read.Read();
-            result = read.GetString(0);
-            read.Close();
-            conn.Close();
-            return result;
-        }
-
-        public string Fetchaccttype(string username)
-        {
-            string result;
-            conn.Open();
-            string query = "SELECT AccountType FROM [User] WHERE UserName = @user";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
-            comm.Parameters["@user"].Value = username;
-            SqlDataReader read = comm.ExecuteReader();
-            read.Read();
-            result = read.GetString(0);
-            read.Close();
-            conn.Close();
-            return result;
-        }
-
-        public bool addUser(string first, string last, string username, string password, string accType)
-		{
-            try
+            exists = db.checkUsername(username);
+            if (exists)
             {
-                conn.Open();
-                string query = "INSERT INTO [User] (UserName, Password, FirstName, LastName, AccountType) VALUES (@user, @pass, @first, @last, @type)";
-                SqlCommand comm = new SqlCommand(query, conn);
-                comm.Parameters.Add("@first", System.Data.SqlDbType.NVarChar);
-                comm.Parameters.Add("@last", System.Data.SqlDbType.NVarChar);
-                comm.Parameters.Add("@user", System.Data.SqlDbType.NVarChar);
-                comm.Parameters.Add("@pass", System.Data.SqlDbType.NVarChar);
-                comm.Parameters.Add("@type", System.Data.SqlDbType.NVarChar);
-                comm.Parameters["@first"].Value = first;
-                comm.Parameters["@last"].Value = last;
-                comm.Parameters["@user"].Value = username;
-                comm.Parameters["@pass"].Value = password;
-                comm.Parameters["@type"].Value = accType;
-                comm.ExecuteNonQuery();
-                conn.Close();
-                return true;
+                if (password != null && password != "")
+                {
+                    db.ChangePassword(username, Salt(password));
+                }
+                if (last != null && last != "")
+                {
+                    db.ChangeLastname(username, last);
+                }
+                if (first != null && first != "")
+                {
+                    db.ChangeFirstname(username, first);
+                }
+                if (accType != null && accType != "")
+                {
+                    db.ChangeAccType(username, accType);
+                }
+                if (verify(username, password, first, last, accType))
+                {
+                    MessageBox.Show("User account successfully changed.");
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: User info was not changed");
+                }
             }
-            catch (Exception e)
+            else
             {
-                return false;
+                MessageBox.Show("ERROR: User account does not exist");
             }
-		} 
+        }
+
+        // salt the password by adding on to the end of it
+        public string Salt(string pwd)
+        {
+            pwd = pwd + ".cs.is.fun.team.dirk.";
+            return pwd;
+        }
+
+        // hash the password
+        private int Hash(string pwd)
+        {
+            int pwdHash = pwd.GetHashCode();
+            return pwdHash;
+        }
+
+        public bool verify(string username, string password, string first, string last, string acct)
+        {
+            Database_Manager db = new Database_Manager();
+
+            if (password != "" && password != null)
+            {
+                string salted = Salt(password);
+                if (db.FetchPassword(username) != salted)
+                {
+                    return false;
+                }
+            }
+            if (first != "" && first != null)
+            {
+                if (db.Fetchfirst(username) != first)
+                {
+                    return false;
+                }
+            }
+            if (last != "" && last != null)
+            {
+                if (db.FetchLast(username) != last)
+                {
+                    return false;
+                }
+            }
+            if (acct != "(No change)")
+            {
+                if (db.Fetchaccttype(username) != acct)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         */
     }
 }

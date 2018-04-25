@@ -15,6 +15,7 @@ namespace Florae_Basket
         private string user;
         private string pass;
         private int accType;
+        private int attempts = 0;
 
         public Login()
         {
@@ -33,16 +34,25 @@ namespace Florae_Basket
             user = userBox.Text;
             pass = passBox.Text;
 
-            if (user == "")
+            if (attempts > 3) {
+                MessageBox.Show("Too many attempts! You cannot login at the moment.", "Security Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (user == "")
             {
-                MessageBox.Show("Username field is empty! Please enter a username", "Input Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Username field is empty! Please enter a username.", "Input Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (pass == "")
             {
-                MessageBox.Show("Password field is empty! Please enter a password", "Input Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Password field is empty! Please enter a password.", "Input Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            LoginController lgc = new LoginController(accType, user, pass);
+            else
+            {
+                LoginController lgc = new LoginController(accType, user, pass);
+                if (lgc.Fail()) { attempts++; }
+                else {
+                    MessageBox.Show("You have entered into the Florae Basket Main Menu.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }
