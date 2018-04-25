@@ -20,7 +20,7 @@ namespace Florae_Basket
 				//checks the db password against the salted version of the provided password
 				string dbPass = dbMngr.FetchPassword(user);
 
-				if (dbPass != (pass)) {
+				if (dbPass != (pass)) { // making this comment so I can commit again
 					//+".cs.is.fun.team.dirk." // testing to see if the inclusion of this part is necessary
 
 					MessageBox.Show("Your password was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
