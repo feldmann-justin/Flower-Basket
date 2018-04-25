@@ -17,9 +17,13 @@ namespace Florae_Basket
             Database_Manager dbMngr = new Database_Manager();
 
             if (dbMngr.checkUsername(user)) {
-                //checks the db password against the salted version of the provided password
-                if (dbMngr.FetchPassword(user) != (pass + ".cs.is.fun.team.dirk.")) {
-                    MessageBox.Show("Your password was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				//checks the db password against the salted version of the provided password
+				string dbPass = dbMngr.FetchPassword(user);
+
+				if (dbPass != (pass)) {
+					//+".cs.is.fun.team.dirk." // testing to see if the inclusion of this part is necessary
+
+					MessageBox.Show("Your password was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     fail = true;   
                 }
                 else

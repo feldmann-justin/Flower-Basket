@@ -34,7 +34,7 @@ namespace Florae_Basket
             user = userBox.Text;
             pass = passBox.Text; 
 
-            if (attempts > 3) {
+            if (attempts >= 3) {
                 MessageBox.Show("Too many attempts! You cannot login at the moment.", "Security Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (user == "")
