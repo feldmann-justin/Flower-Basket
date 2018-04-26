@@ -37,7 +37,7 @@ namespace Florae_Basket
                     password = Salt(password);
                     int hashPass = Hash(password);
                     password = Convert.ToString(hashPass);
-                    db.ChangePassword(username, Salt(password));
+                    db.ChangePassword(username, password);
                 }
                 if (last != null && last != "")
                 {
@@ -47,7 +47,7 @@ namespace Florae_Basket
                 {
                     db.ChangeFirstname(username, first);
                 }
-                if (accType != null && accType != "")
+                if (accType != null && accType != "" && accType != "(No change)")
                 {
                     db.ChangeAccType(username, accType);
                 }
@@ -87,7 +87,9 @@ namespace Florae_Basket
             if (password != "" && password != null)
             {
                 string salted = Salt(password);
-                if (db.FetchPassword(username) != salted)
+                int temp = Hash(salted);
+                salted = temp.ToString();
+                if (db.FetchPassword(username) != password)
                 {
                     return false;
                 }
