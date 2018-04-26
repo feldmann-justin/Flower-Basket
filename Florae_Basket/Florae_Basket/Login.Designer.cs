@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.loginButton = new System.Windows.Forms.Button();
             this.userLabel = new System.Windows.Forms.Label();
             this.passLabel = new System.Windows.Forms.Label();
@@ -88,9 +89,10 @@
             this.Controls.Add(this.passLabel);
             this.Controls.Add(this.userLabel);
             this.Controls.Add(this.loginButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Florae Basket";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
