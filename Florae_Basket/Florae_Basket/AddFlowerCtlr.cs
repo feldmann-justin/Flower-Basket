@@ -44,7 +44,7 @@ namespace Florae_Basket
             // else, the flower can be added to the database
             else
             {
-                bool exists = DBMngr.checkFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam());
+                bool exists = DBMngr.checkFlower(customFlower.getLatinName());
                 if (exists == false)
                 {
                     string newpath = "";
@@ -66,7 +66,7 @@ namespace Florae_Basket
         //This method will retrieve the selected image and copies it to the pics folder in the repo
         private static string ChangeFilePath(string filepath)
         {
-            string directory = "..\\..\\Pics\\";
+            string directory = "..\\Pics\\";
             string newpath = directory + Path.GetFileName(filepath);
 
             //checks to see if a file with that name exists, if it does it will append

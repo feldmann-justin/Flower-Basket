@@ -46,7 +46,14 @@ namespace Florae_Basket
 			string displayedMsg = AddFlowerCtlr.verifyFlower(flowerToAdd);
 
 			MessageBox.Show(displayedMsg);
-                
+
+            // reset the data in the textboxes
+            englishNameEntryBox.Text = "";
+            latinNameEntryBox.Text = "";
+            botanicalFamEntryBox.Text = "";
+            noteEntryBox.Text = "";
+            imgPathView.Text = "";
+
             // flower entry will NOT be added in the GUI; will be added in verifyFlower() using an instantiation of the DBMngr class
 
                 //testDB TDB = new testDB();
@@ -54,7 +61,7 @@ namespace Florae_Basket
                 //MessageBox.Show("Flower successfuly added!");
 		
 		}
-
+        //
         private void AddToMain_click(object sender, EventArgs e)
         {
             new MainMenu(userAcctType).Show();

@@ -205,27 +205,17 @@ namespace Florae_Basket
 		}
 
         // checks if a flower already exists
-        public bool checkFlower(string engName, string latName, string botFam)
+        public bool checkFlower(string latName)
         {
             bool used = false;
             conn.Open();
-            string query = "SELECT English, Latin, Botanical FROM Flower";
+            string query = "SELECT Latin FROM Flower";
             SqlCommand comm = new SqlCommand(query, conn);
             SqlDataReader read = comm.ExecuteReader();
 
             while (read.Read())
             {
-                if (read.GetString(0) == engName)
-                {
-                    used = true;
-                    break;
-                }
-                if (read.GetString(1) == latName)
-                {
-                    used = true;
-                    break;
-                }
-                else if (read.GetString(2) == botFam)
+                if (read.GetString(0) == latName)
                 {
                     used = true;
                     break;
