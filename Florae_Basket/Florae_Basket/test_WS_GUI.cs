@@ -110,10 +110,10 @@ namespace Florae_Basket
 
         }
 
-        private void WSGUI_leave_click(object sender, FormClosedEventArgs e)
+        /*private void WSGUI_leave_click(object sender, FormClosedEventArgs e)
         {
             new MainMenu(userAcctType).Show();
             this.Hide();
-        }
+        }*/
     }
 }
