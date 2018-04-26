@@ -11,19 +11,22 @@ namespace Florae_Basket
     {
         private bool fail;
 
-        public LoginController(int userAcctType, string user, string pass) {
+        public LoginController(int userAcctType, string user, string pass)
+        {
             fail = false;
              
             Database_Manager dbMngr = new Database_Manager();
 
-            if (dbMngr.checkUsername(user)) {
-				//checks the db password against the salted version of the provided password
-				string dbPass = dbMngr.FetchPassword(user);
+            if (dbMngr.checkUsername(user))
+            {
+                //checks the db password against the salted version of the provided password
+                string dbPass = dbMngr.FetchPassword(user);
                 string saltPass = (pass + ".cs.is.fun.team.dirk.");
                 string hashPass = Convert.ToString(saltPass.GetHashCode());
-				if (dbPass != (hashPass)) {
-					MessageBox.Show("Your password was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    fail = true;   
+                if (dbPass != (hashPass))
+                {
+                    MessageBox.Show("Your password was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    fail = true;
                 }
                 else
                 {
@@ -39,9 +42,11 @@ namespace Florae_Basket
                 }
             }
             else
+            {
                 MessageBox.Show("Your username was not correct. Please enter the right credentials.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 fail = true;
             }
+        }
 
 		public LoginController()
 		{
