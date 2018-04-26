@@ -52,7 +52,7 @@ artifacts/
 *.meta
 *.obj
 *.pch
-*.pdb
+#*.pdb
 *.pgc
 *.pgd
 *.rsp
@@ -211,7 +211,7 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 # SQL Server files
-*.mdf
+#*.mdf
 #*.ldf
 
 # Business Intelligence projects
