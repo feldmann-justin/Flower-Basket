@@ -101,7 +101,7 @@ namespace Florae_Basket
 
         private void WSToMainButton_click(object sender, EventArgs e)
         {
-            new MainMenu(userAcctType).Show();
+            //new MainMenu(userAcctType).Show();
             this.Hide();
         }
 
