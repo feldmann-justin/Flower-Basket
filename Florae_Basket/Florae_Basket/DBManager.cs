@@ -239,6 +239,7 @@ namespace Florae_Basket
         // checks if a username already exists in the database
         public bool checkUsername(string username)
 		{
+            conn.Close();
 			bool used = false;
 			conn.Open();
 			string query = "SELECT UserName FROM [User]";

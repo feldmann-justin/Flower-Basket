@@ -184,7 +184,7 @@
             this.Name = "SearchGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Florae Basket";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WSGUI_leave_click);
+            //this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WSGUI_leave_click);
             this.Load += new System.EventHandler(this.Test_WS_GUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
