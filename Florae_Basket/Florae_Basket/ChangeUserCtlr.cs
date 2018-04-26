@@ -33,6 +33,10 @@ namespace Florae_Basket
             {
                 if (password != null && password != "")
                 {
+                    // salt and hash the password
+                    password = Salt(password);
+                    int hashPass = Hash(password);
+                    password = Convert.ToString(hashPass);
                     db.ChangePassword(username, Salt(password));
                 }
                 if (last != null && last != "")

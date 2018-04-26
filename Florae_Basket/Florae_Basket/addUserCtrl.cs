@@ -67,6 +67,7 @@ namespace Florae_Basket
                                 // salt and hash pasword
                                 password = Salt(password);
                                 int hashPass = Hash(password);
+                                password = Convert.ToString(hashPass);
                                 // add to database
                                 added = dbm.addUser(first, last, username, password, accType);
                                 // if the user was added, keep track of the addition
@@ -121,6 +122,7 @@ namespace Florae_Basket
                         // salt and hash pasword
                         password = Salt(password);
                         int hashPass = Hash(password);
+                        password = Convert.ToString(hashPass);
                         // add to database
                         added = dbm.addUser(first, last, username, password, accType);
                         if (added == true)
