@@ -37,6 +37,7 @@ namespace Florae_Basket
         private int oneNinetyTwoToTwoFiftyFiveBlue = 0;
 
         public ImageSearchController(string filename, string wordSearch, string freqColor) {
+            Database_Manager dbManager = new Database_Manager();
             Bitmap img = new Bitmap(filename);
             array = new Color[img.Width, img.Height]; //Image Pixel Array
             redPixels = new int[img.Width, img.Height]; //RGB Arrays
@@ -106,9 +107,15 @@ namespace Florae_Basket
             /*
              * NOTE: FOR TESTING PURPOSES, REPLACE THE FILEPATHS WITH LOCAL PATHS FROM YOUR SYSTEM
              */
-            string[] imageFilePaths = { "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg" };
-            int length = imageFilePaths.Length;
-            for(int d = 0; d < length /*database.imageFilePaths.length*/; d++) 
+            /*
+             * "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg"
+             */
+            string[] imageFilePaths = { "", "", "", "", "" };
+            int length = 5; //need # of database filepaths
+            for (int i = 0; i < length; i++) {
+                imageFilePaths[i] = dbManager.FetchFilePath(i);
+            }
+            for(int d = 0; d < length; d++) 
             {
                 chiSquareDistances[d] = 0.0;
                 Color[,] dbArray;

@@ -96,6 +96,10 @@ namespace Florae_Basket
         private void blueButton_CheckedChanged(object sender, EventArgs e) { freqColor = "blue"; }
         private void greenButton_CheckedChanged(object sender, EventArgs e) { freqColor = "green"; }
 
-        
+        private void returnButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new MainMenu(userAcctType).Show();
+        }
     }
 }

@@ -44,6 +44,7 @@
             this.blueButton = new System.Windows.Forms.RadioButton();
             this.greenButton = new System.Windows.Forms.RadioButton();
             this.freqColorCheckBox = new System.Windows.Forms.CheckBox();
+            this.returnButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,12 +202,23 @@
             this.freqColorCheckBox.Text = "Enter a specified color to narrow the search (optional)";
             this.freqColorCheckBox.UseVisualStyleBackColor = true;
             // 
+            // returnButton
+            // 
+            this.returnButton.Location = new System.Drawing.Point(61, 329);
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(75, 33);
+            this.returnButton.TabIndex = 18;
+            this.returnButton.Text = "Return";
+            this.returnButton.UseVisualStyleBackColor = true;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
+            // 
             // ImageSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(692, 395);
+            this.Controls.Add(this.returnButton);
             this.Controls.Add(this.freqColorCheckBox);
             this.Controls.Add(this.greenButton);
             this.Controls.Add(this.blueButton);
@@ -252,6 +264,7 @@
         private System.Windows.Forms.RadioButton blueButton;
         private System.Windows.Forms.RadioButton greenButton;
         private System.Windows.Forms.CheckBox freqColorCheckBox;
+        private System.Windows.Forms.Button returnButton;
     }
 }
 
