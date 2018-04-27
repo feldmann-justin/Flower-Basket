@@ -20,7 +20,9 @@ namespace Florae_Basket
         private int[,] greenPixels;
         private int[,] bluePixels;
         private int[,] imageValueBins;
-        private double[] chiSquareDistances = new double[5];
+        private double[] chiSquareDistances;
+        private double[] sortedDistances;
+        private int[] order;
         private int[] topThree = new int[3];
         //Value Bin Instance Variables
         private int zeroToSixyThreeRed = 0;
@@ -38,7 +40,8 @@ namespace Florae_Basket
 
         public ImageSearchController(string filename, string wordSearch, string freqColor) {
             Database_Manager dbManager = new Database_Manager();
-            Bitmap img = new Bitmap(filename);
+            Bitmap orig = new Bitmap(filename);
+            Bitmap img = new Bitmap(orig, 256, 256);
             array = new Color[img.Width, img.Height]; //Image Pixel Array
             redPixels = new int[img.Width, img.Height]; //RGB Arrays
             greenPixels = new int[img.Width, img.Height]; //RGB Arrays
@@ -108,15 +111,23 @@ namespace Florae_Basket
              * NOTE: FOR TESTING PURPOSES, REPLACE THE FILEPATHS WITH LOCAL PATHS FROM YOUR SYSTEM
              */
             /*
+             * OLD:
+             *  int length = 5; //need # of database filepaths
+                for (int i = 0; i < length; i++) {
+                    imageFilePaths[i] = dbManager.FetchFilePath(i);
+                }
              * "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg"
              */
-            string[] imageFilePaths = { "", "", "", "", "" };
-            int length = 5; //need # of database filepaths
-            for (int i = 0; i < length; i++) {
-                imageFilePaths[i] = dbManager.FetchFilePath(i);
-            }
-            for(int d = 0; d < length; d++) 
+            string[] imageFilePaths = { "..\\..\\Pics\\bulk.jpg", "..\\..\\Pics\\button.jpg", "..\\..\\Pics\\cherry.jpg", "..\\..\\Pics\\cool.jpg",
+                                        "..\\..\\Pics\\dahlia.jpg", "..\\..\\Pics\\daisy.jpg", "..\\..\\Pics\\flower.jpg", "..\\..\\Pics\\hibuscus.jpg",
+                                        "..\\..\\Pics\\orange.jpg", "..\\..\\Pics\\salmon.jpg", "..\\..\\Pics\\sun.jpg", "..\\..\\Pics\\sunflower.jpg",
+                                        "..\\..\\Pics\\yellow.jpg" };
+            chiSquareDistances = new double[imageFilePaths.Length];
+            order = new int[13];
+
+            for (int d = 0; d < imageFilePaths.Length; d++) 
             {
+                order[d] = d;
                 chiSquareDistances[d] = 0.0;
                 Color[,] dbArray;
                 int[,] dbRedPixels;
@@ -137,7 +148,8 @@ namespace Florae_Basket
                 int dbOneNinetyTwoToTwoFiftyFiveGreen = 0;
                 int dbOneNinetyTwoToTwoFiftyFiveBlue = 0;
                 
-                Bitmap dbImg = new Bitmap(imageFilePaths[d]); //iterating through array of database image filepaths
+                Bitmap dbOrig = new Bitmap(imageFilePaths[d]); //iterating through array of database image filepaths
+                Bitmap dbImg = new Bitmap(dbOrig, 256, 256);
                 dbArray = new Color[dbImg.Width, dbImg.Height]; //Image Pixel Array
                 dbRedPixels = new int[dbImg.Width, dbImg.Height]; //RGB Arrays
                 dbGreenPixels = new int[dbImg.Width, dbImg.Height]; //RGB Arrays
@@ -230,12 +242,13 @@ namespace Florae_Basket
                 chiThreshold = (1.0 / 3.0) * (chiRed + chiGreen + chiBlue);
                 Console.WriteLine(chiThreshold);
                 if (chiThreshold == double.NaN) { chiThreshold = 0; }
-                chiSquareDistances[d] = chiThreshold;
+                chiSquareDistances[d] = chiThreshold/100.0;
                 
             }
 
         //Sorting Chi-Square Distance Values to Determine Smallest (Most Accurate) Results
-        double[] sortedDistances = chiSquareDistances;
+        sortedDistances = chiSquareDistances;
+        
 
         for (int write = 0; write < sortedDistances.Length; write++)
         {
@@ -246,6 +259,10 @@ namespace Florae_Basket
                     double temp = sortedDistances[sort + 1];
                     sortedDistances[sort + 1] = sortedDistances[sort];
                     sortedDistances[sort] = temp;
+
+                    int tempOrder = order[sort+1];
+                    order[sort+1] = order[sort];
+                    order[sort] = tempOrder;
                 }       
             }   
         }
@@ -276,7 +293,11 @@ namespace Florae_Basket
 
         public double[] getChiValues()
         {
-            return chiSquareDistances;
+            return sortedDistances;
+        }
+
+        public int[] getTopIndex() {
+            return order;
         }
     }
 

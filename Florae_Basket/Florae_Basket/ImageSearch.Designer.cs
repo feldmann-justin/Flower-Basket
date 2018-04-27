@@ -96,6 +96,7 @@
             this.wordSearchSelect.TabIndex = 4;
             this.wordSearchSelect.Text = "Combine with Word Search (optional)";
             this.wordSearchSelect.UseVisualStyleBackColor = true;
+            this.wordSearchSelect.Visible = false;
             this.wordSearchSelect.CheckedChanged += new System.EventHandler(this.wordSearchSelect_CheckedChanged);
             // 
             // wordSearchBox
@@ -104,6 +105,7 @@
             this.wordSearchBox.Name = "wordSearchBox";
             this.wordSearchBox.Size = new System.Drawing.Size(103, 20);
             this.wordSearchBox.TabIndex = 5;
+            this.wordSearchBox.Visible = false;
             // 
             // errorLabel
             // 
@@ -117,7 +119,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(468, 60);
+            this.pictureBox.Location = new System.Drawing.Point(464, 25);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(181, 173);
             this.pictureBox.TabIndex = 9;
@@ -126,7 +128,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(432, 294);
+            this.label1.Location = new System.Drawing.Point(432, 295);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 10;
@@ -135,7 +137,7 @@
             // resultsLabel
             // 
             this.resultsLabel.AutoSize = true;
-            this.resultsLabel.Location = new System.Drawing.Point(536, 294);
+            this.resultsLabel.Location = new System.Drawing.Point(534, 295);
             this.resultsLabel.Name = "resultsLabel";
             this.resultsLabel.Size = new System.Drawing.Size(0, 13);
             this.resultsLabel.TabIndex = 11;
@@ -143,16 +145,17 @@
             // chiLabel
             // 
             this.chiLabel.AutoSize = true;
-            this.chiLabel.Location = new System.Drawing.Point(432, 328);
+            this.chiLabel.Location = new System.Drawing.Point(432, 367);
             this.chiLabel.Name = "chiLabel";
             this.chiLabel.Size = new System.Drawing.Size(259, 13);
             this.chiLabel.TabIndex = 12;
             this.chiLabel.Text = "Chi-Square Values (0 is best, 1 or above is very poor):";
+            this.chiLabel.Click += new System.EventHandler(this.chiLabel_Click);
             // 
             // valueLabel
             // 
             this.valueLabel.AutoSize = true;
-            this.valueLabel.Location = new System.Drawing.Point(432, 360);
+            this.valueLabel.Location = new System.Drawing.Point(432, 399);
             this.valueLabel.Name = "valueLabel";
             this.valueLabel.Size = new System.Drawing.Size(42, 13);
             this.valueLabel.TabIndex = 13;
@@ -217,7 +220,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(692, 395);
+            this.ClientSize = new System.Drawing.Size(922, 439);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.freqColorCheckBox);
             this.Controls.Add(this.greenButton);
