@@ -57,7 +57,7 @@
             // englishNameEntryBox
             // 
             this.englishNameEntryBox.Location = new System.Drawing.Point(156, 53);
-            this.englishNameEntryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.englishNameEntryBox.Margin = new System.Windows.Forms.Padding(2);
             this.englishNameEntryBox.Name = "englishNameEntryBox";
             this.englishNameEntryBox.Size = new System.Drawing.Size(216, 20);
             this.englishNameEntryBox.TabIndex = 0;
@@ -65,7 +65,7 @@
             // changeFlowerSubmit
             // 
             this.changeFlowerSubmit.Location = new System.Drawing.Point(156, 353);
-            this.changeFlowerSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeFlowerSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.changeFlowerSubmit.Name = "changeFlowerSubmit";
             this.changeFlowerSubmit.Size = new System.Drawing.Size(75, 28);
             this.changeFlowerSubmit.TabIndex = 5;
@@ -76,7 +76,7 @@
             // ChangeToFlowerProfileBtn
             // 
             this.ChangeToFlowerProfileBtn.Location = new System.Drawing.Point(120, 411);
-            this.ChangeToFlowerProfileBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChangeToFlowerProfileBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ChangeToFlowerProfileBtn.Name = "ChangeToFlowerProfileBtn";
             this.ChangeToFlowerProfileBtn.Size = new System.Drawing.Size(149, 23);
             this.ChangeToFlowerProfileBtn.TabIndex = 6;
@@ -97,7 +97,7 @@
             // botanicalFamEntryBox
             // 
             this.botanicalFamEntryBox.Location = new System.Drawing.Point(156, 139);
-            this.botanicalFamEntryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.botanicalFamEntryBox.Margin = new System.Windows.Forms.Padding(2);
             this.botanicalFamEntryBox.Name = "botanicalFamEntryBox";
             this.botanicalFamEntryBox.Size = new System.Drawing.Size(216, 20);
             this.botanicalFamEntryBox.TabIndex = 2;
@@ -137,7 +137,7 @@
             // noteEntryBox
             // 
             this.noteEntryBox.Location = new System.Drawing.Point(156, 178);
-            this.noteEntryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.noteEntryBox.Margin = new System.Windows.Forms.Padding(2);
             this.noteEntryBox.Name = "noteEntryBox";
             this.noteEntryBox.Size = new System.Drawing.Size(216, 79);
             this.noteEntryBox.TabIndex = 3;
@@ -146,7 +146,7 @@
             // uploadImgBtn
             // 
             this.uploadImgBtn.Location = new System.Drawing.Point(46, 316);
-            this.uploadImgBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uploadImgBtn.Margin = new System.Windows.Forms.Padding(2);
             this.uploadImgBtn.Name = "uploadImgBtn";
             this.uploadImgBtn.Size = new System.Drawing.Size(56, 19);
             this.uploadImgBtn.TabIndex = 4;
@@ -157,7 +157,7 @@
             // latinNameEntryBox
             // 
             this.latinNameEntryBox.Location = new System.Drawing.Point(156, 97);
-            this.latinNameEntryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.latinNameEntryBox.Margin = new System.Windows.Forms.Padding(2);
             this.latinNameEntryBox.Name = "latinNameEntryBox";
             this.latinNameEntryBox.Size = new System.Drawing.Size(216, 20);
             this.latinNameEntryBox.TabIndex = 1;
@@ -191,9 +191,10 @@
             this.Controls.Add(this.botanicalFamLbl);
             this.Controls.Add(this.englishNameLbl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChangeFlowerGUI";
             this.Text = "Florae Basket";
+            this.Load += new System.EventHandler(this.ChangeFlowerGUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

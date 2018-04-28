@@ -19,7 +19,6 @@ namespace Florae_Basket
 		// 2 will be for Researchers
 		// 3 will be for Administrators
 		private int userAcctType;
-
 		public MainMenu(int acctType)
 		{
 			InitializeComponent();

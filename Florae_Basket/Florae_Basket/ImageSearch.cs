@@ -138,7 +138,7 @@ namespace Florae_Basket
 
         private void ImageSearch_FormClosing(object sender, FormClosingEventArgs e)
         {
-            new MainMenu(userAcctType).Show();
+            //new MainMenu(userAcctType).Show();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -153,7 +153,7 @@ namespace Florae_Basket
         private void returnButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new MainMenu(userAcctType).Show();
+            //new MainMenu(userAcctType).Show();
         }
 
         private void chiLabel_Click(object sender, EventArgs e)

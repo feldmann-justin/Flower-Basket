@@ -204,6 +204,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pictures\bulk.jpg" />
+    <Content Include="Pictures\button.jpg" />
+    <Content Include="Pictures\cherry.jpg" />
+    <Content Include="Pictures\cool.jpg" />
+    <Content Include="Pictures\dahlia.jpg" />
+    <Content Include="Pictures\daisy.jpg" />
+    <Content Include="Pictures\flower.jpg" />
+    <Content Include="Pictures\hibuscus.jpg" />
+    <Content Include="Pictures\orange.jpg" />
+    <Content Include="Pictures\salmon.jpg" />
+    <Content Include="Pictures\sun.jpg" />
+    <Content Include="Pictures\sunflower.jpg" />
+    <Content Include="Pictures\yellow.jpg" />
     <Content Include="Pics\button.jpg" />
     <Content Include="Pics\sun.jpg" />
     <Content Include="Pics\yellow.jpg" />

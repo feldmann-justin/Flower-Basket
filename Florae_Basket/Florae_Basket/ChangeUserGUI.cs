@@ -39,6 +39,11 @@ namespace Florae_Basket
             pass = password.Text;
             accType = account.Text;
             controller.Main(first, last, user, pass, accType);
+            firstname.Text = "";
+            lastname.Text = "";
+            username.Text = "";
+            password.Text = "";
+            account.Text = "";
         }
 
         private void username_TextChanged(object sender, EventArgs e)
