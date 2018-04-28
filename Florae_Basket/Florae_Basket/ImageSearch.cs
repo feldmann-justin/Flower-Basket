@@ -53,7 +53,8 @@ namespace Florae_Basket
             }
 
             Bitmap img = new Bitmap(filename);
-            pictureBox.Image = img;
+            Bitmap resized = new Bitmap(img, 256, 256);
+            pictureBox.Image = resized;
             pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
         }
         
@@ -69,9 +70,62 @@ namespace Florae_Basket
             Console.WriteLine(imgSrchCtrlr.getTopthree() + " " +  imgSrchCtrlr.getChiValues());
             int[] topResults = imgSrchCtrlr.getTopthree();
             double[] topValues = imgSrchCtrlr.getChiValues();
+            int[] topIndexes = imgSrchCtrlr.getTopIndex();
             for (int i = 0; i < 3; i++) {
-                resultsLabel.Text += ("Img " + ": "  + topResults[i] + " ");
-                valueLabel.Text += i + ") " + topValues[i] + " ";
+                string flowerName = "";
+                switch (topIndexes[i]) {
+                    case 0:
+                        flowerName = "bulk";
+                        break;
+                    case 1:
+                        flowerName = "button";
+                        break;
+                    case 2:
+                        flowerName = "cherry";
+                        break;
+                    case 3:
+                        flowerName = "cool";
+                        break;
+                    case 4:
+                        flowerName = "dahlia";
+                        break;
+                    case 5:
+                        flowerName = "daisy";
+                        break;
+                    case 6:
+                        flowerName = "flower";
+                        break;
+                    case 7:
+                        flowerName = "hibuscus";
+                        break;
+                    case 8:
+                        flowerName = "orange";
+                        break;
+                    case 9:
+                        flowerName = "salmon";
+                        break;
+                    case 10:
+                        flowerName = "sun";
+                        break;
+                    case 11:
+                        flowerName = "sunflower";
+                        break;
+                    case 12:
+                        flowerName = "yellow";
+                        break;
+                }
+                //decimal.Round(topValues[i], 2, MidpointRounding.AwayFromZero);
+                if (i != 0) { 
+                    resultsLabel.Text += ("\nFlower Name: " + flowerName + ", Index: " + topIndexes[i] + " ");
+                }
+                else
+                {
+                    resultsLabel.Text += ("Flower Name: " + flowerName + ", Index: " + topIndexes[i] + " ");
+                }
+                if (i + 1 == 1) { valueLabel.Text += (i + 1) + "st) " + Math.Round(topValues[i], 2) + " "; }
+                if (i + 1 == 2) { valueLabel.Text += (i + 1) + "nd) " + Math.Round(topValues[i], 2) + " "; }
+                if (i + 1 == 3) { valueLabel.Text += (i + 1) + "rd) " + Math.Round(topValues[i], 2) + " "; }
+                            
             }
             
         }
@@ -100,6 +154,11 @@ namespace Florae_Basket
         {
             this.Hide();
             new MainMenu(userAcctType).Show();
+        }
+
+        private void chiLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

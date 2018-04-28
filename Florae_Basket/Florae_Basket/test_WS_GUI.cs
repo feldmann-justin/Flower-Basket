@@ -76,14 +76,17 @@ namespace Florae_Basket
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
-            open.ShowDialog();
-            filename = open.FileName;
-            if (filename != "")
-            {
-                SearchBTN.Enabled = true;
-            }
+            //OpenFileDialog open = new OpenFileDialog();
+            //open.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
+            //open.ShowDialog();
+            //filename = open.FileName;
+            //if (filename != "")
+            //{
+            //    SearchBTN.Enabled = true;
+            //}
+            ImageSearch ims = new ImageSearch(userAcctType);
+            ims.Show();
+            this.Hide();
         }
 
         private void Notes_TextChanged(object sender, EventArgs e)

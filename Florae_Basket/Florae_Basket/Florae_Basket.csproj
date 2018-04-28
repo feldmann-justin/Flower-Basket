@@ -204,6 +204,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pics\button.jpg" />
+    <Content Include="Pics\sun.jpg" />
+    <Content Include="Pics\yellow.jpg" />
     <EmbeddedResource Include="Flowers.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -211,6 +214,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Flowers.mdf</DependentUpon>
     </Content>
+    <Content Include="Pics\bulk.jpg" />
+    <Content Include="Pics\cherry.jpg" />
+    <Content Include="Pics\cool.jpg" />
+    <Content Include="Pics\dahlia.jpg" />
+    <Content Include="Pics\daisy.jpg" />
+    <Content Include="Pics\hibuscus.jpg" />
+    <Content Include="Pics\orange.jpg" />
+    <Content Include="Pics\salmon.jpg" />
     <Content Include="Pics\sunflower.jpg" />
     <Content Include="Pics\flower.jpg" />
   </ItemGroup>
