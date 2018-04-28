@@ -55,10 +55,13 @@ namespace Florae_Basket
                 errorLabel.Visible = true;
             }
 
-            Bitmap img = new Bitmap(filename);
-            Bitmap resized = new Bitmap(img, 256, 256);
-            pictureBox.Image = resized;
-            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            if (filename != "" && filename != null)
+            {
+                Bitmap img = new Bitmap(filename);
+                Bitmap resized = new Bitmap(img, 256, 256);
+                pictureBox.Image = resized;
+                pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            }
         }
         
         private void wordSearchSelect_CheckedChanged(object sender, EventArgs e) { wordSearchOption = true; }
