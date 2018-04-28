@@ -53,6 +53,11 @@ namespace Florae_Basket
             file = file_textBox.Text;
             file_textBox.Text = "";
             controller.main(first, last, user, pass, accType, file);
+            first_textBox.Text = "";
+            last_textBox.Text = "";
+            username_textBox.Text = "";
+            password_textBox.Text = "";
+            accType_textBox.Text = "";
         }
 
         private void file_textBox_TextChanged(object sender, EventArgs e)

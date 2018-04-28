@@ -45,7 +45,13 @@ namespace Florae_Basket
 			// checks the database for existence of a Flower object with the same attributes
 			string displayedMsg = AddFlowerCtlr.verifyFlower(flowerToAdd);
 
-			MessageBox.Show(displayedMsg);
+            englishNameEntryBox.Text = "";
+            latinNameEntryBox.Text = "";
+            botanicalFamEntryBox.Text = "";
+            noteEntryBox.Text = "";
+            imgPathView.Text = "";
+
+            MessageBox.Show(displayedMsg);
                 
             // flower entry will NOT be added in the GUI; will be added in verifyFlower() using an instantiation of the DBMngr class
 

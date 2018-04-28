@@ -85,7 +85,7 @@ namespace Florae_Basket
             //    SearchBTN.Enabled = true;
             //}
             ImageSearch ims = new ImageSearch(userAcctType);
-            ims.Show();
+            ims.ShowDialog();
             this.Hide();
         }
 

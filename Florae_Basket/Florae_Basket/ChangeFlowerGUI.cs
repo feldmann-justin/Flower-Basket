@@ -55,6 +55,11 @@ namespace Florae_Basket
 			// begin the checking of the database for an existing entry with these parameters
 			string msgToDisplay = changeFlowerCtlrReference.verifyFlower(changedEnglishName, changedLatinName, changedBotanicalFam, changedNote, changedImgPath);
 
+            englishNameEntryBox.Text = "";
+            latinNameEntryBox.Text = "";
+            botanicalFamEntryBox.Text = "";
+            noteEntryBox.Text = "";
+            imgPathView.Text = "";
 			MessageBox.Show(msgToDisplay);
 
 		}
@@ -78,5 +83,9 @@ namespace Florae_Basket
 
 		}
 
-	}
+        private void ChangeFlowerGUI_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
