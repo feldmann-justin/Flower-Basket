@@ -118,10 +118,10 @@ namespace Florae_Basket
                 }
              * "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg", "C:\\Users\\dipak\\Desktop\\Nexus\\Photos\\Pictures\\D1.jpg"
              */
-            string[] imageFilePaths = { "..\\..\\Pics\\bulk.jpg", "..\\..\\Pics\\button.jpg", "..\\..\\Pics\\cherry.jpg", "..\\..\\Pics\\cool.jpg",
-                                        "..\\..\\Pics\\dahlia.jpg", "..\\..\\Pics\\daisy.jpg", "..\\..\\Pics\\flower.jpg", "..\\..\\Pics\\hibuscus.jpg",
-                                        "..\\..\\Pics\\orange.jpg", "..\\..\\Pics\\salmon.jpg", "..\\..\\Pics\\sun.jpg", "..\\..\\Pics\\sunflower.jpg",
-                                        "..\\..\\Pics\\yellow.jpg" };
+            string[] imageFilePaths = { "..\\..\\Pictures\\bulk.jpg", "..\\..\\Pictures\\button.jpg", "..\\..\\Pictures\\cherry.jpg", "..\\..\\Pictures\\cool.jpg",
+                                        "..\\..\\Pictures\\dahlia.jpg", "..\\..\\Pictures\\daisy.jpg", "..\\..\\Pics\\flower.jpg", "..\\..\\Pictures\\hibuscus.jpg",
+                                        "..\\..\\Pictures\\orange.jpg", "..\\..\\Pictures\\salmon.jpg", "..\\..\\Pictures\\sun.jpg", "..\\..\\Pictures\\sunflower.jpg",
+                                        "..\\..\\Pictures\\yellow.jpg" };
             chiSquareDistances = new double[imageFilePaths.Length];
             order = new int[13];
 
