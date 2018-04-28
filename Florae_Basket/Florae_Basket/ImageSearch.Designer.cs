@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageSearch));
             this.searchButton = new System.Windows.Forms.Button();
             this.imgSelectLabel = new System.Windows.Forms.Label();
             this.imgSelectButton = new System.Windows.Forms.Button();
@@ -219,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FloralWhite;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(922, 439);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.freqColorCheckBox);
@@ -238,11 +239,13 @@
             this.Controls.Add(this.imgSelectButton);
             this.Controls.Add(this.imgSelectLabel);
             this.Controls.Add(this.searchButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ImageSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Image Search";
+            this.Text = "Florae Basket";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImageSearch_FormClosing);
             this.Load += new System.EventHandler(this.ImageSearch_Load);
+            this.Shown += new System.EventHandler(this.ImageSearch_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

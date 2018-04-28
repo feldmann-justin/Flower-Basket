@@ -32,7 +32,10 @@ namespace Florae_Basket
 			userAcctType = acctType;
         }
 
-        private void ImageSearch_Load(object sender, EventArgs e) { }
+        private void ImageSearch_Load(object sender, EventArgs e)
+        {
+            
+        }
 
         private void imgSelectButton_Click(object sender, EventArgs e)
         {
@@ -159,6 +162,12 @@ namespace Florae_Basket
         private void chiLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ImageSearch_Shown(object sender, EventArgs e)
+        {
+            string msg = "Unfortunately, image search is static. It will run a search, which takes a few seconds, and will report results that aren't in our database. For more information, please read the file CP04_Dirk_ImageSearchGuide.pdf on the DMSF. Thank you.";
+            MessageBox.Show(msg);
         }
     }
 }
