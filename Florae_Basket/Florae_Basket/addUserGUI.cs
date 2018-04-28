@@ -51,8 +51,8 @@ namespace Florae_Basket
             pass = password_textBox.Text;
             accType = accType_textBox.Text;
             file = file_textBox.Text;
-            file_textBox.Text = "";
             controller.main(first, last, user, pass, accType, file);
+            file_textBox.Text = "";
             first_textBox.Text = "";
             last_textBox.Text = "";
             username_textBox.Text = "";
