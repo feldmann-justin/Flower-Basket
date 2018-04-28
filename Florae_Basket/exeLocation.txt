@@ -1,0 +1,2 @@
+The Florae_Basket.exe is stored in the following folder path:
+Florae_Basket -> Final Product -> System -> Florae_Basket.exe
