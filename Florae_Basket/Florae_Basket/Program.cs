@@ -15,17 +15,9 @@ namespace Florae_Basket
         [STAThread]
         static void Main()
         {
-
-			// giving 'userAcctType' an initial value of 0
-			// until a user logs in
-			int userAcctType = 0;
-
-            Database_Manager db = new Database_Manager();
-            //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
-            //FOR TESTING ONLY, FLOWERS SHOULD NOT BE INSERTED HERE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login(userAcctType));
+            Application.Run(new Login());
         }
     }
 }
