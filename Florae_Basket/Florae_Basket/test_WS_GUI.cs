@@ -27,13 +27,7 @@ namespace Florae_Basket
 			userAcctType = acctType;
         }
 
-        private void SearchBTN_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            /*Latin.Text = "";
-            EName.Text = "";
-            Botan.Text = "";*/
-        }
+        private void SearchBTN_Click(object sender, EventArgs e) => this.Hide();
 
         private void Latin_TextChanged(object sender, EventArgs e)
         {
