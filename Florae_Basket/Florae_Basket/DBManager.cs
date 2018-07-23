@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 
 
 namespace Florae_Basket
 {
-	public class Database_Manager
+    public class Database_Manager
 	{
 		//This is the connection object
 		public SqlConnection conn = new SqlConnection();
