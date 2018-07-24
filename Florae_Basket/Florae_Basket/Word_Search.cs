@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace Florae_Basket
 {
+    //struct to contain possible matches for the word search
     public struct Candidate
     {
         public string contents;
@@ -167,7 +168,7 @@ namespace Florae_Basket
             {
                 db.FetchAllNames(ref list, type);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
