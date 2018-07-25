@@ -11,7 +11,7 @@ namespace Florae_Basket
     {
         private bool fail;
 
-        public LoginController(int userAcctType, string user, string pass)
+        public LoginController(ref int userAcctType, string user, string pass)
         {
             fail = false;
              
@@ -38,7 +38,7 @@ namespace Florae_Basket
                     else if (type == "Student") userAcctType = 1;
 
                     //Proceed to Main Menu
-                    new MainMenu(userAcctType).Show();
+                    //new MainMenu(userAcctType).Show();
                 }
             }
             else

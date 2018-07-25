@@ -47,7 +47,7 @@ namespace Florae_Basket
             }
             else
             {
-                LoginController lgc = new LoginController(accType, user, pass);
+                LoginController lgc = new LoginController(ref accType, user, pass);
                 if (lgc.Fail()) { attempts++; }
                 else {
                     // this is to simply close out of the Login menu after a successful login

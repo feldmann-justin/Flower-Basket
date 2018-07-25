@@ -36,6 +36,12 @@
             this.Login_Title = new System.Windows.Forms.Label();
             this.Login_submit = new System.Windows.Forms.Button();
             this.Incorrect_Login_Warning = new System.Windows.Forms.Label();
+            this.LandingPage = new System.Windows.Forms.Panel();
+            this.UserControlButton = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.AddFlowerButton = new System.Windows.Forms.Button();
+            this.LogOutButton = new System.Windows.Forms.Button();
+            this.LandingPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // Username_txt
@@ -56,7 +62,6 @@
             this.Password_txt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Password_txt.Location = new System.Drawing.Point(490, 371);
             this.Password_txt.Name = "Password_txt";
-            this.Password_txt.PasswordChar = '*';
             this.Password_txt.Size = new System.Drawing.Size(274, 26);
             this.Password_txt.TabIndex = 1;
             this.Password_txt.UseSystemPasswordChar = true;
@@ -89,18 +94,19 @@
             this.SignIn_Title.AutoSize = true;
             this.SignIn_Title.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignIn_Title.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SignIn_Title.Location = new System.Drawing.Point(511, 120);
+            this.SignIn_Title.Location = new System.Drawing.Point(533, 120);
             this.SignIn_Title.Name = "SignIn_Title";
             this.SignIn_Title.Size = new System.Drawing.Size(231, 73);
             this.SignIn_Title.TabIndex = 4;
             this.SignIn_Title.Text = "Sign In";
+            this.SignIn_Title.Click += new System.EventHandler(this.SignIn_Title_Click);
             // 
             // Login_Title
             // 
             this.Login_Title.AutoSize = true;
             this.Login_Title.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_Title.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Login_Title.Location = new System.Drawing.Point(417, 47);
+            this.Login_Title.Location = new System.Drawing.Point(439, 47);
             this.Login_Title.Name = "Login_Title";
             this.Login_Title.Size = new System.Drawing.Size(424, 73);
             this.Login_Title.TabIndex = 5;
@@ -132,12 +138,68 @@
             this.Incorrect_Login_Warning.Text = "Incorrect Information";
             this.Incorrect_Login_Warning.Visible = false;
             // 
+            // LandingPage
+            // 
+            this.LandingPage.Controls.Add(this.UserControlButton);
+            this.LandingPage.Controls.Add(this.SearchButton);
+            this.LandingPage.Controls.Add(this.AddFlowerButton);
+            this.LandingPage.Location = new System.Drawing.Point(12, 123);
+            this.LandingPage.Name = "LandingPage";
+            this.LandingPage.Size = new System.Drawing.Size(1284, 529);
+            this.LandingPage.TabIndex = 8;
+            this.LandingPage.Visible = false;
+            // 
+            // UserControlButton
+            // 
+            this.UserControlButton.Enabled = false;
+            this.UserControlButton.Location = new System.Drawing.Point(898, 109);
+            this.UserControlButton.Name = "UserControlButton";
+            this.UserControlButton.Size = new System.Drawing.Size(364, 364);
+            this.UserControlButton.TabIndex = 2;
+            this.UserControlButton.UseVisualStyleBackColor = true;
+            this.UserControlButton.Click += new System.EventHandler(this.UserControlButton_Click);
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Enabled = false;
+            this.SearchButton.Location = new System.Drawing.Point(454, 109);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(364, 364);
+            this.SearchButton.TabIndex = 1;
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // AddFlowerButton
+            // 
+            this.AddFlowerButton.Enabled = false;
+            this.AddFlowerButton.Location = new System.Drawing.Point(20, 109);
+            this.AddFlowerButton.Name = "AddFlowerButton";
+            this.AddFlowerButton.Size = new System.Drawing.Size(364, 364);
+            this.AddFlowerButton.TabIndex = 0;
+            this.AddFlowerButton.UseVisualStyleBackColor = true;
+            this.AddFlowerButton.Click += new System.EventHandler(this.AddFlowerButton_Click);
+            // 
+            // LogOutButton
+            // 
+            this.LogOutButton.Enabled = false;
+            this.LogOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutButton.Location = new System.Drawing.Point(1188, 12);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(108, 39);
+            this.LogOutButton.TabIndex = 9;
+            this.LogOutButton.Text = "Sign Out";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Visible = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // United_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1308, 664);
+            this.Controls.Add(this.LogOutButton);
+            this.Controls.Add(this.LandingPage);
             this.Controls.Add(this.Incorrect_Login_Warning);
             this.Controls.Add(this.Login_submit);
             this.Controls.Add(this.Login_Title);
@@ -148,6 +210,7 @@
             this.Controls.Add(this.Username_txt);
             this.Name = "United_GUI";
             this.Text = "United_GUI";
+            this.LandingPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +226,10 @@
         private System.Windows.Forms.Label Login_Title;
         private System.Windows.Forms.Button Login_submit;
         private System.Windows.Forms.Label Incorrect_Login_Warning;
+        private System.Windows.Forms.Panel LandingPage;
+        private System.Windows.Forms.Button UserControlButton;
+        private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.Button AddFlowerButton;
+        private System.Windows.Forms.Button LogOutButton;
     }
 }
