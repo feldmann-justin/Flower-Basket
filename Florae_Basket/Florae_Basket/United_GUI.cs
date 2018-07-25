@@ -27,6 +27,8 @@ namespace Florae_Basket
         //Student:    1
         private int accType = 0;
 
+        public int GetaccType() => accType;
+
         //Handles the actions needed to disable the correct panels in order to sign the user out.
         //iterates through each panel and disables their controls, then hides the panel itself.
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -42,7 +44,6 @@ namespace Florae_Basket
                     pan.Visible = false;
                 }
             }
-
             LoginAcvtivate();
         }
 
@@ -74,7 +75,7 @@ namespace Florae_Basket
         }
 
         //Username textbox
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             if (Password_txt.Text != "" && Username_txt.Text != "")
             {
@@ -87,7 +88,7 @@ namespace Florae_Basket
         }
 
         //Password textbox
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
             if (Password_txt.Text != "" && Username_txt.Text != "")
             {
@@ -123,7 +124,7 @@ namespace Florae_Basket
         }
 
         //Login submit button
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             user = Username_txt.Text;
             pass = Password_txt.Text;
@@ -139,7 +140,7 @@ namespace Florae_Basket
             else
             {
                 LoginClear();
-                LandingPage.Visible = true;
+                LandingActivate();
                 LogOutButton.Enabled = LogOutButton.Visible = true;
             }
         }
@@ -170,7 +171,7 @@ namespace Florae_Basket
 
         private void AddFlowerButton_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -191,7 +192,6 @@ namespace Florae_Basket
             LandingPage.Visible       = false;
         }
 
-        
         /////////////////////
         //// LANDING END ////
         /////////////////////

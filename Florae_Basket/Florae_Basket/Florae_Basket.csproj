@@ -185,6 +185,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ResultsGUI.resx">
       <DependentUpon>ResultsGUI.cs</DependentUpon>
@@ -229,6 +230,9 @@
     <Content Include="Pics\button.jpg" />
     <Content Include="Pics\sun.jpg" />
     <Content Include="Pics\yellow.jpg" />
+    <None Include="Resources\UserIcon.png" />
+    <None Include="Resources\SearchIcon.png" />
+    <None Include="Resources\PlusIcon.png" />
     <EmbeddedResource Include="Flowers.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

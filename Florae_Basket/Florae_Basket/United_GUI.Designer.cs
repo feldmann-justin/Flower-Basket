@@ -37,10 +37,10 @@
             this.Login_submit = new System.Windows.Forms.Button();
             this.Incorrect_Login_Warning = new System.Windows.Forms.Label();
             this.LandingPage = new System.Windows.Forms.Panel();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.UserControlButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.AddFlowerButton = new System.Windows.Forms.Button();
-            this.LogOutButton = new System.Windows.Forms.Button();
             this.LandingPage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             this.Username_txt.Name = "Username_txt";
             this.Username_txt.Size = new System.Drawing.Size(274, 26);
             this.Username_txt.TabIndex = 0;
-            this.Username_txt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Username_txt.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // Password_txt
             // 
@@ -65,7 +65,7 @@
             this.Password_txt.Size = new System.Drawing.Size(274, 26);
             this.Password_txt.TabIndex = 1;
             this.Password_txt.UseSystemPasswordChar = true;
-            this.Password_txt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.Password_txt.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label1
             // 
@@ -124,7 +124,7 @@
             this.Login_submit.TabIndex = 6;
             this.Login_submit.Text = "Submit";
             this.Login_submit.UseVisualStyleBackColor = false;
-            this.Login_submit.Click += new System.EventHandler(this.button1_Click);
+            this.Login_submit.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Incorrect_Login_Warning
             // 
@@ -149,36 +149,6 @@
             this.LandingPage.TabIndex = 8;
             this.LandingPage.Visible = false;
             // 
-            // UserControlButton
-            // 
-            this.UserControlButton.Enabled = false;
-            this.UserControlButton.Location = new System.Drawing.Point(898, 109);
-            this.UserControlButton.Name = "UserControlButton";
-            this.UserControlButton.Size = new System.Drawing.Size(364, 364);
-            this.UserControlButton.TabIndex = 2;
-            this.UserControlButton.UseVisualStyleBackColor = true;
-            this.UserControlButton.Click += new System.EventHandler(this.UserControlButton_Click);
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.Enabled = false;
-            this.SearchButton.Location = new System.Drawing.Point(454, 109);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(364, 364);
-            this.SearchButton.TabIndex = 1;
-            this.SearchButton.UseVisualStyleBackColor = true;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
-            // 
-            // AddFlowerButton
-            // 
-            this.AddFlowerButton.Enabled = false;
-            this.AddFlowerButton.Location = new System.Drawing.Point(20, 109);
-            this.AddFlowerButton.Name = "AddFlowerButton";
-            this.AddFlowerButton.Size = new System.Drawing.Size(364, 364);
-            this.AddFlowerButton.TabIndex = 0;
-            this.AddFlowerButton.UseVisualStyleBackColor = true;
-            this.AddFlowerButton.Click += new System.EventHandler(this.AddFlowerButton_Click);
-            // 
             // LogOutButton
             // 
             this.LogOutButton.Enabled = false;
@@ -191,6 +161,43 @@
             this.LogOutButton.UseVisualStyleBackColor = true;
             this.LogOutButton.Visible = false;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
+            // UserControlButton
+            // 
+            this.UserControlButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.UserControlButton.Enabled = false;
+            this.UserControlButton.Image = global::Florae_Basket.Properties.Resources.UserIcon;
+            this.UserControlButton.Location = new System.Drawing.Point(898, 109);
+            this.UserControlButton.Name = "UserControlButton";
+            this.UserControlButton.Size = new System.Drawing.Size(364, 364);
+            this.UserControlButton.TabIndex = 2;
+            this.UserControlButton.UseVisualStyleBackColor = false;
+            this.UserControlButton.Click += new System.EventHandler(this.UserControlButton_Click);
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SearchButton.Enabled = false;
+            this.SearchButton.Image = global::Florae_Basket.Properties.Resources.SearchIcon;
+            this.SearchButton.Location = new System.Drawing.Point(454, 109);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(364, 364);
+            this.SearchButton.TabIndex = 1;
+            this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // AddFlowerButton
+            // 
+            this.AddFlowerButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddFlowerButton.Enabled = false;
+            this.AddFlowerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddFlowerButton.Image = global::Florae_Basket.Properties.Resources.PlusIcon;
+            this.AddFlowerButton.Location = new System.Drawing.Point(20, 109);
+            this.AddFlowerButton.Name = "AddFlowerButton";
+            this.AddFlowerButton.Size = new System.Drawing.Size(364, 364);
+            this.AddFlowerButton.TabIndex = 0;
+            this.AddFlowerButton.UseVisualStyleBackColor = false;
+            this.AddFlowerButton.Click += new System.EventHandler(this.AddFlowerButton_Click);
             // 
             // United_GUI
             // 
