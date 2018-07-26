@@ -151,10 +151,7 @@ namespace Florae_Basket
             }
         }
 
-        private void SignIn_Title_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void SignIn_Title_Click(object sender, EventArgs e){}
 
         /////////////////////
         ////  LOGIN END  ////
@@ -237,6 +234,10 @@ namespace Florae_Basket
 
         }
 
+        private void NotesTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         private void AddFlowerDeactivate()
         {
             AddFlowerPage.Visible = false;
