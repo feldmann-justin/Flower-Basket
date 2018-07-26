@@ -39,7 +39,11 @@ namespace Florae_Basket
                 {
                     foreach (Control ctrl in pan.Controls)
                     {
-                        ctrl.Enabled = false;
+                        //Labels cannot be disabled or else their forecolor will default to black.
+                        if (!(ctrl is Label))
+                        {
+                            ctrl.Enabled = false;
+                        }
                     }
                     pan.Visible = false;
                 }
@@ -67,6 +71,7 @@ namespace Florae_Basket
         private void LoginAcvtivate()
         {
             accType = 0;
+            SignInPage.Visible = true;
             Username_txt.Enabled = true;
             Password_txt.Enabled = true;
             Login_submit.Enabled = false;
@@ -119,6 +124,7 @@ namespace Florae_Basket
             Password_txt.Enabled = false;
             Login_submit.Enabled = false;
             Incorrect_Login_Warning.Visible = false;
+            SignInPage.Visible = false;
 
             //TODO: delete red outline on textboxes.
         }
@@ -171,17 +177,17 @@ namespace Florae_Basket
 
         private void AddFlowerButton_Click(object sender, EventArgs e)
         {
-           
+            LandingDeactivate();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-
+            LandingDeactivate();
         }
 
         private void UserControlButton_Click(object sender, EventArgs e)
         {
-
+            LandingDeactivate();
         }
 
         private void LandingDeactivate()
@@ -195,5 +201,14 @@ namespace Florae_Basket
         /////////////////////
         //// LANDING END ////
         /////////////////////
+
+        //////////////////////
+        //////////////////////
+
+        ///////////////////////
+        ////ADDFLOWER START////
+        ///////////////////////
+
+
     }
 }

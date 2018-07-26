@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(United_GUI));
             this.Username_txt = new System.Windows.Forms.TextBox();
             this.Password_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +42,9 @@
             this.UserControlButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.AddFlowerButton = new System.Windows.Forms.Button();
+            this.SignInPage = new System.Windows.Forms.Panel();
             this.LandingPage.SuspendLayout();
+            this.SignInPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // Username_txt
@@ -49,7 +52,7 @@
             this.Username_txt.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Username_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Username_txt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Username_txt.Location = new System.Drawing.Point(490, 302);
+            this.Username_txt.Location = new System.Drawing.Point(478, 179);
             this.Username_txt.Name = "Username_txt";
             this.Username_txt.Size = new System.Drawing.Size(274, 26);
             this.Username_txt.TabIndex = 0;
@@ -60,7 +63,7 @@
             this.Password_txt.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Password_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Password_txt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Password_txt.Location = new System.Drawing.Point(490, 371);
+            this.Password_txt.Location = new System.Drawing.Point(478, 248);
             this.Password_txt.Name = "Password_txt";
             this.Password_txt.Size = new System.Drawing.Size(274, 26);
             this.Password_txt.TabIndex = 1;
@@ -70,9 +73,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(578, 275);
+            this.label1.Location = new System.Drawing.Point(566, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 24);
             this.label1.TabIndex = 2;
@@ -83,7 +87,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(583, 344);
+            this.label2.Location = new System.Drawing.Point(566, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 3;
@@ -94,7 +98,7 @@
             this.SignIn_Title.AutoSize = true;
             this.SignIn_Title.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignIn_Title.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.SignIn_Title.Location = new System.Drawing.Point(533, 120);
+            this.SignIn_Title.Location = new System.Drawing.Point(505, 17);
             this.SignIn_Title.Name = "SignIn_Title";
             this.SignIn_Title.Size = new System.Drawing.Size(231, 73);
             this.SignIn_Title.TabIndex = 4;
@@ -106,7 +110,7 @@
             this.Login_Title.AutoSize = true;
             this.Login_Title.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_Title.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Login_Title.Location = new System.Drawing.Point(439, 47);
+            this.Login_Title.Location = new System.Drawing.Point(429, 47);
             this.Login_Title.Name = "Login_Title";
             this.Login_Title.Size = new System.Drawing.Size(424, 73);
             this.Login_Title.TabIndex = 5;
@@ -118,7 +122,7 @@
             this.Login_submit.Enabled = false;
             this.Login_submit.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login_submit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Login_submit.Location = new System.Drawing.Point(530, 457);
+            this.Login_submit.Location = new System.Drawing.Point(518, 334);
             this.Login_submit.Name = "Login_submit";
             this.Login_submit.Size = new System.Drawing.Size(188, 92);
             this.Login_submit.TabIndex = 6;
@@ -131,7 +135,7 @@
             this.Incorrect_Login_Warning.AutoSize = true;
             this.Incorrect_Login_Warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Incorrect_Login_Warning.ForeColor = System.Drawing.Color.Red;
-            this.Incorrect_Login_Warning.Location = new System.Drawing.Point(540, 400);
+            this.Incorrect_Login_Warning.Location = new System.Drawing.Point(528, 277);
             this.Incorrect_Login_Warning.Name = "Incorrect_Login_Warning";
             this.Incorrect_Login_Warning.Size = new System.Drawing.Size(178, 20);
             this.Incorrect_Login_Warning.TabIndex = 7;
@@ -199,6 +203,20 @@
             this.AddFlowerButton.UseVisualStyleBackColor = false;
             this.AddFlowerButton.Click += new System.EventHandler(this.AddFlowerButton_Click);
             // 
+            // SignInPage
+            // 
+            this.SignInPage.Controls.Add(this.SignIn_Title);
+            this.SignInPage.Controls.Add(this.Login_submit);
+            this.SignInPage.Controls.Add(this.Username_txt);
+            this.SignInPage.Controls.Add(this.label1);
+            this.SignInPage.Controls.Add(this.Incorrect_Login_Warning);
+            this.SignInPage.Controls.Add(this.label2);
+            this.SignInPage.Controls.Add(this.Password_txt);
+            this.SignInPage.Location = new System.Drawing.Point(12, 123);
+            this.SignInPage.Name = "SignInPage";
+            this.SignInPage.Size = new System.Drawing.Size(1284, 529);
+            this.SignInPage.TabIndex = 10;
+            // 
             // United_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,18 +224,15 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1308, 664);
             this.Controls.Add(this.LogOutButton);
-            this.Controls.Add(this.LandingPage);
-            this.Controls.Add(this.Incorrect_Login_Warning);
-            this.Controls.Add(this.Login_submit);
             this.Controls.Add(this.Login_Title);
-            this.Controls.Add(this.SignIn_Title);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Password_txt);
-            this.Controls.Add(this.Username_txt);
+            this.Controls.Add(this.SignInPage);
+            this.Controls.Add(this.LandingPage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "United_GUI";
-            this.Text = "United_GUI";
+            this.Text = "Flower Basket";
             this.LandingPage.ResumeLayout(false);
+            this.SignInPage.ResumeLayout(false);
+            this.SignInPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +253,6 @@
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button AddFlowerButton;
         private System.Windows.Forms.Button LogOutButton;
+        private System.Windows.Forms.Panel SignInPage;
     }
 }
