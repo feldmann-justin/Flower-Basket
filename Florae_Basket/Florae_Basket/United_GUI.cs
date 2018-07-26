@@ -167,17 +167,25 @@ namespace Florae_Basket
         ////LANDING START////
         /////////////////////
 
+        //Activates and shows the landing page for the user. Also checks to see if user as clearance for adding of flowers and changing users.
         private void LandingActivate()
         {
-            LandingPage.Visible       = true;
-            AddFlowerButton.Enabled   = true;
-            SearchButton.Enabled      = true;
-            UserControlButton.Enabled = true;
+            LandingPage.Visible = true;
+            if (accType >= 2)
+            {
+                AddFlowerButton.Enabled = true;
+            }
+            if (accType == 3)
+            {
+                UserControlButton.Enabled = true;
+            }
+            SearchButton.Enabled = true;
         }
 
         private void AddFlowerButton_Click(object sender, EventArgs e)
         {
             LandingDeactivate();
+            AddFlowerActivate();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -209,6 +217,33 @@ namespace Florae_Basket
         ////ADDFLOWER START////
         ///////////////////////
 
+        private void AddFlowerActivate()
+        {
+            AddFlowerPage.Visible = true;
+        }
 
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddFlowerDeactivate()
+        {
+            AddFlowerPage.Visible = false;
+        }
+
+        ///////////////////////
+        //// ADDFLOWER END ////
+        ///////////////////////
     }
 }

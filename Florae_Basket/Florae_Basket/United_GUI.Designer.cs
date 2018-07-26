@@ -38,13 +38,21 @@
             this.Login_submit = new System.Windows.Forms.Button();
             this.Incorrect_Login_Warning = new System.Windows.Forms.Label();
             this.LandingPage = new System.Windows.Forms.Panel();
-            this.LogOutButton = new System.Windows.Forms.Button();
             this.UserControlButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.AddFlowerButton = new System.Windows.Forms.Button();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.SignInPage = new System.Windows.Forms.Panel();
+            this.AddFlowerPage = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
+            this.AddFlowerPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // Username_txt
@@ -153,19 +161,6 @@
             this.LandingPage.TabIndex = 8;
             this.LandingPage.Visible = false;
             // 
-            // LogOutButton
-            // 
-            this.LogOutButton.Enabled = false;
-            this.LogOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogOutButton.Location = new System.Drawing.Point(1188, 12);
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Size = new System.Drawing.Size(108, 39);
-            this.LogOutButton.TabIndex = 9;
-            this.LogOutButton.Text = "Sign Out";
-            this.LogOutButton.UseVisualStyleBackColor = true;
-            this.LogOutButton.Visible = false;
-            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
-            // 
             // UserControlButton
             // 
             this.UserControlButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -203,6 +198,21 @@
             this.AddFlowerButton.UseVisualStyleBackColor = false;
             this.AddFlowerButton.Click += new System.EventHandler(this.AddFlowerButton_Click);
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.LogOutButton.Enabled = false;
+            this.LogOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LogOutButton.Location = new System.Drawing.Point(1188, 12);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(108, 39);
+            this.LogOutButton.TabIndex = 9;
+            this.LogOutButton.Text = "Sign Out";
+            this.LogOutButton.UseVisualStyleBackColor = false;
+            this.LogOutButton.Visible = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // SignInPage
             // 
             this.SignInPage.Controls.Add(this.SignIn_Title);
@@ -217,6 +227,80 @@
             this.SignInPage.Size = new System.Drawing.Size(1284, 529);
             this.SignInPage.TabIndex = 10;
             // 
+            // AddFlowerPage
+            // 
+            this.AddFlowerPage.Controls.Add(this.textBox3);
+            this.AddFlowerPage.Controls.Add(this.textBox2);
+            this.AddFlowerPage.Controls.Add(this.textBox1);
+            this.AddFlowerPage.Controls.Add(this.label5);
+            this.AddFlowerPage.Controls.Add(this.label4);
+            this.AddFlowerPage.Controls.Add(this.label3);
+            this.AddFlowerPage.Location = new System.Drawing.Point(12, 123);
+            this.AddFlowerPage.Name = "AddFlowerPage";
+            this.AddFlowerPage.Size = new System.Drawing.Size(1284, 529);
+            this.AddFlowerPage.TabIndex = 11;
+            this.AddFlowerPage.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(123, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(182, 31);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "English Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(135, 241);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 31);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Latin Name";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(112, 367);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(213, 31);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Botanical Family";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(80, 143);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(277, 26);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(80, 277);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(277, 26);
+            this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(80, 401);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(277, 26);
+            this.textBox3.TabIndex = 5;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
             // United_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,14 +309,17 @@
             this.ClientSize = new System.Drawing.Size(1308, 664);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.Login_Title);
-            this.Controls.Add(this.SignInPage);
+            this.Controls.Add(this.AddFlowerPage);
             this.Controls.Add(this.LandingPage);
+            this.Controls.Add(this.SignInPage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "United_GUI";
             this.Text = "Flower Basket";
             this.LandingPage.ResumeLayout(false);
             this.SignInPage.ResumeLayout(false);
             this.SignInPage.PerformLayout();
+            this.AddFlowerPage.ResumeLayout(false);
+            this.AddFlowerPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +341,12 @@
         private System.Windows.Forms.Button AddFlowerButton;
         private System.Windows.Forms.Button LogOutButton;
         private System.Windows.Forms.Panel SignInPage;
+        private System.Windows.Forms.Panel AddFlowerPage;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
