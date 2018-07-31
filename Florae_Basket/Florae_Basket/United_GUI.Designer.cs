@@ -44,14 +44,15 @@
             this.LogOutButton = new System.Windows.Forms.Button();
             this.SignInPage = new System.Windows.Forms.Panel();
             this.AddFlowerPage = new System.Windows.Forms.Panel();
+            this.NotesTextbox = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.BotanicalFamilyTextbox = new System.Windows.Forms.TextBox();
             this.LatinNameTextbox = new System.Windows.Forms.TextBox();
             this.EnglishNameTextbox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NotesTextbox = new System.Windows.Forms.RichTextBox();
+            this.AddFlowerSubmitButton = new System.Windows.Forms.Button();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
@@ -231,6 +232,7 @@
             // 
             // AddFlowerPage
             // 
+            this.AddFlowerPage.Controls.Add(this.AddFlowerSubmitButton);
             this.AddFlowerPage.Controls.Add(this.NotesTextbox);
             this.AddFlowerPage.Controls.Add(this.label6);
             this.AddFlowerPage.Controls.Add(this.BotanicalFamilyTextbox);
@@ -245,9 +247,34 @@
             this.AddFlowerPage.TabIndex = 11;
             this.AddFlowerPage.Visible = false;
             // 
+            // NotesTextbox
+            // 
+            this.NotesTextbox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.NotesTextbox.Enabled = false;
+            this.NotesTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotesTextbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.NotesTextbox.Location = new System.Drawing.Point(59, 343);
+            this.NotesTextbox.Name = "NotesTextbox";
+            this.NotesTextbox.Size = new System.Drawing.Size(325, 147);
+            this.NotesTextbox.TabIndex = 7;
+            this.NotesTextbox.Text = "";
+            this.NotesTextbox.TextChanged += new System.EventHandler(this.NotesTextbox_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(172, 298);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 31);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Notes";
+            // 
             // BotanicalFamilyTextbox
             // 
             this.BotanicalFamilyTextbox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BotanicalFamilyTextbox.Enabled = false;
             this.BotanicalFamilyTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BotanicalFamilyTextbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BotanicalFamilyTextbox.Location = new System.Drawing.Point(59, 239);
@@ -259,6 +286,7 @@
             // LatinNameTextbox
             // 
             this.LatinNameTextbox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.LatinNameTextbox.Enabled = false;
             this.LatinNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LatinNameTextbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LatinNameTextbox.Location = new System.Drawing.Point(59, 143);
@@ -270,6 +298,7 @@
             // EnglishNameTextbox
             // 
             this.EnglishNameTextbox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnglishNameTextbox.Enabled = false;
             this.EnglishNameTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnglishNameTextbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.EnglishNameTextbox.Location = new System.Drawing.Point(59, 48);
@@ -311,28 +340,19 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "English Name";
             // 
-            // label6
+            // AddFlowerSubmitButton
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(172, 298);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 31);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Notes";
-            // 
-            // NotesTextbox
-            // 
-            this.NotesTextbox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.NotesTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NotesTextbox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.NotesTextbox.Location = new System.Drawing.Point(59, 343);
-            this.NotesTextbox.Name = "NotesTextbox";
-            this.NotesTextbox.Size = new System.Drawing.Size(325, 147);
-            this.NotesTextbox.TabIndex = 7;
-            this.NotesTextbox.Text = "";
-            this.NotesTextbox.TextChanged += new System.EventHandler(this.NotesTextbox_TextChanged);
+            this.AddFlowerSubmitButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddFlowerSubmitButton.Enabled = false;
+            this.AddFlowerSubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddFlowerSubmitButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddFlowerSubmitButton.Location = new System.Drawing.Point(1174, 161);
+            this.AddFlowerSubmitButton.Name = "AddFlowerSubmitButton";
+            this.AddFlowerSubmitButton.Size = new System.Drawing.Size(110, 56);
+            this.AddFlowerSubmitButton.TabIndex = 8;
+            this.AddFlowerSubmitButton.Text = "Add ";
+            this.AddFlowerSubmitButton.UseVisualStyleBackColor = false;
+            this.AddFlowerSubmitButton.Click += new System.EventHandler(this.AddFlowerSubmitButton_Click);
             // 
             // United_GUI
             // 
@@ -383,5 +403,6 @@
         private System.Windows.Forms.TextBox EnglishNameTextbox;
         private System.Windows.Forms.RichTextBox NotesTextbox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button AddFlowerSubmitButton;
     }
 }

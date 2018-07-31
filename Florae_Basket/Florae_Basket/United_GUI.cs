@@ -44,6 +44,10 @@ namespace Florae_Basket
                         {
                             ctrl.Enabled = false;
                         }
+                        if (ctrl is TextBox || ctrl is RichTextBox)
+                        {
+                            ctrl.Text = "";
+                        }
                     }
                     pan.Visible = false;
                 }
@@ -217,32 +221,61 @@ namespace Florae_Basket
         private void AddFlowerActivate()
         {
             AddFlowerPage.Visible = true;
+            EnglishNameTextbox.Enabled = true;
+            LatinNameTextbox.Enabled = true;
+            BotanicalFamilyTextbox.Enabled = true;
+            NotesTextbox.Enabled = true;
         }
 
+        private void AddFlowerSubmitValidate()
+        {
+            if (EnglishNameTextbox.Text != "" && LatinNameTextbox.Text != "" && BotanicalFamilyTextbox.Text != "")
+            {
+                AddFlowerSubmitButton.Enabled = true;
+            }
+            else
+            {
+                AddFlowerSubmitButton.Enabled = false;
+            }
+        }
+
+        //English name textbox
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-
+            AddFlowerSubmitValidate();
         }
 
+        //Latin name textbox
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
-
+            AddFlowerSubmitValidate();
         }
 
+        //Botanical Family textbox
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-
+            AddFlowerSubmitValidate();
         }
 
         private void NotesTextbox_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void AddFlowerSubmitButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void AddFlowerDeactivate()
         {
             AddFlowerPage.Visible = false;
+            EnglishNameTextbox.Text = "";
+            LatinNameTextbox.Text = "";
+            BotanicalFamilyTextbox.Text = "";
+            NotesTextbox.Text = "";
         }
-
+        
         ///////////////////////
         //// ADDFLOWER END ////
         ///////////////////////
