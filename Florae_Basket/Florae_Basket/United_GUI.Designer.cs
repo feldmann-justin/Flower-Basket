@@ -53,9 +53,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AddFlowerSubmitButton = new System.Windows.Forms.Button();
+            this.AddFlowerImageDisplay = new System.Windows.Forms.PictureBox();
+            this.AddFlowerPictureButton = new System.Windows.Forms.Button();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddFlowerImageDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // Username_txt
@@ -232,6 +235,8 @@
             // 
             // AddFlowerPage
             // 
+            this.AddFlowerPage.Controls.Add(this.AddFlowerPictureButton);
+            this.AddFlowerPage.Controls.Add(this.AddFlowerImageDisplay);
             this.AddFlowerPage.Controls.Add(this.AddFlowerSubmitButton);
             this.AddFlowerPage.Controls.Add(this.NotesTextbox);
             this.AddFlowerPage.Controls.Add(this.label6);
@@ -346,13 +351,37 @@
             this.AddFlowerSubmitButton.Enabled = false;
             this.AddFlowerSubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddFlowerSubmitButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AddFlowerSubmitButton.Location = new System.Drawing.Point(1174, 161);
+            this.AddFlowerSubmitButton.Location = new System.Drawing.Point(1054, 230);
             this.AddFlowerSubmitButton.Name = "AddFlowerSubmitButton";
             this.AddFlowerSubmitButton.Size = new System.Drawing.Size(110, 56);
             this.AddFlowerSubmitButton.TabIndex = 8;
             this.AddFlowerSubmitButton.Text = "Add ";
             this.AddFlowerSubmitButton.UseVisualStyleBackColor = false;
             this.AddFlowerSubmitButton.Click += new System.EventHandler(this.AddFlowerSubmitButton_Click);
+            // 
+            // AddFlowerImageDisplay
+            // 
+            this.AddFlowerImageDisplay.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddFlowerImageDisplay.Location = new System.Drawing.Point(492, 90);
+            this.AddFlowerImageDisplay.Name = "AddFlowerImageDisplay";
+            this.AddFlowerImageDisplay.Size = new System.Drawing.Size(400, 400);
+            this.AddFlowerImageDisplay.TabIndex = 9;
+            this.AddFlowerImageDisplay.TabStop = false;
+            this.AddFlowerImageDisplay.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // AddFlowerPictureButton
+            // 
+            this.AddFlowerPictureButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddFlowerPictureButton.Enabled = false;
+            this.AddFlowerPictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddFlowerPictureButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddFlowerPictureButton.Location = new System.Drawing.Point(629, 33);
+            this.AddFlowerPictureButton.Name = "AddFlowerPictureButton";
+            this.AddFlowerPictureButton.Size = new System.Drawing.Size(123, 41);
+            this.AddFlowerPictureButton.TabIndex = 10;
+            this.AddFlowerPictureButton.Text = "Select Picture";
+            this.AddFlowerPictureButton.UseVisualStyleBackColor = false;
+            this.AddFlowerPictureButton.Click += new System.EventHandler(this.AddFlowerPictureButton_Click);
             // 
             // United_GUI
             // 
@@ -373,6 +402,7 @@
             this.SignInPage.PerformLayout();
             this.AddFlowerPage.ResumeLayout(false);
             this.AddFlowerPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddFlowerImageDisplay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +434,7 @@
         private System.Windows.Forms.RichTextBox NotesTextbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button AddFlowerSubmitButton;
+        private System.Windows.Forms.PictureBox AddFlowerImageDisplay;
+        private System.Windows.Forms.Button AddFlowerPictureButton;
     }
 }

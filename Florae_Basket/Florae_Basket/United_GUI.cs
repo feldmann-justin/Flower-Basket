@@ -218,6 +218,8 @@ namespace Florae_Basket
         ////ADDFLOWER START////
         ///////////////////////
 
+        private string AddFlowerPicFileExt;
+   
         private void AddFlowerActivate()
         {
             AddFlowerPage.Visible = true;
@@ -225,6 +227,7 @@ namespace Florae_Basket
             LatinNameTextbox.Enabled = true;
             BotanicalFamilyTextbox.Enabled = true;
             NotesTextbox.Enabled = true;
+            AddFlowerPictureButton.Enabled = true;
         }
 
         private void AddFlowerSubmitValidate()
@@ -262,6 +265,27 @@ namespace Florae_Basket
 
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e){}
+
+        private void AddFlowerPictureButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog selectImgPath = new OpenFileDialog();
+            selectImgPath.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
+            selectImgPath.InitialDirectory = "%USERPROFILE%\\Documents";
+            selectImgPath.Title = "Select an image file";
+
+            if (selectImgPath.ShowDialog() == DialogResult.OK)
+                AddFlowerPicFileExt = selectImgPath.FileName;
+
+            if (AddFlowerPicFileExt != "" && AddFlowerPicFileExt != null)
+            {
+                Bitmap img = new Bitmap(AddFlowerPicFileExt);
+                Bitmap resized = new Bitmap(img, 400, 400);
+                AddFlowerImageDisplay.Image = resized;
+                AddFlowerImageDisplay.SizeMode = PictureBoxSizeMode.AutoSize;
+            }
+        }
+
         private void AddFlowerSubmitButton_Click(object sender, EventArgs e)
         {
 
@@ -274,8 +298,9 @@ namespace Florae_Basket
             LatinNameTextbox.Text = "";
             BotanicalFamilyTextbox.Text = "";
             NotesTextbox.Text = "";
+            AddFlowerPicFileExt = "";
         }
-        
+
         ///////////////////////
         //// ADDFLOWER END ////
         ///////////////////////
