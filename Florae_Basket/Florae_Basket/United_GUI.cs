@@ -48,11 +48,21 @@ namespace Florae_Basket
                         {
                             ctrl.Text = "";
                         }
+                        if (ctrl is PictureBox)
+                        {
+                            PictureBox box = ctrl as PictureBox;
+                            box.Image = null;
+                        }
                     }
                     pan.Visible = false;
                 }
             }
             LoginAcvtivate();
+        }
+
+        private void DeactivatePanel()
+        {
+
         }
 
         ///////////////////////
