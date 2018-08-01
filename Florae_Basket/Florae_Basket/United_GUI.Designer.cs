@@ -44,6 +44,9 @@
             this.LogOutButton = new System.Windows.Forms.Button();
             this.SignInPage = new System.Windows.Forms.Panel();
             this.AddFlowerPage = new System.Windows.Forms.Panel();
+            this.AddFlowerPictureButton = new System.Windows.Forms.Button();
+            this.AddFlowerImageDisplay = new System.Windows.Forms.PictureBox();
+            this.AddFlowerSubmitButton = new System.Windows.Forms.Button();
             this.NotesTextbox = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BotanicalFamilyTextbox = new System.Windows.Forms.TextBox();
@@ -52,9 +55,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.AddFlowerSubmitButton = new System.Windows.Forms.Button();
-            this.AddFlowerImageDisplay = new System.Windows.Forms.PictureBox();
-            this.AddFlowerPictureButton = new System.Windows.Forms.Button();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
@@ -117,7 +117,6 @@
             this.SignIn_Title.Size = new System.Drawing.Size(231, 73);
             this.SignIn_Title.TabIndex = 4;
             this.SignIn_Title.Text = "Sign In";
-            this.SignIn_Title.Click += new System.EventHandler(this.SignIn_Title_Click);
             // 
             // Login_Title
             // 
@@ -252,6 +251,43 @@
             this.AddFlowerPage.TabIndex = 11;
             this.AddFlowerPage.Visible = false;
             // 
+            // AddFlowerPictureButton
+            // 
+            this.AddFlowerPictureButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddFlowerPictureButton.Enabled = false;
+            this.AddFlowerPictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddFlowerPictureButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddFlowerPictureButton.Location = new System.Drawing.Point(629, 33);
+            this.AddFlowerPictureButton.Name = "AddFlowerPictureButton";
+            this.AddFlowerPictureButton.Size = new System.Drawing.Size(123, 41);
+            this.AddFlowerPictureButton.TabIndex = 10;
+            this.AddFlowerPictureButton.Text = "Select Picture";
+            this.AddFlowerPictureButton.UseVisualStyleBackColor = false;
+            this.AddFlowerPictureButton.Click += new System.EventHandler(this.AddFlowerPictureButton_Click);
+            // 
+            // AddFlowerImageDisplay
+            // 
+            this.AddFlowerImageDisplay.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddFlowerImageDisplay.Location = new System.Drawing.Point(492, 90);
+            this.AddFlowerImageDisplay.Name = "AddFlowerImageDisplay";
+            this.AddFlowerImageDisplay.Size = new System.Drawing.Size(400, 400);
+            this.AddFlowerImageDisplay.TabIndex = 9;
+            this.AddFlowerImageDisplay.TabStop = false;
+            // 
+            // AddFlowerSubmitButton
+            // 
+            this.AddFlowerSubmitButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.AddFlowerSubmitButton.Enabled = false;
+            this.AddFlowerSubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddFlowerSubmitButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddFlowerSubmitButton.Location = new System.Drawing.Point(1054, 230);
+            this.AddFlowerSubmitButton.Name = "AddFlowerSubmitButton";
+            this.AddFlowerSubmitButton.Size = new System.Drawing.Size(110, 56);
+            this.AddFlowerSubmitButton.TabIndex = 8;
+            this.AddFlowerSubmitButton.Text = "Add ";
+            this.AddFlowerSubmitButton.UseVisualStyleBackColor = false;
+            this.AddFlowerSubmitButton.Click += new System.EventHandler(this.AddFlowerSubmitButton_Click_1);
+            // 
             // NotesTextbox
             // 
             this.NotesTextbox.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -344,44 +380,6 @@
             this.label3.Size = new System.Drawing.Size(182, 31);
             this.label3.TabIndex = 0;
             this.label3.Text = "English Name";
-            // 
-            // AddFlowerSubmitButton
-            // 
-            this.AddFlowerSubmitButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.AddFlowerSubmitButton.Enabled = false;
-            this.AddFlowerSubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddFlowerSubmitButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AddFlowerSubmitButton.Location = new System.Drawing.Point(1054, 230);
-            this.AddFlowerSubmitButton.Name = "AddFlowerSubmitButton";
-            this.AddFlowerSubmitButton.Size = new System.Drawing.Size(110, 56);
-            this.AddFlowerSubmitButton.TabIndex = 8;
-            this.AddFlowerSubmitButton.Text = "Add ";
-            this.AddFlowerSubmitButton.UseVisualStyleBackColor = false;
-            this.AddFlowerSubmitButton.Click += new System.EventHandler(this.AddFlowerSubmitButton_Click);
-            // 
-            // AddFlowerImageDisplay
-            // 
-            this.AddFlowerImageDisplay.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.AddFlowerImageDisplay.Location = new System.Drawing.Point(492, 90);
-            this.AddFlowerImageDisplay.Name = "AddFlowerImageDisplay";
-            this.AddFlowerImageDisplay.Size = new System.Drawing.Size(400, 400);
-            this.AddFlowerImageDisplay.TabIndex = 9;
-            this.AddFlowerImageDisplay.TabStop = false;
-            this.AddFlowerImageDisplay.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // AddFlowerPictureButton
-            // 
-            this.AddFlowerPictureButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.AddFlowerPictureButton.Enabled = false;
-            this.AddFlowerPictureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddFlowerPictureButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AddFlowerPictureButton.Location = new System.Drawing.Point(629, 33);
-            this.AddFlowerPictureButton.Name = "AddFlowerPictureButton";
-            this.AddFlowerPictureButton.Size = new System.Drawing.Size(123, 41);
-            this.AddFlowerPictureButton.TabIndex = 10;
-            this.AddFlowerPictureButton.Text = "Select Picture";
-            this.AddFlowerPictureButton.UseVisualStyleBackColor = false;
-            this.AddFlowerPictureButton.Click += new System.EventHandler(this.AddFlowerPictureButton_Click);
             // 
             // United_GUI
             // 

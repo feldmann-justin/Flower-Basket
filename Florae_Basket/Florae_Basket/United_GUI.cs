@@ -37,32 +37,33 @@ namespace Florae_Basket
             {
                 if (pan is Panel)
                 {
-                    foreach (Control ctrl in pan.Controls)
-                    {
-                        //Labels cannot be disabled or else their forecolor will default to black.
-                        if (!(ctrl is Label))
-                        {
-                            ctrl.Enabled = false;
-                        }
-                        if (ctrl is TextBox || ctrl is RichTextBox)
-                        {
-                            ctrl.Text = "";
-                        }
-                        if (ctrl is PictureBox)
-                        {
-                            PictureBox box = ctrl as PictureBox;
-                            box.Image = null;
-                        }
-                    }
-                    pan.Visible = false;
+                    Panel temppan = pan as Panel;
+                    DeactivatePanel(ref temppan);
                 }
             }
             LoginAcvtivate();
         }
 
-        private void DeactivatePanel()
+        private void DeactivatePanel(ref Panel pan)
         {
-
+            foreach (Control ctrl in pan.Controls)
+            {
+                //Labels cannot be disabled or else their forecolor will default to black.
+                if (!(ctrl is Label))
+                {
+                    ctrl.Enabled = false;
+                }
+                if (ctrl is TextBox || ctrl is RichTextBox)
+                {
+                    ctrl.Text = "";
+                }
+                if (ctrl is PictureBox)
+                {
+                    PictureBox box = ctrl as PictureBox;
+                    box.Image = null;
+                }
+            }
+            pan.Visible = false;
         }
 
         ///////////////////////
@@ -159,13 +160,11 @@ namespace Florae_Basket
             }
             else
             {
-                LoginClear();
+                DeactivatePanel(ref SignInPage);
                 LandingActivate();
                 LogOutButton.Enabled = LogOutButton.Visible = true;
             }
         }
-
-        private void SignIn_Title_Click(object sender, EventArgs e){}
 
         /////////////////////
         ////  LOGIN END  ////
@@ -195,26 +194,18 @@ namespace Florae_Basket
 
         private void AddFlowerButton_Click(object sender, EventArgs e)
         {
-            LandingDeactivate();
+            DeactivatePanel(ref LandingPage);
             AddFlowerActivate();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            LandingDeactivate();
+            DeactivatePanel(ref LandingPage);
         }
 
         private void UserControlButton_Click(object sender, EventArgs e)
         {
-            LandingDeactivate();
-        }
-
-        private void LandingDeactivate()
-        {
-            AddFlowerButton.Enabled   = false;
-            SearchButton.Enabled      = false;
-            UserControlButton.Enabled = false;
-            LandingPage.Visible       = false;
+            DeactivatePanel(ref LandingPage);
         }
 
         /////////////////////
@@ -275,8 +266,6 @@ namespace Florae_Basket
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e){}
-
         private void AddFlowerPictureButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog selectImgPath = new OpenFileDialog();
@@ -296,19 +285,9 @@ namespace Florae_Basket
             }
         }
 
-        private void AddFlowerSubmitButton_Click(object sender, EventArgs e)
+        private void AddFlowerSubmitButton_Click_1(object sender, EventArgs e)
         {
 
-        }
-
-        private void AddFlowerDeactivate()
-        {
-            AddFlowerPage.Visible = false;
-            EnglishNameTextbox.Text = "";
-            LatinNameTextbox.Text = "";
-            BotanicalFamilyTextbox.Text = "";
-            NotesTextbox.Text = "";
-            AddFlowerPicFileExt = "";
         }
 
         ///////////////////////
