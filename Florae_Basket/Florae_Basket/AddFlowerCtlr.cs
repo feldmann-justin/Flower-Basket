@@ -19,7 +19,7 @@ using System.IO;
 
 namespace Florae_Basket
 {
-    public class AddFlowerCtlr
+    public static class AddFlowerCtlr
     {
 
         // member functions
@@ -28,10 +28,10 @@ namespace Florae_Basket
 
         /* Function which prompts the checking of the database manager for a currently-existing
 		 * Flower object with the same attributes. */
-        public static string verifyFlower(Flower customFlower)
+        public static bool verifyFlower(Flower customFlower)
         {
 
-            string msgToDisplay = "";
+            bool added = false;
             Database_Manager DBMngr = new Database_Manager();
 
             // test user-given Flower object with dummy Flower object instantiated here until database is implemented
@@ -40,7 +40,7 @@ namespace Florae_Basket
 
             // if at least one of the three required attributes for a flower, the Latin name, English name, and botanical family is missing
             if ((customFlower.getLatinName() == "") || (customFlower.getEnglishName() == "") || (customFlower.getBotanicalFam() == ""))
-                msgToDisplay = "Flower unable to be added: One of the three minimum attributes is missing.";
+                added = false;
             // else, the flower can be added to the database
             else
             {
@@ -48,19 +48,19 @@ namespace Florae_Basket
                 if (exists == false)
                 {
                     string newpath = "";
-                    if(customFlower.getImgPath() != "")
+                    if (customFlower.getImgPath() != "")
                     {
                         newpath = ChangeFilePath(customFlower.getImgPath());
                     }
                     DBMngr.InsertFlower(customFlower.getEnglishName(), customFlower.getLatinName(), customFlower.getBotanicalFam(), customFlower.getNote(), newpath);
-                    msgToDisplay = "Flower successfully added!";
+                    added = true;
                 }
                 else
                 {
-                    msgToDisplay = "Flower already exists. Flower not added.";
+                    added = false;
                 }
             }
-            return msgToDisplay;
+            return added;
         }
 
         //This method will retrieve the selected image and copies it to the pics folder in the repo
@@ -74,13 +74,14 @@ namespace Florae_Basket
             int i = 1;
             while (File.Exists(newpath))
             {
-                //gets the filenamem
+                //gets the filename
                 string without = Path.GetFileNameWithoutExtension(newpath);
                 int j = i - 1;
+                //strips version number off end of file if one exists
                 string test = without.Substring(without.Length - 3);
-                if (without.Substring(without.Length - 3) == ("(" + j + ")"))
+                if (test == ("(" + j + ")"))
                 {
-                    without = without.Substring(0, without.Length - 3);
+                    without = test;
                 }
                 //adds the version number to the end of the file
                 string with = without + "(" + i + ")";
@@ -92,21 +93,12 @@ namespace Florae_Basket
             return newpath;
         }
 
-		public void DisplayAddFlowerGUI(int acctType)
+		public static void DisplayAddFlowerGUI(int acctType)
 		{
 
-			AddFlowerGUI addFlowerGUI = new AddFlowerGUI(this, acctType);
+			AddFlowerGUI addFlowerGUI = new AddFlowerGUI(acctType);
 			addFlowerGUI.Show();
 
 		}
-
-		// constructors
-
-		public AddFlowerCtlr()
-		{
-
-
-		}
-
 	}
 }

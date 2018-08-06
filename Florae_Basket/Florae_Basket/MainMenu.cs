@@ -19,6 +19,8 @@ namespace Florae_Basket
 			userAcctType = acctType;
 
 		}
+
+        //COMPLETELY MOVED ADD FLOWER TO NEW MENU
 		private void addFlowerMainMenuBtn_Click(object sender, EventArgs e)
 		{
 			// only execute the code for the Add Flower event handler if the user is a Researcher or Admin
@@ -26,7 +28,9 @@ namespace Florae_Basket
 			{
 
 				// create a new instance of the AddFlowerCtlr, which will call displayAddFlowerGUI() to actually create the Add Flower GUI
-				new AddFlowerCtlr().DisplayAddFlowerGUI(userAcctType);
+
+                //FOLLOWING COMMENT MAKES ADDFLOWERCTRL STATIC
+				//new AddFlowerCtlr().DisplayAddFlowerGUI(userAcctType);
 
 				// set 'closeMainMenuYesNo' to true, so we will in fact close the main menu now
 				closeMainMenuYesNo = true;

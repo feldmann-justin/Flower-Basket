@@ -14,14 +14,14 @@ namespace Florae_Basket
     public partial class AddFlowerGUI : Form
     {
 
-		AddFlowerCtlr guiControllerReference;
+		//AddFlowerCtlr guiControllerReference;
 		private int userAcctType;
 
-        public AddFlowerGUI(AddFlowerCtlr ctlr, int acctType)
+        public AddFlowerGUI(int acctType)
         {
 
             InitializeComponent();
-			guiControllerReference = ctlr;
+			//guiControllerReference = ctlr;
 			userAcctType = acctType;
 		}
 
@@ -43,9 +43,9 @@ namespace Florae_Basket
 			Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily, enteredNote, enteredImgPath);
 
 			// checks the database for existence of a Flower object with the same attributes
-			string displayedMsg = AddFlowerCtlr.verifyFlower(flowerToAdd);
+			bool displayedMsg = AddFlowerCtlr.verifyFlower(flowerToAdd);
 
-			MessageBox.Show(displayedMsg);
+			//MessageBox.Show(displayedMsg);
 
             // reset the data in the textboxes
             englishNameEntryBox.Text = "";

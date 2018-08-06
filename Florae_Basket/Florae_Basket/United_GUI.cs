@@ -287,7 +287,22 @@ namespace Florae_Basket
 
         private void AddFlowerSubmitButton_Click_1(object sender, EventArgs e)
         {
+            // grab the entered English name, Latin name, and botanical family from the text boxes
+            string enteredEnglishName = EnglishNameTextbox.Text;
+            string enteredLatinName = LatinNameTextbox.Text;
+            string enteredBotanicalFamily = BotanicalFamilyTextbox.Text;
+            string enteredNote = NotesTextbox.Text;
+            string enteredImgPath = AddFlowerPicFileExt;
 
+            // instantiate a Flower object from the user entries
+            Flower flowerToAdd = new Flower(enteredLatinName, enteredEnglishName, enteredBotanicalFamily, enteredNote, enteredImgPath);
+
+            bool added = AddFlowerCtlr.verifyFlower(flowerToAdd);
+
+            if (added)
+            {
+
+            }
         }
 
         ///////////////////////
