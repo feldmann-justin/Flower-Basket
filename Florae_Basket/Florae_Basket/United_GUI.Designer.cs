@@ -55,6 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
@@ -381,12 +382,28 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "English Name";
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackButton.Enabled = false;
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackButton.Location = new System.Drawing.Point(12, 12);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(108, 39);
+            this.BackButton.TabIndex = 12;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Visible = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // United_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1308, 664);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.Login_Title);
             this.Controls.Add(this.AddFlowerPage);
@@ -434,5 +451,6 @@
         private System.Windows.Forms.Button AddFlowerSubmitButton;
         private System.Windows.Forms.PictureBox AddFlowerImageDisplay;
         private System.Windows.Forms.Button AddFlowerPictureButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

@@ -48,7 +48,7 @@ namespace Florae_Basket
                 if (exists == false)
                 {
                     string newpath = "";
-                    if (customFlower.getImgPath() != "")
+                    if (customFlower.getImgPath() != "" && customFlower.getImgPath() != null)
                     {
                         newpath = ChangeFilePath(customFlower.getImgPath());
                     }
@@ -66,7 +66,7 @@ namespace Florae_Basket
         //This method will retrieve the selected image and copies it to the pics folder in the repo
         private static string ChangeFilePath(string filepath)
         {
-            string directory = "..\\Pics\\";
+            string directory = "..\\..\\Pics\\";
             string newpath = directory + Path.GetFileName(filepath);
 
             //checks to see if a file with that name exists, if it does it will append

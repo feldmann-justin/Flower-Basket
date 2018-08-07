@@ -29,6 +29,12 @@ namespace Florae_Basket
 
         public int GetaccType() => accType;
 
+        //Handles the action of going back a single panel in the program.
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //Handles the actions needed to disable the correct panels in order to sign the user out.
         //iterates through each panel and disables their controls, then hides the panel itself.
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -92,6 +98,8 @@ namespace Florae_Basket
             Login_submit.Enabled = false;
             LogOutButton.Enabled = false;
             LogOutButton.Visible = false;
+            BackButton.Enabled = false;
+            BackButton.Visible = false;
         }
 
         //Username textbox
@@ -163,6 +171,7 @@ namespace Florae_Basket
                 DeactivatePanel(ref SignInPage);
                 LandingActivate();
                 LogOutButton.Enabled = LogOutButton.Visible = true;
+                BackButton.Enabled = BackButton.Visible = true;
             }
         }
 
@@ -301,12 +310,39 @@ namespace Florae_Basket
 
             if (added)
             {
-
+                MessageBox.Show("Flower added to the database!");
+                EnglishNameTextbox.Text = "";
+                LatinNameTextbox.Text = "";
+                BotanicalFamilyTextbox.Text = "";
+                NotesTextbox.Text = "";
+                AddFlowerPicFileExt = "";
+                AddFlowerImageDisplay.Image = null;
+                AddFlowerSubmitButton.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Flower was not added, it might already be in the database.");
             }
         }
 
         ///////////////////////
         //// ADDFLOWER END ////
         ///////////////////////
+
+        ///////////////////////
+        ///////////////////////
+
+        //////////////////////
+        //// SEARCH START ////
+        //////////////////////
+
+        private void SearchActivate()
+        {
+
+        }
+
+        //////////////////////
+        ////  SEARCH END  ////
+        //////////////////////
     }
 }
