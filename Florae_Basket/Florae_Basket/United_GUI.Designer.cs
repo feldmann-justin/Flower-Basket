@@ -323,7 +323,7 @@
             this.BotanicalFamilyTextbox.Name = "BotanicalFamilyTextbox";
             this.BotanicalFamilyTextbox.Size = new System.Drawing.Size(325, 26);
             this.BotanicalFamilyTextbox.TabIndex = 5;
-            this.BotanicalFamilyTextbox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.BotanicalFamilyTextbox.TextChanged += new System.EventHandler(this.BotanicalFamilyTextbox_TextChanged);
             // 
             // LatinNameTextbox
             // 
@@ -335,7 +335,7 @@
             this.LatinNameTextbox.Name = "LatinNameTextbox";
             this.LatinNameTextbox.Size = new System.Drawing.Size(325, 26);
             this.LatinNameTextbox.TabIndex = 4;
-            this.LatinNameTextbox.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
+            this.LatinNameTextbox.TextChanged += new System.EventHandler(this.LatinNameTextbox_TextChanged_1);
             // 
             // EnglishNameTextbox
             // 
@@ -347,7 +347,7 @@
             this.EnglishNameTextbox.Name = "EnglishNameTextbox";
             this.EnglishNameTextbox.Size = new System.Drawing.Size(325, 26);
             this.EnglishNameTextbox.TabIndex = 3;
-            this.EnglishNameTextbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.EnglishNameTextbox.TextChanged += new System.EventHandler(this.EnglishNameTextbox_TextChanged_1);
             // 
             // label5
             // 

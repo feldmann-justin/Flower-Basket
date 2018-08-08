@@ -26,13 +26,20 @@ namespace Florae_Basket
         //Researcher: 2
         //Student:    1
         private int accType = 0;
-
         public int GetaccType() => accType;
+
+        //Stack contains the activation methods for the previous panels
+        private Stack<Action> PreviousPanels = new Stack<Action>();
+        //Stack contains panel to be deactivated once back button is pushed.
+        private Stack<Panel> CurrentPanels = new Stack<Panel>();
 
         //Handles the action of going back a single panel in the program.
         private void BackButton_Click(object sender, EventArgs e)
         {
-
+            Panel temppan = CurrentPanels.Pop() as Panel;
+            Action tempaction = PreviousPanels.Pop();
+            DeactivatePanel(ref temppan);
+            tempaction();
         }
 
         //Handles the actions needed to disable the correct panels in order to sign the user out.
@@ -76,8 +83,8 @@ namespace Florae_Basket
         //// UNIVERSAL END ////
         ///////////////////////
 
-        //////////////////////
-        //////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /////////////////////
         //// LOGIN START ////
@@ -100,6 +107,9 @@ namespace Florae_Basket
             LogOutButton.Visible = false;
             BackButton.Enabled = false;
             BackButton.Visible = false;
+            CurrentPanels.Clear();
+            PreviousPanels.Clear();
+            CurrentPanels.Push(SignInPage);
         }
 
         //Username textbox
@@ -169,9 +179,12 @@ namespace Florae_Basket
             else
             {
                 DeactivatePanel(ref SignInPage);
+                Incorrect_Login_Warning.Visible = false;
                 LandingActivate();
                 LogOutButton.Enabled = LogOutButton.Visible = true;
                 BackButton.Enabled = BackButton.Visible = true;
+                PreviousPanels.Push(LoginAcvtivate);
+                CurrentPanels.Push(LandingPage);
             }
         }
 
@@ -179,8 +192,8 @@ namespace Florae_Basket
         ////  LOGIN END  ////
         /////////////////////
 
-        /////////////////////
-        /////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /////////////////////
         ////LANDING START////
@@ -204,25 +217,31 @@ namespace Florae_Basket
         private void AddFlowerButton_Click(object sender, EventArgs e)
         {
             DeactivatePanel(ref LandingPage);
+            PreviousPanels.Push(LandingActivate);
+            CurrentPanels.Push(AddFlowerPage);
             AddFlowerActivate();
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
             DeactivatePanel(ref LandingPage);
+            PreviousPanels.Push(LandingActivate);
+            //CurrentPanels.Push(SearchPage);
+            SearchActivate();
         }
 
         private void UserControlButton_Click(object sender, EventArgs e)
         {
             DeactivatePanel(ref LandingPage);
+            PreviousPanels.Push(LandingActivate);
         }
 
         /////////////////////
         //// LANDING END ////
         /////////////////////
 
-        //////////////////////
-        //////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ///////////////////////
         ////ADDFLOWER START////
@@ -253,19 +272,19 @@ namespace Florae_Basket
         }
 
         //English name textbox
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void EnglishNameTextbox_TextChanged_1(object sender, EventArgs e)
         {
             AddFlowerSubmitValidate();
         }
 
         //Latin name textbox
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        private void LatinNameTextbox_TextChanged_1(object sender, EventArgs e)
         {
             AddFlowerSubmitValidate();
         }
 
         //Botanical Family textbox
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void BotanicalFamilyTextbox_TextChanged(object sender, EventArgs e)
         {
             AddFlowerSubmitValidate();
         }
@@ -277,10 +296,12 @@ namespace Florae_Basket
 
         private void AddFlowerPictureButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog selectImgPath = new OpenFileDialog();
-            selectImgPath.Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...";
-            selectImgPath.InitialDirectory = "%USERPROFILE%\\Documents";
-            selectImgPath.Title = "Select an image file";
+            OpenFileDialog selectImgPath = new OpenFileDialog
+            {
+                Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...",
+                InitialDirectory = "%USERPROFILE%\\Documents",
+                Title = "Select an image file"
+            };
 
             if (selectImgPath.ShowDialog() == DialogResult.OK)
                 AddFlowerPicFileExt = selectImgPath.FileName;
@@ -329,8 +350,8 @@ namespace Florae_Basket
         //// ADDFLOWER END ////
         ///////////////////////
 
-        ///////////////////////
-        ///////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //////////////////////
         //// SEARCH START ////
