@@ -361,7 +361,7 @@ namespace Florae_Basket
         {
             SearchPage.Visible = true;
             EnglishSearchBox.Enabled = true;
-            LatinNameTextbox.Enabled = true;
+            LatinSearchBox.Enabled = true;
             BotanicalSearchBox.Enabled = true;
         }
 
