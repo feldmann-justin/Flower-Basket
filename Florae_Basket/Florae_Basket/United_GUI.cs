@@ -226,7 +226,7 @@ namespace Florae_Basket
         {
             DeactivatePanel(ref LandingPage);
             PreviousPanels.Push(LandingActivate);
-            //CurrentPanels.Push(SearchPage);
+            CurrentPanels.Push(SearchPage);
             SearchActivate();
         }
 
@@ -359,7 +359,7 @@ namespace Florae_Basket
 
         private void SearchActivate()
         {
-
+            SearchPage.Visible = true;
         }
 
         //////////////////////

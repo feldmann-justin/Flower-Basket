@@ -56,10 +56,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
+            this.SearchPage = new System.Windows.Forms.Panel();
+            this.EnglishSearchBox = new System.Windows.Forms.TextBox();
+            this.BotanicalSearchBox = new System.Windows.Forms.TextBox();
+            this.LatinSearchBox = new System.Windows.Forms.TextBox();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddFlowerImageDisplay)).BeginInit();
+            this.SearchPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // Username_txt
@@ -397,6 +402,47 @@
             this.BackButton.Visible = false;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // SearchPage
+            // 
+            this.SearchPage.Controls.Add(this.LatinSearchBox);
+            this.SearchPage.Controls.Add(this.BotanicalSearchBox);
+            this.SearchPage.Controls.Add(this.EnglishSearchBox);
+            this.SearchPage.Location = new System.Drawing.Point(12, 123);
+            this.SearchPage.Name = "SearchPage";
+            this.SearchPage.Size = new System.Drawing.Size(1284, 529);
+            this.SearchPage.TabIndex = 13;
+            this.SearchPage.Visible = false;
+            // 
+            // EnglishSearchBox
+            // 
+            this.EnglishSearchBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnglishSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnglishSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.EnglishSearchBox.Location = new System.Drawing.Point(131, 122);
+            this.EnglishSearchBox.Name = "EnglishSearchBox";
+            this.EnglishSearchBox.Size = new System.Drawing.Size(192, 26);
+            this.EnglishSearchBox.TabIndex = 0;
+            // 
+            // BotanicalSearchBox
+            // 
+            this.BotanicalSearchBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BotanicalSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BotanicalSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BotanicalSearchBox.Location = new System.Drawing.Point(134, 322);
+            this.BotanicalSearchBox.Name = "BotanicalSearchBox";
+            this.BotanicalSearchBox.Size = new System.Drawing.Size(192, 26);
+            this.BotanicalSearchBox.TabIndex = 1;
+            // 
+            // LatinSearchBox
+            // 
+            this.LatinSearchBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.LatinSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LatinSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LatinSearchBox.Location = new System.Drawing.Point(134, 221);
+            this.LatinSearchBox.Name = "LatinSearchBox";
+            this.LatinSearchBox.Size = new System.Drawing.Size(192, 26);
+            this.LatinSearchBox.TabIndex = 2;
+            // 
             // United_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,6 +452,7 @@
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.Login_Title);
+            this.Controls.Add(this.SearchPage);
             this.Controls.Add(this.AddFlowerPage);
             this.Controls.Add(this.LandingPage);
             this.Controls.Add(this.SignInPage);
@@ -418,6 +465,8 @@
             this.AddFlowerPage.ResumeLayout(false);
             this.AddFlowerPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddFlowerImageDisplay)).EndInit();
+            this.SearchPage.ResumeLayout(false);
+            this.SearchPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,5 +501,9 @@
         private System.Windows.Forms.PictureBox AddFlowerImageDisplay;
         private System.Windows.Forms.Button AddFlowerPictureButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Panel SearchPage;
+        private System.Windows.Forms.TextBox LatinSearchBox;
+        private System.Windows.Forms.TextBox BotanicalSearchBox;
+        private System.Windows.Forms.TextBox EnglishSearchBox;
     }
 }
