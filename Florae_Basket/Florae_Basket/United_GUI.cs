@@ -360,6 +360,9 @@ namespace Florae_Basket
         private void SearchActivate()
         {
             SearchPage.Visible = true;
+            EnglishSearchBox.Enabled = true;
+            LatinNameTextbox.Enabled = true;
+            BotanicalSearchBox.Enabled = true;
         }
 
         //////////////////////

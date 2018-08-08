@@ -416,6 +416,7 @@
             // EnglishSearchBox
             // 
             this.EnglishSearchBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.EnglishSearchBox.Enabled = false;
             this.EnglishSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnglishSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.EnglishSearchBox.Location = new System.Drawing.Point(131, 122);
@@ -426,6 +427,7 @@
             // BotanicalSearchBox
             // 
             this.BotanicalSearchBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BotanicalSearchBox.Enabled = false;
             this.BotanicalSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BotanicalSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BotanicalSearchBox.Location = new System.Drawing.Point(134, 322);
@@ -436,6 +438,7 @@
             // LatinSearchBox
             // 
             this.LatinSearchBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.LatinSearchBox.Enabled = false;
             this.LatinSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LatinSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LatinSearchBox.Location = new System.Drawing.Point(134, 221);
