@@ -40,6 +40,7 @@ namespace Florae_Basket
             Action tempaction = PreviousPanels.Pop();
             DeactivatePanel(ref temppan);
             tempaction();
+            AddFlowerPicFileExt = SearchFlowerExt =  "";
         }
 
         //Handles the actions needed to disable the correct panels in order to sign the user out.
@@ -54,6 +55,7 @@ namespace Florae_Basket
                     DeactivatePanel(ref temppan);
                 }
             }
+            AddFlowerPicFileExt = SearchFlowerExt = "";
             LoginAcvtivate();
         }
 
@@ -357,12 +359,77 @@ namespace Florae_Basket
         //// SEARCH START ////
         //////////////////////
 
+        private string SearchFlowerExt;
+
         private void SearchActivate()
         {
             SearchPage.Visible = true;
             EnglishSearchBox.Enabled = true;
             LatinSearchBox.Enabled = true;
             BotanicalSearchBox.Enabled = true;
+            NoteSearchBox.Enabled = true;
+            SearchImageButton.Enabled = true;
+        }
+
+        private void SearchValidate()
+        {
+            if (EnglishSearchBox.Text != "" ||
+                LatinSearchBox.Text != "" ||
+                BotanicalSearchBox.Text != "" ||
+                NoteSearchBox.Text != "")
+            {
+                SearchFlowersButton.Enabled = true;
+            }
+            else
+            {
+                SearchFlowersButton.Enabled = false;
+            }
+        }
+
+        private void EnglishSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchValidate();
+        }
+
+        private void LatinSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchValidate();
+        }
+
+        private void BotanicalSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchValidate();
+        }
+
+        private void NoteSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            SearchValidate();
+        }
+
+        private void SearchImageButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog selectImgPath = new OpenFileDialog
+            {
+                Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...",
+                InitialDirectory = "%USERPROFILE%\\Documents",
+                Title = "Select an image file"
+            };
+
+            if (selectImgPath.ShowDialog() == DialogResult.OK)
+                SearchFlowerExt = selectImgPath.FileName;
+
+            if (SearchFlowerExt != "" && SearchFlowerExt != null)
+            {
+                Bitmap img = new Bitmap(SearchFlowerExt);
+                Bitmap resized = new Bitmap(img, 400, 400);
+                SearchImagePictureBox.Image = resized;
+                SearchImagePictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            }
+        }
+
+        private void SearchFlowersButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         //////////////////////

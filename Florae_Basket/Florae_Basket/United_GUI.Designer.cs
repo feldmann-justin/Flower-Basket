@@ -60,11 +60,20 @@
             this.EnglishSearchBox = new System.Windows.Forms.TextBox();
             this.BotanicalSearchBox = new System.Windows.Forms.TextBox();
             this.LatinSearchBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.NoteSearchBox = new System.Windows.Forms.TextBox();
+            this.SearchImageButton = new System.Windows.Forms.Button();
+            this.SearchImagePictureBox = new System.Windows.Forms.PictureBox();
+            this.SearchFlowersButton = new System.Windows.Forms.Button();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddFlowerImageDisplay)).BeginInit();
             this.SearchPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchImagePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Username_txt
@@ -404,6 +413,14 @@
             // 
             // SearchPage
             // 
+            this.SearchPage.Controls.Add(this.SearchFlowersButton);
+            this.SearchPage.Controls.Add(this.SearchImagePictureBox);
+            this.SearchPage.Controls.Add(this.SearchImageButton);
+            this.SearchPage.Controls.Add(this.NoteSearchBox);
+            this.SearchPage.Controls.Add(this.label10);
+            this.SearchPage.Controls.Add(this.label9);
+            this.SearchPage.Controls.Add(this.label8);
+            this.SearchPage.Controls.Add(this.label7);
             this.SearchPage.Controls.Add(this.LatinSearchBox);
             this.SearchPage.Controls.Add(this.BotanicalSearchBox);
             this.SearchPage.Controls.Add(this.EnglishSearchBox);
@@ -419,10 +436,11 @@
             this.EnglishSearchBox.Enabled = false;
             this.EnglishSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EnglishSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.EnglishSearchBox.Location = new System.Drawing.Point(131, 122);
+            this.EnglishSearchBox.Location = new System.Drawing.Point(119, 122);
             this.EnglishSearchBox.Name = "EnglishSearchBox";
-            this.EnglishSearchBox.Size = new System.Drawing.Size(192, 26);
+            this.EnglishSearchBox.Size = new System.Drawing.Size(204, 26);
             this.EnglishSearchBox.TabIndex = 0;
+            this.EnglishSearchBox.TextChanged += new System.EventHandler(this.EnglishSearchBox_TextChanged);
             // 
             // BotanicalSearchBox
             // 
@@ -430,10 +448,11 @@
             this.BotanicalSearchBox.Enabled = false;
             this.BotanicalSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BotanicalSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BotanicalSearchBox.Location = new System.Drawing.Point(134, 322);
+            this.BotanicalSearchBox.Location = new System.Drawing.Point(119, 322);
             this.BotanicalSearchBox.Name = "BotanicalSearchBox";
-            this.BotanicalSearchBox.Size = new System.Drawing.Size(192, 26);
-            this.BotanicalSearchBox.TabIndex = 1;
+            this.BotanicalSearchBox.Size = new System.Drawing.Size(207, 26);
+            this.BotanicalSearchBox.TabIndex = 2;
+            this.BotanicalSearchBox.TextChanged += new System.EventHandler(this.BotanicalSearchBox_TextChanged);
             // 
             // LatinSearchBox
             // 
@@ -441,10 +460,104 @@
             this.LatinSearchBox.Enabled = false;
             this.LatinSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LatinSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LatinSearchBox.Location = new System.Drawing.Point(134, 221);
+            this.LatinSearchBox.Location = new System.Drawing.Point(119, 221);
             this.LatinSearchBox.Name = "LatinSearchBox";
-            this.LatinSearchBox.Size = new System.Drawing.Size(192, 26);
-            this.LatinSearchBox.TabIndex = 2;
+            this.LatinSearchBox.Size = new System.Drawing.Size(207, 26);
+            this.LatinSearchBox.TabIndex = 1;
+            this.LatinSearchBox.TextChanged += new System.EventHandler(this.LatinSearchBox_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Location = new System.Drawing.Point(153, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 25);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "English Name";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(137, 294);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(170, 25);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Botanical Family";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(162, 193);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 25);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Latin Name";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(137, 400);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(171, 25);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Notes (Keyword)";
+            // 
+            // NoteSearchBox
+            // 
+            this.NoteSearchBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.NoteSearchBox.Enabled = false;
+            this.NoteSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NoteSearchBox.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.NoteSearchBox.Location = new System.Drawing.Point(119, 428);
+            this.NoteSearchBox.Name = "NoteSearchBox";
+            this.NoteSearchBox.Size = new System.Drawing.Size(207, 26);
+            this.NoteSearchBox.TabIndex = 3;
+            this.NoteSearchBox.TextChanged += new System.EventHandler(this.NoteSearchBox_TextChanged);
+            // 
+            // SearchImageButton
+            // 
+            this.SearchImageButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.SearchImageButton.Enabled = false;
+            this.SearchImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchImageButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SearchImageButton.Location = new System.Drawing.Point(629, 25);
+            this.SearchImageButton.Name = "SearchImageButton";
+            this.SearchImageButton.Size = new System.Drawing.Size(128, 59);
+            this.SearchImageButton.TabIndex = 4;
+            this.SearchImageButton.Text = "Search Image";
+            this.SearchImageButton.UseVisualStyleBackColor = false;
+            this.SearchImageButton.Click += new System.EventHandler(this.SearchImageButton_Click);
+            // 
+            // SearchImagePictureBox
+            // 
+            this.SearchImagePictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.SearchImagePictureBox.Location = new System.Drawing.Point(492, 90);
+            this.SearchImagePictureBox.Name = "SearchImagePictureBox";
+            this.SearchImagePictureBox.Size = new System.Drawing.Size(400, 400);
+            this.SearchImagePictureBox.TabIndex = 9;
+            this.SearchImagePictureBox.TabStop = false;
+            // 
+            // SearchFlowersButton
+            // 
+            this.SearchFlowersButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.SearchFlowersButton.Enabled = false;
+            this.SearchFlowersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchFlowersButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SearchFlowersButton.Location = new System.Drawing.Point(1036, 239);
+            this.SearchFlowersButton.Name = "SearchFlowersButton";
+            this.SearchFlowersButton.Size = new System.Drawing.Size(128, 59);
+            this.SearchFlowersButton.TabIndex = 10;
+            this.SearchFlowersButton.Text = "Search";
+            this.SearchFlowersButton.UseVisualStyleBackColor = false;
+            this.SearchFlowersButton.Click += new System.EventHandler(this.SearchFlowersButton_Click);
             // 
             // United_GUI
             // 
@@ -470,6 +583,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AddFlowerImageDisplay)).EndInit();
             this.SearchPage.ResumeLayout(false);
             this.SearchPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchImagePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,5 +622,13 @@
         private System.Windows.Forms.TextBox LatinSearchBox;
         private System.Windows.Forms.TextBox BotanicalSearchBox;
         private System.Windows.Forms.TextBox EnglishSearchBox;
+        private System.Windows.Forms.PictureBox SearchImagePictureBox;
+        private System.Windows.Forms.Button SearchImageButton;
+        private System.Windows.Forms.TextBox NoteSearchBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button SearchFlowersButton;
     }
 }
