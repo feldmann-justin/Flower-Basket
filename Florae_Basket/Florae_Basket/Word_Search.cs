@@ -50,6 +50,8 @@ namespace Florae_Basket
             note = notes;
         }
 
+        public Word_Search(){}
+
         public string Get_name() => name;
 
         public string Get_latin() => latin;
@@ -60,8 +62,21 @@ namespace Florae_Basket
 
         public Candidate[] Get_results() => results;
 
+        public void Populate(string eng, string lat, string bot, string notes)
+        {
+            name = eng;
+            latin = lat;
+            botan = bot;
+            note = notes;
+        }
+
+        public void Clear()
+        {
+
+        }
+
         //Augments scores to comform to the required 0-1 range. 
-        void FixScores(ref Candidate[] list, string entry)
+        private void FixScores(ref Candidate[] list, string entry)
         {
             double tempscore;
             int temp;

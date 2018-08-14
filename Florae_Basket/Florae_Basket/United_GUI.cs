@@ -429,7 +429,19 @@ namespace Florae_Basket
 
         private void SearchFlowersButton_Click(object sender, EventArgs e)
         {
-
+            Word_Search word;
+            if (EnglishSearchBox.Text != "" ||
+                LatinSearchBox.Text != "" ||
+                BotanicalSearchBox.Text != "" ||
+                NoteSearchBox.Text != "")
+            {
+                word = new Word_Search(EnglishSearchBox.Text, LatinSearchBox.Text, BotanicalSearchBox.Text, NoteSearchBox.Text);
+                word.Search();
+            }
+            if (SearchFlowerExt != null && SearchFlowerExt != "")
+            {
+                //TODO: When image search is fixed and improved, add image search here
+            }
         }
 
         //////////////////////
