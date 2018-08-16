@@ -408,22 +408,30 @@ namespace Florae_Basket
         public void Search()
         {
             Mutex mux = new Mutex();
+            ParallelLoopResult result;
 
             for (int i = 0; i < 3; i++)
             {
-                best_names[i].score = Int32.MinValue;
-                best_latin[i].score = Int32.MinValue;
-                best_botan[i].score = Int32.MinValue;
+                best_names[i].score = int.MinValue;
+                best_latin[i].score = int.MinValue;
+                best_botan[i].score = int.MinValue;
             }
-            
+
             //Makes sure name has a value
-            if (name != null && name != "")
+            if (name == null || name == "")
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    best_names[i].score = 0;
+                }
+            }
+            else
             {
                 Fetch_names("English", ref possible_names);
-                
+
                 //Loops through pulled list
                 //for (int i = 0; i < possible_names.Count; i++)
-                Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
+                result = Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
                 {
                     Console.WriteLine("Thread iteration " + i + " starts\n");
                     Candidate temp;
@@ -464,24 +472,25 @@ namespace Florae_Basket
                     temp.contents = "";
                     Console.WriteLine("Thread iteration " + i + "ends\n");
                 });
+                Console.WriteLine("Result: {0}", result.IsCompleted ? "Completed Normally" : string.Format("Completed to {0}", result.LowestBreakIteration));
                 FixScores(ref best_names, name);
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    best_names[i].score = 0;
-                }
             }
             //clearing list for next word to be run
             possible_names.Clear();
-            if (latin != null && latin != "")
+            if (latin == null || latin == "")
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    best_latin[i].score = 0;
+                }
+            }
+            else
             {
                 Fetch_names("Latin", ref possible_names);
 
                 //Loops through pulled list
                 //for (int i = 0; i < possible_names.Count; i++)
-                Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
+                result = Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
                 {
                     Candidate temp;
                     //stores current candidate into for testing
@@ -519,24 +528,25 @@ namespace Florae_Basket
                     temp.id = 0;
                     temp.contents = "";
                 });
+                Console.WriteLine("Result: {0}", result.IsCompleted ? "Completed Normally" : string.Format("Completed to {0}", result.LowestBreakIteration));
                 FixScores(ref best_latin, latin);
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    best_latin[i].score = 0;
-                }
             }
             //clearing list for next word to be run
             possible_names.Clear();
-            if (botan != null && botan != "")
+            if (botan == null || botan == "")
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    best_botan[i].score = 0;
+                }
+            }
+            else
             {
                 Fetch_names("Botanical", ref possible_names);
 
                 //Loops through pulled list
                 //for (int i = 0; i < possible_names.Count; i++)
-                Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
+                result = Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
                 {
                     Candidate temp;
                     //stores current candidate into for testing
@@ -573,14 +583,8 @@ namespace Florae_Basket
                     temp.id = 0;
                     temp.contents = "";
                 });
+                Console.WriteLine("Result: {0}", result.IsCompleted ? "Completed Normally" : string.Format("Completed to {0}", result.LowestBreakIteration));
                 FixScores(ref best_botan, botan);
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    best_botan[i].score = 0;
-                }
             }
             possible_names.Clear();
             Note_Search();

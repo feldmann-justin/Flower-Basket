@@ -1,26 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Florae_Basket
 {
     public partial class United_GUI : Form
     {
-        public United_GUI()
-        {
-            InitializeComponent();
-        }
+        public United_GUI() => InitializeComponent();
 
         ///////////////////////
         ////UNIVERSAL START////
         ///////////////////////
-        
+
         //for use with each different function.
         //Admin:      3
         //Researcher: 2
@@ -117,27 +109,13 @@ namespace Florae_Basket
         //Username textbox
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (Password_txt.Text != "" && Username_txt.Text != "")
-            {
-                Login_submit.Enabled = true;
-            }
-            else
-            {
-                Login_submit.Enabled = false;
-            }
+            Login_submit.Enabled = Password_txt.Text != "" && Username_txt.Text != "" ? true : false;
         }
 
         //Password textbox
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
-            if (Password_txt.Text != "" && Username_txt.Text != "")
-            {
-                Login_submit.Enabled = true;
-            }
-            else
-            {
-                Login_submit.Enabled = false;
-            }
+            Login_submit.Enabled = Password_txt.Text != "" && Username_txt.Text != "" ? true : false;
         }
 
         //Called when incorrect info is given
@@ -263,14 +241,7 @@ namespace Florae_Basket
 
         private void AddFlowerSubmitValidate()
         {
-            if (EnglishNameTextbox.Text != "" && LatinNameTextbox.Text != "" && BotanicalFamilyTextbox.Text != "")
-            {
-                AddFlowerSubmitButton.Enabled = true;
-            }
-            else
-            {
-                AddFlowerSubmitButton.Enabled = false;
-            }
+            AddFlowerSubmitButton.Enabled = EnglishNameTextbox.Text != "" && LatinNameTextbox.Text != "" && BotanicalFamilyTextbox.Text != "" ? true : false;
         }
 
         //English name textbox
@@ -373,17 +344,11 @@ namespace Florae_Basket
 
         private void SearchValidate()
         {
-            if (EnglishSearchBox.Text != "" ||
+            SearchFlowersButton.Enabled = EnglishSearchBox.Text != "" ||
                 LatinSearchBox.Text != "" ||
                 BotanicalSearchBox.Text != "" ||
-                NoteSearchBox.Text != "")
-            {
-                SearchFlowersButton.Enabled = true;
-            }
-            else
-            {
-                SearchFlowersButton.Enabled = false;
-            }
+                NoteSearchBox.Text != ""
+                ? true : false;
         }
 
         private void EnglishSearchBox_TextChanged(object sender, EventArgs e)
