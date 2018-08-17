@@ -269,6 +269,7 @@ namespace Florae_Basket
 
         private void AddFlowerPictureButton_Click(object sender, EventArgs e)
         {
+            //Sets up the file dialog to select the picture
             OpenFileDialog selectImgPath = new OpenFileDialog
             {
                 Filter = "Image Files| *.jpg; *.jpeg; *.png; *.gif; *gifv;...",
@@ -279,6 +280,7 @@ namespace Florae_Basket
             if (selectImgPath.ShowDialog() == DialogResult.OK)
                 AddFlowerPicFileExt = selectImgPath.FileName;
 
+            //resizes image to be displayed on screen
             if (AddFlowerPicFileExt != "" && AddFlowerPicFileExt != null)
             {
                 Bitmap img = new Bitmap(AddFlowerPicFileExt);
@@ -402,6 +404,20 @@ namespace Florae_Basket
             {
                 word = new Word_Search(EnglishSearchBox.Text, LatinSearchBox.Text, BotanicalSearchBox.Text, NoteSearchBox.Text);
                 word.Search();
+
+                //Checks to see if there are any results present
+                if (word.Get_results()[0].id > -1)
+                {
+                    int[] temp = word.Get_IDs();
+                    DeactivatePanel(ref SearchPage);
+                    PreviousPanels.Push(SearchActivate);
+                    CurrentPanels.Push(ResultsPage);
+                    ResultsActivate(temp[0], temp[1], temp[2]);
+                }
+                else
+                {
+                    MessageBox.Show("No flowers found in database.");
+                }
             }
             if (SearchFlowerExt != null && SearchFlowerExt != "")
             {
@@ -412,5 +428,21 @@ namespace Florae_Basket
         //////////////////////
         ////  SEARCH END  ////
         //////////////////////
+        
+        //////////////////////
+        //////////////////////
+        
+        ///////////////////////
+        //// RESULTS BEGIN ////
+        ///////////////////////
+        
+        private void ResultsActivate(int one, int two, int three)
+        {
+            ResultsPage.Visible = true;
+        }
+
+        ///////////////////////
+        ////  RESULTS END  ////
+        ///////////////////////
     }
 }

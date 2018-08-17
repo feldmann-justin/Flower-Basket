@@ -37,6 +37,7 @@ namespace Florae_Basket
         private Candidate[] best_latin = new Candidate[3];
         private Candidate[] best_botan = new Candidate[3];
         private Candidate[] best_notes = new Candidate[3];
+        private int[] IDs = new int[3];
         private string name;
         private string latin;
         private string botan;
@@ -49,6 +50,10 @@ namespace Florae_Basket
             latin = latin_name;
             botan = botan_name;
             note = notes;
+            for (int i = 0; i < 3; i++)
+            {
+                results[i].id = -1;
+            }
         }
 
         public Word_Search(){}
@@ -62,6 +67,8 @@ namespace Florae_Basket
         public string Get_note() => note;
 
         public Candidate[] Get_results() => results;
+
+        public int[] Get_IDs() => IDs;
 
         public void Populate(string eng, string lat, string bot, string notes)
         {
@@ -407,6 +414,7 @@ namespace Florae_Basket
         //executes the word search and populates the results array
         public void Search()
         {
+            //Mutex for critical section of the loops
             Mutex mux = new Mutex();
             ParallelLoopResult result;
 
@@ -430,7 +438,7 @@ namespace Florae_Basket
                 Fetch_names("English", ref possible_names);
 
                 //Loops through pulled list
-                //for (int i = 0; i < possible_names.Count; i++)
+                //Uses Parallel for, which runs each iteration in one of 4 threads.
                 result = Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
                 {
                     Console.WriteLine("Thread iteration " + i + " starts\n");
@@ -489,7 +497,6 @@ namespace Florae_Basket
                 Fetch_names("Latin", ref possible_names);
 
                 //Loops through pulled list
-                //for (int i = 0; i < possible_names.Count; i++)
                 result = Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
                 {
                     Candidate temp;
@@ -545,7 +552,6 @@ namespace Florae_Basket
                 Fetch_names("Botanical", ref possible_names);
 
                 //Loops through pulled list
-                //for (int i = 0; i < possible_names.Count; i++)
                 result = Parallel.For(0, possible_names.Count, new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
                 {
                     Candidate temp;
@@ -590,6 +596,10 @@ namespace Florae_Basket
             Note_Search();
             possible_names.Clear();
             Compare();
+            for (int i = 0; i < 3; i++)
+            {
+                IDs[i] = results[i].id;
+            }
         }
     }
 }

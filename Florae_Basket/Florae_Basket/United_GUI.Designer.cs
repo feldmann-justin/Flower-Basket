@@ -68,6 +68,7 @@
             this.LatinSearchBox = new System.Windows.Forms.TextBox();
             this.BotanicalSearchBox = new System.Windows.Forms.TextBox();
             this.EnglishSearchBox = new System.Windows.Forms.TextBox();
+            this.ResultsPage = new System.Windows.Forms.Panel();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
@@ -559,12 +560,21 @@
             this.EnglishSearchBox.TabIndex = 0;
             this.EnglishSearchBox.TextChanged += new System.EventHandler(this.EnglishSearchBox_TextChanged);
             // 
+            // ResultsPage
+            // 
+            this.ResultsPage.Location = new System.Drawing.Point(12, 123);
+            this.ResultsPage.Name = "ResultsPage";
+            this.ResultsPage.Size = new System.Drawing.Size(1284, 529);
+            this.ResultsPage.TabIndex = 14;
+            this.ResultsPage.Visible = false;
+            // 
             // United_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1308, 664);
+            this.Controls.Add(this.ResultsPage);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.Login_Title);
@@ -630,5 +640,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button SearchFlowersButton;
+        private System.Windows.Forms.Panel ResultsPage;
     }
 }

@@ -38,19 +38,19 @@ namespace Florae_Basket
             try
             {
                 Database_Manager db = new Database_Manager();
-                if (id[0] != 0)
+                if (id[0] > -1)
                 {
                     res1 = true;
                     flowers[0].setEnglishName(db.FetchEnglish(id[0]));
                     flowers[0].setLatinName(db.FetchLatin(id[0]));
                     flowers[0].setBotanicalFam(db.FetchBotan(id[0]));
-                    if (id[1] != 0)
+                    if (id[1] > -1)
                     {
                         res2 = true;
                         flowers[1].setEnglishName(db.FetchEnglish(id[1]));
                         flowers[1].setLatinName(db.FetchLatin(id[1]));
                         flowers[1].setBotanicalFam(db.FetchBotan(id[1]));
-                        if (id[2] != 0)
+                        if (id[2] > -1)
                         {
                             res3 = true;
                             flowers[2].setEnglishName(db.FetchEnglish(id[2]));
