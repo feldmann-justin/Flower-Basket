@@ -478,7 +478,7 @@ namespace Florae_Basket
                     temp.score = 0.0;
                     temp.id = 0;
                     temp.contents = "";
-                    Console.WriteLine("Thread iteration " + i + "ends\n");
+                    Console.WriteLine("Thread iteration " + i + " ends\n");
                 });
                 Console.WriteLine("Result: {0}", result.IsCompleted ? "Completed Normally" : string.Format("Completed to {0}", result.LowestBreakIteration));
                 FixScores(ref best_names, name);

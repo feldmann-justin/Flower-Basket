@@ -69,12 +69,25 @@
             this.BotanicalSearchBox = new System.Windows.Forms.TextBox();
             this.EnglishSearchBox = new System.Windows.Forms.TextBox();
             this.ResultsPage = new System.Windows.Forms.Panel();
+            this.ResultButton3 = new System.Windows.Forms.Button();
+            this.ResultButton2 = new System.Windows.Forms.Button();
+            this.ResultButton1 = new System.Windows.Forms.Button();
+            this.ResultTextbox3 = new System.Windows.Forms.TextBox();
+            this.ResultTextbox2 = new System.Windows.Forms.TextBox();
+            this.ResultTextbox1 = new System.Windows.Forms.TextBox();
+            this.ResultBox3 = new System.Windows.Forms.PictureBox();
+            this.Resultbox2 = new System.Windows.Forms.PictureBox();
+            this.ResultBox1 = new System.Windows.Forms.PictureBox();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddFlowerImageDisplay)).BeginInit();
             this.SearchPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchImagePictureBox)).BeginInit();
+            this.ResultsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Resultbox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Username_txt
@@ -562,11 +575,122 @@
             // 
             // ResultsPage
             // 
+            this.ResultsPage.Controls.Add(this.ResultButton3);
+            this.ResultsPage.Controls.Add(this.ResultButton2);
+            this.ResultsPage.Controls.Add(this.ResultButton1);
+            this.ResultsPage.Controls.Add(this.ResultTextbox3);
+            this.ResultsPage.Controls.Add(this.ResultTextbox2);
+            this.ResultsPage.Controls.Add(this.ResultTextbox1);
+            this.ResultsPage.Controls.Add(this.ResultBox3);
+            this.ResultsPage.Controls.Add(this.Resultbox2);
+            this.ResultsPage.Controls.Add(this.ResultBox1);
             this.ResultsPage.Location = new System.Drawing.Point(12, 123);
             this.ResultsPage.Name = "ResultsPage";
             this.ResultsPage.Size = new System.Drawing.Size(1284, 529);
             this.ResultsPage.TabIndex = 14;
             this.ResultsPage.Visible = false;
+            // 
+            // ResultButton3
+            // 
+            this.ResultButton3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultButton3.Enabled = false;
+            this.ResultButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultButton3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ResultButton3.Location = new System.Drawing.Point(954, 429);
+            this.ResultButton3.Name = "ResultButton3";
+            this.ResultButton3.Size = new System.Drawing.Size(94, 44);
+            this.ResultButton3.TabIndex = 8;
+            this.ResultButton3.Text = "Select";
+            this.ResultButton3.UseVisualStyleBackColor = false;
+            this.ResultButton3.Click += new System.EventHandler(this.ResultButton3_Click);
+            // 
+            // ResultButton2
+            // 
+            this.ResultButton2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultButton2.Enabled = false;
+            this.ResultButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ResultButton2.Location = new System.Drawing.Point(579, 432);
+            this.ResultButton2.Name = "ResultButton2";
+            this.ResultButton2.Size = new System.Drawing.Size(94, 44);
+            this.ResultButton2.TabIndex = 7;
+            this.ResultButton2.Text = "Select";
+            this.ResultButton2.UseVisualStyleBackColor = false;
+            this.ResultButton2.Click += new System.EventHandler(this.ResultButton2_Click);
+            // 
+            // ResultButton1
+            // 
+            this.ResultButton1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultButton1.Enabled = false;
+            this.ResultButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultButton1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ResultButton1.Location = new System.Drawing.Point(204, 429);
+            this.ResultButton1.Name = "ResultButton1";
+            this.ResultButton1.Size = new System.Drawing.Size(94, 44);
+            this.ResultButton1.TabIndex = 6;
+            this.ResultButton1.Text = "Select";
+            this.ResultButton1.UseVisualStyleBackColor = false;
+            this.ResultButton1.Click += new System.EventHandler(this.ResultButton1_Click);
+            // 
+            // ResultTextbox3
+            // 
+            this.ResultTextbox3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultTextbox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultTextbox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ResultTextbox3.Location = new System.Drawing.Point(895, 95);
+            this.ResultTextbox3.Name = "ResultTextbox3";
+            this.ResultTextbox3.ReadOnly = true;
+            this.ResultTextbox3.Size = new System.Drawing.Size(220, 26);
+            this.ResultTextbox3.TabIndex = 5;
+            // 
+            // ResultTextbox2
+            // 
+            this.ResultTextbox2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultTextbox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultTextbox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ResultTextbox2.Location = new System.Drawing.Point(518, 95);
+            this.ResultTextbox2.Name = "ResultTextbox2";
+            this.ResultTextbox2.ReadOnly = true;
+            this.ResultTextbox2.Size = new System.Drawing.Size(220, 26);
+            this.ResultTextbox2.TabIndex = 4;
+            // 
+            // ResultTextbox1
+            // 
+            this.ResultTextbox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultTextbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultTextbox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ResultTextbox1.Location = new System.Drawing.Point(142, 95);
+            this.ResultTextbox1.Name = "ResultTextbox1";
+            this.ResultTextbox1.ReadOnly = true;
+            this.ResultTextbox1.Size = new System.Drawing.Size(220, 26);
+            this.ResultTextbox1.TabIndex = 3;
+            // 
+            // ResultBox3
+            // 
+            this.ResultBox3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultBox3.Location = new System.Drawing.Point(855, 125);
+            this.ResultBox3.Name = "ResultBox3";
+            this.ResultBox3.Size = new System.Drawing.Size(300, 300);
+            this.ResultBox3.TabIndex = 2;
+            this.ResultBox3.TabStop = false;
+            // 
+            // Resultbox2
+            // 
+            this.Resultbox2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Resultbox2.Location = new System.Drawing.Point(478, 126);
+            this.Resultbox2.Name = "Resultbox2";
+            this.Resultbox2.Size = new System.Drawing.Size(300, 300);
+            this.Resultbox2.TabIndex = 1;
+            this.Resultbox2.TabStop = false;
+            // 
+            // ResultBox1
+            // 
+            this.ResultBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ResultBox1.Location = new System.Drawing.Point(103, 125);
+            this.ResultBox1.Name = "ResultBox1";
+            this.ResultBox1.Size = new System.Drawing.Size(300, 300);
+            this.ResultBox1.TabIndex = 0;
+            this.ResultBox1.TabStop = false;
             // 
             // United_GUI
             // 
@@ -594,6 +718,11 @@
             this.SearchPage.ResumeLayout(false);
             this.SearchPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchImagePictureBox)).EndInit();
+            this.ResultsPage.ResumeLayout(false);
+            this.ResultsPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Resultbox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,5 +770,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button SearchFlowersButton;
         private System.Windows.Forms.Panel ResultsPage;
+        private System.Windows.Forms.PictureBox ResultBox3;
+        private System.Windows.Forms.PictureBox Resultbox2;
+        private System.Windows.Forms.PictureBox ResultBox1;
+        private System.Windows.Forms.TextBox ResultTextbox2;
+        private System.Windows.Forms.TextBox ResultTextbox1;
+        private System.Windows.Forms.TextBox ResultTextbox3;
+        private System.Windows.Forms.Button ResultButton1;
+        private System.Windows.Forms.Button ResultButton3;
+        private System.Windows.Forms.Button ResultButton2;
     }
 }

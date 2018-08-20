@@ -183,14 +183,8 @@ namespace Florae_Basket
         private void LandingActivate()
         {
             LandingPage.Visible = true;
-            if (accType >= 2)
-            {
-                AddFlowerButton.Enabled = true;
-            }
-            if (accType == 3)
-            {
-                UserControlButton.Enabled = true;
-            }
+            AddFlowerButton.Enabled = accType >= 2;
+            UserControlButton.Enabled = accType == 2;
             SearchButton.Enabled = true;
         }
 
@@ -439,6 +433,29 @@ namespace Florae_Basket
         private void ResultsActivate(int one, int two, int three)
         {
             ResultsPage.Visible = true;
+            ResultButton1.Enabled = one > -1;
+            ResultButton2.Enabled = two > -1;
+            ResultButton3.Enabled = three > -1;
+        }
+
+        private string FetchPicture(int id)
+        {
+            return new Database_Manager().FetchFilePath(id);
+        }
+
+        private void ResultButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResultButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResultButton3_Click(object sender, EventArgs e)
+        {
+
         }
 
         ///////////////////////
