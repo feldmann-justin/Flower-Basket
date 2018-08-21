@@ -33,6 +33,7 @@ namespace Florae_Basket
             DeactivatePanel(ref temppan);
             tempaction();
             AddFlowerPicFileExt = SearchFlowerExt =  "";
+            ResultIds[0] = ResultIds[1] = ResultIds[2] = -1;
         }
 
         //Handles the actions needed to disable the correct panels in order to sign the user out.
@@ -48,6 +49,7 @@ namespace Florae_Basket
                 }
             }
             AddFlowerPicFileExt = SearchFlowerExt = "";
+            ResultIds[0] = ResultIds[1] = ResultIds[2] = -1;
             LoginAcvtivate();
         }
 
@@ -71,6 +73,16 @@ namespace Florae_Basket
                 }
             }
             pan.Visible = false;
+        }
+
+        //This method is used to change the image for any given picturebox.
+        //It will also resize the picture to any needed size.
+        private void ChangePicture(ref PictureBox picture, string filepath, int x, int y)
+        {
+            Bitmap img = new Bitmap(filepath);
+            Bitmap resized = new Bitmap(img, x, y);
+            picture.Image = resized;
+            picture.SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
         ///////////////////////
@@ -184,7 +196,7 @@ namespace Florae_Basket
         {
             LandingPage.Visible = true;
             AddFlowerButton.Enabled = accType >= 2;
-            UserControlButton.Enabled = accType == 2;
+            UserControlButton.Enabled = accType == 3;
             SearchButton.Enabled = true;
         }
 
@@ -277,10 +289,7 @@ namespace Florae_Basket
             //resizes image to be displayed on screen
             if (AddFlowerPicFileExt != "" && AddFlowerPicFileExt != null)
             {
-                Bitmap img = new Bitmap(AddFlowerPicFileExt);
-                Bitmap resized = new Bitmap(img, 400, 400);
-                AddFlowerImageDisplay.Image = resized;
-                AddFlowerImageDisplay.SizeMode = PictureBoxSizeMode.AutoSize;
+                ChangePicture(ref AddFlowerImageDisplay, AddFlowerPicFileExt, 400, 400);
             }
         }
 
@@ -381,10 +390,7 @@ namespace Florae_Basket
 
             if (SearchFlowerExt != "" && SearchFlowerExt != null)
             {
-                Bitmap img = new Bitmap(SearchFlowerExt);
-                Bitmap resized = new Bitmap(img, 400, 400);
-                SearchImagePictureBox.Image = resized;
-                SearchImagePictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+                ChangePicture(ref AddFlowerImageDisplay, SearchFlowerExt, 400, 400);
             }
         }
 
@@ -422,20 +428,44 @@ namespace Florae_Basket
         //////////////////////
         ////  SEARCH END  ////
         //////////////////////
-        
+
         //////////////////////
         //////////////////////
-        
+
         ///////////////////////
         //// RESULTS BEGIN ////
         ///////////////////////
-        
+
+        private int[] ResultIds = new int[3];
+
         private void ResultsActivate(int one, int two, int three)
         {
             ResultsPage.Visible = true;
             ResultButton1.Enabled = one > -1;
             ResultButton2.Enabled = two > -1;
             ResultButton3.Enabled = three > -1;
+            ResultIds[0] = one;
+            ResultIds[1] = two;
+            ResultIds[2] = three;
+            CreateResults();
+        }
+
+        private void CreateResults()
+        {
+            string temp;
+
+            temp = FetchPicture(ResultIds[0]);
+            ChangePicture(ref ResultBox1, temp, 300, 300);
+            if (ResultIds[1] > -1)
+            {
+                temp = FetchPicture(ResultIds[1]);
+                ChangePicture(ref Resultbox2, temp, 300, 300);
+                if (ResultIds[2] > -1)
+                {
+                    temp = FetchPicture(ResultIds[2]);
+                    ChangePicture(ref ResultBox3, temp, 300, 300);
+                }
+            }
         }
 
         private string FetchPicture(int id)
