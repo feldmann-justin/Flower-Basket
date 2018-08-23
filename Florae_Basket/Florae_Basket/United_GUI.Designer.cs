@@ -642,6 +642,7 @@
             this.ResultTextbox3.ReadOnly = true;
             this.ResultTextbox3.Size = new System.Drawing.Size(220, 26);
             this.ResultTextbox3.TabIndex = 5;
+            this.ResultTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ResultTextbox2
             // 
@@ -653,6 +654,7 @@
             this.ResultTextbox2.ReadOnly = true;
             this.ResultTextbox2.Size = new System.Drawing.Size(220, 26);
             this.ResultTextbox2.TabIndex = 4;
+            this.ResultTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ResultTextbox1
             // 
@@ -664,6 +666,7 @@
             this.ResultTextbox1.ReadOnly = true;
             this.ResultTextbox1.Size = new System.Drawing.Size(220, 26);
             this.ResultTextbox1.TabIndex = 3;
+            this.ResultTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ResultBox3
             // 

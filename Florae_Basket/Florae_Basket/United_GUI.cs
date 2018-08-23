@@ -79,10 +79,13 @@ namespace Florae_Basket
         //It will also resize the picture to any needed size.
         private void ChangePicture(ref PictureBox picture, string filepath, int x, int y)
         {
-            Bitmap img = new Bitmap(filepath);
-            Bitmap resized = new Bitmap(img, x, y);
-            picture.Image = resized;
-            picture.SizeMode = PictureBoxSizeMode.AutoSize;
+            if (filepath != null && filepath != "")
+            {
+                Bitmap img = new Bitmap(filepath);
+                Bitmap resized = new Bitmap(img, x, y);
+                picture.Image = resized;
+                picture.SizeMode = PictureBoxSizeMode.AutoSize;
+            }
         }
 
         ///////////////////////
@@ -456,14 +459,17 @@ namespace Florae_Basket
 
             temp = FetchPicture(ResultIds[0]);
             ChangePicture(ref ResultBox1, temp, 300, 300);
+            ResultTextbox1.Text = FetchResultName(ResultIds[0]);
             if (ResultIds[1] > -1)
             {
                 temp = FetchPicture(ResultIds[1]);
                 ChangePicture(ref Resultbox2, temp, 300, 300);
+                ResultTextbox2.Text = FetchResultName(ResultIds[1]);
                 if (ResultIds[2] > -1)
                 {
                     temp = FetchPicture(ResultIds[2]);
                     ChangePicture(ref ResultBox3, temp, 300, 300);
+                    ResultTextbox3.Text = FetchResultName(ResultIds[2]);
                 }
             }
         }
@@ -471,6 +477,11 @@ namespace Florae_Basket
         private string FetchPicture(int id)
         {
             return new Database_Manager().FetchFilePath(id);
+        }
+
+        private string FetchResultName(int id)
+        {
+            return new Database_Manager().FetchEnglish(id);
         }
 
         private void ResultButton1_Click(object sender, EventArgs e)
