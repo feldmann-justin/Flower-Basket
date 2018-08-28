@@ -33,7 +33,7 @@ namespace Florae_Basket
             DeactivatePanel(ref temppan);
             tempaction();
             AddFlowerPicFileExt = SearchFlowerExt =  "";
-            ResultIds[0] = ResultIds[1] = ResultIds[2] = -1;
+            //ResultIds[0] = ResultIds[1] = ResultIds[2] = -1;
         }
 
         //Handles the actions needed to disable the correct panels in order to sign the user out.
@@ -348,6 +348,7 @@ namespace Florae_Basket
             BotanicalSearchBox.Enabled = true;
             NoteSearchBox.Enabled = true;
             SearchImageButton.Enabled = true;
+            ResultIds[0] = ResultIds[1] = ResultIds[2] = -1;
         }
 
         private void SearchValidate()
@@ -441,12 +442,22 @@ namespace Florae_Basket
 
         private int[] ResultIds = new int[3];
 
+        //This overloaded method is only to be used in the PreviousPanels stack, as that
+        //stack is of type action, and the main ResultsActivate method is of type func.
+        private void ResultsActivate()
+        {
+            ResultsActivate(ResultIds[0], ResultIds[1], ResultIds[2]);
+        }
+
         private void ResultsActivate(int one, int two, int three)
         {
             ResultsPage.Visible = true;
             ResultButton1.Enabled = one > -1;
             ResultButton2.Enabled = two > -1;
             ResultButton3.Enabled = three > -1;
+            ResultTextbox1.Enabled = true;
+            ResultTextbox2.Enabled = true;
+            ResultTextbox3.Enabled = true;
             ResultIds[0] = one;
             ResultIds[1] = two;
             ResultIds[2] = three;
@@ -486,21 +497,47 @@ namespace Florae_Basket
 
         private void ResultButton1_Click(object sender, EventArgs e)
         {
-
+            DeactivatePanel(ref ResultsPage);
+            PreviousPanels.Push(ResultsActivate);
+            CurrentPanels.Push(FlowerProfilePage);
+            FlowerProfileActivate(ResultIds[0]);
         }
 
         private void ResultButton2_Click(object sender, EventArgs e)
         {
-
+            DeactivatePanel(ref ResultsPage);
+            PreviousPanels.Push(ResultsActivate);
+            CurrentPanels.Push(FlowerProfilePage);
+            FlowerProfileActivate(ResultIds[1]);
         }
 
         private void ResultButton3_Click(object sender, EventArgs e)
         {
-
+            DeactivatePanel(ref ResultsPage);
+            PreviousPanels.Push(ResultsActivate);
+            CurrentPanels.Push(FlowerProfilePage);
+            FlowerProfileActivate(ResultIds[2]);
         }
 
         ///////////////////////
         ////  RESULTS END  ////
         ///////////////////////
+        
+        ////////////////////////
+        ////////////////////////
+        
+        //////////////////////////
+        ///FLOWER PROFILE BEGIN///
+        //////////////////////////
+        
+        private void FlowerProfileActivate(int id)
+        {
+            FlowerProfilePage.Visible = true;
+        }
+
+        //////////////////////////
+        /// FLOWER PROFILE END ///
+        //////////////////////////
+        
     }
 }

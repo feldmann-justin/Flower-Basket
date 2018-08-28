@@ -78,6 +78,7 @@
             this.ResultBox3 = new System.Windows.Forms.PictureBox();
             this.Resultbox2 = new System.Windows.Forms.PictureBox();
             this.ResultBox1 = new System.Windows.Forms.PictureBox();
+            this.FlowerProfilePage = new System.Windows.Forms.Panel();
             this.LandingPage.SuspendLayout();
             this.SignInPage.SuspendLayout();
             this.AddFlowerPage.SuspendLayout();
@@ -695,12 +696,21 @@
             this.ResultBox1.TabIndex = 0;
             this.ResultBox1.TabStop = false;
             // 
+            // FlowerProfilePage
+            // 
+            this.FlowerProfilePage.Location = new System.Drawing.Point(12, 123);
+            this.FlowerProfilePage.Name = "FlowerProfilePage";
+            this.FlowerProfilePage.Size = new System.Drawing.Size(1284, 529);
+            this.FlowerProfilePage.TabIndex = 15;
+            this.FlowerProfilePage.Visible = false;
+            // 
             // United_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1308, 664);
+            this.Controls.Add(this.FlowerProfilePage);
             this.Controls.Add(this.ResultsPage);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.LogOutButton);
@@ -782,5 +792,6 @@
         private System.Windows.Forms.Button ResultButton1;
         private System.Windows.Forms.Button ResultButton3;
         private System.Windows.Forms.Button ResultButton2;
+        private System.Windows.Forms.Panel FlowerProfilePage;
     }
 }
