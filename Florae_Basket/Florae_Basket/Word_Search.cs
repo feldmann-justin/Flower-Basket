@@ -506,26 +506,26 @@ namespace Florae_Basket
                     temp.score = (double)OSA(latin, temp.contents, latin.Length, temp.contents.Length);
 
                     //Compares score with current best score
-                    if (temp.score > best_names[2].score)
+                    if (temp.score > best_latin[2].score)
                     {
                         mux.WaitOne();
                         Console.WriteLine(i + " enters\n");
-                        if (temp.score > best_names[0].score)
+                        if (temp.score > best_latin[0].score)
                         {
-                            best_names[2] = best_names[1];
-                            best_names[1] = best_names[0];
-                            best_names[0] = temp;
+                            best_latin[2] = best_latin[1];
+                            best_latin[1] = best_latin[0];
+                            best_latin[0] = temp;
                         }
                         //compares with second highest
-                        else if (temp.score > best_names[1].score)
+                        else if (temp.score > best_latin[1].score)
                         {
-                            best_names[2] = best_names[1];
-                            best_names[1] = temp;
+                            best_latin[2] = best_latin[1];
+                            best_latin[1] = temp;
                         }
                         //compares with third highest
-                        else if (temp.score > best_names[2].score)
+                        else if (temp.score > best_latin[2].score)
                         {
-                            best_names[2] = temp;
+                            best_latin[2] = temp;
                         }
                         Console.WriteLine(i + " leaves\n");
                         mux.ReleaseMutex();
@@ -560,26 +560,26 @@ namespace Florae_Basket
                     //runs OSA on current candidate
                     temp.score = (double)OSA(botan, temp.contents, botan.Length, temp.contents.Length);
                     //Compares score with current best score
-                    if (temp.score > best_names[2].score)
+                    if (temp.score > best_botan[2].score)
                     {
                         mux.WaitOne();
                         Console.WriteLine(i + " enters\n");
                         if (temp.score > best_names[0].score)
                         {
-                            best_names[2] = best_names[1];
-                            best_names[1] = best_names[0];
-                            best_names[0] = temp;
+                            best_botan[2] = best_botan[1];
+                            best_botan[1] = best_botan[0];
+                            best_botan[0] = temp;
                         }
                         //compares with second highest
                         else if (temp.score > best_names[1].score)
                         {
-                            best_names[2] = best_names[1];
-                            best_names[1] = temp;
+                            best_botan[2] = best_botan[1];
+                            best_botan[1] = temp;
                         }
                         //compares with third highest
-                        else if (temp.score > best_names[2].score)
+                        else if (temp.score > best_botan[2].score)
                         {
-                            best_names[2] = temp;
+                            best_botan[2] = temp;
                         }
                         Console.WriteLine(i + " leaves\n");
                         mux.ReleaseMutex();
