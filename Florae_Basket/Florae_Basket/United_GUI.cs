@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+//////////////////////////////////////////////////
+//                                              //
+//  United_GUI                                  //
+//  by Brady Smith                              //
+//                                              //
+//////////////////////////////////////////////////
+
 namespace Florae_Basket
 {
     public partial class United_GUI : Form

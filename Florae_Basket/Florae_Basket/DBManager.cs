@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
+//////////////////////////////////////////////////
+//                                              //
+//  Database_Manager                            //
+//  by Brady Smith                              //
+//                                              //
+//////////////////////////////////////////////////
 
 namespace Florae_Basket
 {
