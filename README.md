@@ -4,7 +4,7 @@ The following is from the README provided by Brady Smith, a teammate of mine on 
 
 Other contributors are Kade Walter and Dipak Subramaniam.
 
-**NOTE:** I only take credit for content within the "Class_Final" branch. 
+**NOTE:** I only take credit for the state of the aforementioned content within the "Class_Final" branch. 
 
 > This is a simple Application used to store and retrieve data about different flowers. It was created during the Software Engineering course
 > taught at SIUE during the Spring 2018 semester as part of a semester long group project. The branch "Class_Final" contains the application as > is was at the end of the semester as it was turned in. Everything else is a product of work after the class ended.
